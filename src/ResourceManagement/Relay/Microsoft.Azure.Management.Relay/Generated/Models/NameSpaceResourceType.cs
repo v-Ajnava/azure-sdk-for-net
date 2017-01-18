@@ -22,7 +22,7 @@ namespace Microsoft.Azure.Management.Relay.Models
     [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
     public enum NameSpaceResourceType
     {
-        [EnumMember(Value = "Microsoft.Realy/Namespaces")]
+        [EnumMember(Value = "Microsoft.Relay/namespaces")]
         MicrosoftRealyNamespaces
     }
 }

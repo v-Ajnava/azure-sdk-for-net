@@ -38,6 +38,8 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// <param name="tags">Resource tags</param>
         /// <param name="type">Resource type. Possible values include:
         /// 'Microsoft.Relay/HybridConnections'</param>
+        /// <param name="provisioningState">Provisioning state of the
+        /// namespace.</param>
         /// <param name="path">The path of the relay.</param>
         /// <param name="relayType">Relay NameSpace Type. Possible values
         /// include: 'NetTcp', 'Http'</param>
@@ -58,10 +60,11 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// can be stored.</param>
         /// <param name="collectionName">The name of the collection associated
         /// with the relay.</param>
-        public HybridConnectionResource(string location, string id = default(string), string name = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>), HybridConnectionsResourceType? type = default(HybridConnectionsResourceType?), string path = default(string), Relaytype? relayType = default(Relaytype?), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), int? listenerCount = default(int?), bool? requiresClientAuthorization = default(bool?), AuthorizationRules authorizationRules = default(AuthorizationRules), bool? requiresTransportSecurity = default(bool?), bool? isDynamic = default(bool?), string userMetadata = default(string), string collectionName = default(string))
+        public HybridConnectionResource(string location, string id = default(string), string name = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>), HybridConnectionsResourceType? type = default(HybridConnectionsResourceType?), string provisioningState = default(string), string path = default(string), Relaytype? relayType = default(Relaytype?), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), int? listenerCount = default(int?), bool? requiresClientAuthorization = default(bool?), AuthorizationRules authorizationRules = default(AuthorizationRules), bool? requiresTransportSecurity = default(bool?), bool? isDynamic = default(bool?), string userMetadata = default(string), string collectionName = default(string))
             : base(location, id, name, tags)
         {
             Type = type;
+            ProvisioningState = provisioningState;
             Path = path;
             RelayType = relayType;
             CreatedAt = createdAt;
@@ -81,6 +84,12 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// </summary>
         [JsonProperty(PropertyName = "type")]
         public HybridConnectionsResourceType? Type { get; set; }
+
+        /// <summary>
+        /// Gets or sets provisioning state of the namespace.
+        /// </summary>
+        [JsonProperty(PropertyName = "properties.provisioningState")]
+        public string ProvisioningState { get; set; }
 
         /// <summary>
         /// Gets or sets the path of the relay.
