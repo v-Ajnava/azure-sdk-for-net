@@ -17,13 +17,29 @@ namespace Microsoft.Azure.Management.Relay.Models
     using System.Runtime.Serialization;
 
     /// <summary>
-    /// Defines values for NameSpaceResourceType.
+    /// Defines values for EntityStatus.
     /// </summary>
     [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-    public enum NameSpaceResourceType
+    public enum EntityStatus
     {
-        [EnumMember(Value = "Microsoft.Relay/namespaces")]
-        MicrosoftRealyNamespaces
+        [EnumMember(Value = "Active")]
+        Active,
+        [EnumMember(Value = "Creating")]
+        Creating,
+        [EnumMember(Value = "Deleting")]
+        Deleting,
+        [EnumMember(Value = "Disabled")]
+        Disabled,
+        [EnumMember(Value = "ReceiveDisabled")]
+        ReceiveDisabled,
+        [EnumMember(Value = "Renaming")]
+        Renaming,
+        [EnumMember(Value = "Restoring")]
+        Restoring,
+        [EnumMember(Value = "SendDisabled")]
+        SendDisabled,
+        [EnumMember(Value = "Unknown")]
+        Unknown
     }
 }
 

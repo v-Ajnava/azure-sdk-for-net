@@ -314,7 +314,7 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='parameters'>
             /// The shared access authorization rule.
             /// </param>
-            public static SharedAccessAuthorizationRuleResource CreateOrUpdateAuthorizationRule(this INamespacesOperations operations, string resourceGroupName, string namespaceName, string authorizationRuleName, SharedAccessAuthorizationRuleCreateOrUpdateParameters parameters)
+            public static SharedAccessAuthorizationRuleResource CreateOrUpdateAuthorizationRule(this INamespacesOperations operations, string resourceGroupName, string namespaceName, string authorizationRuleName, SharedAccessAuthorizationRuleResource parameters)
             {
                 return operations.CreateOrUpdateAuthorizationRuleAsync(resourceGroupName, namespaceName, authorizationRuleName, parameters).GetAwaiter().GetResult();
             }
@@ -340,7 +340,7 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<SharedAccessAuthorizationRuleResource> CreateOrUpdateAuthorizationRuleAsync(this INamespacesOperations operations, string resourceGroupName, string namespaceName, string authorizationRuleName, SharedAccessAuthorizationRuleCreateOrUpdateParameters parameters, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<SharedAccessAuthorizationRuleResource> CreateOrUpdateAuthorizationRuleAsync(this INamespacesOperations operations, string resourceGroupName, string namespaceName, string authorizationRuleName, SharedAccessAuthorizationRuleResource parameters, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.CreateOrUpdateAuthorizationRuleWithHttpMessagesAsync(resourceGroupName, namespaceName, authorizationRuleName, parameters, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -499,8 +499,8 @@ namespace Microsoft.Azure.Management.Relay
             /// The authorizationRule name.
             /// </param>
             /// <param name='policykey'>
-            /// Key that needs to be regenerated. Possible values include: 'primaryKey',
-            /// 'secondaryKey'
+            /// Key that needs to be regenerated. Possible values include: 'PrimaryKey',
+            /// 'SecondaryKey'
             /// </param>
             public static ResourceListKeys RegenerateKeys(this INamespacesOperations operations, string resourceGroupName, string namespaceName, string authorizationRuleName, Policykey? policykey = default(Policykey?))
             {
@@ -523,8 +523,8 @@ namespace Microsoft.Azure.Management.Relay
             /// The authorizationRule name.
             /// </param>
             /// <param name='policykey'>
-            /// Key that needs to be regenerated. Possible values include: 'primaryKey',
-            /// 'secondaryKey'
+            /// Key that needs to be regenerated. Possible values include: 'PrimaryKey',
+            /// 'SecondaryKey'
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

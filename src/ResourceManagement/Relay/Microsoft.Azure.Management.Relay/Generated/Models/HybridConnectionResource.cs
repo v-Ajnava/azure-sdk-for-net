@@ -36,14 +36,11 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
         /// <param name="tags">Resource tags</param>
-        /// <param name="type">Resource type. Possible values include:
-        /// 'Microsoft.Relay/HybridConnections'</param>
-        /// <param name="provisioningState">Provisioning state of the
-        /// namespace.</param>
-        /// <param name="path">The path of the relay.</param>
-        /// <param name="relayType">Relay NameSpace Type. Possible values
+        /// <param name="type">HybridConnection Resource type</param>
+        /// <param name="relayType">HybridConnections Type. Possible values
         /// include: 'NetTcp', 'Http'</param>
-        /// <param name="createdAt">The time the namespace was created.</param>
+        /// <param name="createdAt">The time the HybridConnections was
+        /// created.</param>
         /// <param name="updatedAt">The time the namespace was updated.</param>
         /// <param name="listenerCount">The number of listeners for this relay.
         /// min : 1 and max:25 supported</param>
@@ -60,18 +57,15 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// can be stored.</param>
         /// <param name="collectionName">The name of the collection associated
         /// with the relay.</param>
-        public HybridConnectionResource(string location, string id = default(string), string name = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>), HybridConnectionsResourceType? type = default(HybridConnectionsResourceType?), string provisioningState = default(string), string path = default(string), Relaytype? relayType = default(Relaytype?), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), int? listenerCount = default(int?), bool? requiresClientAuthorization = default(bool?), AuthorizationRules authorizationRules = default(AuthorizationRules), bool? requiresTransportSecurity = default(bool?), bool? isDynamic = default(bool?), string userMetadata = default(string), string collectionName = default(string))
+        public HybridConnectionResource(string location, string id = default(string), string name = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>), string type = default(string), Relaytype? relayType = default(Relaytype?), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), int? listenerCount = default(int?), bool? requiresClientAuthorization = default(bool?), bool? requiresTransportSecurity = default(bool?), bool? isDynamic = default(bool?), string userMetadata = default(string), string collectionName = default(string))
             : base(location, id, name, tags)
         {
             Type = type;
-            ProvisioningState = provisioningState;
-            Path = path;
             RelayType = relayType;
             CreatedAt = createdAt;
             UpdatedAt = updatedAt;
             ListenerCount = listenerCount;
             RequiresClientAuthorization = requiresClientAuthorization;
-            AuthorizationRules = authorizationRules;
             RequiresTransportSecurity = requiresTransportSecurity;
             IsDynamic = isDynamic;
             UserMetadata = userMetadata;
@@ -79,33 +73,20 @@ namespace Microsoft.Azure.Management.Relay.Models
         }
 
         /// <summary>
-        /// Gets or sets resource type. Possible values include:
-        /// 'Microsoft.Relay/HybridConnections'
+        /// Gets or sets hybridConnection Resource type
         /// </summary>
         [JsonProperty(PropertyName = "type")]
-        public HybridConnectionsResourceType? Type { get; set; }
+        public string Type { get; set; }
 
         /// <summary>
-        /// Gets or sets provisioning state of the namespace.
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.provisioningState")]
-        public string ProvisioningState { get; set; }
-
-        /// <summary>
-        /// Gets or sets the path of the relay.
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.path")]
-        public string Path { get; set; }
-
-        /// <summary>
-        /// Gets or sets relay NameSpace Type. Possible values include:
+        /// Gets or sets hybridConnections Type. Possible values include:
         /// 'NetTcp', 'Http'
         /// </summary>
         [JsonProperty(PropertyName = "properties.relayType")]
         public Relaytype? RelayType { get; set; }
 
         /// <summary>
-        /// Gets the time the namespace was created.
+        /// Gets the time the HybridConnections was created.
         /// </summary>
         [JsonProperty(PropertyName = "properties.createdAt")]
         public System.DateTime? CreatedAt { get; protected set; }
@@ -117,11 +98,11 @@ namespace Microsoft.Azure.Management.Relay.Models
         public System.DateTime? UpdatedAt { get; protected set; }
 
         /// <summary>
-        /// Gets or sets the number of listeners for this relay. min : 1 and
-        /// max:25 supported
+        /// Gets the number of listeners for this relay. min : 1 and max:25
+        /// supported
         /// </summary>
         [JsonProperty(PropertyName = "properties.listenerCount")]
-        public int? ListenerCount { get; set; }
+        public int? ListenerCount { get; protected set; }
 
         /// <summary>
         /// Gets or sets true if client authorization is needed for this relay;
@@ -129,11 +110,6 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// </summary>
         [JsonProperty(PropertyName = "properties.requiresClientAuthorization")]
         public bool? RequiresClientAuthorization { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.authorizationRules")]
-        public AuthorizationRules AuthorizationRules { get; set; }
 
         /// <summary>
         /// Gets or sets true if transport security is needed for this relay;

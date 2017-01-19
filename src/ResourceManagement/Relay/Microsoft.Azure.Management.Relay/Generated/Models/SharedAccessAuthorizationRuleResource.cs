@@ -39,11 +39,8 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
         /// <param name="tags">Resource tags</param>
-        /// <param name="type">Resource type. Possible values include:
-        /// 'Microsoft.Relay/NameSpaces/AuthorizationRules',
-        /// 'Microsoft.Relay/HybridConnections/AuthorizationRules',
-        /// 'Microsoft.Relay/WcfRelays/AuthorizationRules'</param>
-        public SharedAccessAuthorizationRuleResource(string location, IList<AccessRights?> rights, string id = default(string), string name = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>), AutorizationRuleResourceType? type = default(AutorizationRuleResourceType?))
+        /// <param name="type">Resource type</param>
+        public SharedAccessAuthorizationRuleResource(string location, IList<AccessRights?> rights, string id = default(string), string name = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>), string type = default(string))
             : base(location, id, name, tags)
         {
             Type = type;
@@ -51,13 +48,10 @@ namespace Microsoft.Azure.Management.Relay.Models
         }
 
         /// <summary>
-        /// Gets or sets resource type. Possible values include:
-        /// 'Microsoft.Relay/NameSpaces/AuthorizationRules',
-        /// 'Microsoft.Relay/HybridConnections/AuthorizationRules',
-        /// 'Microsoft.Relay/WcfRelays/AuthorizationRules'
+        /// Gets or sets resource type
         /// </summary>
         [JsonProperty(PropertyName = "type")]
-        public AutorizationRuleResourceType? Type { get; set; }
+        public string Type { get; set; }
 
         /// <summary>
         /// Gets or sets the rights associated with the rule.

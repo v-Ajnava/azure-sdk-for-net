@@ -224,7 +224,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<SharedAccessAuthorizationRuleResource>> CreateOrUpdateAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string authorizationRuleName, SharedAccessAuthorizationRuleCreateOrUpdateParameters parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<SharedAccessAuthorizationRuleResource>> CreateOrUpdateAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string authorizationRuleName, SharedAccessAuthorizationRuleResource parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes a namespace authorization rule
         /// </summary>
@@ -321,7 +321,7 @@ namespace Microsoft.Azure.Management.Relay
         /// </param>
         /// <param name='policykey'>
         /// Key that needs to be regenerated. Possible values include:
-        /// 'primaryKey', 'secondaryKey'
+        /// 'PrimaryKey', 'SecondaryKey'
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

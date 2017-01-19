@@ -31,12 +31,11 @@ namespace Relay.Tests.TestHelper
     public static class RelayManagementHelper
     {
         internal const string ResourceGroupPrefix = "Default-Relay-";
-        internal const string NamespacePrefix = "sdk-Namespace-";
-        internal const string AuthorizationRulesPrefix = "sdk-AuthRules-";
+        internal const string NamespacePrefix = "sdk-RelayNamespace-";
+        internal const string AuthorizationRulesPrefix = "sdk-RelayAuthRules-";
         internal const string DefaultNamespaceAuthorizationRule = "RootManageSharedAccessKey";
-        internal const string QueuesPrefix = "sdk-Queues-";
-        internal const string TopicPrefix = "sdk-Topics-";
-        internal const string SubscritpitonPrefix = "sdk-Subscriptions-";
+        internal const string HybridPrefix = "sdk-Relay-Hybrid-";
+        internal const string WcfPrefix = "sdk-Relay-Wcf-";
 
         public static RelayManagementClient GetServiceBusManagementClient(MockContext context, RecordedDelegatingHandler handler)
         {

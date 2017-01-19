@@ -22,9 +22,9 @@ namespace Microsoft.Azure.Management.Relay.Models
     [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
     public enum Policykey
     {
-        [EnumMember(Value = "primaryKey")]
+        [EnumMember(Value = "PrimaryKey")]
         PrimaryKey,
-        [EnumMember(Value = "secondaryKey")]
+        [EnumMember(Value = "SecondaryKey")]
         SecondaryKey
     }
 }

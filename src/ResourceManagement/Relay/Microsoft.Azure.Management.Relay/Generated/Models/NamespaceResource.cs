@@ -38,47 +38,25 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
         /// <param name="tags">Resource tags</param>
-        /// <param name="type">Resource type. Possible values include:
-        /// 'Microsoft.Realy/Namespaces'</param>
+        /// <param name="type">Resource type</param>
         /// <param name="provisioningState">Provisioning state of the
         /// namespace.</param>
-        /// <param name="path">The path of the relay.</param>
-        /// <param name="relayType">Relay NameSpace Type. Possible values
-        /// include: 'NetTcp', 'Http'</param>
         /// <param name="createdAt">The time the namespace was created.</param>
         /// <param name="updatedAt">The time the namespace was updated.</param>
-        /// <param name="listenerCount">The number of listeners for this relay.
-        /// min : 1 and max:25 supported</param>
-        /// <param name="requiresClientAuthorization">true if client
-        /// authorization is needed for this relay; otherwise, false.</param>
-        /// <param name="requiresTransportSecurity">true if transport security
-        /// is needed for this relay; otherwise, false.</param>
-        /// <param name="isDynamic">true if the relay is dynamic; otherwise,
-        /// false.</param>
-        /// <param name="userMetadata">usermetadata is a placeholder to store
-        /// user-defined string data for the HybridConnection endpoint.e.g. it
-        /// can be used to store  descriptive data, such as list of teams and
-        /// their contact information also user-defined configuration settings
-        /// can be stored.</param>
-        /// <param name="collectionName">The name of the collection associated
-        /// with the relay.</param>
-        public NamespaceResource(string location, string id = default(string), string name = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>), Sku sku = default(Sku), NameSpaceResourceType? type = default(NameSpaceResourceType?), string provisioningState = default(string), string path = default(string), Relaytype? relayType = default(Relaytype?), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), int? listenerCount = default(int?), bool? requiresClientAuthorization = default(bool?), AuthorizationRules authorizationRules = default(AuthorizationRules), bool? requiresTransportSecurity = default(bool?), bool? isDynamic = default(bool?), string userMetadata = default(string), string collectionName = default(string))
+        /// <param name="serviceBusEndpoint">Endpoint you can use to perform
+        /// Service Bus operations.</param>
+        /// <param name="enabled">Specifies whether this instance is
+        /// enabled.</param>
+        public NamespaceResource(string location, string id = default(string), string name = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>), Sku sku = default(Sku), string type = default(string), string provisioningState = default(string), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), string serviceBusEndpoint = default(string), bool? enabled = default(bool?))
             : base(location, id, name, tags)
         {
             Sku = sku;
             Type = type;
             ProvisioningState = provisioningState;
-            Path = path;
-            RelayType = relayType;
             CreatedAt = createdAt;
             UpdatedAt = updatedAt;
-            ListenerCount = listenerCount;
-            RequiresClientAuthorization = requiresClientAuthorization;
-            AuthorizationRules = authorizationRules;
-            RequiresTransportSecurity = requiresTransportSecurity;
-            IsDynamic = isDynamic;
-            UserMetadata = userMetadata;
-            CollectionName = collectionName;
+            ServiceBusEndpoint = serviceBusEndpoint;
+            Enabled = enabled;
         }
 
         /// <summary>
@@ -87,30 +65,16 @@ namespace Microsoft.Azure.Management.Relay.Models
         public Sku Sku { get; set; }
 
         /// <summary>
-        /// Gets or sets resource type. Possible values include:
-        /// 'Microsoft.Realy/Namespaces'
+        /// Gets or sets resource type
         /// </summary>
         [JsonProperty(PropertyName = "type")]
-        public NameSpaceResourceType? Type { get; set; }
+        public string Type { get; set; }
 
         /// <summary>
         /// Gets or sets provisioning state of the namespace.
         /// </summary>
         [JsonProperty(PropertyName = "properties.provisioningState")]
         public string ProvisioningState { get; set; }
-
-        /// <summary>
-        /// Gets or sets the path of the relay.
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.path")]
-        public string Path { get; set; }
-
-        /// <summary>
-        /// Gets or sets relay NameSpace Type. Possible values include:
-        /// 'NetTcp', 'Http'
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.relayType")]
-        public Relaytype? RelayType { get; set; }
 
         /// <summary>
         /// Gets the time the namespace was created.
@@ -125,51 +89,17 @@ namespace Microsoft.Azure.Management.Relay.Models
         public System.DateTime? UpdatedAt { get; protected set; }
 
         /// <summary>
-        /// Gets or sets the number of listeners for this relay. min : 1 and
-        /// max:25 supported
+        /// Gets or sets endpoint you can use to perform Service Bus
+        /// operations.
         /// </summary>
-        [JsonProperty(PropertyName = "properties.listenerCount")]
-        public int? ListenerCount { get; set; }
+        [JsonProperty(PropertyName = "properties.serviceBusEndpoint")]
+        public string ServiceBusEndpoint { get; set; }
 
         /// <summary>
-        /// Gets or sets true if client authorization is needed for this relay;
-        /// otherwise, false.
+        /// Gets or sets specifies whether this instance is enabled.
         /// </summary>
-        [JsonProperty(PropertyName = "properties.requiresClientAuthorization")]
-        public bool? RequiresClientAuthorization { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.authorizationRules")]
-        public AuthorizationRules AuthorizationRules { get; set; }
-
-        /// <summary>
-        /// Gets or sets true if transport security is needed for this relay;
-        /// otherwise, false.
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.requiresTransportSecurity")]
-        public bool? RequiresTransportSecurity { get; set; }
-
-        /// <summary>
-        /// Gets or sets true if the relay is dynamic; otherwise, false.
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.isDynamic")]
-        public bool? IsDynamic { get; set; }
-
-        /// <summary>
-        /// Gets or sets usermetadata is a placeholder to store user-defined
-        /// string data for the HybridConnection endpoint.e.g. it can be used
-        /// to store  descriptive data, such as list of teams and their contact
-        /// information also user-defined configuration settings can be stored.
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.userMetadata")]
-        public string UserMetadata { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the collection associated with the relay.
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.collectionName")]
-        public string CollectionName { get; set; }
+        [JsonProperty(PropertyName = "properties.enabled")]
+        public bool? Enabled { get; set; }
 
         /// <summary>
         /// Validate the object.

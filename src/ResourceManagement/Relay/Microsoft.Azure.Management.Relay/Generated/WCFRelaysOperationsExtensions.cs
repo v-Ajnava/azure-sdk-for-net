@@ -174,9 +174,9 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='namespaceName'>
             /// The namespace name.
             /// </param>
-            public static IPage<WcfRelaysResource> ListByNameSpace(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName)
+            public static IPage<WcfRelaysResource> ListAll(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName)
             {
-                return operations.ListByNameSpaceAsync(resourceGroupName, namespaceName).GetAwaiter().GetResult();
+                return operations.ListAllAsync(resourceGroupName, namespaceName).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -194,9 +194,9 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IPage<WcfRelaysResource>> ListByNameSpaceAsync(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IPage<WcfRelaysResource>> ListAllAsync(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ListByNameSpaceWithHttpMessagesAsync(resourceGroupName, namespaceName, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListAllWithHttpMessagesAsync(resourceGroupName, namespaceName, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -223,7 +223,7 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='parameters'>
             /// The shared access authorization rule.
             /// </param>
-            public static SharedAccessAuthorizationRuleResource CreateOrUpdateAuthorizationRule(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, SharedAccessAuthorizationRuleCreateOrUpdateParameters parameters)
+            public static SharedAccessAuthorizationRuleResource CreateOrUpdateAuthorizationRule(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, SharedAccessAuthorizationRuleResource parameters)
             {
                 return operations.CreateOrUpdateAuthorizationRuleAsync(resourceGroupName, namespaceName, relayName, authorizationRuleName, parameters).GetAwaiter().GetResult();
             }
@@ -252,7 +252,7 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<SharedAccessAuthorizationRuleResource> CreateOrUpdateAuthorizationRuleAsync(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, SharedAccessAuthorizationRuleCreateOrUpdateParameters parameters, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<SharedAccessAuthorizationRuleResource> CreateOrUpdateAuthorizationRuleAsync(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, SharedAccessAuthorizationRuleResource parameters, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.CreateOrUpdateAuthorizationRuleWithHttpMessagesAsync(resourceGroupName, namespaceName, relayName, authorizationRuleName, parameters, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -435,8 +435,8 @@ namespace Microsoft.Azure.Management.Relay
             /// The authorizationRule name
             /// </param>
             /// <param name='policykey'>
-            /// Key that needs to be regenerated. Possible values include: 'primaryKey',
-            /// 'secondaryKey'
+            /// Key that needs to be regenerated. Possible values include: 'PrimaryKey',
+            /// 'SecondaryKey'
             /// </param>
             public static ResourceListKeys RegenerateKeys(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, Policykey? policykey = default(Policykey?))
             {
@@ -462,8 +462,8 @@ namespace Microsoft.Azure.Management.Relay
             /// The authorizationRule name
             /// </param>
             /// <param name='policykey'>
-            /// Key that needs to be regenerated. Possible values include: 'primaryKey',
-            /// 'secondaryKey'
+            /// Key that needs to be regenerated. Possible values include: 'PrimaryKey',
+            /// 'SecondaryKey'
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -485,9 +485,9 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='nextPageLink'>
             /// The NextLink from the previous successful call to List operation.
             /// </param>
-            public static IPage<WcfRelaysResource> ListByNameSpaceNext(this IWCFRelaysOperations operations, string nextPageLink)
+            public static IPage<WcfRelaysResource> ListAllNext(this IWCFRelaysOperations operations, string nextPageLink)
             {
-                return operations.ListByNameSpaceNextAsync(nextPageLink).GetAwaiter().GetResult();
+                return operations.ListAllNextAsync(nextPageLink).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -502,9 +502,9 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IPage<WcfRelaysResource>> ListByNameSpaceNextAsync(this IWCFRelaysOperations operations, string nextPageLink, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IPage<WcfRelaysResource>> ListAllNextAsync(this IWCFRelaysOperations operations, string nextPageLink, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ListByNameSpaceNextWithHttpMessagesAsync(nextPageLink, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListAllNextWithHttpMessagesAsync(nextPageLink, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

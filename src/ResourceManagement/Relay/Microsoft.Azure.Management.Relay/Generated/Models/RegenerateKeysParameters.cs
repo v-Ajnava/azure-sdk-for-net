@@ -15,7 +15,7 @@ namespace Microsoft.Azure.Management.Relay.Models
     using System.Linq;
 
     /// <summary>
-    /// Parameters supplied to the Regenerate Auth Rule.
+    /// Parameters supplied to the Regenerate Authorization Rule operation.
     /// </summary>
     public partial class RegenerateKeysParameters
     {
@@ -28,7 +28,7 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// Initializes a new instance of the RegenerateKeysParameters class.
         /// </summary>
         /// <param name="policykey">Key that needs to be regenerated. Possible
-        /// values include: 'primaryKey', 'secondaryKey'</param>
+        /// values include: 'PrimaryKey', 'SecondaryKey'</param>
         public RegenerateKeysParameters(Policykey? policykey = default(Policykey?))
         {
             Policykey = policykey;
@@ -36,9 +36,9 @@ namespace Microsoft.Azure.Management.Relay.Models
 
         /// <summary>
         /// Gets or sets key that needs to be regenerated. Possible values
-        /// include: 'primaryKey', 'secondaryKey'
+        /// include: 'PrimaryKey', 'SecondaryKey'
         /// </summary>
-        [JsonProperty(PropertyName = "policykey")]
+        [JsonProperty(PropertyName = "Policykey")]
         public Policykey? Policykey { get; set; }
 
     }

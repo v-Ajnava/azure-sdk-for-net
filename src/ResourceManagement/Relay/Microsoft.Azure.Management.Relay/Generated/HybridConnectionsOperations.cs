@@ -870,7 +870,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<SharedAccessAuthorizationRuleResource>> CreateOrUpdateAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName, SharedAccessAuthorizationRuleCreateOrUpdateParameters parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<SharedAccessAuthorizationRuleResource>> CreateOrUpdateAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName, SharedAccessAuthorizationRuleResource parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -1712,8 +1712,8 @@ namespace Microsoft.Azure.Management.Relay
         /// The authorizationRule name
         /// </param>
         /// <param name='policykey'>
-        /// Key that needs to be regenerated. Possible values include: 'primaryKey',
-        /// 'secondaryKey'
+        /// Key that needs to be regenerated. Possible values include: 'PrimaryKey',
+        /// 'SecondaryKey'
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
