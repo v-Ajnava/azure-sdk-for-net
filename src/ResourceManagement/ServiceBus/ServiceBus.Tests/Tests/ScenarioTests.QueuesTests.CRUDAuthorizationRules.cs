@@ -103,7 +103,7 @@ namespace ServiceBus.Tests.ScenarioTests
                 };
 
                 var jsonStr = ServiceBusManagementHelper.ConvertObjectToJSon(createAutorizationRuleParameter);
-
+                
                 var createQueueAuthorizationRuleResponse = ServiceBusManagementClient.Queues.CreateOrUpdateAuthorizationRule(resourceGroup, namespaceName,queueName,
                     authorizationRuleName, createAutorizationRuleParameter);
                 Assert.NotNull(createQueueAuthorizationRuleResponse);

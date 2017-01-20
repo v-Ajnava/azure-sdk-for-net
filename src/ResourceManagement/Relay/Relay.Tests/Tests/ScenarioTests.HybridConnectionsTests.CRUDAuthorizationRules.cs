@@ -13,24 +13,21 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-
 namespace Relay.Tests.ScenarioTests
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Net;
     using Microsoft.Azure.Management.Relay;
     using Microsoft.Azure.Management.Relay.Models;
     using Microsoft.Azure.Test.HttpRecorder;
-    using Microsoft.Rest.Azure;
     using Microsoft.Rest.ClientRuntime.Azure.TestFramework;
     using Relay.Tests.TestHelper;
     using Xunit;
     public partial class ScenarioTests 
     {
         [Fact]
-        public void NamespaceCreateGetUpdateDeleteAuthorizationRules()
+        public void HybridConnectionsCreateGetUpdateDeleteAuthorizationRules()
         {
             using (MockContext context = MockContext.Start(this.GetType().FullName))
             {
@@ -47,17 +44,30 @@ namespace Relay.Tests.ScenarioTests
                 //    this.ResourceManagementClient.TryRegisterResourceGroup(location, resourceGroup);
                 //}
 
-                // Create a namespace
+                // Create Namespace
                 var namespaceName = TestUtilities.GenerateName(RelayManagementHelper.NamespacePrefix);
-                var createNamespaceResponse = RelayManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName,
+
+                var createNamespaceResponse = this.RelayManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName,
                     new NamespaceResource()
                     {
                         Location = location,
+                        Sku = new Sku
+                        {
+                            Name = "Standard"
+                        },
+
+                        Tags = new Dictionary<string, string>()
+                        {
+                            {"tag1", "value1"},
+                            {"tag2", "value2"}
+                        }
+
                     });
 
                 Assert.NotNull(createNamespaceResponse);
                 Assert.Equal(createNamespaceResponse.Name, namespaceName);
-
+                Assert.Equal(createNamespaceResponse.Tags.Count, 2);
+                Assert.Equal(createNamespaceResponse.Type, "Microsoft.Relay/namespaces");
                 TestUtilities.Wait(TimeSpan.FromSeconds(5));
 
                 // Get the created namespace
@@ -69,8 +79,46 @@ namespace Relay.Tests.ScenarioTests
                 Assert.NotNull(getNamespaceResponse);
                 Assert.Equal("Succeeded", getNamespaceResponse.ProvisioningState, StringComparer.CurrentCultureIgnoreCase);                
                 Assert.Equal(location, getNamespaceResponse.Location, StringComparer.CurrentCultureIgnoreCase);
+                
+                // Get all namespaces created within a resourceGroup
+                var getAllNamespacesResponse = RelayManagementClient.Namespaces.ListByResourceGroup(resourceGroup);
+                Assert.NotNull(getAllNamespacesResponse);
+                Assert.True(getAllNamespacesResponse.Count() >= 1);
+                Assert.True(getAllNamespacesResponse.Any(ns => ns.Name == namespaceName));
+                Assert.True(getAllNamespacesResponse.All(ns => ns.Id.Contains(resourceGroup)));
 
-                // Create a namespace AuthorizationRule
+                // Get all namespaces created within the subscription irrespective of the resourceGroup
+                getAllNamespacesResponse = RelayManagementClient.Namespaces.ListBySubscription();
+                Assert.NotNull(getAllNamespacesResponse);
+                Assert.True(getAllNamespacesResponse.Count() >= 1);
+                Assert.True(getAllNamespacesResponse.Any(ns => ns.Name == namespaceName));
+
+                // Create Relay HybridConnections  - 
+                var hybridConnectionsName = TestUtilities.GenerateName(RelayManagementHelper.HybridPrefix);
+                var createdWCFRelayResponse = RelayManagementClient.HybridConnections.CreateOrUpdate(resourceGroup, namespaceName, hybridConnectionsName, new HybridConnectionResource()
+                {
+                    Tags = new Dictionary<string, string>()
+                        {
+                            {"tag1", "value1"},
+                            {"tag2", "value2"}
+                        },
+                    Location = createNamespaceResponse.Location,
+                    //RelayType = Relaytype.NetTcp,
+                    RequiresClientAuthorization = true,
+                    //RequiresTransportSecurity = true
+                });
+
+                Assert.NotNull(createdWCFRelayResponse);
+                Assert.Equal(createdWCFRelayResponse.Name, hybridConnectionsName);
+                Assert.True(createdWCFRelayResponse.RequiresClientAuthorization);
+                //Assert.True(createdWCFRelayResponse.RequiresTransportSecurity);
+                //Assert.Equal(createdWCFRelayResponse.RelayType, Relaytype.NetTcp);
+
+                var getWCFRelaysResponse = RelayManagementClient.HybridConnections.Get(resourceGroup, namespaceName, hybridConnectionsName);
+
+
+
+                // Create a HybridConnections AuthorizationRule
                 var authorizationRuleName = TestUtilities.GenerateName(RelayManagementHelper.AuthorizationRulesPrefix);
                 string createPrimaryKey = HttpMockServer.GetVariable("CreatePrimaryKey", RelayManagementHelper.GenerateRandomKey());
                 var createAutorizationRuleParameter = new SharedAccessAuthorizationRuleResource()
@@ -81,7 +129,9 @@ namespace Relay.Tests.ScenarioTests
 
                 var jsonStr = RelayManagementHelper.ConvertObjectToJSon(createAutorizationRuleParameter);
 
-                var createNamespaceAuthorizationRuleResponse = RelayManagementClient.Namespaces.CreateOrUpdateAuthorizationRule(resourceGroup, namespaceName,
+                var test = RelayManagementClient.HybridConnections.CreateOrUpdateAuthorizationRule(resourceGroup, namespaceName, hybridConnectionsName, authorizationRuleName, createAutorizationRuleParameter);
+
+                var createNamespaceAuthorizationRuleResponse = RelayManagementClient.HybridConnections.CreateOrUpdateAuthorizationRule(resourceGroup, namespaceName, hybridConnectionsName,                
                     authorizationRuleName, createAutorizationRuleParameter);
                 Assert.NotNull(createNamespaceAuthorizationRuleResponse);
                 Assert.True(createNamespaceAuthorizationRuleResponse.Rights.Count == createAutorizationRuleParameter.Rights.Count);
@@ -90,16 +140,16 @@ namespace Relay.Tests.ScenarioTests
                     Assert.True(createNamespaceAuthorizationRuleResponse.Rights.Any(r => r == right));
                 }
 
-                // Get default namespace AuthorizationRules
-                var getNamespaceAuthorizationRulesResponse = RelayManagementClient.Namespaces.GetAuthorizationRule(resourceGroup, namespaceName, RelayManagementHelper.DefaultNamespaceAuthorizationRule);
-                Assert.NotNull(getNamespaceAuthorizationRulesResponse);
-                Assert.Equal(getNamespaceAuthorizationRulesResponse.Name, RelayManagementHelper.DefaultNamespaceAuthorizationRule);
-                Assert.True(getNamespaceAuthorizationRulesResponse.Rights.Any(r => r == AccessRights.Listen));
-                Assert.True(getNamespaceAuthorizationRulesResponse.Rights.Any(r => r == AccessRights.Send));
-                Assert.True(getNamespaceAuthorizationRulesResponse.Rights.Any(r => r == AccessRights.Manage));
+                //// Get default HybridConnections AuthorizationRules
+                //var getNamespaceAuthorizationRulesResponse = RelayManagementClient.WCFRelays.GetAuthorizationRule(resourceGroup, namespaceName, wcfRelayName, RelayManagementHelper.DefaultNamespaceAuthorizationRule);
+                //Assert.NotNull(getNamespaceAuthorizationRulesResponse);
+                //Assert.Equal(getNamespaceAuthorizationRulesResponse.Name, RelayManagementHelper.DefaultNamespaceAuthorizationRule);
+                //Assert.True(getNamespaceAuthorizationRulesResponse.Rights.Any(r => r == AccessRights.Listen));
+                //Assert.True(getNamespaceAuthorizationRulesResponse.Rights.Any(r => r == AccessRights.Send));
+                //Assert.True(getNamespaceAuthorizationRulesResponse.Rights.Any(r => r == AccessRights.Manage));
 
-                // Get created namespace AuthorizationRules
-                getNamespaceAuthorizationRulesResponse = RelayManagementClient.Namespaces.GetAuthorizationRule(resourceGroup, namespaceName, authorizationRuleName);
+                // Get created HybridConnections AuthorizationRules
+                var getNamespaceAuthorizationRulesResponse = RelayManagementClient.HybridConnections.GetAuthorizationRule(resourceGroup, namespaceName, hybridConnectionsName, authorizationRuleName);
                 Assert.NotNull(getNamespaceAuthorizationRulesResponse);
                 Assert.True(getNamespaceAuthorizationRulesResponse.Rights.Count == createAutorizationRuleParameter.Rights.Count);
                 foreach (var right in createAutorizationRuleParameter.Rights)
@@ -107,21 +157,21 @@ namespace Relay.Tests.ScenarioTests
                     Assert.True(getNamespaceAuthorizationRulesResponse.Rights.Any(r => r == right));
                 }
 
-                // Get all namespaces AuthorizationRules 
-                var getAllNamespaceAuthorizationRulesResponse = RelayManagementClient.Namespaces.ListAuthorizationRules(resourceGroup, namespaceName);
+                // Get all HybridConnections AuthorizationRules
+                var getAllNamespaceAuthorizationRulesResponse = RelayManagementClient.HybridConnections.ListAuthorizationRules(resourceGroup, namespaceName, hybridConnectionsName);
                 Assert.NotNull(getAllNamespaceAuthorizationRulesResponse);
-                Assert.True(getAllNamespaceAuthorizationRulesResponse.Count() > 1);
+                Assert.True(getAllNamespaceAuthorizationRulesResponse.Count() >= 1);
                 Assert.True(getAllNamespaceAuthorizationRulesResponse.Any(ns => ns.Name == authorizationRuleName));
-                Assert.True(getAllNamespaceAuthorizationRulesResponse.Any(auth => auth.Name == RelayManagementHelper.DefaultNamespaceAuthorizationRule));
+                //Assert.True(getAllNamespaceAuthorizationRulesResponse.Any(auth => auth.Name == RelayManagementHelper.DefaultNamespaceAuthorizationRule));
 
-                // Update namespace authorizationRule
+                // Update HybridConnections authorizationRule
                 string updatePrimaryKey = HttpMockServer.GetVariable("UpdatePrimaryKey", RelayManagementHelper.GenerateRandomKey());
                 SharedAccessAuthorizationRuleResource updateNamespaceAuthorizationRuleParameter = new SharedAccessAuthorizationRuleResource();
                 updateNamespaceAuthorizationRuleParameter.Rights = new List<AccessRights?>() { AccessRights.Listen };
                 updateNamespaceAuthorizationRuleParameter.Location = location;
 
-                var updateNamespaceAuthorizationRuleResponse = RelayManagementClient.Namespaces.CreateOrUpdateAuthorizationRule(resourceGroup,
-                    namespaceName, authorizationRuleName, updateNamespaceAuthorizationRuleParameter);
+                var updateNamespaceAuthorizationRuleResponse = RelayManagementClient.HybridConnections.CreateOrUpdateAuthorizationRule(resourceGroup,
+                    namespaceName, hybridConnectionsName, authorizationRuleName, updateNamespaceAuthorizationRuleParameter);
 
                 Assert.NotNull(updateNamespaceAuthorizationRuleResponse);
                 Assert.Equal(authorizationRuleName, updateNamespaceAuthorizationRuleResponse.Name);
@@ -131,8 +181,8 @@ namespace Relay.Tests.ScenarioTests
                     Assert.True(updateNamespaceAuthorizationRuleResponse.Rights.Any(r => r.Equals(right)));
                 }
 
-                // Get the updated namespace AuthorizationRule
-                var getNamespaceAuthorizationRuleResponse = RelayManagementClient.Namespaces.GetAuthorizationRule(resourceGroup, namespaceName,authorizationRuleName);
+                // Get the HybridConnections namespace AuthorizationRule
+                var getNamespaceAuthorizationRuleResponse = RelayManagementClient.HybridConnections.GetAuthorizationRule(resourceGroup, namespaceName, hybridConnectionsName, authorizationRuleName);
                 Assert.NotNull(getNamespaceAuthorizationRuleResponse);
                 Assert.Equal(authorizationRuleName, getNamespaceAuthorizationRuleResponse.Name);
                 Assert.True(getNamespaceAuthorizationRuleResponse.Rights.Count == updateNamespaceAuthorizationRuleParameter.Rights.Count);
@@ -141,8 +191,8 @@ namespace Relay.Tests.ScenarioTests
                     Assert.True(getNamespaceAuthorizationRuleResponse.Rights.Any(r => r.Equals(right)));
                 }
 
-                // Get the connectionString to the namespace for a Authorization rule created
-                var listKeysResponse = RelayManagementClient.Namespaces.ListKeys(resourceGroup, namespaceName, authorizationRuleName);
+                // Get the connectionString to the HybridConnections for a Authorization rule created
+                var listKeysResponse = RelayManagementClient.HybridConnections.ListKeys(resourceGroup, namespaceName, hybridConnectionsName, authorizationRuleName);
                 Assert.NotNull(listKeysResponse);
                 Assert.NotNull(listKeysResponse.PrimaryConnectionString);
                 Assert.NotNull(listKeysResponse.SecondaryConnectionString);
@@ -152,25 +202,34 @@ namespace Relay.Tests.ScenarioTests
                 regenerateKeysParameters.Policykey = Policykey.PrimaryKey;
 
                 //Primary Key
-                var regenerateKeysPrimaryResponse = RelayManagementClient.Namespaces.RegenerateKeys(resourceGroup, namespaceName, authorizationRuleName, Policykey.PrimaryKey);
+                var regenerateKeysPrimaryResponse = RelayManagementClient.HybridConnections.RegenerateKeys(resourceGroup, namespaceName, hybridConnectionsName, authorizationRuleName, Policykey.PrimaryKey);
                 Assert.NotNull(regenerateKeysPrimaryResponse);
                 Assert.NotEqual(regenerateKeysPrimaryResponse.PrimaryKey, listKeysResponse.PrimaryKey);
                 Assert.Equal(regenerateKeysPrimaryResponse.SecondaryKey, listKeysResponse.SecondaryKey);
 
                 //Secondary Key
-                var regenerateKeysSecondaryResponse = RelayManagementClient.Namespaces.RegenerateKeys(resourceGroup, namespaceName, authorizationRuleName, Policykey.SecondaryKey);
+                var regenerateKeysSecondaryResponse = RelayManagementClient.HybridConnections.RegenerateKeys(resourceGroup, namespaceName, hybridConnectionsName, authorizationRuleName, Policykey.SecondaryKey);
                 Assert.NotNull(regenerateKeysSecondaryResponse);
                 Assert.NotEqual(regenerateKeysSecondaryResponse.SecondaryKey, listKeysResponse.SecondaryKey);
                 Assert.Equal(regenerateKeysSecondaryResponse.PrimaryKey, regenerateKeysPrimaryResponse.PrimaryKey);
-                // Delete namespace authorizationRule
-                RelayManagementClient.Namespaces.DeleteAuthorizationRule(resourceGroup, namespaceName, authorizationRuleName);
 
-                TestUtilities.Wait(TimeSpan.FromSeconds(5));
+
+                // Delete HybridConnections authorizationRule
+                RelayManagementClient.HybridConnections.DeleteAuthorizationRule(resourceGroup, namespaceName, hybridConnectionsName, authorizationRuleName);
+
+                try
+                {
+                    RelayManagementClient.HybridConnections.Delete(resourceGroup, namespaceName, hybridConnectionsName);
+                }
+                catch (Exception ex)
+                {
+                    Assert.True(ex.Message.Contains("NotFound"));
+                }
 
                 try
                 {
                     // Delete namespace
-                    RelayManagementClient.Namespaces.Delete(resourceGroup, namespaceName); 
+                    RelayManagementClient.Namespaces.Delete(resourceGroup, namespaceName);
                 }
                 catch (Exception ex)
                 {

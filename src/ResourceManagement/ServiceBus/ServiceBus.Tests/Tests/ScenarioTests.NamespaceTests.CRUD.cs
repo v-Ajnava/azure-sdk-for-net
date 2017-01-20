@@ -33,13 +33,13 @@ namespace ServiceBus.Tests.ScenarioTests
                 InitializeClients(context);
 
                 var location = this.ResourceManagementClient.GetLocationFromProvider();
-
-                var resourceGroup = this.ResourceManagementClient.TryGetResourceGroup(location);
-                if (string.IsNullOrWhiteSpace(resourceGroup))
-                {
-                    resourceGroup = TestUtilities.GenerateName(ServiceBusManagementHelper.ResourceGroupPrefix);
-                    this.ResourceManagementClient.TryRegisterResourceGroup(location, resourceGroup);
-                }
+                var resourceGroup = "Default-serviceBus-WestUs";
+                //var resourceGroup = this.ResourceManagementClient.TryGetResourceGroup(location);
+                //if (string.IsNullOrWhiteSpace(resourceGroup))
+                //{
+                //    resourceGroup = TestUtilities.GenerateName(ServiceBusManagementHelper.ResourceGroupPrefix);
+                //    this.ResourceManagementClient.TryRegisterResourceGroup(location, resourceGroup);
+                //}
 
                 // Create Namespace
                 var namespaceName = TestUtilities.GenerateName(ServiceBusManagementHelper.NamespacePrefix);
