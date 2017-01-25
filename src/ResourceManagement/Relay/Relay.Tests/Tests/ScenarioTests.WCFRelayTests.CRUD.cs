@@ -127,9 +127,15 @@ namespace Relay.Tests.ScenarioTests
                 Assert.True(createdWCFRelayResponse.RequiresClientAuthorization);
                 Assert.True(createdWCFRelayResponse.RequiresTransportSecurity);
                 Assert.Equal(createdWCFRelayResponse.RelayType, Relaytype.NetTcp);
-                //Assert.Equal(createdWCFRelayResponse.Type, WcfRelaysResourceType.MicrosoftRelayWcfRelays);
                 Assert.Equal(createdWCFRelayResponse.UserMetadata, strUserMetadata);
-                
+
+                //Get List of all Hybridconnections in given NameSpace. 
+                var listAllWCFRelaysResponse = RelayManagementClient.WCFRelays.ListAll(resourceGroup, namespaceName);
+                Assert.NotNull(listAllWCFRelaysResponse);
+                Assert.True(listAllWCFRelaysResponse.Count() >= 1);
+                //Assert.True(listAllWCFRelaysResponse.Any(wcfRelay => wcfRelay.Name == wcfRelayName));
+                Assert.True(listAllWCFRelaysResponse.All(wcfRelay => wcfRelay.Id.Contains(resourceGroup)));
+
                 try
                 {
                     RelayManagementClient.WCFRelays.Delete(resourceGroup, namespaceName, wcfRelayName);

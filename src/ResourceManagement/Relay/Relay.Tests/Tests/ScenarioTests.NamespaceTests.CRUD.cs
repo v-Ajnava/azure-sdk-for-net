@@ -134,8 +134,6 @@ namespace Relay.Tests.ScenarioTests
                 //        }
                 //};
 
-
-
                 //Assert.NotNull(patchNamespaceResponse);
                 //Assert.Equal(location, patchNamespaceResponse.Location, StringComparer.CurrentCultureIgnoreCase);
                 //Assert.Equal(namespaceName, patchNamespaceResponse.Name);

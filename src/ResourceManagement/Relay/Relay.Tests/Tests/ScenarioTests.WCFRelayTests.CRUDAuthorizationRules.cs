@@ -45,9 +45,7 @@ namespace Relay.Tests.ScenarioTests
                 //}
 
                 // Create Namespace
-                var namespaceName = TestUtilities.GenerateName(RelayManagementHelper.NamespacePrefix);
-
-                var getNamespaceResponse1 = RelayManagementClient.Namespaces.Get(resourceGroup, "Test-Realy");
+                var namespaceName = TestUtilities.GenerateName(RelayManagementHelper.NamespacePrefix);               
 
                 var createNamespaceResponse = this.RelayManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName,
                     new NamespaceResource()
@@ -112,9 +110,7 @@ namespace Relay.Tests.ScenarioTests
                 Assert.Equal(createdWCFRelayResponse.RelayType, Relaytype.NetTcp);
 
                 var getWCFRelaysResponse = RelayManagementClient.WCFRelays.Get(resourceGroup, namespaceName, wcfRelayName);
-
-
-
+                
                 // Create a WCFRelay AuthorizationRule
                 var authorizationRuleName = TestUtilities.GenerateName(RelayManagementHelper.AuthorizationRulesPrefix);
                 string createPrimaryKey = HttpMockServer.GetVariable("CreatePrimaryKey", RelayManagementHelper.GenerateRandomKey());
@@ -137,14 +133,6 @@ namespace Relay.Tests.ScenarioTests
                     Assert.True(createNamespaceAuthorizationRuleResponse.Rights.Any(r => r == right));
                 }
 
-                //// Get default WCFRelay AuthorizationRules
-                //var getNamespaceAuthorizationRulesResponse = RelayManagementClient.WCFRelays.GetAuthorizationRule(resourceGroup, namespaceName, wcfRelayName, RelayManagementHelper.DefaultNamespaceAuthorizationRule);
-                //Assert.NotNull(getNamespaceAuthorizationRulesResponse);
-                //Assert.Equal(getNamespaceAuthorizationRulesResponse.Name, RelayManagementHelper.DefaultNamespaceAuthorizationRule);
-                //Assert.True(getNamespaceAuthorizationRulesResponse.Rights.Any(r => r == AccessRights.Listen));
-                //Assert.True(getNamespaceAuthorizationRulesResponse.Rights.Any(r => r == AccessRights.Send));
-                //Assert.True(getNamespaceAuthorizationRulesResponse.Rights.Any(r => r == AccessRights.Manage));
-
                 // Get created WCFRelay AuthorizationRules
                 var getNamespaceAuthorizationRulesResponse = RelayManagementClient.WCFRelays.GetAuthorizationRule(resourceGroup, namespaceName, wcfRelayName, authorizationRuleName);
                 Assert.NotNull(getNamespaceAuthorizationRulesResponse);
@@ -159,7 +147,6 @@ namespace Relay.Tests.ScenarioTests
                 Assert.NotNull(getAllNamespaceAuthorizationRulesResponse);
                 Assert.True(getAllNamespaceAuthorizationRulesResponse.Count() >= 1);
                 Assert.True(getAllNamespaceAuthorizationRulesResponse.Any(ns => ns.Name == authorizationRuleName));
-                //Assert.True(getAllNamespaceAuthorizationRulesResponse.Any(auth => auth.Name == RelayManagementHelper.DefaultNamespaceAuthorizationRule));
 
                 // Update WCFRelay authorizationRule
                 string updatePrimaryKey = HttpMockServer.GetVariable("UpdatePrimaryKey", RelayManagementHelper.GenerateRandomKey());

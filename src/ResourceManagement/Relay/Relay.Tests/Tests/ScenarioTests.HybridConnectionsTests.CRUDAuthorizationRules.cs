@@ -103,16 +103,12 @@ namespace Relay.Tests.ScenarioTests
                             {"tag2", "value2"}
                         },
                     Location = createNamespaceResponse.Location,
-                    //RelayType = Relaytype.NetTcp,
                     RequiresClientAuthorization = true,
-                    //RequiresTransportSecurity = true
                 });
 
                 Assert.NotNull(createdWCFRelayResponse);
                 Assert.Equal(createdWCFRelayResponse.Name, hybridConnectionsName);
                 Assert.True(createdWCFRelayResponse.RequiresClientAuthorization);
-                //Assert.True(createdWCFRelayResponse.RequiresTransportSecurity);
-                //Assert.Equal(createdWCFRelayResponse.RelayType, Relaytype.NetTcp);
 
                 var getWCFRelaysResponse = RelayManagementClient.HybridConnections.Get(resourceGroup, namespaceName, hybridConnectionsName);
 
@@ -138,15 +134,7 @@ namespace Relay.Tests.ScenarioTests
                 foreach (var right in createAutorizationRuleParameter.Rights)
                 {
                     Assert.True(createNamespaceAuthorizationRuleResponse.Rights.Any(r => r == right));
-                }
-
-                //// Get default HybridConnections AuthorizationRules
-                //var getNamespaceAuthorizationRulesResponse = RelayManagementClient.WCFRelays.GetAuthorizationRule(resourceGroup, namespaceName, wcfRelayName, RelayManagementHelper.DefaultNamespaceAuthorizationRule);
-                //Assert.NotNull(getNamespaceAuthorizationRulesResponse);
-                //Assert.Equal(getNamespaceAuthorizationRulesResponse.Name, RelayManagementHelper.DefaultNamespaceAuthorizationRule);
-                //Assert.True(getNamespaceAuthorizationRulesResponse.Rights.Any(r => r == AccessRights.Listen));
-                //Assert.True(getNamespaceAuthorizationRulesResponse.Rights.Any(r => r == AccessRights.Send));
-                //Assert.True(getNamespaceAuthorizationRulesResponse.Rights.Any(r => r == AccessRights.Manage));
+                }                
 
                 // Get created HybridConnections AuthorizationRules
                 var getNamespaceAuthorizationRulesResponse = RelayManagementClient.HybridConnections.GetAuthorizationRule(resourceGroup, namespaceName, hybridConnectionsName, authorizationRuleName);
@@ -162,7 +150,6 @@ namespace Relay.Tests.ScenarioTests
                 Assert.NotNull(getAllNamespaceAuthorizationRulesResponse);
                 Assert.True(getAllNamespaceAuthorizationRulesResponse.Count() >= 1);
                 Assert.True(getAllNamespaceAuthorizationRulesResponse.Any(ns => ns.Name == authorizationRuleName));
-                //Assert.True(getAllNamespaceAuthorizationRulesResponse.Any(auth => auth.Name == RelayManagementHelper.DefaultNamespaceAuthorizationRule));
 
                 // Update HybridConnections authorizationRule
                 string updatePrimaryKey = HttpMockServer.GetVariable("UpdatePrimaryKey", RelayManagementHelper.GenerateRandomKey());
