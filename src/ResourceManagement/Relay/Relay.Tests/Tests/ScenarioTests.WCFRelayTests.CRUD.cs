@@ -52,10 +52,10 @@ namespace Relay.Tests.ScenarioTests
                     new NamespaceResource()
                     {
                         Location = location,
-                        Sku = new Sku
-                        {
-                            Name = "Standard"
-                        },
+                        //Sku = new Sku
+                        //{
+                        //    Name = "Standard"
+                        //},
 
                         Tags = new Dictionary<string, string>()
                         {

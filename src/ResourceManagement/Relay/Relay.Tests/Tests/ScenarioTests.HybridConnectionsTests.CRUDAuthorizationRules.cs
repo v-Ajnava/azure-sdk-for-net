@@ -51,10 +51,10 @@ namespace Relay.Tests.ScenarioTests
                     new NamespaceResource()
                     {
                         Location = location,
-                        Sku = new Sku
-                        {
-                            Name = "Standard"
-                        },
+                        //Sku = new Sku
+                        //{
+                        //    Name = "Standard"
+                        //},
 
                         Tags = new Dictionary<string, string>()
                         {
@@ -189,13 +189,16 @@ namespace Relay.Tests.ScenarioTests
                 regenerateKeysParameters.Policykey = Policykey.PrimaryKey;
 
                 //Primary Key
-                var regenerateKeysPrimaryResponse = RelayManagementClient.HybridConnections.RegenerateKeys(resourceGroup, namespaceName, hybridConnectionsName, authorizationRuleName, Policykey.PrimaryKey);
+                var regenerateKeysPrimaryResponse = RelayManagementClient.HybridConnections.RegenerateKeys(resourceGroup, namespaceName, hybridConnectionsName, authorizationRuleName, regenerateKeysParameters);
                 Assert.NotNull(regenerateKeysPrimaryResponse);
                 Assert.NotEqual(regenerateKeysPrimaryResponse.PrimaryKey, listKeysResponse.PrimaryKey);
                 Assert.Equal(regenerateKeysPrimaryResponse.SecondaryKey, listKeysResponse.SecondaryKey);
 
+
+                regenerateKeysParameters.Policykey = Policykey.SecondaryKey;
+
                 //Secondary Key
-                var regenerateKeysSecondaryResponse = RelayManagementClient.HybridConnections.RegenerateKeys(resourceGroup, namespaceName, hybridConnectionsName, authorizationRuleName, Policykey.SecondaryKey);
+                var regenerateKeysSecondaryResponse = RelayManagementClient.HybridConnections.RegenerateKeys(resourceGroup, namespaceName, hybridConnectionsName, authorizationRuleName, regenerateKeysParameters);
                 Assert.NotNull(regenerateKeysSecondaryResponse);
                 Assert.NotEqual(regenerateKeysSecondaryResponse.SecondaryKey, listKeysResponse.SecondaryKey);
                 Assert.Equal(regenerateKeysSecondaryResponse.PrimaryKey, regenerateKeysPrimaryResponse.PrimaryKey);

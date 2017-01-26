@@ -152,13 +152,15 @@ namespace Relay.Tests.ScenarioTests
                 regenerateKeysParameters.Policykey = Policykey.PrimaryKey;
 
                 //Primary Key
-                var regenerateKeysPrimaryResponse = RelayManagementClient.Namespaces.RegenerateKeys(resourceGroup, namespaceName, authorizationRuleName, Policykey.PrimaryKey);
+                var regenerateKeysPrimaryResponse = RelayManagementClient.Namespaces.RegenerateKeys(resourceGroup, namespaceName, authorizationRuleName, regenerateKeysParameters);
                 Assert.NotNull(regenerateKeysPrimaryResponse);
                 Assert.NotEqual(regenerateKeysPrimaryResponse.PrimaryKey, listKeysResponse.PrimaryKey);
                 Assert.Equal(regenerateKeysPrimaryResponse.SecondaryKey, listKeysResponse.SecondaryKey);
 
+
+                regenerateKeysParameters.Policykey = Policykey.SecondaryKey;
                 //Secondary Key
-                var regenerateKeysSecondaryResponse = RelayManagementClient.Namespaces.RegenerateKeys(resourceGroup, namespaceName, authorizationRuleName, Policykey.SecondaryKey);
+                var regenerateKeysSecondaryResponse = RelayManagementClient.Namespaces.RegenerateKeys(resourceGroup, namespaceName, authorizationRuleName, regenerateKeysParameters);
                 Assert.NotNull(regenerateKeysSecondaryResponse);
                 Assert.NotEqual(regenerateKeysSecondaryResponse.SecondaryKey, listKeysResponse.SecondaryKey);
                 Assert.Equal(regenerateKeysSecondaryResponse.PrimaryKey, regenerateKeysPrimaryResponse.PrimaryKey);
