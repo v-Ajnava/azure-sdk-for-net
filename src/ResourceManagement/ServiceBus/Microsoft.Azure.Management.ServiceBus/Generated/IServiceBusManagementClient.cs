@@ -44,14 +44,14 @@ namespace Microsoft.Azure.Management.ServiceBus
         ServiceClientCredentials Credentials { get; }
 
         /// <summary>
-        /// Subscription credentials which uniquely identify Microsoft Azure
+        /// Subscription credentials that uniquely identify a Microsoft Azure
         /// subscription. The subscription ID forms part of the URI for every
         /// service call.
         /// </summary>
         string SubscriptionId { get; set; }
 
         /// <summary>
-        /// Client Api Version.
+        /// Client API version.
         /// </summary>
         string ApiVersion { get; }
 
@@ -92,6 +92,11 @@ namespace Microsoft.Azure.Management.ServiceBus
         /// Gets the ISubscriptionsOperations.
         /// </summary>
         ISubscriptionsOperations Subscriptions { get; }
+
+        /// <summary>
+        /// Gets the IRulesOperations.
+        /// </summary>
+        IRulesOperations Rules { get; }
 
     }
 }

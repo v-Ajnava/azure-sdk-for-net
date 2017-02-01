@@ -51,14 +51,14 @@ namespace Microsoft.Azure.Management.ServiceBus
         public ServiceClientCredentials Credentials { get; private set; }
 
         /// <summary>
-        /// Subscription credentials which uniquely identify Microsoft Azure
+        /// Subscription credentials that uniquely identify a Microsoft Azure
         /// subscription. The subscription ID forms part of the URI for every service
         /// call.
         /// </summary>
         public string SubscriptionId { get; set; }
 
         /// <summary>
-        /// Client Api Version.
+        /// Client API version.
         /// </summary>
         public string ApiVersion { get; private set; }
 
@@ -98,6 +98,11 @@ namespace Microsoft.Azure.Management.ServiceBus
         /// Gets the ISubscriptionsOperations.
         /// </summary>
         public virtual ISubscriptionsOperations Subscriptions { get; private set; }
+
+        /// <summary>
+        /// Gets the IRulesOperations.
+        /// </summary>
+        public virtual IRulesOperations Rules { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the ServiceBusManagementClient class.
@@ -282,6 +287,7 @@ namespace Microsoft.Azure.Management.ServiceBus
             this.Queues = new QueuesOperations(this);
             this.Topics = new TopicsOperations(this);
             this.Subscriptions = new SubscriptionsOperations(this);
+            this.Rules = new RulesOperations(this);
             this.BaseUri = new Uri("https://management.azure.com");
             this.ApiVersion = "2015-08-01";
             this.AcceptLanguage = "en-US";

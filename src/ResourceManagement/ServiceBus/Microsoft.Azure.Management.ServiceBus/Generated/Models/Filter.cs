@@ -17,29 +17,30 @@ namespace Microsoft.Azure.Management.ServiceBus.Models
     using Microsoft.Rest.Azure;
 
     /// <summary>
-    /// Parameters supplied to the Regenerate Authorization Rule operation.
+    /// MessageDescribes a filter expression that is evaluated against a
+    /// BrokeredMessage.
     /// </summary>
-    public partial class RegenerateKeysParameters
+    public partial class Filter
     {
         /// <summary>
-        /// Initializes a new instance of the RegenerateKeysParameters class.
+        /// Initializes a new instance of the Filter class.
         /// </summary>
-        public RegenerateKeysParameters() { }
+        public Filter() { }
 
         /// <summary>
-        /// Initializes a new instance of the RegenerateKeysParameters class.
+        /// Initializes a new instance of the Filter class.
         /// </summary>
-        public RegenerateKeysParameters(Policykey? policykey = default(Policykey?))
+        public Filter(FilterType? filterType = default(FilterType?))
         {
-            Policykey = policykey;
+            FilterType = filterType;
         }
 
         /// <summary>
-        /// Key that needs to be regenerated. Possible values include:
-        /// 'PrimaryKey', 'SecondaryKey'
+        /// Filter Types. Possible values include: 'SqlFilter',
+        /// 'CorrelationFilter', 'LambdaExpressionFilter'
         /// </summary>
-        [JsonProperty(PropertyName = "Policykey")]
-        public Policykey? Policykey { get; set; }
+        [JsonProperty(PropertyName = "filterType")]
+        public FilterType? FilterType { get; set; }
 
     }
 }

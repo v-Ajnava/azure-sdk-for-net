@@ -17,29 +17,30 @@ namespace Microsoft.Azure.Management.ServiceBus.Models
     using Microsoft.Rest.Azure;
 
     /// <summary>
-    /// Parameters supplied to the Regenerate Authorization Rule operation.
+    /// Represents the filter actions which are allowed for the transformation
+    /// of a message that have been matched by a filter expression.
     /// </summary>
-    public partial class RegenerateKeysParameters
+    public partial class RuleAction
     {
         /// <summary>
-        /// Initializes a new instance of the RegenerateKeysParameters class.
+        /// Initializes a new instance of the RuleAction class.
         /// </summary>
-        public RegenerateKeysParameters() { }
+        public RuleAction() { }
 
         /// <summary>
-        /// Initializes a new instance of the RegenerateKeysParameters class.
+        /// Initializes a new instance of the RuleAction class.
         /// </summary>
-        public RegenerateKeysParameters(Policykey? policykey = default(Policykey?))
+        public RuleAction(bool? requiresPreprocessing = default(bool?))
         {
-            Policykey = policykey;
+            RequiresPreprocessing = requiresPreprocessing;
         }
 
         /// <summary>
-        /// Key that needs to be regenerated. Possible values include:
-        /// 'PrimaryKey', 'SecondaryKey'
+        /// Value that indicates whether the rule action requires
+        /// preprocessing.
         /// </summary>
-        [JsonProperty(PropertyName = "Policykey")]
-        public Policykey? Policykey { get; set; }
+        [JsonProperty(PropertyName = "requiresPreprocessing")]
+        public bool? RequiresPreprocessing { get; set; }
 
     }
 }
