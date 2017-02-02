@@ -27,8 +27,8 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// <param name="location">Resource location</param>
         /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
+        /// <param name="type">Resource type</param>
         /// <param name="tags">Resource tags</param>
-        /// <param name="type">WcfRelays Resource type</param>
         /// <param name="relayType">WCFRelay Type. Possible values include:
         /// 'NetTcp', 'Http'</param>
         /// <param name="createdAt">The time the WCFRelay was created.</param>
@@ -46,10 +46,9 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// it can be used to store  descriptive data, such as list of teams
         /// and their contact information also user-defined configuration
         /// settings can be stored.</param>
-        public WcfRelaysResource(string location, string id = default(string), string name = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string type = default(string), Relaytype? relayType = default(Relaytype?), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), int? listenerCount = default(int?), bool? requiresClientAuthorization = default(bool?), bool? requiresTransportSecurity = default(bool?), bool? isDynamic = default(bool?), string userMetadata = default(string))
-            : base(location, id, name, tags)
+        public WcfRelaysResource(string location, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), Relaytype? relayType = default(Relaytype?), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), int? listenerCount = default(int?), bool? requiresClientAuthorization = default(bool?), bool? requiresTransportSecurity = default(bool?), bool? isDynamic = default(bool?), string userMetadata = default(string))
+            : base(location, id, name, type, tags)
         {
-            Type = type;
             RelayType = relayType;
             CreatedAt = createdAt;
             UpdatedAt = updatedAt;
@@ -59,12 +58,6 @@ namespace Microsoft.Azure.Management.Relay.Models
             IsDynamic = isDynamic;
             UserMetadata = userMetadata;
         }
-
-        /// <summary>
-        /// Gets or sets wcfRelays Resource type
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "type")]
-        public string Type { get; set; }
 
         /// <summary>
         /// Gets or sets wCFRelay Type. Possible values include: 'NetTcp',

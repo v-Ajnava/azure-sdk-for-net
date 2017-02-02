@@ -30,20 +30,13 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// <param name="rights">The rights associated with the rule.</param>
         /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
-        /// <param name="tags">Resource tags</param>
         /// <param name="type">Resource type</param>
-        public SharedAccessAuthorizationRuleResource(string location, System.Collections.Generic.IList<AccessRights?> rights, string id = default(string), string name = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string type = default(string))
-            : base(location, id, name, tags)
+        /// <param name="tags">Resource tags</param>
+        public SharedAccessAuthorizationRuleResource(string location, System.Collections.Generic.IList<AccessRights?> rights, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>))
+            : base(location, id, name, type, tags)
         {
-            Type = type;
             Rights = rights;
         }
-
-        /// <summary>
-        /// Gets or sets resource type
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "type")]
-        public string Type { get; set; }
 
         /// <summary>
         /// Gets or sets the rights associated with the rule.

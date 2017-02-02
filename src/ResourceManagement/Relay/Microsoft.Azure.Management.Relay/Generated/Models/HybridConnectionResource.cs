@@ -27,8 +27,8 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// <param name="location">Resource location</param>
         /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
+        /// <param name="type">Resource type</param>
         /// <param name="tags">Resource tags</param>
-        /// <param name="type">HybridConnection Resource type</param>
         /// <param name="createdAt">The time the HybridConnection was
         /// created.</param>
         /// <param name="updatedAt">The time the namespace was updated.</param>
@@ -43,10 +43,9 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// and their contact information also user-defined configuration
         /// settings can be stored.</param>
         /// <param name="path">The path of the HybridConnection.</param>
-        public HybridConnectionResource(string location, string id = default(string), string name = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string type = default(string), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), int? listenerCount = default(int?), bool? requiresClientAuthorization = default(bool?), string userMetadata = default(string), string path = default(string))
-            : base(location, id, name, tags)
+        public HybridConnectionResource(string location, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), int? listenerCount = default(int?), bool? requiresClientAuthorization = default(bool?), string userMetadata = default(string), string path = default(string))
+            : base(location, id, name, type, tags)
         {
-            Type = type;
             CreatedAt = createdAt;
             UpdatedAt = updatedAt;
             ListenerCount = listenerCount;
@@ -54,12 +53,6 @@ namespace Microsoft.Azure.Management.Relay.Models
             UserMetadata = userMetadata;
             Path = path;
         }
-
-        /// <summary>
-        /// Gets or sets hybridConnection Resource type
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "type")]
-        public string Type { get; set; }
 
         /// <summary>
         /// Gets the time the HybridConnection was created.

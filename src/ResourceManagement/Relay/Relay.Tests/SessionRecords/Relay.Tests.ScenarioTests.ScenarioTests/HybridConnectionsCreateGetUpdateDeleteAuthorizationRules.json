@@ -1,8 +1,8 @@
 {
   "Entries": [
     {
-      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122?api-version=2016-07-01",
-      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS02MTIyP2FwaS12ZXJzaW9uPTIwMTYtMDctMDE=",
+      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953?api-version=2016-07-01",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS00OTUzP2FwaS12ZXJzaW9uPTIwMTYtMDctMDE=",
       "RequestMethod": "PUT",
       "RequestBody": "{\r\n  \"sku\": {\r\n    \"name\": \"Standard\",\r\n    \"tier\": \"Standard\"\r\n  },\r\n  \"location\": \"West US\",\r\n  \"tags\": {\r\n    \"tag1\": \"value1\",\r\n    \"tag2\": \"value2\"\r\n  }\r\n}",
       "RequestHeaders": {
@@ -13,7 +13,7 @@
           "160"
         ],
         "x-ms-client-request-id": [
-          "fa4b9b20-2560-46a8-b9c9-d5d0b10cfbf9"
+          "bc5a431a-ec19-4ce2-a6ac-99727d0aead0"
         ],
         "accept-language": [
           "en-US"
@@ -23,7 +23,7 @@
           "Microsoft.Azure.Management.Relay.RelayManagementClient/0.0.1-preview"
         ]
       },
-      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122\",\r\n  \"name\": \"sdk-RelayNamespace-6122\",\r\n  \"type\": \"Microsoft.Relay/namespaces\",\r\n  \"location\": \"West US\",\r\n  \"kind\": \"Relay\",\r\n  \"sku\": {\r\n    \"name\": \"Standard\",\r\n    \"tier\": \"Standard\"\r\n  },\r\n  \"tags\": {\r\n    \"tag1\": \"value1\",\r\n    \"tag2\": \"value2\"\r\n  },\r\n  \"properties\": {\r\n    \"provisioningState\": \"Unknown\",\r\n    \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-6122\",\r\n    \"enabled\": false,\r\n    \"namespaceType\": \"Relay\",\r\n    \"messagingSku\": 2\r\n  }\r\n}",
+      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953\",\r\n  \"name\": \"sdk-RelayNamespace-4953\",\r\n  \"type\": \"Microsoft.Relay/namespaces\",\r\n  \"location\": \"West US\",\r\n  \"kind\": \"Relay\",\r\n  \"sku\": {\r\n    \"name\": \"Standard\",\r\n    \"tier\": \"Standard\"\r\n  },\r\n  \"tags\": {\r\n    \"tag1\": \"value1\",\r\n    \"tag2\": \"value2\"\r\n  },\r\n  \"properties\": {\r\n    \"provisioningState\": \"Unknown\",\r\n    \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-4953\",\r\n    \"enabled\": false,\r\n    \"namespaceType\": \"Relay\",\r\n    \"messagingSku\": 2\r\n  }\r\n}",
       "ResponseHeaders": {
         "Content-Type": [
           "application/json; charset=utf-8"
@@ -35,7 +35,7 @@
           "no-cache"
         ],
         "Date": [
-          "Mon, 23 Jan 2017 20:32:06 GMT"
+          "Wed, 01 Feb 2017 23:37:57 GMT"
         ],
         "Pragma": [
           "no-cache"
@@ -51,7 +51,7 @@
           "Accept-Encoding"
         ],
         "x-ms-request-id": [
-          "a254514e-13e3-4699-bde3-f2d66f3388d7_M0_M0"
+          "21415f8e-8755-481a-8daa-b7767001f4ac_M6_M6"
         ],
         "Server-SB": [
           "Service-Bus-Resource-Provider/SN1"
@@ -60,10 +60,10 @@
           "1199"
         ],
         "x-ms-correlation-request-id": [
-          "cdcffe4f-efd4-4af6-8b4b-708eb1dce0f0"
+          "d61b3254-6720-4542-9ef4-42d5911319c7"
         ],
         "x-ms-routing-request-id": [
-          "CENTRALUS:20170123T203207Z:cdcffe4f-efd4-4af6-8b4b-708eb1dce0f0"
+          "CENTRALUS:20170201T233758Z:d61b3254-6720-4542-9ef4-42d5911319c7"
         ],
         "Strict-Transport-Security": [
           "max-age=31536000; includeSubDomains"
@@ -72,8 +72,8 @@
       "StatusCode": 200
     },
     {
-      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122?api-version=2016-07-01",
-      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS02MTIyP2FwaS12ZXJzaW9uPTIwMTYtMDctMDE=",
+      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953?api-version=2016-07-01",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS00OTUzP2FwaS12ZXJzaW9uPTIwMTYtMDctMDE=",
       "RequestMethod": "GET",
       "RequestBody": "",
       "RequestHeaders": {
@@ -82,7 +82,7 @@
           "Microsoft.Azure.Management.Relay.RelayManagementClient/0.0.1-preview"
         ]
       },
-      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122\",\r\n  \"name\": \"sdk-RelayNamespace-6122\",\r\n  \"type\": \"Microsoft.Relay/namespaces\",\r\n  \"location\": \"West US\",\r\n  \"kind\": \"Relay\",\r\n  \"sku\": {\r\n    \"name\": \"Standard\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 1\r\n  },\r\n  \"tags\": {\r\n    \"tag1\": \"value1\",\r\n    \"tag2\": \"value2\"\r\n  },\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-6122\",\r\n    \"status\": \"Active\",\r\n    \"createdAt\": \"2017-01-23T20:32:08.333Z\",\r\n    \"serviceBusEndpoint\": \"https://sdk-RelayNamespace-6122.servicebus.windows.net:443/\",\r\n    \"enabled\": true,\r\n    \"critical\": false,\r\n    \"updatedAt\": \"2017-01-23T20:32:30.54Z\",\r\n    \"eventHubEnabled\": true,\r\n    \"namespaceType\": \"Relay\",\r\n    \"messagingSku\": 2\r\n  }\r\n}",
+      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953\",\r\n  \"name\": \"sdk-RelayNamespace-4953\",\r\n  \"type\": \"Microsoft.Relay/namespaces\",\r\n  \"location\": \"West US\",\r\n  \"kind\": \"Relay\",\r\n  \"sku\": {\r\n    \"name\": \"Standard\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 1\r\n  },\r\n  \"tags\": {\r\n    \"tag1\": \"value1\",\r\n    \"tag2\": \"value2\"\r\n  },\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-4953\",\r\n    \"status\": \"Active\",\r\n    \"createdAt\": \"2017-02-01T23:37:57.54Z\",\r\n    \"serviceBusEndpoint\": \"https://sdk-RelayNamespace-4953.servicebus.windows.net:443/\",\r\n    \"enabled\": true,\r\n    \"critical\": false,\r\n    \"updatedAt\": \"2017-02-01T23:38:21.573Z\",\r\n    \"eventHubEnabled\": true,\r\n    \"namespaceType\": \"Relay\",\r\n    \"messagingSku\": 2\r\n  }\r\n}",
       "ResponseHeaders": {
         "Content-Type": [
           "application/json; charset=utf-8"
@@ -94,7 +94,7 @@
           "no-cache"
         ],
         "Date": [
-          "Mon, 23 Jan 2017 20:32:37 GMT"
+          "Wed, 01 Feb 2017 23:38:27 GMT"
         ],
         "Pragma": [
           "no-cache"
@@ -110,19 +110,19 @@
           "Accept-Encoding"
         ],
         "x-ms-request-id": [
-          "36009f8c-8bc9-49ca-bae3-f0eeb3e9a5e1_M0_M0"
+          "5d6cb326-2138-4e0e-98ea-2a2e555a3c62_M6_M6"
         ],
         "Server-SB": [
           "Service-Bus-Resource-Provider/SN1"
         ],
         "x-ms-ratelimit-remaining-subscription-reads": [
-          "14999"
+          "14987"
         ],
         "x-ms-correlation-request-id": [
-          "bd9513a2-fdf5-43d9-bb74-6b93b39e8d7f"
+          "ff2e954a-29b0-4b93-a3ba-aacbbd8ea78a"
         ],
         "x-ms-routing-request-id": [
-          "CENTRALUS:20170123T203237Z:bd9513a2-fdf5-43d9-bb74-6b93b39e8d7f"
+          "CENTRALUS:20170201T233828Z:ff2e954a-29b0-4b93-a3ba-aacbbd8ea78a"
         ],
         "Strict-Transport-Security": [
           "max-age=31536000; includeSubDomains"
@@ -131,13 +131,13 @@
       "StatusCode": 200
     },
     {
-      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122?api-version=2016-07-01",
-      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS02MTIyP2FwaS12ZXJzaW9uPTIwMTYtMDctMDE=",
+      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953?api-version=2016-07-01",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS00OTUzP2FwaS12ZXJzaW9uPTIwMTYtMDctMDE=",
       "RequestMethod": "GET",
       "RequestBody": "",
       "RequestHeaders": {
         "x-ms-client-request-id": [
-          "b5889263-d64e-455a-8cac-4b7e102b1c74"
+          "8059fa7c-5554-431d-a283-d1cd74cd59df"
         ],
         "accept-language": [
           "en-US"
@@ -147,7 +147,7 @@
           "Microsoft.Azure.Management.Relay.RelayManagementClient/0.0.1-preview"
         ]
       },
-      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122\",\r\n  \"name\": \"sdk-RelayNamespace-6122\",\r\n  \"type\": \"Microsoft.Relay/namespaces\",\r\n  \"location\": \"West US\",\r\n  \"kind\": \"Relay\",\r\n  \"sku\": {\r\n    \"name\": \"Standard\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 1\r\n  },\r\n  \"tags\": {\r\n    \"tag1\": \"value1\",\r\n    \"tag2\": \"value2\"\r\n  },\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-6122\",\r\n    \"status\": \"Active\",\r\n    \"createdAt\": \"2017-01-23T20:32:08.333Z\",\r\n    \"serviceBusEndpoint\": \"https://sdk-RelayNamespace-6122.servicebus.windows.net:443/\",\r\n    \"enabled\": true,\r\n    \"critical\": false,\r\n    \"updatedAt\": \"2017-01-23T20:32:30.54Z\",\r\n    \"eventHubEnabled\": true,\r\n    \"namespaceType\": \"Relay\",\r\n    \"messagingSku\": 2\r\n  }\r\n}",
+      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953\",\r\n  \"name\": \"sdk-RelayNamespace-4953\",\r\n  \"type\": \"Microsoft.Relay/namespaces\",\r\n  \"location\": \"West US\",\r\n  \"kind\": \"Relay\",\r\n  \"sku\": {\r\n    \"name\": \"Standard\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 1\r\n  },\r\n  \"tags\": {\r\n    \"tag1\": \"value1\",\r\n    \"tag2\": \"value2\"\r\n  },\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-4953\",\r\n    \"status\": \"Active\",\r\n    \"createdAt\": \"2017-02-01T23:37:57.54Z\",\r\n    \"serviceBusEndpoint\": \"https://sdk-RelayNamespace-4953.servicebus.windows.net:443/\",\r\n    \"enabled\": true,\r\n    \"critical\": false,\r\n    \"updatedAt\": \"2017-02-01T23:38:21.573Z\",\r\n    \"eventHubEnabled\": true,\r\n    \"namespaceType\": \"Relay\",\r\n    \"messagingSku\": 2\r\n  }\r\n}",
       "ResponseHeaders": {
         "Content-Type": [
           "application/json; charset=utf-8"
@@ -159,7 +159,7 @@
           "no-cache"
         ],
         "Date": [
-          "Mon, 23 Jan 2017 20:32:42 GMT"
+          "Wed, 01 Feb 2017 23:38:32 GMT"
         ],
         "Pragma": [
           "no-cache"
@@ -175,19 +175,19 @@
           "Accept-Encoding"
         ],
         "x-ms-request-id": [
-          "5744b6b2-65dc-4de9-b935-09516c82f9e8_M0_M0"
+          "1a005f5b-ca86-4780-9bf1-55e6824f9951_M6_M6"
         ],
         "Server-SB": [
           "Service-Bus-Resource-Provider/SN1"
         ],
         "x-ms-ratelimit-remaining-subscription-reads": [
-          "14998"
+          "14986"
         ],
         "x-ms-correlation-request-id": [
-          "07b85b05-0d72-4137-b216-a94498f3c4bd"
+          "0b487c79-2690-4944-9adf-123bdd3a0fc5"
         ],
         "x-ms-routing-request-id": [
-          "CENTRALUS:20170123T203242Z:07b85b05-0d72-4137-b216-a94498f3c4bd"
+          "CENTRALUS:20170201T233833Z:0b487c79-2690-4944-9adf-123bdd3a0fc5"
         ],
         "Strict-Transport-Security": [
           "max-age=31536000; includeSubDomains"
@@ -196,13 +196,13 @@
       "StatusCode": 200
     },
     {
-      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122?api-version=2016-07-01",
-      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS02MTIyP2FwaS12ZXJzaW9uPTIwMTYtMDctMDE=",
+      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953?api-version=2016-07-01",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS00OTUzP2FwaS12ZXJzaW9uPTIwMTYtMDctMDE=",
       "RequestMethod": "GET",
       "RequestBody": "",
       "RequestHeaders": {
         "x-ms-client-request-id": [
-          "383f621d-219e-49bf-89fd-58d29443104b"
+          "adf934f7-7986-46af-8a30-b77405d8459e"
         ],
         "accept-language": [
           "en-US"
@@ -212,7 +212,7 @@
           "Microsoft.Azure.Management.Relay.RelayManagementClient/0.0.1-preview"
         ]
       },
-      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122\",\r\n  \"name\": \"sdk-RelayNamespace-6122\",\r\n  \"type\": \"Microsoft.Relay/namespaces\",\r\n  \"location\": \"West US\",\r\n  \"kind\": \"Relay\",\r\n  \"sku\": {\r\n    \"name\": \"Standard\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 1\r\n  },\r\n  \"tags\": {\r\n    \"tag1\": \"value1\",\r\n    \"tag2\": \"value2\"\r\n  },\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-6122\",\r\n    \"status\": \"Active\",\r\n    \"createdAt\": \"2017-01-23T20:32:08.333Z\",\r\n    \"serviceBusEndpoint\": \"https://sdk-RelayNamespace-6122.servicebus.windows.net:443/\",\r\n    \"enabled\": true,\r\n    \"critical\": false,\r\n    \"updatedAt\": \"2017-01-23T20:32:30.54Z\",\r\n    \"eventHubEnabled\": true,\r\n    \"namespaceType\": \"Relay\",\r\n    \"messagingSku\": 2\r\n  }\r\n}",
+      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953\",\r\n  \"name\": \"sdk-RelayNamespace-4953\",\r\n  \"type\": \"Microsoft.Relay/namespaces\",\r\n  \"location\": \"West US\",\r\n  \"kind\": \"Relay\",\r\n  \"sku\": {\r\n    \"name\": \"Standard\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 1\r\n  },\r\n  \"tags\": {\r\n    \"tag1\": \"value1\",\r\n    \"tag2\": \"value2\"\r\n  },\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-4953\",\r\n    \"status\": \"Active\",\r\n    \"createdAt\": \"2017-02-01T23:37:57.54Z\",\r\n    \"serviceBusEndpoint\": \"https://sdk-RelayNamespace-4953.servicebus.windows.net:443/\",\r\n    \"enabled\": true,\r\n    \"critical\": false,\r\n    \"updatedAt\": \"2017-02-01T23:38:21.573Z\",\r\n    \"eventHubEnabled\": true,\r\n    \"namespaceType\": \"Relay\",\r\n    \"messagingSku\": 2\r\n  }\r\n}",
       "ResponseHeaders": {
         "Content-Type": [
           "application/json; charset=utf-8"
@@ -224,7 +224,7 @@
           "no-cache"
         ],
         "Date": [
-          "Mon, 23 Jan 2017 20:32:42 GMT"
+          "Wed, 01 Feb 2017 23:38:32 GMT"
         ],
         "Pragma": [
           "no-cache"
@@ -240,19 +240,19 @@
           "Accept-Encoding"
         ],
         "x-ms-request-id": [
-          "01d54fb8-d3bc-41db-8850-114233cc504b_M0_M0"
+          "c1bfeb76-b57f-4ceb-b773-66b8b2c60bd0_M6_M6"
         ],
         "Server-SB": [
           "Service-Bus-Resource-Provider/SN1"
         ],
         "x-ms-ratelimit-remaining-subscription-reads": [
-          "14997"
+          "14985"
         ],
         "x-ms-correlation-request-id": [
-          "9c8b91f6-5393-4c46-804a-133723ccaf46"
+          "80ed3d0d-b314-47ab-8ebf-62aa9f239737"
         ],
         "x-ms-routing-request-id": [
-          "CENTRALUS:20170123T203242Z:9c8b91f6-5393-4c46-804a-133723ccaf46"
+          "CENTRALUS:20170201T233833Z:80ed3d0d-b314-47ab-8ebf-62aa9f239737"
         ],
         "Strict-Transport-Security": [
           "max-age=31536000; includeSubDomains"
@@ -267,7 +267,7 @@
       "RequestBody": "",
       "RequestHeaders": {
         "x-ms-client-request-id": [
-          "5e1c09db-ad7e-48dc-92da-3190f99ebc8c"
+          "c818dd6e-04ab-4a2b-b3a2-9d9948b7dcae"
         ],
         "accept-language": [
           "en-US"
@@ -277,7 +277,7 @@
           "Microsoft.Azure.Management.Relay.RelayManagementClient/0.0.1-preview"
         ]
       },
-      "ResponseBody": "{\r\n  \"value\": [\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-7791\",\r\n      \"name\": \"sdk-RelayNamespace-7791\",\r\n      \"type\": \"Microsoft.Relay/namespaces\",\r\n      \"location\": \"West US\",\r\n      \"kind\": \"Relay\",\r\n      \"sku\": {\r\n        \"name\": \"Standard\",\r\n        \"tier\": \"Standard\",\r\n        \"capacity\": 1\r\n      },\r\n      \"tags\": {\r\n        \"tag1\": \"value1\",\r\n        \"tag2\": \"value2\"\r\n      },\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-7791\",\r\n        \"status\": \"Active\",\r\n        \"createdAt\": \"2017-01-23T08:00:20.757Z\",\r\n        \"serviceBusEndpoint\": \"https://sdk-RelayNamespace-7791.servicebus.windows.net:443/\",\r\n        \"enabled\": true,\r\n        \"critical\": false,\r\n        \"updatedAt\": \"2017-01-23T08:00:41.143Z\",\r\n        \"eventHubEnabled\": true,\r\n        \"namespaceType\": \"Relay\",\r\n        \"messagingSku\": 2\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-5880\",\r\n      \"name\": \"sdk-RelayNamespace-5880\",\r\n      \"type\": \"Microsoft.Relay/namespaces\",\r\n      \"location\": \"West US\",\r\n      \"kind\": \"Relay\",\r\n      \"sku\": {\r\n        \"name\": \"Standard\",\r\n        \"tier\": \"Standard\",\r\n        \"capacity\": 1\r\n      },\r\n      \"tags\": {\r\n        \"tag1\": \"value1\",\r\n        \"tag2\": \"value2\"\r\n      },\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-5880\",\r\n        \"status\": \"Active\",\r\n        \"createdAt\": \"2017-01-19T23:39:18.557Z\",\r\n        \"serviceBusEndpoint\": \"https://sdk-RelayNamespace-5880.servicebus.windows.net:443/\",\r\n        \"enabled\": true,\r\n        \"critical\": false,\r\n        \"updatedAt\": \"2017-01-19T23:39:39.297Z\",\r\n        \"eventHubEnabled\": true,\r\n        \"namespaceType\": \"Relay\",\r\n        \"messagingSku\": 2\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/Test-Realy\",\r\n      \"name\": \"Test-Realy\",\r\n      \"type\": \"Microsoft.Relay/namespaces\",\r\n      \"location\": \"West US\",\r\n      \"kind\": \"Relay\",\r\n      \"sku\": {\r\n        \"name\": \"Standard\",\r\n        \"tier\": \"Standard\",\r\n        \"capacity\": 1\r\n      },\r\n      \"tags\": {},\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:test-realy\",\r\n        \"status\": \"Active\",\r\n        \"createdAt\": \"2017-01-18T01:53:45.86Z\",\r\n        \"serviceBusEndpoint\": \"https://Test-Realy.servicebus.windows.net:443/\",\r\n        \"enabled\": true,\r\n        \"critical\": false,\r\n        \"updatedAt\": \"2017-01-18T01:54:09.757Z\",\r\n        \"eventHubEnabled\": true,\r\n        \"namespaceType\": \"Relay\",\r\n        \"messagingSku\": 2\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122\",\r\n      \"name\": \"sdk-RelayNamespace-6122\",\r\n      \"type\": \"Microsoft.Relay/namespaces\",\r\n      \"location\": \"West US\",\r\n      \"kind\": \"Relay\",\r\n      \"sku\": {\r\n        \"name\": \"Standard\",\r\n        \"tier\": \"Standard\",\r\n        \"capacity\": 1\r\n      },\r\n      \"tags\": {\r\n        \"tag1\": \"value1\",\r\n        \"tag2\": \"value2\"\r\n      },\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-6122\",\r\n        \"status\": \"Active\",\r\n        \"createdAt\": \"2017-01-23T20:32:08.333Z\",\r\n        \"serviceBusEndpoint\": \"https://sdk-RelayNamespace-6122.servicebus.windows.net:443/\",\r\n        \"enabled\": true,\r\n        \"critical\": false,\r\n        \"updatedAt\": \"2017-01-23T20:32:30.54Z\",\r\n        \"eventHubEnabled\": true,\r\n        \"namespaceType\": \"Relay\",\r\n        \"messagingSku\": 2\r\n      }\r\n    }\r\n  ],\r\n  \"nextLink\": null\r\n}",
+      "ResponseBody": "{\r\n  \"value\": [\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-9752\",\r\n      \"name\": \"sdk-RelayNamespace-9752\",\r\n      \"type\": \"Microsoft.Relay/namespaces\",\r\n      \"location\": \"West US\",\r\n      \"kind\": \"Relay\",\r\n      \"sku\": {\r\n        \"name\": \"Standard\",\r\n        \"tier\": \"Standard\",\r\n        \"capacity\": 1\r\n      },\r\n      \"tags\": {\r\n        \"tag1\": \"value1\",\r\n        \"tag2\": \"value2\"\r\n      },\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-9752\",\r\n        \"status\": \"Active\",\r\n        \"createdAt\": \"2017-02-01T23:31:43.867Z\",\r\n        \"serviceBusEndpoint\": \"https://sdk-RelayNamespace-9752.servicebus.windows.net:443/\",\r\n        \"enabled\": true,\r\n        \"critical\": false,\r\n        \"updatedAt\": \"2017-02-01T23:32:07.607Z\",\r\n        \"eventHubEnabled\": true,\r\n        \"namespaceType\": \"Relay\",\r\n        \"messagingSku\": 2\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-8028\",\r\n      \"name\": \"sdk-RelayNamespace-8028\",\r\n      \"type\": \"Microsoft.Relay/namespaces\",\r\n      \"location\": \"West US\",\r\n      \"kind\": \"Relay\",\r\n      \"sku\": {\r\n        \"name\": \"Standard\",\r\n        \"tier\": \"Standard\",\r\n        \"capacity\": 1\r\n      },\r\n      \"tags\": {\r\n        \"tag1\": \"value1\",\r\n        \"tag2\": \"value2\"\r\n      },\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-8028\",\r\n        \"status\": \"Active\",\r\n        \"createdAt\": \"2017-02-01T21:52:25.363Z\",\r\n        \"serviceBusEndpoint\": \"https://sdk-RelayNamespace-8028.servicebus.windows.net:443/\",\r\n        \"enabled\": true,\r\n        \"critical\": false,\r\n        \"updatedAt\": \"2017-02-01T21:52:49.31Z\",\r\n        \"eventHubEnabled\": true,\r\n        \"namespaceType\": \"Relay\",\r\n        \"messagingSku\": 2\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-342\",\r\n      \"name\": \"sdk-RelayNamespace-342\",\r\n      \"type\": \"Microsoft.Relay/namespaces\",\r\n      \"location\": \"West US\",\r\n      \"kind\": \"Relay\",\r\n      \"sku\": {\r\n        \"name\": \"Standard\",\r\n        \"tier\": \"Standard\",\r\n        \"capacity\": 1\r\n      },\r\n      \"tags\": {\r\n        \"tag1\": \"value1\",\r\n        \"tag2\": \"value2\"\r\n      },\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-342\",\r\n        \"status\": \"Active\",\r\n        \"createdAt\": \"2017-02-01T19:50:31.173Z\",\r\n        \"serviceBusEndpoint\": \"https://sdk-RelayNamespace-342.servicebus.windows.net:443/\",\r\n        \"enabled\": true,\r\n        \"critical\": false,\r\n        \"updatedAt\": \"2017-02-01T19:50:55.293Z\",\r\n        \"eventHubEnabled\": true,\r\n        \"namespaceType\": \"Relay\",\r\n        \"messagingSku\": 2\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-7456\",\r\n      \"name\": \"sdk-RelayNamespace-7456\",\r\n      \"type\": \"Microsoft.Relay/namespaces\",\r\n      \"location\": \"West US\",\r\n      \"kind\": \"Relay\",\r\n      \"sku\": {\r\n        \"name\": \"Standard\",\r\n        \"tier\": \"Standard\",\r\n        \"capacity\": 1\r\n      },\r\n      \"tags\": {\r\n        \"tag1\": \"value1\",\r\n        \"tag2\": \"value2\"\r\n      },\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-7456\",\r\n        \"status\": \"Active\",\r\n        \"createdAt\": \"2017-02-01T22:23:31.02Z\",\r\n        \"serviceBusEndpoint\": \"https://sdk-RelayNamespace-7456.servicebus.windows.net:443/\",\r\n        \"enabled\": true,\r\n        \"critical\": false,\r\n        \"updatedAt\": \"2017-02-01T22:23:53.837Z\",\r\n        \"eventHubEnabled\": true,\r\n        \"namespaceType\": \"Relay\",\r\n        \"messagingSku\": 2\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953\",\r\n      \"name\": \"sdk-RelayNamespace-4953\",\r\n      \"type\": \"Microsoft.Relay/namespaces\",\r\n      \"location\": \"West US\",\r\n      \"kind\": \"Relay\",\r\n      \"sku\": {\r\n        \"name\": \"Standard\",\r\n        \"tier\": \"Standard\",\r\n        \"capacity\": 1\r\n      },\r\n      \"tags\": {\r\n        \"tag1\": \"value1\",\r\n        \"tag2\": \"value2\"\r\n      },\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-4953\",\r\n        \"status\": \"Active\",\r\n        \"createdAt\": \"2017-02-01T23:37:57.54Z\",\r\n        \"serviceBusEndpoint\": \"https://sdk-RelayNamespace-4953.servicebus.windows.net:443/\",\r\n        \"enabled\": true,\r\n        \"critical\": false,\r\n        \"updatedAt\": \"2017-02-01T23:38:21.573Z\",\r\n        \"eventHubEnabled\": true,\r\n        \"namespaceType\": \"Relay\",\r\n        \"messagingSku\": 2\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/Test-Realy\",\r\n      \"name\": \"Test-Realy\",\r\n      \"type\": \"Microsoft.Relay/namespaces\",\r\n      \"location\": \"West US\",\r\n      \"kind\": \"Relay\",\r\n      \"sku\": {\r\n        \"name\": \"Standard\",\r\n        \"tier\": \"Standard\",\r\n        \"capacity\": 1\r\n      },\r\n      \"tags\": {},\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:test-realy\",\r\n        \"status\": \"Active\",\r\n        \"createdAt\": \"2017-01-18T01:53:45.86Z\",\r\n        \"serviceBusEndpoint\": \"https://Test-Realy.servicebus.windows.net:443/\",\r\n        \"enabled\": true,\r\n        \"critical\": false,\r\n        \"updatedAt\": \"2017-01-18T01:54:09.757Z\",\r\n        \"eventHubEnabled\": true,\r\n        \"namespaceType\": \"Relay\",\r\n        \"messagingSku\": 2\r\n      }\r\n    }\r\n  ],\r\n  \"nextLink\": null\r\n}",
       "ResponseHeaders": {
         "Content-Type": [
           "application/json; charset=utf-8"
@@ -289,7 +289,7 @@
           "no-cache"
         ],
         "Date": [
-          "Mon, 23 Jan 2017 20:32:42 GMT"
+          "Wed, 01 Feb 2017 23:38:32 GMT"
         ],
         "Pragma": [
           "no-cache"
@@ -305,19 +305,19 @@
           "Accept-Encoding"
         ],
         "x-ms-request-id": [
-          "33b137ab-767a-45b9-9b42-2e893f0d2587_M6_M6"
+          "c70bbf11-f858-4071-ac4f-ee60eca6aef1_M0_M0"
         ],
         "Server-SB": [
           "Service-Bus-Resource-Provider/SN1"
         ],
         "x-ms-ratelimit-remaining-subscription-reads": [
-          "14996"
+          "14984"
         ],
         "x-ms-correlation-request-id": [
-          "2c7a8fd5-7d09-4abf-96bb-c8f250a671ae"
+          "d0125c3c-f750-40be-a412-2b1dad9e9c25"
         ],
         "x-ms-routing-request-id": [
-          "CENTRALUS:20170123T203243Z:2c7a8fd5-7d09-4abf-96bb-c8f250a671ae"
+          "CENTRALUS:20170201T233833Z:d0125c3c-f750-40be-a412-2b1dad9e9c25"
         ],
         "Strict-Transport-Security": [
           "max-age=31536000; includeSubDomains"
@@ -332,7 +332,7 @@
       "RequestBody": "",
       "RequestHeaders": {
         "x-ms-client-request-id": [
-          "d075109f-4ab6-4426-b187-e5fb7b045d65"
+          "0168f519-d103-47bc-9ed8-b06fffdffcf8"
         ],
         "accept-language": [
           "en-US"
@@ -342,7 +342,7 @@
           "Microsoft.Azure.Management.Relay.RelayManagementClient/0.0.1-preview"
         ]
       },
-      "ResponseBody": "{\r\n  \"value\": [\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-7791\",\r\n      \"name\": \"sdk-RelayNamespace-7791\",\r\n      \"type\": \"Microsoft.Relay/namespaces\",\r\n      \"location\": \"West US\",\r\n      \"kind\": \"Relay\",\r\n      \"sku\": {\r\n        \"name\": \"Standard\",\r\n        \"tier\": \"Standard\",\r\n        \"capacity\": 1\r\n      },\r\n      \"tags\": {\r\n        \"tag1\": \"value1\",\r\n        \"tag2\": \"value2\"\r\n      },\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-7791\",\r\n        \"status\": \"Active\",\r\n        \"createdAt\": \"2017-01-23T08:00:20.757Z\",\r\n        \"serviceBusEndpoint\": \"https://sdk-RelayNamespace-7791.servicebus.windows.net:443/\",\r\n        \"enabled\": true,\r\n        \"critical\": false,\r\n        \"updatedAt\": \"2017-01-23T08:00:41.143Z\",\r\n        \"eventHubEnabled\": true,\r\n        \"namespaceType\": \"Relay\",\r\n        \"messagingSku\": 2\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-5880\",\r\n      \"name\": \"sdk-RelayNamespace-5880\",\r\n      \"type\": \"Microsoft.Relay/namespaces\",\r\n      \"location\": \"West US\",\r\n      \"kind\": \"Relay\",\r\n      \"sku\": {\r\n        \"name\": \"Standard\",\r\n        \"tier\": \"Standard\",\r\n        \"capacity\": 1\r\n      },\r\n      \"tags\": {\r\n        \"tag1\": \"value1\",\r\n        \"tag2\": \"value2\"\r\n      },\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-5880\",\r\n        \"status\": \"Active\",\r\n        \"createdAt\": \"2017-01-19T23:39:18.557Z\",\r\n        \"serviceBusEndpoint\": \"https://sdk-RelayNamespace-5880.servicebus.windows.net:443/\",\r\n        \"enabled\": true,\r\n        \"critical\": false,\r\n        \"updatedAt\": \"2017-01-19T23:39:39.297Z\",\r\n        \"eventHubEnabled\": true,\r\n        \"namespaceType\": \"Relay\",\r\n        \"messagingSku\": 2\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/Test-Realy\",\r\n      \"name\": \"Test-Realy\",\r\n      \"type\": \"Microsoft.Relay/namespaces\",\r\n      \"location\": \"West US\",\r\n      \"kind\": \"Relay\",\r\n      \"sku\": {\r\n        \"name\": \"Standard\",\r\n        \"tier\": \"Standard\",\r\n        \"capacity\": 1\r\n      },\r\n      \"tags\": {},\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:test-realy\",\r\n        \"status\": \"Active\",\r\n        \"createdAt\": \"2017-01-18T01:53:45.86Z\",\r\n        \"serviceBusEndpoint\": \"https://Test-Realy.servicebus.windows.net:443/\",\r\n        \"enabled\": true,\r\n        \"critical\": false,\r\n        \"updatedAt\": \"2017-01-18T01:54:09.757Z\",\r\n        \"eventHubEnabled\": true,\r\n        \"namespaceType\": \"Relay\",\r\n        \"messagingSku\": 2\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122\",\r\n      \"name\": \"sdk-RelayNamespace-6122\",\r\n      \"type\": \"Microsoft.Relay/namespaces\",\r\n      \"location\": \"West US\",\r\n      \"kind\": \"Relay\",\r\n      \"sku\": {\r\n        \"name\": \"Standard\",\r\n        \"tier\": \"Standard\",\r\n        \"capacity\": 1\r\n      },\r\n      \"tags\": {\r\n        \"tag1\": \"value1\",\r\n        \"tag2\": \"value2\"\r\n      },\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-6122\",\r\n        \"status\": \"Active\",\r\n        \"createdAt\": \"2017-01-23T20:32:08.333Z\",\r\n        \"serviceBusEndpoint\": \"https://sdk-RelayNamespace-6122.servicebus.windows.net:443/\",\r\n        \"enabled\": true,\r\n        \"critical\": false,\r\n        \"updatedAt\": \"2017-01-23T20:32:30.54Z\",\r\n        \"eventHubEnabled\": true,\r\n        \"namespaceType\": \"Relay\",\r\n        \"messagingSku\": 2\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/41cd3ef5-b071-496f-b74a-bb976359072d/providers/Microsoft.Relay/namespaces/First-Relay-NameSpace\",\r\n      \"name\": \"First-Relay-NameSpace\",\r\n      \"type\": \"Microsoft.Relay/namespaces\",\r\n      \"location\": \"West US\",\r\n      \"kind\": \"Relay\",\r\n      \"sku\": {\r\n        \"name\": \"Standard\",\r\n        \"tier\": \"Standard\",\r\n        \"capacity\": 1\r\n      },\r\n      \"tags\": {},\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:first-relay-namespace\",\r\n        \"status\": \"Active\",\r\n        \"createdAt\": \"2017-01-18T01:29:24.577Z\",\r\n        \"serviceBusEndpoint\": \"https://First-Relay-NameSpace.servicebus.windows.net:443/\",\r\n        \"enabled\": true,\r\n        \"critical\": false,\r\n        \"updatedAt\": \"2017-01-18T01:29:48.973Z\",\r\n        \"eventHubEnabled\": true,\r\n        \"namespaceType\": \"Relay\",\r\n        \"messagingSku\": 2\r\n      }\r\n    }\r\n  ],\r\n  \"nextLink\": null\r\n}",
+      "ResponseBody": "{\r\n  \"value\": [\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-9752\",\r\n      \"name\": \"sdk-RelayNamespace-9752\",\r\n      \"type\": \"Microsoft.Relay/namespaces\",\r\n      \"location\": \"West US\",\r\n      \"kind\": \"Relay\",\r\n      \"sku\": {\r\n        \"name\": \"Standard\",\r\n        \"tier\": \"Standard\",\r\n        \"capacity\": 1\r\n      },\r\n      \"tags\": {\r\n        \"tag1\": \"value1\",\r\n        \"tag2\": \"value2\"\r\n      },\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-9752\",\r\n        \"status\": \"Active\",\r\n        \"createdAt\": \"2017-02-01T23:31:43.867Z\",\r\n        \"serviceBusEndpoint\": \"https://sdk-RelayNamespace-9752.servicebus.windows.net:443/\",\r\n        \"enabled\": true,\r\n        \"critical\": false,\r\n        \"updatedAt\": \"2017-02-01T23:32:07.607Z\",\r\n        \"eventHubEnabled\": true,\r\n        \"namespaceType\": \"Relay\",\r\n        \"messagingSku\": 2\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/41cd3ef5-b071-496f-b74a-bb976359072d/providers/Microsoft.Relay/namespaces/First-Relay-NameSpace\",\r\n      \"name\": \"First-Relay-NameSpace\",\r\n      \"type\": \"Microsoft.Relay/namespaces\",\r\n      \"location\": \"West US\",\r\n      \"kind\": \"Relay\",\r\n      \"sku\": {\r\n        \"name\": \"Standard\",\r\n        \"tier\": \"Standard\",\r\n        \"capacity\": 1\r\n      },\r\n      \"tags\": {},\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:first-relay-namespace\",\r\n        \"status\": \"Active\",\r\n        \"createdAt\": \"2017-01-18T01:29:24.577Z\",\r\n        \"serviceBusEndpoint\": \"https://First-Relay-NameSpace.servicebus.windows.net:443/\",\r\n        \"enabled\": true,\r\n        \"critical\": false,\r\n        \"updatedAt\": \"2017-01-18T01:29:48.973Z\",\r\n        \"eventHubEnabled\": true,\r\n        \"namespaceType\": \"Relay\",\r\n        \"messagingSku\": 2\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-8028\",\r\n      \"name\": \"sdk-RelayNamespace-8028\",\r\n      \"type\": \"Microsoft.Relay/namespaces\",\r\n      \"location\": \"West US\",\r\n      \"kind\": \"Relay\",\r\n      \"sku\": {\r\n        \"name\": \"Standard\",\r\n        \"tier\": \"Standard\",\r\n        \"capacity\": 1\r\n      },\r\n      \"tags\": {\r\n        \"tag1\": \"value1\",\r\n        \"tag2\": \"value2\"\r\n      },\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-8028\",\r\n        \"status\": \"Active\",\r\n        \"createdAt\": \"2017-02-01T21:52:25.363Z\",\r\n        \"serviceBusEndpoint\": \"https://sdk-RelayNamespace-8028.servicebus.windows.net:443/\",\r\n        \"enabled\": true,\r\n        \"critical\": false,\r\n        \"updatedAt\": \"2017-02-01T21:52:49.31Z\",\r\n        \"eventHubEnabled\": true,\r\n        \"namespaceType\": \"Relay\",\r\n        \"messagingSku\": 2\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-342\",\r\n      \"name\": \"sdk-RelayNamespace-342\",\r\n      \"type\": \"Microsoft.Relay/namespaces\",\r\n      \"location\": \"West US\",\r\n      \"kind\": \"Relay\",\r\n      \"sku\": {\r\n        \"name\": \"Standard\",\r\n        \"tier\": \"Standard\",\r\n        \"capacity\": 1\r\n      },\r\n      \"tags\": {\r\n        \"tag1\": \"value1\",\r\n        \"tag2\": \"value2\"\r\n      },\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-342\",\r\n        \"status\": \"Active\",\r\n        \"createdAt\": \"2017-02-01T19:50:31.173Z\",\r\n        \"serviceBusEndpoint\": \"https://sdk-RelayNamespace-342.servicebus.windows.net:443/\",\r\n        \"enabled\": true,\r\n        \"critical\": false,\r\n        \"updatedAt\": \"2017-02-01T19:50:55.293Z\",\r\n        \"eventHubEnabled\": true,\r\n        \"namespaceType\": \"Relay\",\r\n        \"messagingSku\": 2\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-7456\",\r\n      \"name\": \"sdk-RelayNamespace-7456\",\r\n      \"type\": \"Microsoft.Relay/namespaces\",\r\n      \"location\": \"West US\",\r\n      \"kind\": \"Relay\",\r\n      \"sku\": {\r\n        \"name\": \"Standard\",\r\n        \"tier\": \"Standard\",\r\n        \"capacity\": 1\r\n      },\r\n      \"tags\": {\r\n        \"tag1\": \"value1\",\r\n        \"tag2\": \"value2\"\r\n      },\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-7456\",\r\n        \"status\": \"Active\",\r\n        \"createdAt\": \"2017-02-01T22:23:31.02Z\",\r\n        \"serviceBusEndpoint\": \"https://sdk-RelayNamespace-7456.servicebus.windows.net:443/\",\r\n        \"enabled\": true,\r\n        \"critical\": false,\r\n        \"updatedAt\": \"2017-02-01T22:23:53.837Z\",\r\n        \"eventHubEnabled\": true,\r\n        \"namespaceType\": \"Relay\",\r\n        \"messagingSku\": 2\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953\",\r\n      \"name\": \"sdk-RelayNamespace-4953\",\r\n      \"type\": \"Microsoft.Relay/namespaces\",\r\n      \"location\": \"West US\",\r\n      \"kind\": \"Relay\",\r\n      \"sku\": {\r\n        \"name\": \"Standard\",\r\n        \"tier\": \"Standard\",\r\n        \"capacity\": 1\r\n      },\r\n      \"tags\": {\r\n        \"tag1\": \"value1\",\r\n        \"tag2\": \"value2\"\r\n      },\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-relaynamespace-4953\",\r\n        \"status\": \"Active\",\r\n        \"createdAt\": \"2017-02-01T23:37:57.54Z\",\r\n        \"serviceBusEndpoint\": \"https://sdk-RelayNamespace-4953.servicebus.windows.net:443/\",\r\n        \"enabled\": true,\r\n        \"critical\": false,\r\n        \"updatedAt\": \"2017-02-01T23:38:21.573Z\",\r\n        \"eventHubEnabled\": true,\r\n        \"namespaceType\": \"Relay\",\r\n        \"messagingSku\": 2\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/Test-Realy\",\r\n      \"name\": \"Test-Realy\",\r\n      \"type\": \"Microsoft.Relay/namespaces\",\r\n      \"location\": \"West US\",\r\n      \"kind\": \"Relay\",\r\n      \"sku\": {\r\n        \"name\": \"Standard\",\r\n        \"tier\": \"Standard\",\r\n        \"capacity\": 1\r\n      },\r\n      \"tags\": {},\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"metricId\": \"e2f361f0-3b27-4503-a9cc-21cfba380093:test-realy\",\r\n        \"status\": \"Active\",\r\n        \"createdAt\": \"2017-01-18T01:53:45.86Z\",\r\n        \"serviceBusEndpoint\": \"https://Test-Realy.servicebus.windows.net:443/\",\r\n        \"enabled\": true,\r\n        \"critical\": false,\r\n        \"updatedAt\": \"2017-01-18T01:54:09.757Z\",\r\n        \"eventHubEnabled\": true,\r\n        \"namespaceType\": \"Relay\",\r\n        \"messagingSku\": 2\r\n      }\r\n    }\r\n  ],\r\n  \"nextLink\": null\r\n}",
       "ResponseHeaders": {
         "Content-Type": [
           "application/json; charset=utf-8"
@@ -354,7 +354,7 @@
           "no-cache"
         ],
         "Date": [
-          "Mon, 23 Jan 2017 20:32:42 GMT"
+          "Wed, 01 Feb 2017 23:38:33 GMT"
         ],
         "Pragma": [
           "no-cache"
@@ -370,19 +370,19 @@
           "Accept-Encoding"
         ],
         "x-ms-request-id": [
-          "24bcde83-a9b9-40e5-9376-87a677995d30_M6_M6"
+          "e07d0928-b3cf-412c-9aec-18a1edc23f07_M0_M0"
         ],
         "Server-SB": [
           "Service-Bus-Resource-Provider/SN1"
         ],
         "x-ms-ratelimit-remaining-subscription-reads": [
-          "14995"
+          "14983"
         ],
         "x-ms-correlation-request-id": [
-          "47b491e3-2611-40ee-9fcc-8a6138387e3c"
+          "9e3cc039-6151-470a-bb5b-4ef5d8989e49"
         ],
         "x-ms-routing-request-id": [
-          "CENTRALUS:20170123T203243Z:47b491e3-2611-40ee-9fcc-8a6138387e3c"
+          "CENTRALUS:20170201T233834Z:9e3cc039-6151-470a-bb5b-4ef5d8989e49"
         ],
         "Strict-Transport-Security": [
           "max-age=31536000; includeSubDomains"
@@ -391,8 +391,8 @@
       "StatusCode": 200
     },
     {
-      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/HybridConnections/sdk-Relay-Hybrid-9710?api-version=2016-07-01",
-      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS02MTIyL0h5YnJpZENvbm5lY3Rpb25zL3Nkay1SZWxheS1IeWJyaWQtOTcxMD9hcGktdmVyc2lvbj0yMDE2LTA3LTAx",
+      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953/HybridConnections/sdk-Relay-Hybrid-3279?api-version=2016-07-01",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS00OTUzL0h5YnJpZENvbm5lY3Rpb25zL3Nkay1SZWxheS1IeWJyaWQtMzI3OT9hcGktdmVyc2lvbj0yMDE2LTA3LTAx",
       "RequestMethod": "PUT",
       "RequestBody": "{\r\n  \"properties\": {\r\n    \"requiresClientAuthorization\": true\r\n  },\r\n  \"location\": \"West US\",\r\n  \"tags\": {\r\n    \"tag1\": \"value1\",\r\n    \"tag2\": \"value2\"\r\n  }\r\n}",
       "RequestHeaders": {
@@ -403,7 +403,7 @@
           "159"
         ],
         "x-ms-client-request-id": [
-          "859da12b-0129-46e0-af9b-c931509d07bf"
+          "78088e2c-a202-4686-a8c4-bbd0ab68c048"
         ],
         "accept-language": [
           "en-US"
@@ -413,7 +413,7 @@
           "Microsoft.Azure.Management.Relay.RelayManagementClient/0.0.1-preview"
         ]
       },
-      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/HybridConnections/sdk-Relay-Hybrid-9710\",\r\n  \"name\": \"sdk-Relay-Hybrid-9710\",\r\n  \"type\": \"Microsoft.Relay/HybridConnections\",\r\n  \"location\": \"West US\",\r\n  \"tags\": null,\r\n  \"properties\": {\r\n    \"path\": \"\",\r\n    \"createdAt\": \"2017-01-23T20:32:44.4723912Z\",\r\n    \"updatedAt\": \"2017-01-23T20:32:44.4723912Z\",\r\n    \"requiresClientAuthorization\": true\r\n  }\r\n}",
+      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953/HybridConnections/sdk-Relay-Hybrid-3279\",\r\n  \"name\": \"sdk-Relay-Hybrid-3279\",\r\n  \"type\": \"Microsoft.Relay/HybridConnections\",\r\n  \"location\": \"West US\",\r\n  \"tags\": null,\r\n  \"properties\": {\r\n    \"path\": \"\",\r\n    \"createdAt\": \"2017-02-01T23:38:36.2988898Z\",\r\n    \"updatedAt\": \"2017-02-01T23:38:36.2988898Z\",\r\n    \"requiresClientAuthorization\": true\r\n  }\r\n}",
       "ResponseHeaders": {
         "Content-Type": [
           "application/json; charset=utf-8"
@@ -425,7 +425,7 @@
           "no-cache"
         ],
         "Date": [
-          "Mon, 23 Jan 2017 20:32:44 GMT"
+          "Wed, 01 Feb 2017 23:38:36 GMT"
         ],
         "Pragma": [
           "no-cache"
@@ -441,7 +441,7 @@
           "Accept-Encoding"
         ],
         "x-ms-request-id": [
-          "2f882c79-bba2-40ab-b452-0f6fbf225937_M0_M0"
+          "1eba2557-4260-4fc9-bce7-3959599d57d6_M6_M6"
         ],
         "Server-SB": [
           "Service-Bus-Resource-Provider/SN1"
@@ -450,10 +450,10 @@
           "1198"
         ],
         "x-ms-correlation-request-id": [
-          "668f0614-5246-4fab-81f2-822350448031"
+          "205e79c6-3a3f-4f17-9165-68fc9c13a432"
         ],
         "x-ms-routing-request-id": [
-          "CENTRALUS:20170123T203245Z:668f0614-5246-4fab-81f2-822350448031"
+          "CENTRALUS:20170201T233836Z:205e79c6-3a3f-4f17-9165-68fc9c13a432"
         ],
         "Strict-Transport-Security": [
           "max-age=31536000; includeSubDomains"
@@ -462,13 +462,13 @@
       "StatusCode": 200
     },
     {
-      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/HybridConnections/sdk-Relay-Hybrid-9710?api-version=2016-07-01",
-      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS02MTIyL0h5YnJpZENvbm5lY3Rpb25zL3Nkay1SZWxheS1IeWJyaWQtOTcxMD9hcGktdmVyc2lvbj0yMDE2LTA3LTAx",
+      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953/HybridConnections/sdk-Relay-Hybrid-3279?api-version=2016-07-01",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS00OTUzL0h5YnJpZENvbm5lY3Rpb25zL3Nkay1SZWxheS1IeWJyaWQtMzI3OT9hcGktdmVyc2lvbj0yMDE2LTA3LTAx",
       "RequestMethod": "GET",
       "RequestBody": "",
       "RequestHeaders": {
         "x-ms-client-request-id": [
-          "1702b2b1-2adb-4db4-8a76-3fe4959eb82c"
+          "6b392cff-fe7d-4c00-bd39-8bf9e4dc311c"
         ],
         "accept-language": [
           "en-US"
@@ -478,7 +478,7 @@
           "Microsoft.Azure.Management.Relay.RelayManagementClient/0.0.1-preview"
         ]
       },
-      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/HybridConnections/sdk-Relay-Hybrid-9710\",\r\n  \"name\": \"sdk-Relay-Hybrid-9710\",\r\n  \"type\": \"Microsoft.Relay/HybridConnections\",\r\n  \"location\": \"West US\",\r\n  \"tags\": null,\r\n  \"properties\": {\r\n    \"path\": \"\",\r\n    \"createdAt\": \"2017-01-23T20:32:44.4723912Z\",\r\n    \"updatedAt\": \"2017-01-23T20:32:44.4723912Z\",\r\n    \"requiresClientAuthorization\": true,\r\n    \"listenerCount\": 0\r\n  }\r\n}",
+      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953/HybridConnections/sdk-Relay-Hybrid-3279\",\r\n  \"name\": \"sdk-Relay-Hybrid-3279\",\r\n  \"type\": \"Microsoft.Relay/HybridConnections\",\r\n  \"location\": \"West US\",\r\n  \"tags\": null,\r\n  \"properties\": {\r\n    \"path\": \"\",\r\n    \"createdAt\": \"2017-02-01T23:38:36.2988898Z\",\r\n    \"updatedAt\": \"2017-02-01T23:38:36.2988898Z\",\r\n    \"requiresClientAuthorization\": true,\r\n    \"listenerCount\": 0\r\n  }\r\n}",
       "ResponseHeaders": {
         "Content-Type": [
           "application/json; charset=utf-8"
@@ -490,7 +490,7 @@
           "no-cache"
         ],
         "Date": [
-          "Mon, 23 Jan 2017 20:32:44 GMT"
+          "Wed, 01 Feb 2017 23:38:36 GMT"
         ],
         "Pragma": [
           "no-cache"
@@ -506,19 +506,19 @@
           "Accept-Encoding"
         ],
         "x-ms-request-id": [
-          "1475f53c-d1a4-4f24-8f9d-7311b4b276bb_M0_M0"
+          "82fd2e36-d4d9-4b2d-98f2-21b7b227c821_M6_M6"
         ],
         "Server-SB": [
           "Service-Bus-Resource-Provider/SN1"
         ],
         "x-ms-ratelimit-remaining-subscription-reads": [
-          "14994"
+          "14982"
         ],
         "x-ms-correlation-request-id": [
-          "c7ffc3ed-1bcf-4d9b-bad9-830c77a2e7f0"
+          "91dda0d9-7786-451c-a96c-62e9955b1a11"
         ],
         "x-ms-routing-request-id": [
-          "CENTRALUS:20170123T203245Z:c7ffc3ed-1bcf-4d9b-bad9-830c77a2e7f0"
+          "CENTRALUS:20170201T233836Z:91dda0d9-7786-451c-a96c-62e9955b1a11"
         ],
         "Strict-Transport-Security": [
           "max-age=31536000; includeSubDomains"
@@ -527,8 +527,8 @@
       "StatusCode": 200
     },
     {
-      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/HybridConnections/sdk-Relay-Hybrid-9710/authorizationRules/sdk-RelayAuthRules-2012?api-version=2016-07-01",
-      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS02MTIyL0h5YnJpZENvbm5lY3Rpb25zL3Nkay1SZWxheS1IeWJyaWQtOTcxMC9hdXRob3JpemF0aW9uUnVsZXMvc2RrLVJlbGF5QXV0aFJ1bGVzLTIwMTI/YXBpLXZlcnNpb249MjAxNi0wNy0wMQ==",
+      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953/HybridConnections/sdk-Relay-Hybrid-3279/authorizationRules/sdk-RelayAuthRules-403?api-version=2016-07-01",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS00OTUzL0h5YnJpZENvbm5lY3Rpb25zL3Nkay1SZWxheS1IeWJyaWQtMzI3OS9hdXRob3JpemF0aW9uUnVsZXMvc2RrLVJlbGF5QXV0aFJ1bGVzLTQwMz9hcGktdmVyc2lvbj0yMDE2LTA3LTAx",
       "RequestMethod": "PUT",
       "RequestBody": "{\r\n  \"properties\": {\r\n    \"rights\": [\r\n      \"Listen\",\r\n      \"Send\"\r\n    ]\r\n  },\r\n  \"location\": \"West US\"\r\n}",
       "RequestHeaders": {
@@ -539,7 +539,7 @@
           "109"
         ],
         "x-ms-client-request-id": [
-          "b2abda5c-6c21-46b3-bf57-7f0c5262a9a4"
+          "4e32aef6-0cc8-4720-bdba-0a82047247bc"
         ],
         "accept-language": [
           "en-US"
@@ -549,7 +549,7 @@
           "Microsoft.Azure.Management.Relay.RelayManagementClient/0.0.1-preview"
         ]
       },
-      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/HybridConnections/sdk-Relay-Hybrid-9710/authorizationRules/sdk-RelayAuthRules-2012\",\r\n  \"name\": \"sdk-RelayAuthRules-2012\",\r\n  \"type\": \"Microsoft.Relay/AuthorizationRules\",\r\n  \"location\": \"West US\",\r\n  \"tags\": null,\r\n  \"properties\": {\r\n    \"rights\": [\r\n      \"Listen\",\r\n      \"Send\"\r\n    ]\r\n  }\r\n}",
+      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953/HybridConnections/sdk-Relay-Hybrid-3279/authorizationRules/sdk-RelayAuthRules-403\",\r\n  \"name\": \"sdk-RelayAuthRules-403\",\r\n  \"type\": \"Microsoft.Relay/AuthorizationRules\",\r\n  \"location\": \"West US\",\r\n  \"tags\": null,\r\n  \"properties\": {\r\n    \"rights\": [\r\n      \"Listen\",\r\n      \"Send\"\r\n    ]\r\n  }\r\n}",
       "ResponseHeaders": {
         "Content-Type": [
           "application/json; charset=utf-8"
@@ -561,7 +561,7 @@
           "no-cache"
         ],
         "Date": [
-          "Mon, 23 Jan 2017 20:32:50 GMT"
+          "Wed, 01 Feb 2017 23:38:41 GMT"
         ],
         "Pragma": [
           "no-cache"
@@ -577,7 +577,7 @@
           "Accept-Encoding"
         ],
         "x-ms-request-id": [
-          "5497517d-9257-4285-bd3c-90c114e854ab_M0_M0"
+          "addc4910-3b4a-491c-8d4a-83354824952e_M6_M6"
         ],
         "Server-SB": [
           "Service-Bus-Resource-Provider/SN1"
@@ -586,10 +586,10 @@
           "1197"
         ],
         "x-ms-correlation-request-id": [
-          "18b34039-6416-4b06-bb75-d6f2fa6138a2"
+          "5f225cfa-2e3a-4734-a238-a22a361af10e"
         ],
         "x-ms-routing-request-id": [
-          "CENTRALUS:20170123T203250Z:18b34039-6416-4b06-bb75-d6f2fa6138a2"
+          "CENTRALUS:20170201T233842Z:5f225cfa-2e3a-4734-a238-a22a361af10e"
         ],
         "Strict-Transport-Security": [
           "max-age=31536000; includeSubDomains"
@@ -598,8 +598,8 @@
       "StatusCode": 200
     },
     {
-      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/HybridConnections/sdk-Relay-Hybrid-9710/authorizationRules/sdk-RelayAuthRules-2012?api-version=2016-07-01",
-      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS02MTIyL0h5YnJpZENvbm5lY3Rpb25zL3Nkay1SZWxheS1IeWJyaWQtOTcxMC9hdXRob3JpemF0aW9uUnVsZXMvc2RrLVJlbGF5QXV0aFJ1bGVzLTIwMTI/YXBpLXZlcnNpb249MjAxNi0wNy0wMQ==",
+      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953/HybridConnections/sdk-Relay-Hybrid-3279/authorizationRules/sdk-RelayAuthRules-403?api-version=2016-07-01",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS00OTUzL0h5YnJpZENvbm5lY3Rpb25zL3Nkay1SZWxheS1IeWJyaWQtMzI3OS9hdXRob3JpemF0aW9uUnVsZXMvc2RrLVJlbGF5QXV0aFJ1bGVzLTQwMz9hcGktdmVyc2lvbj0yMDE2LTA3LTAx",
       "RequestMethod": "PUT",
       "RequestBody": "{\r\n  \"properties\": {\r\n    \"rights\": [\r\n      \"Listen\",\r\n      \"Send\"\r\n    ]\r\n  },\r\n  \"location\": \"West US\"\r\n}",
       "RequestHeaders": {
@@ -610,7 +610,7 @@
           "109"
         ],
         "x-ms-client-request-id": [
-          "8c5415f2-a750-4c7e-bf6f-7b0a7ecad329"
+          "da0fea64-076a-43e1-92f4-b1861d184b60"
         ],
         "accept-language": [
           "en-US"
@@ -620,7 +620,7 @@
           "Microsoft.Azure.Management.Relay.RelayManagementClient/0.0.1-preview"
         ]
       },
-      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/HybridConnections/sdk-Relay-Hybrid-9710/authorizationRules/sdk-RelayAuthRules-2012\",\r\n  \"name\": \"sdk-RelayAuthRules-2012\",\r\n  \"type\": \"Microsoft.Relay/AuthorizationRules\",\r\n  \"location\": \"West US\",\r\n  \"tags\": null,\r\n  \"properties\": {\r\n    \"rights\": [\r\n      \"Listen\",\r\n      \"Send\"\r\n    ]\r\n  }\r\n}",
+      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953/HybridConnections/sdk-Relay-Hybrid-3279/authorizationRules/sdk-RelayAuthRules-403\",\r\n  \"name\": \"sdk-RelayAuthRules-403\",\r\n  \"type\": \"Microsoft.Relay/AuthorizationRules\",\r\n  \"location\": \"West US\",\r\n  \"tags\": null,\r\n  \"properties\": {\r\n    \"rights\": [\r\n      \"Listen\",\r\n      \"Send\"\r\n    ]\r\n  }\r\n}",
       "ResponseHeaders": {
         "Content-Type": [
           "application/json; charset=utf-8"
@@ -632,7 +632,7 @@
           "no-cache"
         ],
         "Date": [
-          "Mon, 23 Jan 2017 20:32:55 GMT"
+          "Wed, 01 Feb 2017 23:38:47 GMT"
         ],
         "Pragma": [
           "no-cache"
@@ -648,7 +648,7 @@
           "Accept-Encoding"
         ],
         "x-ms-request-id": [
-          "cc468ff0-fb77-4212-9404-2df0951b12ff_M0_M0"
+          "6663f562-a1b3-4ac7-803f-3cea1c2f12ee_M6_M6"
         ],
         "Server-SB": [
           "Service-Bus-Resource-Provider/SN1"
@@ -657,10 +657,10 @@
           "1196"
         ],
         "x-ms-correlation-request-id": [
-          "230f9fb3-04e2-4d2d-abc3-4cbf16e5b5b3"
+          "d01072ce-8be4-43f7-a073-3795e1ca0ccc"
         ],
         "x-ms-routing-request-id": [
-          "CENTRALUS:20170123T203256Z:230f9fb3-04e2-4d2d-abc3-4cbf16e5b5b3"
+          "CENTRALUS:20170201T233847Z:d01072ce-8be4-43f7-a073-3795e1ca0ccc"
         ],
         "Strict-Transport-Security": [
           "max-age=31536000; includeSubDomains"
@@ -669,8 +669,8 @@
       "StatusCode": 200
     },
     {
-      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/HybridConnections/sdk-Relay-Hybrid-9710/authorizationRules/sdk-RelayAuthRules-2012?api-version=2016-07-01",
-      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS02MTIyL0h5YnJpZENvbm5lY3Rpb25zL3Nkay1SZWxheS1IeWJyaWQtOTcxMC9hdXRob3JpemF0aW9uUnVsZXMvc2RrLVJlbGF5QXV0aFJ1bGVzLTIwMTI/YXBpLXZlcnNpb249MjAxNi0wNy0wMQ==",
+      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953/HybridConnections/sdk-Relay-Hybrid-3279/authorizationRules/sdk-RelayAuthRules-403?api-version=2016-07-01",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS00OTUzL0h5YnJpZENvbm5lY3Rpb25zL3Nkay1SZWxheS1IeWJyaWQtMzI3OS9hdXRob3JpemF0aW9uUnVsZXMvc2RrLVJlbGF5QXV0aFJ1bGVzLTQwMz9hcGktdmVyc2lvbj0yMDE2LTA3LTAx",
       "RequestMethod": "PUT",
       "RequestBody": "{\r\n  \"properties\": {\r\n    \"rights\": [\r\n      \"Listen\"\r\n    ]\r\n  },\r\n  \"location\": \"West US\"\r\n}",
       "RequestHeaders": {
@@ -681,7 +681,7 @@
           "94"
         ],
         "x-ms-client-request-id": [
-          "0532c2d7-8548-4c8e-9660-2663ffe5a431"
+          "39db4dce-15b5-49cd-a6b3-c76a888f8c3d"
         ],
         "accept-language": [
           "en-US"
@@ -691,7 +691,7 @@
           "Microsoft.Azure.Management.Relay.RelayManagementClient/0.0.1-preview"
         ]
       },
-      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/HybridConnections/sdk-Relay-Hybrid-9710/authorizationRules/sdk-RelayAuthRules-2012\",\r\n  \"name\": \"sdk-RelayAuthRules-2012\",\r\n  \"type\": \"Microsoft.Relay/AuthorizationRules\",\r\n  \"location\": \"West US\",\r\n  \"tags\": null,\r\n  \"properties\": {\r\n    \"rights\": [\r\n      \"Listen\"\r\n    ]\r\n  }\r\n}",
+      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953/HybridConnections/sdk-Relay-Hybrid-3279/authorizationRules/sdk-RelayAuthRules-403\",\r\n  \"name\": \"sdk-RelayAuthRules-403\",\r\n  \"type\": \"Microsoft.Relay/AuthorizationRules\",\r\n  \"location\": \"West US\",\r\n  \"tags\": null,\r\n  \"properties\": {\r\n    \"rights\": [\r\n      \"Listen\"\r\n    ]\r\n  }\r\n}",
       "ResponseHeaders": {
         "Content-Type": [
           "application/json; charset=utf-8"
@@ -703,7 +703,7 @@
           "no-cache"
         ],
         "Date": [
-          "Mon, 23 Jan 2017 20:33:04 GMT"
+          "Wed, 01 Feb 2017 23:38:52 GMT"
         ],
         "Pragma": [
           "no-cache"
@@ -719,7 +719,7 @@
           "Accept-Encoding"
         ],
         "x-ms-request-id": [
-          "23ce8864-62ea-48b5-9ae4-715b1beb8521_M0_M0"
+          "700c4ff7-3402-41ea-af5b-87484fc839bf_M6_M6"
         ],
         "Server-SB": [
           "Service-Bus-Resource-Provider/SN1"
@@ -728,10 +728,10 @@
           "1195"
         ],
         "x-ms-correlation-request-id": [
-          "d2df3701-4bfd-4728-a6af-da9f6d518378"
+          "fa1e20bd-98dd-4638-b2ab-62343630d873"
         ],
         "x-ms-routing-request-id": [
-          "CENTRALUS:20170123T203304Z:d2df3701-4bfd-4728-a6af-da9f6d518378"
+          "CENTRALUS:20170201T233853Z:fa1e20bd-98dd-4638-b2ab-62343630d873"
         ],
         "Strict-Transport-Security": [
           "max-age=31536000; includeSubDomains"
@@ -740,13 +740,13 @@
       "StatusCode": 200
     },
     {
-      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/HybridConnections/sdk-Relay-Hybrid-9710/authorizationRules/sdk-RelayAuthRules-2012?api-version=2016-07-01",
-      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS02MTIyL0h5YnJpZENvbm5lY3Rpb25zL3Nkay1SZWxheS1IeWJyaWQtOTcxMC9hdXRob3JpemF0aW9uUnVsZXMvc2RrLVJlbGF5QXV0aFJ1bGVzLTIwMTI/YXBpLXZlcnNpb249MjAxNi0wNy0wMQ==",
+      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953/HybridConnections/sdk-Relay-Hybrid-3279/authorizationRules/sdk-RelayAuthRules-403?api-version=2016-07-01",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS00OTUzL0h5YnJpZENvbm5lY3Rpb25zL3Nkay1SZWxheS1IeWJyaWQtMzI3OS9hdXRob3JpemF0aW9uUnVsZXMvc2RrLVJlbGF5QXV0aFJ1bGVzLTQwMz9hcGktdmVyc2lvbj0yMDE2LTA3LTAx",
       "RequestMethod": "GET",
       "RequestBody": "",
       "RequestHeaders": {
         "x-ms-client-request-id": [
-          "005c6cc1-306c-47ab-b0b8-2a082f2b7f43"
+          "ce50588f-3e8d-4c10-b2a8-0a9cc711b4b1"
         ],
         "accept-language": [
           "en-US"
@@ -756,7 +756,7 @@
           "Microsoft.Azure.Management.Relay.RelayManagementClient/0.0.1-preview"
         ]
       },
-      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/HybridConnections/sdk-Relay-Hybrid-9710/authorizationRules/sdk-RelayAuthRules-2012\",\r\n  \"name\": \"sdk-RelayAuthRules-2012\",\r\n  \"type\": \"Microsoft.Relay/AuthorizationRules\",\r\n  \"location\": \"West US\",\r\n  \"tags\": null,\r\n  \"properties\": {\r\n    \"rights\": [\r\n      \"Listen\",\r\n      \"Send\"\r\n    ]\r\n  }\r\n}",
+      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953/HybridConnections/sdk-Relay-Hybrid-3279/authorizationRules/sdk-RelayAuthRules-403\",\r\n  \"name\": \"sdk-RelayAuthRules-403\",\r\n  \"type\": \"Microsoft.Relay/AuthorizationRules\",\r\n  \"location\": \"West US\",\r\n  \"tags\": null,\r\n  \"properties\": {\r\n    \"rights\": [\r\n      \"Listen\",\r\n      \"Send\"\r\n    ]\r\n  }\r\n}",
       "ResponseHeaders": {
         "Content-Type": [
           "application/json; charset=utf-8"
@@ -768,7 +768,7 @@
           "no-cache"
         ],
         "Date": [
-          "Mon, 23 Jan 2017 20:32:55 GMT"
+          "Wed, 01 Feb 2017 23:38:47 GMT"
         ],
         "Pragma": [
           "no-cache"
@@ -784,19 +784,19 @@
           "Accept-Encoding"
         ],
         "x-ms-request-id": [
-          "51f625c0-70e0-40a8-b183-61ce2cd3aee1_M0_M0"
+          "24745fa5-d387-4372-a765-1bcd4419246b_M6_M6"
         ],
         "Server-SB": [
           "Service-Bus-Resource-Provider/SN1"
         ],
         "x-ms-ratelimit-remaining-subscription-reads": [
-          "14993"
+          "14981"
         ],
         "x-ms-correlation-request-id": [
-          "6d43623e-5881-4ea9-bd1a-1e893785760c"
+          "7df6713b-d5d3-4125-8f87-4f2c7120b14f"
         ],
         "x-ms-routing-request-id": [
-          "CENTRALUS:20170123T203256Z:6d43623e-5881-4ea9-bd1a-1e893785760c"
+          "CENTRALUS:20170201T233847Z:7df6713b-d5d3-4125-8f87-4f2c7120b14f"
         ],
         "Strict-Transport-Security": [
           "max-age=31536000; includeSubDomains"
@@ -805,13 +805,13 @@
       "StatusCode": 200
     },
     {
-      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/HybridConnections/sdk-Relay-Hybrid-9710/authorizationRules/sdk-RelayAuthRules-2012?api-version=2016-07-01",
-      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS02MTIyL0h5YnJpZENvbm5lY3Rpb25zL3Nkay1SZWxheS1IeWJyaWQtOTcxMC9hdXRob3JpemF0aW9uUnVsZXMvc2RrLVJlbGF5QXV0aFJ1bGVzLTIwMTI/YXBpLXZlcnNpb249MjAxNi0wNy0wMQ==",
+      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953/HybridConnections/sdk-Relay-Hybrid-3279/authorizationRules/sdk-RelayAuthRules-403?api-version=2016-07-01",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS00OTUzL0h5YnJpZENvbm5lY3Rpb25zL3Nkay1SZWxheS1IeWJyaWQtMzI3OS9hdXRob3JpemF0aW9uUnVsZXMvc2RrLVJlbGF5QXV0aFJ1bGVzLTQwMz9hcGktdmVyc2lvbj0yMDE2LTA3LTAx",
       "RequestMethod": "GET",
       "RequestBody": "",
       "RequestHeaders": {
         "x-ms-client-request-id": [
-          "ca68a746-8221-41e9-a4b0-42548d86bc59"
+          "7a56ed95-46a4-4260-b0f8-21937faa07de"
         ],
         "accept-language": [
           "en-US"
@@ -821,7 +821,7 @@
           "Microsoft.Azure.Management.Relay.RelayManagementClient/0.0.1-preview"
         ]
       },
-      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/HybridConnections/sdk-Relay-Hybrid-9710/authorizationRules/sdk-RelayAuthRules-2012\",\r\n  \"name\": \"sdk-RelayAuthRules-2012\",\r\n  \"type\": \"Microsoft.Relay/AuthorizationRules\",\r\n  \"location\": \"West US\",\r\n  \"tags\": null,\r\n  \"properties\": {\r\n    \"rights\": [\r\n      \"Listen\"\r\n    ]\r\n  }\r\n}",
+      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953/HybridConnections/sdk-Relay-Hybrid-3279/authorizationRules/sdk-RelayAuthRules-403\",\r\n  \"name\": \"sdk-RelayAuthRules-403\",\r\n  \"type\": \"Microsoft.Relay/AuthorizationRules\",\r\n  \"location\": \"West US\",\r\n  \"tags\": null,\r\n  \"properties\": {\r\n    \"rights\": [\r\n      \"Listen\"\r\n    ]\r\n  }\r\n}",
       "ResponseHeaders": {
         "Content-Type": [
           "application/json; charset=utf-8"
@@ -833,7 +833,7 @@
           "no-cache"
         ],
         "Date": [
-          "Mon, 23 Jan 2017 20:33:04 GMT"
+          "Wed, 01 Feb 2017 23:38:52 GMT"
         ],
         "Pragma": [
           "no-cache"
@@ -849,19 +849,19 @@
           "Accept-Encoding"
         ],
         "x-ms-request-id": [
-          "6f0b04c8-683c-4667-a514-6b24af89d565_M0_M0"
+          "c1ca4f96-8e8d-4b6b-b5ca-99b2e8acb5f2_M6_M6"
         ],
         "Server-SB": [
           "Service-Bus-Resource-Provider/SN1"
         ],
         "x-ms-ratelimit-remaining-subscription-reads": [
-          "14991"
+          "14979"
         ],
         "x-ms-correlation-request-id": [
-          "1a3cdeaa-6ce8-47a7-8295-6675f1a6db3f"
+          "097a92c6-22bc-4246-b8cb-c61e2da1d100"
         ],
         "x-ms-routing-request-id": [
-          "CENTRALUS:20170123T203304Z:1a3cdeaa-6ce8-47a7-8295-6675f1a6db3f"
+          "CENTRALUS:20170201T233853Z:097a92c6-22bc-4246-b8cb-c61e2da1d100"
         ],
         "Strict-Transport-Security": [
           "max-age=31536000; includeSubDomains"
@@ -870,13 +870,13 @@
       "StatusCode": 200
     },
     {
-      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/HybridConnections/sdk-Relay-Hybrid-9710/authorizationRules?api-version=2016-07-01",
-      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS02MTIyL0h5YnJpZENvbm5lY3Rpb25zL3Nkay1SZWxheS1IeWJyaWQtOTcxMC9hdXRob3JpemF0aW9uUnVsZXM/YXBpLXZlcnNpb249MjAxNi0wNy0wMQ==",
+      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953/HybridConnections/sdk-Relay-Hybrid-3279/authorizationRules?api-version=2016-07-01",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS00OTUzL0h5YnJpZENvbm5lY3Rpb25zL3Nkay1SZWxheS1IeWJyaWQtMzI3OS9hdXRob3JpemF0aW9uUnVsZXM/YXBpLXZlcnNpb249MjAxNi0wNy0wMQ==",
       "RequestMethod": "GET",
       "RequestBody": "",
       "RequestHeaders": {
         "x-ms-client-request-id": [
-          "10a2dda2-41d9-440e-bd46-0557e4ce9f21"
+          "f44525e4-6051-480e-ac26-ac0f427976de"
         ],
         "accept-language": [
           "en-US"
@@ -886,7 +886,7 @@
           "Microsoft.Azure.Management.Relay.RelayManagementClient/0.0.1-preview"
         ]
       },
-      "ResponseBody": "{\r\n  \"value\": [\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/HybridConnections/sdk-Relay-Hybrid-9710/authorizationRules/sdk-RelayAuthRules-2012\",\r\n      \"name\": \"sdk-RelayAuthRules-2012\",\r\n      \"type\": \"Microsoft.Relay/AuthorizationRules\",\r\n      \"location\": \"West US\",\r\n      \"tags\": null,\r\n      \"properties\": {\r\n        \"rights\": [\r\n          \"Listen\",\r\n          \"Send\"\r\n        ]\r\n      }\r\n    }\r\n  ],\r\n  \"nextLink\": null\r\n}",
+      "ResponseBody": "{\r\n  \"value\": [\r\n    {\r\n      \"id\": \"/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953/HybridConnections/sdk-Relay-Hybrid-3279/authorizationRules/sdk-RelayAuthRules-403\",\r\n      \"name\": \"sdk-RelayAuthRules-403\",\r\n      \"type\": \"Microsoft.Relay/AuthorizationRules\",\r\n      \"location\": \"West US\",\r\n      \"tags\": null,\r\n      \"properties\": {\r\n        \"rights\": [\r\n          \"Listen\",\r\n          \"Send\"\r\n        ]\r\n      }\r\n    }\r\n  ],\r\n  \"nextLink\": null\r\n}",
       "ResponseHeaders": {
         "Content-Type": [
           "application/json; charset=utf-8"
@@ -898,7 +898,7 @@
           "no-cache"
         ],
         "Date": [
-          "Mon, 23 Jan 2017 20:32:56 GMT"
+          "Wed, 01 Feb 2017 23:38:47 GMT"
         ],
         "Pragma": [
           "no-cache"
@@ -914,19 +914,19 @@
           "Accept-Encoding"
         ],
         "x-ms-request-id": [
-          "13c64972-eb17-4f7f-a4bc-31d452295fe7_M0_M0"
+          "dd6685ab-952b-41f4-bc3c-254974e96596_M6_M6"
         ],
         "Server-SB": [
           "Service-Bus-Resource-Provider/SN1"
         ],
         "x-ms-ratelimit-remaining-subscription-reads": [
-          "14992"
+          "14980"
         ],
         "x-ms-correlation-request-id": [
-          "40a69fa3-b82b-4190-875f-66378819c783"
+          "00897426-627b-48c8-bc75-1591c76c1cbe"
         ],
         "x-ms-routing-request-id": [
-          "CENTRALUS:20170123T203256Z:40a69fa3-b82b-4190-875f-66378819c783"
+          "CENTRALUS:20170201T233847Z:00897426-627b-48c8-bc75-1591c76c1cbe"
         ],
         "Strict-Transport-Security": [
           "max-age=31536000; includeSubDomains"
@@ -935,13 +935,13 @@
       "StatusCode": 200
     },
     {
-      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/HybridConnections/sdk-Relay-Hybrid-9710/authorizationRules/sdk-RelayAuthRules-2012/ListKeys?api-version=2016-07-01",
-      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS02MTIyL0h5YnJpZENvbm5lY3Rpb25zL3Nkay1SZWxheS1IeWJyaWQtOTcxMC9hdXRob3JpemF0aW9uUnVsZXMvc2RrLVJlbGF5QXV0aFJ1bGVzLTIwMTIvTGlzdEtleXM/YXBpLXZlcnNpb249MjAxNi0wNy0wMQ==",
+      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953/HybridConnections/sdk-Relay-Hybrid-3279/authorizationRules/sdk-RelayAuthRules-403/ListKeys?api-version=2016-07-01",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS00OTUzL0h5YnJpZENvbm5lY3Rpb25zL3Nkay1SZWxheS1IeWJyaWQtMzI3OS9hdXRob3JpemF0aW9uUnVsZXMvc2RrLVJlbGF5QXV0aFJ1bGVzLTQwMy9MaXN0S2V5cz9hcGktdmVyc2lvbj0yMDE2LTA3LTAx",
       "RequestMethod": "POST",
       "RequestBody": "",
       "RequestHeaders": {
         "x-ms-client-request-id": [
-          "8499c765-e1cd-45a5-8384-08b031a0eb26"
+          "a57a2e06-5232-425d-bbb6-972ee8c661d8"
         ],
         "accept-language": [
           "en-US"
@@ -951,7 +951,7 @@
           "Microsoft.Azure.Management.Relay.RelayManagementClient/0.0.1-preview"
         ]
       },
-      "ResponseBody": "{\r\n  \"primaryConnectionString\": \"Endpoint=sb://sdk-relaynamespace-6122.servicebus.windows.net/;SharedAccessKeyName=sdk-RelayAuthRules-2012;SharedAccessKey=jAFs1FPxSFTzluFxx8vgFTyAX6ToWB2allieVcm7DNc=;EntityPath=sdk-Relay-Hybrid-9710\",\r\n  \"secondaryConnectionString\": \"Endpoint=sb://sdk-relaynamespace-6122.servicebus.windows.net/;SharedAccessKeyName=sdk-RelayAuthRules-2012;SharedAccessKey=IBhVUpw64jXb+XafH52qGXO6cPuZCUacV+tPjX4yLHk=;EntityPath=sdk-Relay-Hybrid-9710\",\r\n  \"primaryKey\": \"jAFs1FPxSFTzluFxx8vgFTyAX6ToWB2allieVcm7DNc=\",\r\n  \"secondaryKey\": \"IBhVUpw64jXb+XafH52qGXO6cPuZCUacV+tPjX4yLHk=\",\r\n  \"keyName\": \"sdk-RelayAuthRules-2012\"\r\n}",
+      "ResponseBody": "{\r\n  \"primaryConnectionString\": \"Endpoint=sb://sdk-relaynamespace-4953.servicebus.windows.net/;SharedAccessKeyName=sdk-RelayAuthRules-403;SharedAccessKey=wxaVxvI/MghL4aojLNyn6R6iOfCS4K/FtoQThLWQ+7M=;EntityPath=sdk-Relay-Hybrid-3279\",\r\n  \"secondaryConnectionString\": \"Endpoint=sb://sdk-relaynamespace-4953.servicebus.windows.net/;SharedAccessKeyName=sdk-RelayAuthRules-403;SharedAccessKey=+UpkC51xHYnwvOWnbgV0K5q3JynE0MW14JJpV7U7XAw=;EntityPath=sdk-Relay-Hybrid-3279\",\r\n  \"primaryKey\": \"wxaVxvI/MghL4aojLNyn6R6iOfCS4K/FtoQThLWQ+7M=\",\r\n  \"secondaryKey\": \"+UpkC51xHYnwvOWnbgV0K5q3JynE0MW14JJpV7U7XAw=\",\r\n  \"keyName\": \"sdk-RelayAuthRules-403\"\r\n}",
       "ResponseHeaders": {
         "Content-Type": [
           "application/json; charset=utf-8"
@@ -963,7 +963,7 @@
           "no-cache"
         ],
         "Date": [
-          "Mon, 23 Jan 2017 20:33:04 GMT"
+          "Wed, 01 Feb 2017 23:38:53 GMT"
         ],
         "Pragma": [
           "no-cache"
@@ -979,7 +979,7 @@
           "Accept-Encoding"
         ],
         "x-ms-request-id": [
-          "58fd77fd-7f92-4c4d-8834-cf8fa3daa591_M0_M0"
+          "a446910d-6b74-4104-9359-5020cbd5b750_M6_M6"
         ],
         "Server-SB": [
           "Service-Bus-Resource-Provider/SN1"
@@ -988,10 +988,10 @@
           "1194"
         ],
         "x-ms-correlation-request-id": [
-          "5955029b-db8e-405a-8e28-0d1077a41675"
+          "e84130d9-500e-448c-8c80-1876f400c6e6"
         ],
         "x-ms-routing-request-id": [
-          "CENTRALUS:20170123T203305Z:5955029b-db8e-405a-8e28-0d1077a41675"
+          "CENTRALUS:20170201T233853Z:e84130d9-500e-448c-8c80-1876f400c6e6"
         ],
         "Strict-Transport-Security": [
           "max-age=31536000; includeSubDomains"
@@ -1000,8 +1000,8 @@
       "StatusCode": 200
     },
     {
-      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/HybridConnections/sdk-Relay-Hybrid-9710/authorizationRules/sdk-RelayAuthRules-2012/regenerateKeys?api-version=2016-07-01",
-      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS02MTIyL0h5YnJpZENvbm5lY3Rpb25zL3Nkay1SZWxheS1IeWJyaWQtOTcxMC9hdXRob3JpemF0aW9uUnVsZXMvc2RrLVJlbGF5QXV0aFJ1bGVzLTIwMTIvcmVnZW5lcmF0ZUtleXM/YXBpLXZlcnNpb249MjAxNi0wNy0wMQ==",
+      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953/HybridConnection/sdk-Relay-Hybrid-3279/authorizationRules/sdk-RelayAuthRules-403/regenerateKeys?api-version=2016-07-01",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS00OTUzL0h5YnJpZENvbm5lY3Rpb24vc2RrLVJlbGF5LUh5YnJpZC0zMjc5L2F1dGhvcml6YXRpb25SdWxlcy9zZGstUmVsYXlBdXRoUnVsZXMtNDAzL3JlZ2VuZXJhdGVLZXlzP2FwaS12ZXJzaW9uPTIwMTYtMDctMDE=",
       "RequestMethod": "POST",
       "RequestBody": "{\r\n  \"Policykey\": \"PrimaryKey\"\r\n}",
       "RequestHeaders": {
@@ -1012,7 +1012,7 @@
           "33"
         ],
         "x-ms-client-request-id": [
-          "a0ec2e1e-e2f7-4592-846b-4296cef9e1d8"
+          "834ba76c-237f-4d95-9dba-27aac2e8580b"
         ],
         "accept-language": [
           "en-US"
@@ -1022,376 +1022,10 @@
           "Microsoft.Azure.Management.Relay.RelayManagementClient/0.0.1-preview"
         ]
       },
-      "ResponseBody": "{\r\n  \"primaryConnectionString\": \"Endpoint=sb://sdk-relaynamespace-6122.servicebus.windows.net/;SharedAccessKeyName=sdk-RelayAuthRules-2012;SharedAccessKey=HSO4Qrl3CoBqsYllpivXX0yGYhYcxRPHTII2eG2M7MQ=;EntityPath=sdk-Relay-Hybrid-9710\",\r\n  \"secondaryConnectionString\": \"Endpoint=sb://sdk-relaynamespace-6122.servicebus.windows.net/;SharedAccessKeyName=sdk-RelayAuthRules-2012;SharedAccessKey=IBhVUpw64jXb+XafH52qGXO6cPuZCUacV+tPjX4yLHk=;EntityPath=sdk-Relay-Hybrid-9710\",\r\n  \"primaryKey\": \"HSO4Qrl3CoBqsYllpivXX0yGYhYcxRPHTII2eG2M7MQ=\",\r\n  \"secondaryKey\": \"IBhVUpw64jXb+XafH52qGXO6cPuZCUacV+tPjX4yLHk=\",\r\n  \"keyName\": \"sdk-RelayAuthRules-2012\"\r\n}",
-      "ResponseHeaders": {
-        "Content-Type": [
-          "application/json; charset=utf-8"
-        ],
-        "Expires": [
-          "-1"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "Date": [
-          "Mon, 23 Jan 2017 20:33:04 GMT"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Transfer-Encoding": [
-          "chunked"
-        ],
-        "Server": [
-          "Service-Bus-Resource-Provider/SN1",
-          "Microsoft-HTTPAPI/2.0"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "x-ms-request-id": [
-          "e8dd25b8-2431-4865-b396-fefd58b085dc_M0_M0"
-        ],
-        "Server-SB": [
-          "Service-Bus-Resource-Provider/SN1"
-        ],
-        "x-ms-ratelimit-remaining-subscription-writes": [
-          "1193"
-        ],
-        "x-ms-correlation-request-id": [
-          "ba6b177f-19c8-4952-9f7b-92601dd40a28"
-        ],
-        "x-ms-routing-request-id": [
-          "CENTRALUS:20170123T203305Z:ba6b177f-19c8-4952-9f7b-92601dd40a28"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=31536000; includeSubDomains"
-        ]
-      },
-      "StatusCode": 200
-    },
-    {
-      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/HybridConnections/sdk-Relay-Hybrid-9710/authorizationRules/sdk-RelayAuthRules-2012/regenerateKeys?api-version=2016-07-01",
-      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS02MTIyL0h5YnJpZENvbm5lY3Rpb25zL3Nkay1SZWxheS1IeWJyaWQtOTcxMC9hdXRob3JpemF0aW9uUnVsZXMvc2RrLVJlbGF5QXV0aFJ1bGVzLTIwMTIvcmVnZW5lcmF0ZUtleXM/YXBpLXZlcnNpb249MjAxNi0wNy0wMQ==",
-      "RequestMethod": "POST",
-      "RequestBody": "{\r\n  \"Policykey\": \"SecondaryKey\"\r\n}",
-      "RequestHeaders": {
-        "Content-Type": [
-          "application/json; charset=utf-8"
-        ],
-        "Content-Length": [
-          "35"
-        ],
-        "x-ms-client-request-id": [
-          "2a5bb98c-4e8b-48c0-84e7-dba647e3c5da"
-        ],
-        "accept-language": [
-          "en-US"
-        ],
-        "User-Agent": [
-          "FxVersion/4.6.24410.01",
-          "Microsoft.Azure.Management.Relay.RelayManagementClient/0.0.1-preview"
-        ]
-      },
-      "ResponseBody": "{\r\n  \"primaryConnectionString\": \"Endpoint=sb://sdk-relaynamespace-6122.servicebus.windows.net/;SharedAccessKeyName=sdk-RelayAuthRules-2012;SharedAccessKey=HSO4Qrl3CoBqsYllpivXX0yGYhYcxRPHTII2eG2M7MQ=;EntityPath=sdk-Relay-Hybrid-9710\",\r\n  \"secondaryConnectionString\": \"Endpoint=sb://sdk-relaynamespace-6122.servicebus.windows.net/;SharedAccessKeyName=sdk-RelayAuthRules-2012;SharedAccessKey=4sgNb4A3s/Z0Czl980R1x0bB6rByqsPAlNaPasnwJ2U=;EntityPath=sdk-Relay-Hybrid-9710\",\r\n  \"primaryKey\": \"HSO4Qrl3CoBqsYllpivXX0yGYhYcxRPHTII2eG2M7MQ=\",\r\n  \"secondaryKey\": \"4sgNb4A3s/Z0Czl980R1x0bB6rByqsPAlNaPasnwJ2U=\",\r\n  \"keyName\": \"sdk-RelayAuthRules-2012\"\r\n}",
-      "ResponseHeaders": {
-        "Content-Type": [
-          "application/json; charset=utf-8"
-        ],
-        "Expires": [
-          "-1"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "Date": [
-          "Mon, 23 Jan 2017 20:33:05 GMT"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Transfer-Encoding": [
-          "chunked"
-        ],
-        "Server": [
-          "Service-Bus-Resource-Provider/SN1",
-          "Microsoft-HTTPAPI/2.0"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "x-ms-request-id": [
-          "fca8027f-b1cd-41cf-8aba-2bd54af76d43_M0_M0"
-        ],
-        "Server-SB": [
-          "Service-Bus-Resource-Provider/SN1"
-        ],
-        "x-ms-ratelimit-remaining-subscription-writes": [
-          "1192"
-        ],
-        "x-ms-correlation-request-id": [
-          "dcb07fb0-6bd2-44b1-bf76-6c24c37415ea"
-        ],
-        "x-ms-routing-request-id": [
-          "CENTRALUS:20170123T203305Z:dcb07fb0-6bd2-44b1-bf76-6c24c37415ea"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=31536000; includeSubDomains"
-        ]
-      },
-      "StatusCode": 200
-    },
-    {
-      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/HybridConnections/sdk-Relay-Hybrid-9710/authorizationRules/sdk-RelayAuthRules-2012?api-version=2016-07-01",
-      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS02MTIyL0h5YnJpZENvbm5lY3Rpb25zL3Nkay1SZWxheS1IeWJyaWQtOTcxMC9hdXRob3JpemF0aW9uUnVsZXMvc2RrLVJlbGF5QXV0aFJ1bGVzLTIwMTI/YXBpLXZlcnNpb249MjAxNi0wNy0wMQ==",
-      "RequestMethod": "DELETE",
-      "RequestBody": "",
-      "RequestHeaders": {
-        "x-ms-client-request-id": [
-          "985c5e89-b425-4f2c-b773-748576b0a916"
-        ],
-        "accept-language": [
-          "en-US"
-        ],
-        "User-Agent": [
-          "FxVersion/4.6.24410.01",
-          "Microsoft.Azure.Management.Relay.RelayManagementClient/0.0.1-preview"
-        ]
-      },
-      "ResponseBody": "",
+      "ResponseBody": "{\r\n  \"Message\": \"No HTTP resource was found that matches the request URI 'https://sbgm.windows.net/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-4953/HybridConnection/sdk-Relay-Hybrid-3279/authorizationRules/sdk-RelayAuthRules-403/regenerateKeys?api-version=2016-07-01'.\"\r\n}",
       "ResponseHeaders": {
         "Content-Length": [
-          "0"
-        ],
-        "Expires": [
-          "-1"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "Date": [
-          "Mon, 23 Jan 2017 20:33:05 GMT"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Server": [
-          "Service-Bus-Resource-Provider/SN1",
-          "Microsoft-HTTPAPI/2.0"
-        ],
-        "x-ms-request-id": [
-          "a95dba36-3be3-401a-bce5-3e1d55014d4d_M0_M0"
-        ],
-        "Server-SB": [
-          "Service-Bus-Resource-Provider/SN1"
-        ],
-        "x-ms-ratelimit-remaining-subscription-writes": [
-          "1191"
-        ],
-        "x-ms-correlation-request-id": [
-          "137a78f2-df22-4c71-9242-7639d582a336"
-        ],
-        "x-ms-routing-request-id": [
-          "CENTRALUS:20170123T203306Z:137a78f2-df22-4c71-9242-7639d582a336"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=31536000; includeSubDomains"
-        ]
-      },
-      "StatusCode": 200
-    },
-    {
-      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/HybridConnections/sdk-Relay-Hybrid-9710?api-version=2016-07-01",
-      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS02MTIyL0h5YnJpZENvbm5lY3Rpb25zL3Nkay1SZWxheS1IeWJyaWQtOTcxMD9hcGktdmVyc2lvbj0yMDE2LTA3LTAx",
-      "RequestMethod": "DELETE",
-      "RequestBody": "",
-      "RequestHeaders": {
-        "x-ms-client-request-id": [
-          "5fc6f9a3-aea9-4a16-91f3-42a5e003496f"
-        ],
-        "accept-language": [
-          "en-US"
-        ],
-        "User-Agent": [
-          "FxVersion/4.6.24410.01",
-          "Microsoft.Azure.Management.Relay.RelayManagementClient/0.0.1-preview"
-        ]
-      },
-      "ResponseBody": "",
-      "ResponseHeaders": {
-        "Content-Length": [
-          "0"
-        ],
-        "Expires": [
-          "-1"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "Date": [
-          "Mon, 23 Jan 2017 20:33:06 GMT"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Server": [
-          "Service-Bus-Resource-Provider/SN1",
-          "Microsoft-HTTPAPI/2.0"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=31536000; includeSubDomains"
-        ],
-        "Server-SB": [
-          "Service-Bus-Resource-Provider/SN1"
-        ],
-        "x-ms-ratelimit-remaining-subscription-writes": [
-          "1190"
-        ],
-        "x-ms-request-id": [
-          "1fa5cefb-0dbb-4d2b-98fd-9b09930e9690"
-        ],
-        "x-ms-correlation-request-id": [
-          "1fa5cefb-0dbb-4d2b-98fd-9b09930e9690"
-        ],
-        "x-ms-routing-request-id": [
-          "CENTRALUS:20170123T203307Z:1fa5cefb-0dbb-4d2b-98fd-9b09930e9690"
-        ]
-      },
-      "StatusCode": 200
-    },
-    {
-      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122?api-version=2016-07-01",
-      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS02MTIyP2FwaS12ZXJzaW9uPTIwMTYtMDctMDE=",
-      "RequestMethod": "DELETE",
-      "RequestBody": "",
-      "RequestHeaders": {
-        "x-ms-client-request-id": [
-          "2248cdc2-7f2a-44bf-b332-a339a846dff0"
-        ],
-        "accept-language": [
-          "en-US"
-        ],
-        "User-Agent": [
-          "FxVersion/4.6.24410.01",
-          "Microsoft.Azure.Management.Relay.RelayManagementClient/0.0.1-preview"
-        ]
-      },
-      "ResponseBody": "",
-      "ResponseHeaders": {
-        "Content-Length": [
-          "0"
-        ],
-        "Expires": [
-          "-1"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "Date": [
-          "Mon, 23 Jan 2017 20:33:06 GMT"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Location": [
-          "https://management.azure.com/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/operationresults/sdk-RelayNamespace-6122?api-version=2016-07-01"
-        ],
-        "Server": [
-          "Service-Bus-Resource-Provider/SN1",
-          "Microsoft-HTTPAPI/2.0"
-        ],
-        "x-ms-request-id": [
-          "cbace44b-acb6-4821-8593-b139538e0682_M0_M0"
-        ],
-        "Server-SB": [
-          "Service-Bus-Resource-Provider/SN1"
-        ],
-        "x-ms-ratelimit-remaining-subscription-writes": [
-          "1189"
-        ],
-        "x-ms-correlation-request-id": [
-          "b851aea6-43c0-41b4-9668-8f6ded1dd43b"
-        ],
-        "x-ms-routing-request-id": [
-          "CENTRALUS:20170123T203307Z:b851aea6-43c0-41b4-9668-8f6ded1dd43b"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=31536000; includeSubDomains"
-        ]
-      },
-      "StatusCode": 202
-    },
-    {
-      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/operationresults/sdk-RelayNamespace-6122?api-version=2016-07-01",
-      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS02MTIyL29wZXJhdGlvbnJlc3VsdHMvc2RrLVJlbGF5TmFtZXNwYWNlLTYxMjI/YXBpLXZlcnNpb249MjAxNi0wNy0wMQ==",
-      "RequestMethod": "GET",
-      "RequestBody": "",
-      "RequestHeaders": {
-        "User-Agent": [
-          "FxVersion/4.6.24410.01",
-          "Microsoft.Azure.Management.Relay.RelayManagementClient/0.0.1-preview"
-        ]
-      },
-      "ResponseBody": "",
-      "ResponseHeaders": {
-        "Content-Length": [
-          "0"
-        ],
-        "Expires": [
-          "-1"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "Date": [
-          "Mon, 23 Jan 2017 20:33:36 GMT"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Location": [
-          "https://management.azure.com/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/operationresults/sdk-RelayNamespace-6122?api-version=2016-07-01"
-        ],
-        "Server": [
-          "Service-Bus-Resource-Provider/SN1",
-          "Microsoft-HTTPAPI/2.0"
-        ],
-        "x-ms-request-id": [
-          "4d42154b-917d-4a0e-96c8-ba00c9b50638_M0_M0"
-        ],
-        "Server-SB": [
-          "Service-Bus-Resource-Provider/SN1"
-        ],
-        "x-ms-ratelimit-remaining-subscription-reads": [
-          "14990"
-        ],
-        "x-ms-correlation-request-id": [
-          "456f1425-bd37-4321-a15b-7835ab2f4a4b"
-        ],
-        "x-ms-routing-request-id": [
-          "CENTRALUS:20170123T203337Z:456f1425-bd37-4321-a15b-7835ab2f4a4b"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=31536000; includeSubDomains"
-        ]
-      },
-      "StatusCode": 202
-    },
-    {
-      "RequestUri": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.Relay/namespaces/sdk-RelayNamespace-6122/operationresults/sdk-RelayNamespace-6122?api-version=2016-07-01",
-      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvZTJmMzYxZjAtM2IyNy00NTAzLWE5Y2MtMjFjZmJhMzgwMDkzL3Jlc291cmNlR3JvdXBzL0RlZmF1bHQtU2VydmljZUJ1cy1XZXN0VVMvcHJvdmlkZXJzL01pY3Jvc29mdC5SZWxheS9uYW1lc3BhY2VzL3Nkay1SZWxheU5hbWVzcGFjZS02MTIyL29wZXJhdGlvbnJlc3VsdHMvc2RrLVJlbGF5TmFtZXNwYWNlLTYxMjI/YXBpLXZlcnNpb249MjAxNi0wNy0wMQ==",
-      "RequestMethod": "GET",
-      "RequestBody": "",
-      "RequestHeaders": {
-        "User-Agent": [
-          "FxVersion/4.6.24410.01",
-          "Microsoft.Azure.Management.Relay.RelayManagementClient/0.0.1-preview"
-        ]
-      },
-      "ResponseBody": "{\r\n  \"error\": {\r\n    \"code\": \"ResourceNotFound\",\r\n    \"message\": \"The Resource 'Microsoft.Relay/namespaces/sdk-RelayNamespace-6122' under resource group 'Default-ServiceBus-WestUS' was not found.\"\r\n  }\r\n}",
-      "ResponseHeaders": {
-        "Content-Length": [
-          "179"
+          "369"
         ],
         "Content-Type": [
           "application/json; charset=utf-8"
@@ -1403,22 +1037,29 @@
           "no-cache"
         ],
         "Date": [
-          "Mon, 23 Jan 2017 20:34:07 GMT"
+          "Wed, 01 Feb 2017 23:41:52 GMT"
         ],
         "Pragma": [
           "no-cache"
         ],
-        "x-ms-failure-cause": [
-          "gateway"
+        "Server": [
+          "Service-Bus-Resource-Provider/SN1",
+          "Microsoft-HTTPAPI/2.0"
+        ],
+        "Server-SB": [
+          "Service-Bus-Resource-Provider/SN1"
+        ],
+        "x-ms-ratelimit-remaining-subscription-writes": [
+          "1199"
         ],
         "x-ms-request-id": [
-          "6c9d6418-ca98-474f-a1d4-5de0c2a737f9"
+          "9b87172d-1b47-4fd2-9afe-7b18a895d3b5"
         ],
         "x-ms-correlation-request-id": [
-          "6c9d6418-ca98-474f-a1d4-5de0c2a737f9"
+          "9b87172d-1b47-4fd2-9afe-7b18a895d3b5"
         ],
         "x-ms-routing-request-id": [
-          "CENTRALUS:20170123T203407Z:6c9d6418-ca98-474f-a1d4-5de0c2a737f9"
+          "CENTRALUS:20170201T234152Z:9b87172d-1b47-4fd2-9afe-7b18a895d3b5"
         ],
         "Strict-Transport-Security": [
           "max-age=31536000; includeSubDomains"
@@ -1429,14 +1070,14 @@
   ],
   "Names": {
     "HybridConnectionsCreateGetUpdateDeleteAuthorizationRules": [
-      "sdk-RelayNamespace-6122",
-      "sdk-Relay-Hybrid-9710",
-      "sdk-RelayAuthRules-2012"
+      "sdk-RelayNamespace-4953",
+      "sdk-Relay-Hybrid-3279",
+      "sdk-RelayAuthRules-403"
     ]
   },
   "Variables": {
     "SubscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093",
-    "CreatePrimaryKey": "D79W8vA8zteOkRD2KbGXrx1Wzwaui/6ubbWuLNSn7ao=",
-    "UpdatePrimaryKey": "Dh0N4wcW5d4k5A9BNLlbN+dxdWv8hBGSoU/M0tJ3Tmc="
+    "CreatePrimaryKey": "MSVxYA0LTdpA02RN0feVf0hO1srJ03wcdUxbZ3ammxw=",
+    "UpdatePrimaryKey": "6fnwkxIYHWZOcJ2Kp8TwnfwiXviDDbjeP+5y2jhneaA="
   }
 }

@@ -23,11 +23,13 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// <param name="location">Resource location</param>
         /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
+        /// <param name="type">Resource type</param>
         /// <param name="tags">Resource tags</param>
-        public Resource(string location, string id = default(string), string name = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>))
+        public Resource(string location, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>))
         {
             Id = id;
             Name = name;
+            Type = type;
             Location = location;
             Tags = tags;
         }
@@ -43,6 +45,12 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "name")]
         public string Name { get; private set; }
+
+        /// <summary>
+        /// Gets resource type
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty(PropertyName = "type")]
+        public string Type { get; private set; }
 
         /// <summary>
         /// Gets or sets resource location

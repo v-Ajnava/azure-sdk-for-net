@@ -29,8 +29,8 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// <param name="location">Resource location</param>
         /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
-        /// <param name="tags">Resource tags</param>
         /// <param name="type">Resource type</param>
+        /// <param name="tags">Resource tags</param>
         /// <param name="provisioningState">Provisioning state of the
         /// namespace.</param>
         /// <param name="createdAt">The time the namespace was created.</param>
@@ -39,10 +39,9 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// Service Bus operations.</param>
         /// <param name="enabled">true if client authorization is needed for
         /// this relay; otherwise, false.</param>
-        public NamespaceResource(string location, string id = default(string), string name = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string type = default(string), string provisioningState = default(string), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), string serviceBusEndpoint = default(string), bool? enabled = default(bool?))
-            : base(location, id, name, tags)
+        public NamespaceResource(string location, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string provisioningState = default(string), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), string serviceBusEndpoint = default(string), bool? enabled = default(bool?))
+            : base(location, id, name, type, tags)
         {
-            Type = type;
             ProvisioningState = provisioningState;
             CreatedAt = createdAt;
             UpdatedAt = updatedAt;
@@ -56,12 +55,6 @@ namespace Microsoft.Azure.Management.Relay.Models
         {
             Sku = new Sku();
         }
-
-        /// <summary>
-        /// Gets or sets resource type
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "type")]
-        public string Type { get; set; }
 
         /// <summary>
         /// Gets or sets provisioning state of the namespace.
