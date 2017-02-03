@@ -30,17 +30,17 @@ namespace Microsoft.Azure.Management.ServiceBus.Models
         /// <summary>
         /// Initializes a new instance of the Filter class.
         /// </summary>
-        public Filter(FilterType? filterType = default(FilterType?))
+        public Filter(bool? requiresPreprocessing = default(bool?))
         {
-            FilterType = filterType;
+            RequiresPreprocessing = requiresPreprocessing;
         }
 
         /// <summary>
-        /// Filter Types. Possible values include: 'SqlFilter',
-        /// 'CorrelationFilter', 'LambdaExpressionFilter'
+        /// Value that indicates whether the rule action requires
+        /// preprocessing.
         /// </summary>
-        [JsonProperty(PropertyName = "filterType")]
-        public FilterType? FilterType { get; set; }
+        [JsonProperty(PropertyName = "requiresPreprocessing")]
+        public bool? RequiresPreprocessing { get; set; }
 
     }
 }

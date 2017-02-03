@@ -32,26 +32,47 @@ namespace Microsoft.Azure.Management.ServiceBus.Models
         /// Initializes a new instance of the RuleCreateOrUpdateParameters
         /// class.
         /// </summary>
-        public RuleCreateOrUpdateParameters(string location, string name = default(string), Filter filter = default(Filter), RuleAction action = default(RuleAction), DateTime? createdAt = default(DateTime?))
+        public RuleCreateOrUpdateParameters(string location, string id = default(string), string name = default(string), string type = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>), Filter filter = default(Filter), RuleAction action = default(RuleAction), DateTime? createdAt = default(DateTime?))
         {
+            Id = id;
             Name = name;
+            Type = type;
             Location = location;
+            Tags = tags;
             Filter = filter;
             Action = action;
             CreatedAt = createdAt;
         }
 
         /// <summary>
-        /// Rule name.
+        /// Resource Id
         /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
+        [JsonProperty(PropertyName = "properties.id")]
+        public string Id { get; private set; }
 
         /// <summary>
-        /// Location of the resource.
+        /// Resource name
         /// </summary>
-        [JsonProperty(PropertyName = "location")]
+        [JsonProperty(PropertyName = "properties.name")]
+        public string Name { get; private set; }
+
+        /// <summary>
+        /// Resource type
+        /// </summary>
+        [JsonProperty(PropertyName = "properties.type")]
+        public string Type { get; private set; }
+
+        /// <summary>
+        /// Resource location
+        /// </summary>
+        [JsonProperty(PropertyName = "properties.location")]
         public string Location { get; set; }
+
+        /// <summary>
+        /// Resource tags
+        /// </summary>
+        [JsonProperty(PropertyName = "properties.tags")]
+        public IDictionary<string, string> Tags { get; set; }
 
         /// <summary>
         /// Describes a filter expression that is evaluated against a

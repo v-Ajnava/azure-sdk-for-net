@@ -6,7 +6,7 @@
 @echo off
 set autoRestVersion=0.16.0-Nightly20160426 
 if  "%1" == "" (
-    set specFile="D:\SwaggerWork\v-ajnava_Fork\azure-rest-api-specs\arm-servicebus\2015-08-01\swagger\servicebus_test.json"
+    set specFile="D:\SwaggerWork\v-ajnava_Fork\azure-rest-api-specs\arm-servicebus\2015-08-01\swagger\servicebus.json"
 ) else (
     set specFile="%1"
 )

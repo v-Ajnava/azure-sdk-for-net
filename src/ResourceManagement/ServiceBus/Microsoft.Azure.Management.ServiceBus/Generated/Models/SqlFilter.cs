@@ -30,11 +30,12 @@ namespace Microsoft.Azure.Management.ServiceBus.Models
         /// <summary>
         /// Initializes a new instance of the SqlFilter class.
         /// </summary>
-        public SqlFilter(FilterType? filterType = default(FilterType?), string sqlExpression = default(string), int? compatibilityLevel = default(int?))
-            : base(filterType)
+        public SqlFilter(bool? requiresPreprocessing = default(bool?), string sqlExpression = default(string), int? compatibilityLevel = default(int?), IDictionary<string, object> parameters = default(IDictionary<string, object>))
+            : base(requiresPreprocessing)
         {
             SqlExpression = sqlExpression;
             CompatibilityLevel = compatibilityLevel;
+            Parameters = parameters;
         }
 
         /// <summary>
@@ -49,6 +50,12 @@ namespace Microsoft.Azure.Management.ServiceBus.Models
         /// </summary>
         [JsonProperty(PropertyName = "compatibilityLevel")]
         public int? CompatibilityLevel { get; set; }
+
+        /// <summary>
+        /// The value of a filter expression.
+        /// </summary>
+        [JsonProperty(PropertyName = "parameters")]
+        public IDictionary<string, object> Parameters { get; set; }
 
     }
 }

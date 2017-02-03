@@ -29,8 +29,8 @@ namespace Microsoft.Azure.Management.ServiceBus.Models
         /// <summary>
         /// Initializes a new instance of the CorrelationFilter class.
         /// </summary>
-        public CorrelationFilter(FilterType? filterType = default(FilterType?), string correlationId = default(string), string messageId = default(string), string to = default(string), string replyTo = default(string), string label = default(string), string sessionId = default(string), string replyToSessionId = default(string), string contentType = default(string))
-            : base(filterType)
+        public CorrelationFilter(bool? requiresPreprocessing = default(bool?), string correlationId = default(string), string messageId = default(string), string to = default(string), string replyTo = default(string), string label = default(string), string sessionId = default(string), string replyToSessionId = default(string), string contentType = default(string))
+            : base(requiresPreprocessing)
         {
             CorrelationId = correlationId;
             MessageId = messageId;
