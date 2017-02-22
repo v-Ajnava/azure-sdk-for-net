@@ -18,216 +18,6 @@ namespace Microsoft.Azure.Management.Relay
     public static partial class NamespacesOperationsExtensions
     {
             /// <summary>
-            /// Create Azure Relay namespace.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='resourceGroupName'>
-            /// The name of the resource group.
-            /// </param>
-            /// <param name='namespaceName'>
-            /// The namespace name.
-            /// </param>
-            /// <param name='parameters'>
-            /// Parameters supplied to create a Namespace Resource.
-            /// </param>
-            public static NamespaceResource CreateOrUpdate(this INamespacesOperations operations, string resourceGroupName, string namespaceName, NamespaceResource parameters)
-            {
-                return System.Threading.Tasks.Task.Factory.StartNew(s => ((INamespacesOperations)s).CreateOrUpdateAsync(resourceGroupName, namespaceName, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Create Azure Relay namespace.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='resourceGroupName'>
-            /// The name of the resource group.
-            /// </param>
-            /// <param name='namespaceName'>
-            /// The namespace name.
-            /// </param>
-            /// <param name='parameters'>
-            /// Parameters supplied to create a Namespace Resource.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async System.Threading.Tasks.Task<NamespaceResource> CreateOrUpdateAsync(this INamespacesOperations operations, string resourceGroupName, string namespaceName, NamespaceResource parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-            {
-                using (var _result = await operations.CreateOrUpdateWithHttpMessagesAsync(resourceGroupName, namespaceName, parameters, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Create Azure Relay namespace.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='resourceGroupName'>
-            /// The name of the resource group.
-            /// </param>
-            /// <param name='namespaceName'>
-            /// The namespace name.
-            /// </param>
-            /// <param name='parameters'>
-            /// Parameters supplied to create a Namespace Resource.
-            /// </param>
-            public static NamespaceResource BeginCreateOrUpdate(this INamespacesOperations operations, string resourceGroupName, string namespaceName, NamespaceResource parameters)
-            {
-                return System.Threading.Tasks.Task.Factory.StartNew(s => ((INamespacesOperations)s).BeginCreateOrUpdateAsync(resourceGroupName, namespaceName, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Create Azure Relay namespace.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='resourceGroupName'>
-            /// The name of the resource group.
-            /// </param>
-            /// <param name='namespaceName'>
-            /// The namespace name.
-            /// </param>
-            /// <param name='parameters'>
-            /// Parameters supplied to create a Namespace Resource.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async System.Threading.Tasks.Task<NamespaceResource> BeginCreateOrUpdateAsync(this INamespacesOperations operations, string resourceGroupName, string namespaceName, NamespaceResource parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-            {
-                using (var _result = await operations.BeginCreateOrUpdateWithHttpMessagesAsync(resourceGroupName, namespaceName, parameters, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Deletes an existing namespace. This operation also removes all associated
-            /// resources under the namespace.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='resourceGroupName'>
-            /// The name of the resource group.
-            /// </param>
-            /// <param name='namespaceName'>
-            /// The namespace name.
-            /// </param>
-            public static void Delete(this INamespacesOperations operations, string resourceGroupName, string namespaceName)
-            {
-                System.Threading.Tasks.Task.Factory.StartNew(s => ((INamespacesOperations)s).DeleteAsync(resourceGroupName, namespaceName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None,  System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Deletes an existing namespace. This operation also removes all associated
-            /// resources under the namespace.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='resourceGroupName'>
-            /// The name of the resource group.
-            /// </param>
-            /// <param name='namespaceName'>
-            /// The namespace name.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async System.Threading.Tasks.Task DeleteAsync(this INamespacesOperations operations, string resourceGroupName, string namespaceName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-            {
-                await operations.DeleteWithHttpMessagesAsync(resourceGroupName, namespaceName, null, cancellationToken).ConfigureAwait(false);
-            }
-
-            /// <summary>
-            /// Deletes an existing namespace. This operation also removes all associated
-            /// resources under the namespace.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='resourceGroupName'>
-            /// The name of the resource group.
-            /// </param>
-            /// <param name='namespaceName'>
-            /// The namespace name.
-            /// </param>
-            public static void BeginDelete(this INamespacesOperations operations, string resourceGroupName, string namespaceName)
-            {
-                System.Threading.Tasks.Task.Factory.StartNew(s => ((INamespacesOperations)s).BeginDeleteAsync(resourceGroupName, namespaceName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None,  System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Deletes an existing namespace. This operation also removes all associated
-            /// resources under the namespace.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='resourceGroupName'>
-            /// The name of the resource group.
-            /// </param>
-            /// <param name='namespaceName'>
-            /// The namespace name.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async System.Threading.Tasks.Task BeginDeleteAsync(this INamespacesOperations operations, string resourceGroupName, string namespaceName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-            {
-                await operations.BeginDeleteWithHttpMessagesAsync(resourceGroupName, namespaceName, null, cancellationToken).ConfigureAwait(false);
-            }
-
-            /// <summary>
-            /// Returns the description for the specified namespace.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='resourceGroupName'>
-            /// The name of the resource group.
-            /// </param>
-            /// <param name='namespaceName'>
-            /// The namespace name.
-            /// </param>
-            public static NamespaceResource Get(this INamespacesOperations operations, string resourceGroupName, string namespaceName)
-            {
-                return System.Threading.Tasks.Task.Factory.StartNew(s => ((INamespacesOperations)s).GetAsync(resourceGroupName, namespaceName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Returns the description for the specified namespace.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='resourceGroupName'>
-            /// The name of the resource group.
-            /// </param>
-            /// <param name='namespaceName'>
-            /// The namespace name.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async System.Threading.Tasks.Task<NamespaceResource> GetAsync(this INamespacesOperations operations, string resourceGroupName, string namespaceName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-            {
-                using (var _result = await operations.GetWithHttpMessagesAsync(resourceGroupName, namespaceName, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
             /// Lists all the available namespaces within the subscription irrespective of
             /// the resourceGroups.
             /// </summary>
@@ -264,7 +54,7 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             public static Microsoft.Rest.Azure.IPage<NamespaceResource> ListByResourceGroup(this INamespacesOperations operations, string resourceGroupName)
             {
@@ -278,7 +68,7 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -292,16 +82,226 @@ namespace Microsoft.Azure.Management.Relay
             }
 
             /// <summary>
+            /// Create Azure Relay namespace.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// Name of the Resource group within the Azure subscription.
+            /// </param>
+            /// <param name='namespaceName'>
+            /// The Namespace Name within the Resource Group
+            /// </param>
+            /// <param name='parameters'>
+            /// Parameters supplied to create a Namespace Resource.
+            /// </param>
+            public static NamespaceResource CreateOrUpdate(this INamespacesOperations operations, string resourceGroupName, string namespaceName, NamespaceResource parameters)
+            {
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((INamespacesOperations)s).CreateOrUpdateAsync(resourceGroupName, namespaceName, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Create Azure Relay namespace.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// Name of the Resource group within the Azure subscription.
+            /// </param>
+            /// <param name='namespaceName'>
+            /// The Namespace Name within the Resource Group
+            /// </param>
+            /// <param name='parameters'>
+            /// Parameters supplied to create a Namespace Resource.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task<NamespaceResource> CreateOrUpdateAsync(this INamespacesOperations operations, string resourceGroupName, string namespaceName, NamespaceResource parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                using (var _result = await operations.CreateOrUpdateWithHttpMessagesAsync(resourceGroupName, namespaceName, parameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Create Azure Relay namespace.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// Name of the Resource group within the Azure subscription.
+            /// </param>
+            /// <param name='namespaceName'>
+            /// The Namespace Name within the Resource Group
+            /// </param>
+            /// <param name='parameters'>
+            /// Parameters supplied to create a Namespace Resource.
+            /// </param>
+            public static NamespaceResource BeginCreateOrUpdate(this INamespacesOperations operations, string resourceGroupName, string namespaceName, NamespaceResource parameters)
+            {
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((INamespacesOperations)s).BeginCreateOrUpdateAsync(resourceGroupName, namespaceName, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Create Azure Relay namespace.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// Name of the Resource group within the Azure subscription.
+            /// </param>
+            /// <param name='namespaceName'>
+            /// The Namespace Name within the Resource Group
+            /// </param>
+            /// <param name='parameters'>
+            /// Parameters supplied to create a Namespace Resource.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task<NamespaceResource> BeginCreateOrUpdateAsync(this INamespacesOperations operations, string resourceGroupName, string namespaceName, NamespaceResource parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                using (var _result = await operations.BeginCreateOrUpdateWithHttpMessagesAsync(resourceGroupName, namespaceName, parameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Deletes an existing namespace. This operation also removes all associated
+            /// resources under the namespace.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// Name of the Resource group within the Azure subscription.
+            /// </param>
+            /// <param name='namespaceName'>
+            /// The Namespace Name within the Resource Group
+            /// </param>
+            public static void Delete(this INamespacesOperations operations, string resourceGroupName, string namespaceName)
+            {
+                System.Threading.Tasks.Task.Factory.StartNew(s => ((INamespacesOperations)s).DeleteAsync(resourceGroupName, namespaceName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None,  System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Deletes an existing namespace. This operation also removes all associated
+            /// resources under the namespace.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// Name of the Resource group within the Azure subscription.
+            /// </param>
+            /// <param name='namespaceName'>
+            /// The Namespace Name within the Resource Group
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task DeleteAsync(this INamespacesOperations operations, string resourceGroupName, string namespaceName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                await operations.DeleteWithHttpMessagesAsync(resourceGroupName, namespaceName, null, cancellationToken).ConfigureAwait(false);
+            }
+
+            /// <summary>
+            /// Deletes an existing namespace. This operation also removes all associated
+            /// resources under the namespace.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// Name of the Resource group within the Azure subscription.
+            /// </param>
+            /// <param name='namespaceName'>
+            /// The Namespace Name within the Resource Group
+            /// </param>
+            public static void BeginDelete(this INamespacesOperations operations, string resourceGroupName, string namespaceName)
+            {
+                System.Threading.Tasks.Task.Factory.StartNew(s => ((INamespacesOperations)s).BeginDeleteAsync(resourceGroupName, namespaceName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None,  System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Deletes an existing namespace. This operation also removes all associated
+            /// resources under the namespace.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// Name of the Resource group within the Azure subscription.
+            /// </param>
+            /// <param name='namespaceName'>
+            /// The Namespace Name within the Resource Group
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task BeginDeleteAsync(this INamespacesOperations operations, string resourceGroupName, string namespaceName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                await operations.BeginDeleteWithHttpMessagesAsync(resourceGroupName, namespaceName, null, cancellationToken).ConfigureAwait(false);
+            }
+
+            /// <summary>
+            /// Returns the description for the specified namespace.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// Name of the Resource group within the Azure subscription.
+            /// </param>
+            /// <param name='namespaceName'>
+            /// The Namespace Name within the Resource Group
+            /// </param>
+            public static NamespaceResource Get(this INamespacesOperations operations, string resourceGroupName, string namespaceName)
+            {
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((INamespacesOperations)s).GetAsync(resourceGroupName, namespaceName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns the description for the specified namespace.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// Name of the Resource group within the Azure subscription.
+            /// </param>
+            /// <param name='namespaceName'>
+            /// The Namespace Name within the Resource Group
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task<NamespaceResource> GetAsync(this INamespacesOperations operations, string resourceGroupName, string namespaceName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                using (var _result = await operations.GetWithHttpMessagesAsync(resourceGroupName, namespaceName, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Authorization rules for a namespace.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace Name within the Resource Group
             /// </param>
             public static Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRuleResource> ListAuthorizationRules(this INamespacesOperations operations, string resourceGroupName, string namespaceName)
             {
@@ -315,10 +315,10 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -338,10 +338,10 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='authorizationRuleName'>
             /// Namespace Authorization Rule Name.
@@ -361,10 +361,10 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='authorizationRuleName'>
             /// Namespace Authorization Rule Name.
@@ -390,13 +390,13 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='authorizationRuleName'>
-            /// Authorization Rule Name.
+            /// The authorizationRule name.
             /// </param>
             public static void DeleteAuthorizationRule(this INamespacesOperations operations, string resourceGroupName, string namespaceName, string authorizationRuleName)
             {
@@ -410,13 +410,13 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='authorizationRuleName'>
-            /// Authorization Rule Name.
+            /// The authorizationRule name.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -427,19 +427,62 @@ namespace Microsoft.Azure.Management.Relay
             }
 
             /// <summary>
+            /// Deletes a namespace authorization rule
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// Name of the Resource group within the Azure subscription.
+            /// </param>
+            /// <param name='namespaceName'>
+            /// The Namespace Name within the Resource Group
+            /// </param>
+            /// <param name='authorizationRuleName'>
+            /// The authorizationRule name.
+            /// </param>
+            public static void BeginDeleteAuthorizationRule(this INamespacesOperations operations, string resourceGroupName, string namespaceName, string authorizationRuleName)
+            {
+                System.Threading.Tasks.Task.Factory.StartNew(s => ((INamespacesOperations)s).BeginDeleteAuthorizationRuleAsync(resourceGroupName, namespaceName, authorizationRuleName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None,  System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Deletes a namespace authorization rule
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// Name of the Resource group within the Azure subscription.
+            /// </param>
+            /// <param name='namespaceName'>
+            /// The Namespace Name within the Resource Group
+            /// </param>
+            /// <param name='authorizationRuleName'>
+            /// The authorizationRule name.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task BeginDeleteAuthorizationRuleAsync(this INamespacesOperations operations, string resourceGroupName, string namespaceName, string authorizationRuleName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                await operations.BeginDeleteAuthorizationRuleWithHttpMessagesAsync(resourceGroupName, namespaceName, authorizationRuleName, null, cancellationToken).ConfigureAwait(false);
+            }
+
+            /// <summary>
             /// Authorization rule for a namespace by name.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='authorizationRuleName'>
-            /// Authorization rule name.
+            /// The authorizationRule name.
             /// </param>
             public static SharedAccessAuthorizationRuleResource GetAuthorizationRule(this INamespacesOperations operations, string resourceGroupName, string namespaceName, string authorizationRuleName)
             {
@@ -453,13 +496,13 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='authorizationRuleName'>
-            /// Authorization rule name.
+            /// The authorizationRule name.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -479,10 +522,10 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.
@@ -499,10 +542,10 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.
@@ -525,10 +568,10 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.
@@ -548,10 +591,10 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.

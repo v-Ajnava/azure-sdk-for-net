@@ -116,7 +116,7 @@ namespace Relay.Tests.ScenarioTests
                 string createPrimaryKey = HttpMockServer.GetVariable("CreatePrimaryKey", RelayManagementHelper.GenerateRandomKey());
                 var createAutorizationRuleParameter = new SharedAccessAuthorizationRuleResource()
                 {
-                    Rights = new List<AccessRights?>() { AccessRights.Listen, AccessRights.Send },
+                    Rights = new List<string>() { AccessRights.Listen, AccessRights.Send },
                     Location = createNamespaceResponse.Location
                 };
 
@@ -151,7 +151,7 @@ namespace Relay.Tests.ScenarioTests
                 // Update WCFRelay authorizationRule
                 string updatePrimaryKey = HttpMockServer.GetVariable("UpdatePrimaryKey", RelayManagementHelper.GenerateRandomKey());
                 SharedAccessAuthorizationRuleResource updateNamespaceAuthorizationRuleParameter = new SharedAccessAuthorizationRuleResource();
-                updateNamespaceAuthorizationRuleParameter.Rights = new List<AccessRights?>() { AccessRights.Listen };
+                updateNamespaceAuthorizationRuleParameter.Rights = new List<string>() { AccessRights.Listen };
                 updateNamespaceAuthorizationRuleParameter.Location = location;
 
                 var updateNamespaceAuthorizationRuleResponse = RelayManagementClient.WCFRelays.CreateOrUpdateAuthorizationRule(resourceGroup,

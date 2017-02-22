@@ -12,12 +12,9 @@ namespace Microsoft.Azure.Management.Relay.Models
     /// <summary>
     /// Defines values for Relaytype.
     /// </summary>
-    [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-    public enum Relaytype
+    public static class Relaytype
     {
-        [System.Runtime.Serialization.EnumMember(Value = "NetTcp")]
-        NetTcp,
-        [System.Runtime.Serialization.EnumMember(Value = "Http")]
-        Http
+        public const string NetTcp = "NetTcp";
+        public const string Http = "Http";
     }
 }

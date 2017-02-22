@@ -46,7 +46,7 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// it can be used to store  descriptive data, such as list of teams
         /// and their contact information also user-defined configuration
         /// settings can be stored.</param>
-        public WcfRelaysResource(string location, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), Relaytype? relayType = default(Relaytype?), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), int? listenerCount = default(int?), bool? requiresClientAuthorization = default(bool?), bool? requiresTransportSecurity = default(bool?), bool? isDynamic = default(bool?), string userMetadata = default(string))
+        public WcfRelaysResource(string location, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string relayType = default(string), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), int? listenerCount = default(int?), bool? requiresClientAuthorization = default(bool?), bool? requiresTransportSecurity = default(bool?), bool? isDynamic = default(bool?), string userMetadata = default(string))
             : base(location, id, name, type, tags)
         {
             RelayType = relayType;
@@ -64,7 +64,7 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// 'Http'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.relayType")]
-        public Relaytype? RelayType { get; set; }
+        public string RelayType { get; set; }
 
         /// <summary>
         /// Gets the time the WCFRelay was created.

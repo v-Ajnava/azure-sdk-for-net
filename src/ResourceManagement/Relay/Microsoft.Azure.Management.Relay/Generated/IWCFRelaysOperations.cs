@@ -17,13 +17,38 @@ namespace Microsoft.Azure.Management.Relay
     public partial interface IWCFRelaysOperations
     {
         /// <summary>
+        /// Lists the WCFRelays within the namespace.
+        /// </summary>
+        /// <param name='resourceGroupName'>
+        /// Name of the Resource group within the Azure subscription.
+        /// </param>
+        /// <param name='namespaceName'>
+        /// The Namespace Name within the Resource Group
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="ErrorResponseException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<WcfRelaysResource>>> ListAllWithHttpMessagesAsync(string resourceGroupName, string namespaceName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Creates or Updates a WCFRelays. This operation is idempotent.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='relayName'>
         /// The name of the relay.
@@ -51,10 +76,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Deletes a WCFRelays .
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='relayName'>
         /// The name of the relay.
@@ -76,10 +101,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Returns the description for the specified WCFRelays.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='relayName'>
         /// The name of the relay.
@@ -101,41 +126,16 @@ namespace Microsoft.Azure.Management.Relay
         /// </exception>
         System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<WcfRelaysResource>> GetWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Lists the WCFRelays within the namespace.
-        /// </summary>
-        /// <param name='resourceGroupName'>
-        /// The name of the resource group.
-        /// </param>
-        /// <param name='namespaceName'>
-        /// The namespace name.
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="ErrorResponseException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<WcfRelaysResource>>> ListAllWithHttpMessagesAsync(string resourceGroupName, string namespaceName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
         /// Authorization rules for a WCFRelays.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='relayName'>
-        /// The WCFRelays name.
+        /// The name of the relay.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -157,16 +157,16 @@ namespace Microsoft.Azure.Management.Relay
         /// Creates or Updates an authorization rule for a WCFRelays
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='relayName'>
         /// The name of the relay.
         /// </param>
         /// <param name='authorizationRuleName'>
-        /// Authorization Rule Name.
+        /// The authorizationRule name.
         /// </param>
         /// <param name='parameters'>
         /// The shared access authorization rule.
@@ -191,16 +191,16 @@ namespace Microsoft.Azure.Management.Relay
         /// Deletes a WCFRelays authorization rule
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='relayName'>
         /// The name of the relay.
         /// </param>
         /// <param name='authorizationRuleName'>
-        /// Authorization Rule Name.
+        /// The authorizationRule name.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -222,16 +222,16 @@ namespace Microsoft.Azure.Management.Relay
         /// Get authorizationRule for a WCFRelays by name.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='relayName'>
         /// The name of the relay.
         /// </param>
         /// <param name='authorizationRuleName'>
-        /// Authorization rule name.
+        /// The authorizationRule name.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -253,10 +253,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Primary and Secondary ConnectionStrings to the WCFRelays.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='relayName'>
         /// The name of the relay.
@@ -285,16 +285,16 @@ namespace Microsoft.Azure.Management.Relay
         /// WCFRelays
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='relayName'>
         /// The name of the relay.
         /// </param>
         /// <param name='authorizationRuleName'>
-        /// The authorizationRule name
+        /// The authorizationRule name.
         /// </param>
         /// <param name='parameters'>
         /// Parameters supplied to regenerate Auth Rule.

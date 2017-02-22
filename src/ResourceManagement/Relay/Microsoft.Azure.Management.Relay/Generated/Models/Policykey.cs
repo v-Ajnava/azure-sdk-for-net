@@ -12,12 +12,9 @@ namespace Microsoft.Azure.Management.Relay.Models
     /// <summary>
     /// Defines values for Policykey.
     /// </summary>
-    [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-    public enum Policykey
+    public static class Policykey
     {
-        [System.Runtime.Serialization.EnumMember(Value = "PrimaryKey")]
-        PrimaryKey,
-        [System.Runtime.Serialization.EnumMember(Value = "SecondaryKey")]
-        SecondaryKey
+        public const string PrimaryKey = "PrimaryKey";
+        public const string SecondaryKey = "SecondaryKey";
     }
 }

@@ -25,7 +25,7 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// </summary>
         /// <param name="policykey">Key that needs to be regenerated. Possible
         /// values include: 'PrimaryKey', 'SecondaryKey'</param>
-        public RegenerateKeysParameters(Policykey? policykey = default(Policykey?))
+        public RegenerateKeysParameters(string policykey = default(string))
         {
             Policykey = policykey;
         }
@@ -35,7 +35,7 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// include: 'PrimaryKey', 'SecondaryKey'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "Policykey")]
-        public Policykey? Policykey { get; set; }
+        public string Policykey { get; set; }
 
     }
 }

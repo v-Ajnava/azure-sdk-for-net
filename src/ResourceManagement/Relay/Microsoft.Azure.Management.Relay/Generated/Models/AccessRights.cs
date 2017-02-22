@@ -12,14 +12,10 @@ namespace Microsoft.Azure.Management.Relay.Models
     /// <summary>
     /// Defines values for AccessRights.
     /// </summary>
-    [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-    public enum AccessRights
+    public static class AccessRights
     {
-        [System.Runtime.Serialization.EnumMember(Value = "Manage")]
-        Manage,
-        [System.Runtime.Serialization.EnumMember(Value = "Send")]
-        Send,
-        [System.Runtime.Serialization.EnumMember(Value = "Listen")]
-        Listen
+        public const string Manage = "Manage";
+        public const string Send = "Send";
+        public const string Listen = "Listen";
     }
 }

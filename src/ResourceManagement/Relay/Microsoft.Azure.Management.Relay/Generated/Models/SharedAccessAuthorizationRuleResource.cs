@@ -32,7 +32,7 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// <param name="name">Resource name</param>
         /// <param name="type">Resource type</param>
         /// <param name="tags">Resource tags</param>
-        public SharedAccessAuthorizationRuleResource(string location, System.Collections.Generic.IList<AccessRights?> rights, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>))
+        public SharedAccessAuthorizationRuleResource(string location, System.Collections.Generic.IList<string> rights, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>))
             : base(location, id, name, type, tags)
         {
             Rights = rights;
@@ -42,7 +42,7 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// Gets or sets the rights associated with the rule.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.rights")]
-        public System.Collections.Generic.IList<AccessRights?> Rights { get; set; }
+        public System.Collections.Generic.IList<string> Rights { get; set; }
 
         /// <summary>
         /// Validate the object.

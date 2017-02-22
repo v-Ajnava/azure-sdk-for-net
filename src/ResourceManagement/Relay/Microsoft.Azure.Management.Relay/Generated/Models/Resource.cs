@@ -10,6 +10,9 @@ namespace Microsoft.Azure.Management.Relay.Models
 {
     using System.Linq;
 
+    /// <summary>
+    /// Definition of Resource
+    /// </summary>
     public partial class Resource : Microsoft.Rest.Azure.IResource
     {
         /// <summary>

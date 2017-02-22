@@ -17,17 +17,42 @@ namespace Microsoft.Azure.Management.Relay
     public partial interface IHybridConnectionsOperations
     {
         /// <summary>
+        /// Lists the HybridConnection within the namespace.
+        /// </summary>
+        /// <param name='resourceGroupName'>
+        /// Name of the Resource group within the Azure subscription.
+        /// </param>
+        /// <param name='namespaceName'>
+        /// The Namespace Name within the Resource Group
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="ErrorResponseException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<HybridConnectionResource>>> ListAllWithHttpMessagesAsync(string resourceGroupName, string namespaceName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Creates or Updates a service HybridConnection. This operation is
         /// idempotent.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='hybridConnectionName'>
-        /// The Hybrid Connections name.
+        /// The name of the hybrid connection.
         /// </param>
         /// <param name='parameters'>
         /// Parameters supplied to create a HybridConnection.
@@ -52,13 +77,13 @@ namespace Microsoft.Azure.Management.Relay
         /// Deletes a HybridConnection .
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='hybridConnectionName'>
-        /// The hybrid Connection name.
+        /// The name of the hybrid connection.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -77,10 +102,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Returns the description for the specified HybridConnection.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='hybridConnectionName'>
         /// The name of the hybrid connection.
@@ -102,41 +127,16 @@ namespace Microsoft.Azure.Management.Relay
         /// </exception>
         System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<HybridConnectionResource>> GetWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Lists the HybridConnection within the namespace.
-        /// </summary>
-        /// <param name='resourceGroupName'>
-        /// The name of the resource group.
-        /// </param>
-        /// <param name='namespaceName'>
-        /// The namespace name.
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="ErrorResponseException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<HybridConnectionResource>>> ListAllWithHttpMessagesAsync(string resourceGroupName, string namespaceName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
         /// Authorization rules for a HybridConnection.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='hybridConnectionName'>
-        /// The HybridConnection name.
+        /// The name of the hybrid connection.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -158,16 +158,16 @@ namespace Microsoft.Azure.Management.Relay
         /// Creates or Updates an authorization rule for a HybridConnection
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='hybridConnectionName'>
         /// The name of the hybrid connection.
         /// </param>
         /// <param name='authorizationRuleName'>
-        /// Authorization Rule Name.
+        /// The authorizationRule name.
         /// </param>
         /// <param name='parameters'>
         /// The shared access authorization rule.
@@ -192,16 +192,16 @@ namespace Microsoft.Azure.Management.Relay
         /// Deletes a HybridConnection authorization rule
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='hybridConnectionName'>
         /// The name of the hybrid connection.
         /// </param>
         /// <param name='authorizationRuleName'>
-        /// Authorization Rule Name.
+        /// The authorizationRule name.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -223,16 +223,16 @@ namespace Microsoft.Azure.Management.Relay
         /// HybridConnection authorizationRule for a HybridConnection by name.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='hybridConnectionName'>
         /// The name of the hybrid connection.
         /// </param>
         /// <param name='authorizationRuleName'>
-        /// Authorization rule name.
+        /// The authorizationRule name.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -254,10 +254,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Primary and Secondary ConnectionStrings to the HybridConnection.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='hybridConnectionName'>
         /// The name of the hybrid connection.
@@ -286,16 +286,16 @@ namespace Microsoft.Azure.Management.Relay
         /// HybridConnection
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='hybridConnectionName'>
         /// The name of the hybrid connection.
         /// </param>
         /// <param name='authorizationRuleName'>
-        /// The authorizationRule name
+        /// The authorizationRule name.
         /// </param>
         /// <param name='parameters'>
         /// Parameters supplied to regenerate Auth Rule.

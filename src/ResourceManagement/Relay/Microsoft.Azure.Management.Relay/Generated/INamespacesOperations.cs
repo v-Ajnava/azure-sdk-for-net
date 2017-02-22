@@ -17,13 +17,55 @@ namespace Microsoft.Azure.Management.Relay
     public partial interface INamespacesOperations
     {
         /// <summary>
+        /// Lists all the available namespaces within the subscription
+        /// irrespective of the resourceGroups.
+        /// </summary>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="ErrorResponseException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<NamespaceResource>>> ListBySubscriptionWithHttpMessagesAsync(System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Lists all the available namespaces within the ResourceGroup.
+        /// </summary>
+        /// <param name='resourceGroupName'>
+        /// Name of the Resource group within the Azure subscription.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="ErrorResponseException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<NamespaceResource>>> ListByResourceGroupWithHttpMessagesAsync(string resourceGroupName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Create Azure Relay namespace.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='parameters'>
         /// Parameters supplied to create a Namespace Resource.
@@ -48,10 +90,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Create Azure Relay namespace.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='parameters'>
         /// Parameters supplied to create a Namespace Resource.
@@ -77,10 +119,10 @@ namespace Microsoft.Azure.Management.Relay
         /// associated resources under the namespace.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -100,10 +142,10 @@ namespace Microsoft.Azure.Management.Relay
         /// associated resources under the namespace.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -122,10 +164,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Returns the description for the specified namespace.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -144,55 +186,13 @@ namespace Microsoft.Azure.Management.Relay
         /// </exception>
         System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<NamespaceResource>> GetWithHttpMessagesAsync(string resourceGroupName, string namespaceName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Lists all the available namespaces within the subscription
-        /// irrespective of the resourceGroups.
-        /// </summary>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="ErrorResponseException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<NamespaceResource>>> ListBySubscriptionWithHttpMessagesAsync(System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Lists all the available namespaces within the ResourceGroup.
-        /// </summary>
-        /// <param name='resourceGroupName'>
-        /// The name of the resource group.
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="ErrorResponseException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<NamespaceResource>>> ListByResourceGroupWithHttpMessagesAsync(string resourceGroupName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
         /// Authorization rules for a namespace.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -214,10 +214,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Creates or Updates an authorization rule for a namespace
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='authorizationRuleName'>
         /// Namespace Authorization Rule Name.
@@ -245,13 +245,13 @@ namespace Microsoft.Azure.Management.Relay
         /// Deletes a namespace authorization rule
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='authorizationRuleName'>
-        /// Authorization Rule Name.
+        /// The authorizationRule name.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -267,16 +267,41 @@ namespace Microsoft.Azure.Management.Relay
         /// </exception>
         System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse> DeleteAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string authorizationRuleName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Deletes a namespace authorization rule
+        /// </summary>
+        /// <param name='resourceGroupName'>
+        /// Name of the Resource group within the Azure subscription.
+        /// </param>
+        /// <param name='namespaceName'>
+        /// The Namespace Name within the Resource Group
+        /// </param>
+        /// <param name='authorizationRuleName'>
+        /// The authorizationRule name.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="ErrorResponseException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse> BeginDeleteAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string authorizationRuleName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Authorization rule for a namespace by name.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='authorizationRuleName'>
-        /// Authorization rule name.
+        /// The authorizationRule name.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -298,10 +323,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Primary and Secondary ConnectionStrings to the namespace
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationRule name.
@@ -327,10 +352,10 @@ namespace Microsoft.Azure.Management.Relay
         /// namespace
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name.
+        /// The Namespace Name within the Resource Group
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationRule name.

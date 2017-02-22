@@ -18,6 +18,46 @@ namespace Microsoft.Azure.Management.Relay
     public static partial class HybridConnectionsOperationsExtensions
     {
             /// <summary>
+            /// Lists the HybridConnection within the namespace.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// Name of the Resource group within the Azure subscription.
+            /// </param>
+            /// <param name='namespaceName'>
+            /// The Namespace Name within the Resource Group
+            /// </param>
+            public static Microsoft.Rest.Azure.IPage<HybridConnectionResource> ListAll(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName)
+            {
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IHybridConnectionsOperations)s).ListAllAsync(resourceGroupName, namespaceName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Lists the HybridConnection within the namespace.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// Name of the Resource group within the Azure subscription.
+            /// </param>
+            /// <param name='namespaceName'>
+            /// The Namespace Name within the Resource Group
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Microsoft.Rest.Azure.IPage<HybridConnectionResource>> ListAllAsync(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                using (var _result = await operations.ListAllWithHttpMessagesAsync(resourceGroupName, namespaceName, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Creates or Updates a service HybridConnection. This operation is
             /// idempotent.
             /// </summary>
@@ -25,13 +65,13 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The Hybrid Connections name.
+            /// The name of the hybrid connection.
             /// </param>
             /// <param name='parameters'>
             /// Parameters supplied to create a HybridConnection.
@@ -49,13 +89,13 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The Hybrid Connections name.
+            /// The name of the hybrid connection.
             /// </param>
             /// <param name='parameters'>
             /// Parameters supplied to create a HybridConnection.
@@ -78,13 +118,13 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The hybrid Connection name.
+            /// The name of the hybrid connection.
             /// </param>
             public static void Delete(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName)
             {
@@ -98,13 +138,13 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The hybrid Connection name.
+            /// The name of the hybrid connection.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -121,10 +161,10 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='hybridConnectionName'>
             /// The name of the hybrid connection.
@@ -141,10 +181,10 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='hybridConnectionName'>
             /// The name of the hybrid connection.
@@ -161,59 +201,19 @@ namespace Microsoft.Azure.Management.Relay
             }
 
             /// <summary>
-            /// Lists the HybridConnection within the namespace.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='resourceGroupName'>
-            /// The name of the resource group.
-            /// </param>
-            /// <param name='namespaceName'>
-            /// The namespace name.
-            /// </param>
-            public static Microsoft.Rest.Azure.IPage<HybridConnectionResource> ListAll(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName)
-            {
-                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IHybridConnectionsOperations)s).ListAllAsync(resourceGroupName, namespaceName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Lists the HybridConnection within the namespace.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='resourceGroupName'>
-            /// The name of the resource group.
-            /// </param>
-            /// <param name='namespaceName'>
-            /// The namespace name.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<Microsoft.Rest.Azure.IPage<HybridConnectionResource>> ListAllAsync(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-            {
-                using (var _result = await operations.ListAllWithHttpMessagesAsync(resourceGroupName, namespaceName, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
             /// Authorization rules for a HybridConnection.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The HybridConnection name.
+            /// The name of the hybrid connection.
             /// </param>
             public static Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRuleResource> ListAuthorizationRules(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName)
             {
@@ -227,13 +227,13 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The HybridConnection name.
+            /// The name of the hybrid connection.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -253,16 +253,16 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='hybridConnectionName'>
             /// The name of the hybrid connection.
             /// </param>
             /// <param name='authorizationRuleName'>
-            /// Authorization Rule Name.
+            /// The authorizationRule name.
             /// </param>
             /// <param name='parameters'>
             /// The shared access authorization rule.
@@ -279,16 +279,16 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='hybridConnectionName'>
             /// The name of the hybrid connection.
             /// </param>
             /// <param name='authorizationRuleName'>
-            /// Authorization Rule Name.
+            /// The authorizationRule name.
             /// </param>
             /// <param name='parameters'>
             /// The shared access authorization rule.
@@ -311,16 +311,16 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='hybridConnectionName'>
             /// The name of the hybrid connection.
             /// </param>
             /// <param name='authorizationRuleName'>
-            /// Authorization Rule Name.
+            /// The authorizationRule name.
             /// </param>
             public static SharedAccessAuthorizationRuleResource DeleteAuthorizationRule(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName)
             {
@@ -334,16 +334,16 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='hybridConnectionName'>
             /// The name of the hybrid connection.
             /// </param>
             /// <param name='authorizationRuleName'>
-            /// Authorization Rule Name.
+            /// The authorizationRule name.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -363,16 +363,16 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='hybridConnectionName'>
             /// The name of the hybrid connection.
             /// </param>
             /// <param name='authorizationRuleName'>
-            /// Authorization rule name.
+            /// The authorizationRule name.
             /// </param>
             public static SharedAccessAuthorizationRuleResource GetAuthorizationRule(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName)
             {
@@ -386,16 +386,16 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='hybridConnectionName'>
             /// The name of the hybrid connection.
             /// </param>
             /// <param name='authorizationRuleName'>
-            /// Authorization rule name.
+            /// The authorizationRule name.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -415,10 +415,10 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='hybridConnectionName'>
             /// The name of the hybrid connection.
@@ -438,10 +438,10 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='hybridConnectionName'>
             /// The name of the hybrid connection.
@@ -468,16 +468,16 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='hybridConnectionName'>
             /// The name of the hybrid connection.
             /// </param>
             /// <param name='authorizationRuleName'>
-            /// The authorizationRule name
+            /// The authorizationRule name.
             /// </param>
             /// <param name='parameters'>
             /// Parameters supplied to regenerate Auth Rule.
@@ -495,16 +495,16 @@ namespace Microsoft.Azure.Management.Relay
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name.
+            /// The Namespace Name within the Resource Group
             /// </param>
             /// <param name='hybridConnectionName'>
             /// The name of the hybrid connection.
             /// </param>
             /// <param name='authorizationRuleName'>
-            /// The authorizationRule name
+            /// The authorizationRule name.
             /// </param>
             /// <param name='parameters'>
             /// Parameters supplied to regenerate Auth Rule.
