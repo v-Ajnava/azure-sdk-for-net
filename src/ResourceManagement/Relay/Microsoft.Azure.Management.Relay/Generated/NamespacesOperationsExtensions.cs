@@ -24,9 +24,9 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static Microsoft.Rest.Azure.IPage<NamespaceResource> ListBySubscription(this INamespacesOperations operations)
+            public static Microsoft.Rest.Azure.IPage<NamespaceResource> List(this INamespacesOperations operations)
             {
-                return System.Threading.Tasks.Task.Factory.StartNew(s => ((INamespacesOperations)s).ListBySubscriptionAsync(), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((INamespacesOperations)s).ListAsync(), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -39,9 +39,9 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Microsoft.Rest.Azure.IPage<NamespaceResource>> ListBySubscriptionAsync(this INamespacesOperations operations, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async Task<Microsoft.Rest.Azure.IPage<NamespaceResource>> ListAsync(this INamespacesOperations operations, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
-                using (var _result = await operations.ListBySubscriptionWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -623,9 +623,9 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='nextPageLink'>
             /// The NextLink from the previous successful call to List operation.
             /// </param>
-            public static Microsoft.Rest.Azure.IPage<NamespaceResource> ListBySubscriptionNext(this INamespacesOperations operations, string nextPageLink)
+            public static Microsoft.Rest.Azure.IPage<NamespaceResource> ListNext(this INamespacesOperations operations, string nextPageLink)
             {
-                return System.Threading.Tasks.Task.Factory.StartNew(s => ((INamespacesOperations)s).ListBySubscriptionNextAsync(nextPageLink), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((INamespacesOperations)s).ListNextAsync(nextPageLink), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -641,9 +641,9 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Microsoft.Rest.Azure.IPage<NamespaceResource>> ListBySubscriptionNextAsync(this INamespacesOperations operations, string nextPageLink, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async Task<Microsoft.Rest.Azure.IPage<NamespaceResource>> ListNextAsync(this INamespacesOperations operations, string nextPageLink, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
-                using (var _result = await operations.ListBySubscriptionNextWithHttpMessagesAsync(nextPageLink, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListNextWithHttpMessagesAsync(nextPageLink, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

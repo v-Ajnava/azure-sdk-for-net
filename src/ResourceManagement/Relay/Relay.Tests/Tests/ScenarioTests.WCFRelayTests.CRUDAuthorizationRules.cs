@@ -88,7 +88,7 @@ namespace Relay.Tests.ScenarioTests
                 Assert.True(getAllNamespacesResponse.All(ns => ns.Id.Contains(resourceGroup)));
 
                 // Get all namespaces created within the subscription irrespective of the resourceGroup
-                getAllNamespacesResponse = RelayManagementClient.Namespaces.ListBySubscription();
+                getAllNamespacesResponse = RelayManagementClient.Namespaces.List();
                 Assert.NotNull(getAllNamespacesResponse);
                 Assert.True(getAllNamespacesResponse.Count() >= 1);
                 Assert.True(getAllNamespacesResponse.Any(ns => ns.Name == namespaceName));

@@ -29,9 +29,9 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='namespaceName'>
             /// The Namespace Name within the Resource Group
             /// </param>
-            public static Microsoft.Rest.Azure.IPage<WcfRelaysResource> ListAll(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName)
+            public static Microsoft.Rest.Azure.IPage<WcfRelaysResource> ListByNamespace(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName)
             {
-                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IWCFRelaysOperations)s).ListAllAsync(resourceGroupName, namespaceName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IWCFRelaysOperations)s).ListByNamespaceAsync(resourceGroupName, namespaceName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -49,9 +49,9 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Microsoft.Rest.Azure.IPage<WcfRelaysResource>> ListAllAsync(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async Task<Microsoft.Rest.Azure.IPage<WcfRelaysResource>> ListByNamespaceAsync(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
-                using (var _result = await operations.ListAllWithHttpMessagesAsync(resourceGroupName, namespaceName, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListByNamespaceWithHttpMessagesAsync(resourceGroupName, namespaceName, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -525,9 +525,9 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='nextPageLink'>
             /// The NextLink from the previous successful call to List operation.
             /// </param>
-            public static Microsoft.Rest.Azure.IPage<WcfRelaysResource> ListAllNext(this IWCFRelaysOperations operations, string nextPageLink)
+            public static Microsoft.Rest.Azure.IPage<WcfRelaysResource> ListByNamespaceNext(this IWCFRelaysOperations operations, string nextPageLink)
             {
-                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IWCFRelaysOperations)s).ListAllNextAsync(nextPageLink), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IWCFRelaysOperations)s).ListByNamespaceNextAsync(nextPageLink), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -542,9 +542,9 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Microsoft.Rest.Azure.IPage<WcfRelaysResource>> ListAllNextAsync(this IWCFRelaysOperations operations, string nextPageLink, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async Task<Microsoft.Rest.Azure.IPage<WcfRelaysResource>> ListByNamespaceNextAsync(this IWCFRelaysOperations operations, string nextPageLink, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
-                using (var _result = await operations.ListAllNextWithHttpMessagesAsync(nextPageLink, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListByNamespaceNextWithHttpMessagesAsync(nextPageLink, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

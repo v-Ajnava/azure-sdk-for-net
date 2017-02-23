@@ -89,7 +89,7 @@ namespace Relay.Tests.ScenarioTests
                 Assert.True(getAllNamespacesResponse.All(ns => ns.Id.Contains(resourceGroup)));
 
                 // Get all namespaces created within the subscription irrespective of the resourceGroup
-                getAllNamespacesResponse = RelayManagementClient.Namespaces.ListBySubscription();
+                getAllNamespacesResponse = RelayManagementClient.Namespaces.List();
                 Assert.NotNull(getAllNamespacesResponse);
                 Assert.True(getAllNamespacesResponse.Count() >= 1);
                 Assert.True(getAllNamespacesResponse.Any(ns => ns.Name == namespaceName));
@@ -130,7 +130,7 @@ namespace Relay.Tests.ScenarioTests
                 Assert.Equal(createdWCFRelayResponse.UserMetadata, strUserMetadata);
 
                 //Get List of all Hybridconnections in given NameSpace. 
-                var listAllWCFRelaysResponse = RelayManagementClient.WCFRelays.ListAll(resourceGroup, namespaceName);
+                var listAllWCFRelaysResponse = RelayManagementClient.WCFRelays.ListByNamespace(resourceGroup, namespaceName);
                 Assert.NotNull(listAllWCFRelaysResponse);
                 Assert.True(listAllWCFRelaysResponse.Count() >= 1);
                 //Assert.True(listAllWCFRelaysResponse.Any(wcfRelay => wcfRelay.Name == wcfRelayName));
