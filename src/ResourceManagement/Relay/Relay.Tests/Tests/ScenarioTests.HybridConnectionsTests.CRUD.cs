@@ -45,10 +45,13 @@ namespace Relay.Tests.ScenarioTests
 
                 // Create Namespace
                 var namespaceName = TestUtilities.GenerateName(RelayManagementHelper.NamespacePrefix);
-               
+
+                var responseOperationlist = this.RelayManagementClient.Operations.List();
+
+                var responseCheckNameAvailability = this.RelayManagementClient.Namespaces.CheckNameAvailability(new CheckNameAvailability { Name = namespaceName });
 
                 var createNamespaceResponse = this.RelayManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName,
-                    new NamespaceResource()
+                    new NamespaceModel()
                     {
                         Location = location,
                         //Sku = new Sku
@@ -95,14 +98,8 @@ namespace Relay.Tests.ScenarioTests
 
                 // Create HybridConnections Relay  - 
                 var hybridConnectionsName = TestUtilities.GenerateName(RelayManagementHelper.HybridPrefix);
-                var createdWCFRelayResponse = RelayManagementClient.HybridConnections.CreateOrUpdate(resourceGroup, namespaceName, hybridConnectionsName, new HybridConnectionResource()
-                {
-                    Tags = new Dictionary<string, string>()
-                        {
-                            {"tag1_hybrid", "value1_hybrid"},
-                            {"tag2_hybrid", "value2_hybrid"}
-                        },
-                    Location = createNamespaceResponse.Location,                    
+                var createdWCFRelayResponse = RelayManagementClient.HybridConnections.CreateOrUpdate(resourceGroup, namespaceName, hybridConnectionsName, new HybridConnection()
+                {                                       
                     RequiresClientAuthorization = true
                 });
 

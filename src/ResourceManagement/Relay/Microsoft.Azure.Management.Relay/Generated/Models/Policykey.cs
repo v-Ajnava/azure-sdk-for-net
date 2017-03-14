@@ -10,9 +10,9 @@ namespace Microsoft.Azure.Management.Relay.Models
 {
 
     /// <summary>
-    /// Defines values for Policykey.
+    /// Defines values for PolicyKey.
     /// </summary>
-    public static class Policykey
+    public static class PolicyKey
     {
         public const string PrimaryKey = "PrimaryKey";
         public const string SecondaryKey = "SecondaryKey";

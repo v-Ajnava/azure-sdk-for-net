@@ -23,7 +23,7 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -40,18 +40,18 @@ namespace Microsoft.Azure.Management.Relay
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<WcfRelaysResource>>> ListByNamespaceWithHttpMessagesAsync(string resourceGroupName, string namespaceName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<WcfRelay>>> ListByNamespaceWithHttpMessagesAsync(string resourceGroupName, string namespaceName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Creates or Updates a WCFRelays. This operation is idempotent.
+        /// Creates or Updates a WCFRelay. This operation is idempotent.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='relayName'>
-        /// The name of the relay.
+        /// The relay name
         /// </param>
         /// <param name='parameters'>
         /// Parameters supplied to create a WCFRelays.
@@ -71,7 +71,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<WcfRelaysResource>> CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, WcfRelaysResource parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<WcfRelay>> CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, WcfRelay parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Deletes a WCFRelays .
         /// </summary>
@@ -79,10 +79,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='relayName'>
-        /// The name of the relay.
+        /// The relay name
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -104,10 +104,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='relayName'>
-        /// The name of the relay.
+        /// The relay name
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -124,7 +124,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<WcfRelaysResource>> GetWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<WcfRelay>> GetWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Authorization rules for a WCFRelays.
         /// </summary>
@@ -132,10 +132,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='relayName'>
-        /// The name of the relay.
+        /// The relay name
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -152,7 +152,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRuleResource>>> ListAuthorizationRulesWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRule>>> ListAuthorizationRulesWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Creates or Updates an authorization rule for a WCFRelays
         /// </summary>
@@ -160,10 +160,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='relayName'>
-        /// The name of the relay.
+        /// The relay name
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationRule name.
@@ -186,7 +186,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRuleResource>> CreateOrUpdateAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, SharedAccessAuthorizationRuleResource parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRule>> CreateOrUpdateAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, SharedAccessAuthorizationRule parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Deletes a WCFRelays authorization rule
         /// </summary>
@@ -194,10 +194,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='relayName'>
-        /// The name of the relay.
+        /// The relay name
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationRule name.
@@ -217,7 +217,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRuleResource>> DeleteAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRule>> DeleteAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get authorizationRule for a WCFRelays by name.
         /// </summary>
@@ -225,10 +225,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='relayName'>
-        /// The name of the relay.
+        /// The relay name
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationRule name.
@@ -248,7 +248,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRuleResource>> GetAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRule>> GetAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Primary and Secondary ConnectionStrings to the WCFRelays.
         /// </summary>
@@ -256,10 +256,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='relayName'>
-        /// The name of the relay.
+        /// The relay name
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationRule name.
@@ -288,10 +288,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='relayName'>
-        /// The name of the relay.
+        /// The relay name
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationRule name.
@@ -336,7 +336,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<WcfRelaysResource>>> ListByNamespaceNextWithHttpMessagesAsync(string nextPageLink, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<WcfRelay>>> ListByNamespaceNextWithHttpMessagesAsync(string nextPageLink, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Authorization rules for a WCFRelays.
         /// </summary>
@@ -358,6 +358,6 @@ namespace Microsoft.Azure.Management.Relay
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRuleResource>>> ListAuthorizationRulesNextWithHttpMessagesAsync(string nextPageLink, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRule>>> ListAuthorizationRulesNextWithHttpMessagesAsync(string nextPageLink, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     }
 }

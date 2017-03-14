@@ -29,7 +29,7 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// of the created Namespace AuthorizationRule</param>
         /// <param name="primaryKey">A base64-encoded 256-bit primary key for
         /// signing and validating the SAS token</param>
-        /// <param name="secondaryKey">A base64-encoded 256-bit primary key
+        /// <param name="secondaryKey">A base64-encoded 256-bit secondary key
         /// for signing and validating the SAS token</param>
         /// <param name="keyName">A string that describes the authorization
         /// rule</param>
@@ -64,8 +64,8 @@ namespace Microsoft.Azure.Management.Relay.Models
         public string PrimaryKey { get; set; }
 
         /// <summary>
-        /// Gets or sets a base64-encoded 256-bit primary key for signing and
-        /// validating the SAS token
+        /// Gets or sets a base64-encoded 256-bit secondary key for signing
+        /// and validating the SAS token
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "secondaryKey")]
         public string SecondaryKey { get; set; }

@@ -69,6 +69,11 @@ namespace Microsoft.Azure.Management.Relay
 
 
         /// <summary>
+        /// Gets the IOperationsOperations.
+        /// </summary>
+        IOperationsOperations Operations { get; }
+
+        /// <summary>
         /// Gets the INamespacesOperations.
         /// </summary>
         INamespacesOperations Namespaces { get; }

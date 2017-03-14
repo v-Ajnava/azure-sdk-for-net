@@ -48,7 +48,7 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -68,7 +68,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<HybridConnectionResource>>> ListByNamespaceWithHttpMessagesAsync(string resourceGroupName, string namespaceName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<HybridConnection>>> ListByNamespaceWithHttpMessagesAsync(string resourceGroupName, string namespaceName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -217,7 +217,7 @@ namespace Microsoft.Azure.Management.Relay
                 throw ex;
             }
             // Create Result
-            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<HybridConnectionResource>>();
+            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<HybridConnection>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -230,7 +230,7 @@ namespace Microsoft.Azure.Management.Relay
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<HybridConnectionResource>>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<HybridConnection>>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {
@@ -257,10 +257,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='hybridConnectionName'>
-        /// The name of the hybrid connection.
+        /// The hybrid connection name.
         /// </param>
         /// <param name='parameters'>
         /// Parameters supplied to create a HybridConnection.
@@ -283,7 +283,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<HybridConnectionResource>> CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, HybridConnectionResource parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<HybridConnection>> CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, HybridConnection parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -464,7 +464,7 @@ namespace Microsoft.Azure.Management.Relay
                 throw ex;
             }
             // Create Result
-            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<HybridConnectionResource>();
+            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<HybridConnection>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -477,7 +477,7 @@ namespace Microsoft.Azure.Management.Relay
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<HybridConnectionResource>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<HybridConnection>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {
@@ -503,10 +503,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='hybridConnectionName'>
-        /// The name of the hybrid connection.
+        /// The hybrid connection name.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -710,10 +710,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='hybridConnectionName'>
-        /// The name of the hybrid connection.
+        /// The hybrid connection name.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -733,7 +733,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<HybridConnectionResource>> GetWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<HybridConnection>> GetWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -899,7 +899,7 @@ namespace Microsoft.Azure.Management.Relay
                 throw ex;
             }
             // Create Result
-            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<HybridConnectionResource>();
+            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<HybridConnection>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -912,7 +912,7 @@ namespace Microsoft.Azure.Management.Relay
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<HybridConnectionResource>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<HybridConnection>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {
@@ -938,10 +938,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='hybridConnectionName'>
-        /// The name of the hybrid connection.
+        /// The hybrid connection name.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -961,7 +961,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRuleResource>>> ListAuthorizationRulesWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRule>>> ListAuthorizationRulesWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -1132,7 +1132,7 @@ namespace Microsoft.Azure.Management.Relay
                 throw ex;
             }
             // Create Result
-            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRuleResource>>();
+            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRule>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -1145,7 +1145,7 @@ namespace Microsoft.Azure.Management.Relay
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<SharedAccessAuthorizationRuleResource>>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<SharedAccessAuthorizationRule>>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {
@@ -1171,10 +1171,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='hybridConnectionName'>
-        /// The name of the hybrid connection.
+        /// The hybrid connection name.
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationRule name.
@@ -1200,7 +1200,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRuleResource>> CreateOrUpdateAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName, SharedAccessAuthorizationRuleResource parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRule>> CreateOrUpdateAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName, SharedAccessAuthorizationRule parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -1398,7 +1398,7 @@ namespace Microsoft.Azure.Management.Relay
                 throw ex;
             }
             // Create Result
-            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRuleResource>();
+            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRule>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -1411,7 +1411,7 @@ namespace Microsoft.Azure.Management.Relay
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<SharedAccessAuthorizationRuleResource>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<SharedAccessAuthorizationRule>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {
@@ -1437,10 +1437,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='hybridConnectionName'>
-        /// The name of the hybrid connection.
+        /// The hybrid connection name.
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationRule name.
@@ -1463,7 +1463,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRuleResource>> DeleteAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRule>> DeleteAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -1646,7 +1646,7 @@ namespace Microsoft.Azure.Management.Relay
                 throw ex;
             }
             // Create Result
-            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRuleResource>();
+            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRule>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -1659,7 +1659,7 @@ namespace Microsoft.Azure.Management.Relay
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<SharedAccessAuthorizationRuleResource>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<SharedAccessAuthorizationRule>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {
@@ -1677,7 +1677,7 @@ namespace Microsoft.Azure.Management.Relay
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<SharedAccessAuthorizationRuleResource>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<SharedAccessAuthorizationRule>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {
@@ -1703,10 +1703,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='hybridConnectionName'>
-        /// The name of the hybrid connection.
+        /// The hybrid connection name.
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationRule name.
@@ -1729,7 +1729,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRuleResource>> GetAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRule>> GetAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -1912,7 +1912,7 @@ namespace Microsoft.Azure.Management.Relay
                 throw ex;
             }
             // Create Result
-            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRuleResource>();
+            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRule>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -1925,7 +1925,7 @@ namespace Microsoft.Azure.Management.Relay
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<SharedAccessAuthorizationRuleResource>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<SharedAccessAuthorizationRule>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {
@@ -1951,10 +1951,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='hybridConnectionName'>
-        /// The name of the hybrid connection.
+        /// The hybrid connection name.
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationRule name.
@@ -2200,10 +2200,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='hybridConnectionName'>
-        /// The name of the hybrid connection.
+        /// The hybrid connection name.
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationRule name.
@@ -2479,7 +2479,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<HybridConnectionResource>>> ListByNamespaceNextWithHttpMessagesAsync(string nextPageLink, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<HybridConnection>>> ListByNamespaceNextWithHttpMessagesAsync(string nextPageLink, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (nextPageLink == null)
             {
@@ -2586,7 +2586,7 @@ namespace Microsoft.Azure.Management.Relay
                 throw ex;
             }
             // Create Result
-            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<HybridConnectionResource>>();
+            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<HybridConnection>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -2599,7 +2599,7 @@ namespace Microsoft.Azure.Management.Relay
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<HybridConnectionResource>>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<HybridConnection>>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {
@@ -2642,7 +2642,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRuleResource>>> ListAuthorizationRulesNextWithHttpMessagesAsync(string nextPageLink, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRule>>> ListAuthorizationRulesNextWithHttpMessagesAsync(string nextPageLink, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (nextPageLink == null)
             {
@@ -2754,7 +2754,7 @@ namespace Microsoft.Azure.Management.Relay
                 throw ex;
             }
             // Create Result
-            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRuleResource>>();
+            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRule>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -2767,7 +2767,7 @@ namespace Microsoft.Azure.Management.Relay
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<SharedAccessAuthorizationRuleResource>>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<SharedAccessAuthorizationRule>>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {

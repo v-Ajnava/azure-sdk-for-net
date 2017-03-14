@@ -27,9 +27,9 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
-            public static Microsoft.Rest.Azure.IPage<WcfRelaysResource> ListByNamespace(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName)
+            public static Microsoft.Rest.Azure.IPage<WcfRelay> ListByNamespace(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName)
             {
                 return System.Threading.Tasks.Task.Factory.StartNew(s => ((IWCFRelaysOperations)s).ListByNamespaceAsync(resourceGroupName, namespaceName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -44,12 +44,12 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Microsoft.Rest.Azure.IPage<WcfRelaysResource>> ListByNamespaceAsync(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async Task<Microsoft.Rest.Azure.IPage<WcfRelay>> ListByNamespaceAsync(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.ListByNamespaceWithHttpMessagesAsync(resourceGroupName, namespaceName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -58,7 +58,7 @@ namespace Microsoft.Azure.Management.Relay
             }
 
             /// <summary>
-            /// Creates or Updates a WCFRelays. This operation is idempotent.
+            /// Creates or Updates a WCFRelay. This operation is idempotent.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -67,21 +67,21 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='relayName'>
-            /// The name of the relay.
+            /// The relay name
             /// </param>
             /// <param name='parameters'>
             /// Parameters supplied to create a WCFRelays.
             /// </param>
-            public static WcfRelaysResource CreateOrUpdate(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, WcfRelaysResource parameters)
+            public static WcfRelay CreateOrUpdate(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, WcfRelay parameters)
             {
                 return System.Threading.Tasks.Task.Factory.StartNew(s => ((IWCFRelaysOperations)s).CreateOrUpdateAsync(resourceGroupName, namespaceName, relayName, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Creates or Updates a WCFRelays. This operation is idempotent.
+            /// Creates or Updates a WCFRelay. This operation is idempotent.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -90,10 +90,10 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='relayName'>
-            /// The name of the relay.
+            /// The relay name
             /// </param>
             /// <param name='parameters'>
             /// Parameters supplied to create a WCFRelays.
@@ -101,7 +101,7 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<WcfRelaysResource> CreateOrUpdateAsync(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, WcfRelaysResource parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task<WcfRelay> CreateOrUpdateAsync(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, WcfRelay parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.CreateOrUpdateWithHttpMessagesAsync(resourceGroupName, namespaceName, relayName, parameters, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -119,10 +119,10 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='relayName'>
-            /// The name of the relay.
+            /// The relay name
             /// </param>
             public static void Delete(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName)
             {
@@ -139,10 +139,10 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='relayName'>
-            /// The name of the relay.
+            /// The relay name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -162,12 +162,12 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='relayName'>
-            /// The name of the relay.
+            /// The relay name
             /// </param>
-            public static WcfRelaysResource Get(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName)
+            public static WcfRelay Get(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName)
             {
                 return System.Threading.Tasks.Task.Factory.StartNew(s => ((IWCFRelaysOperations)s).GetAsync(resourceGroupName, namespaceName, relayName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -182,15 +182,15 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='relayName'>
-            /// The name of the relay.
+            /// The relay name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<WcfRelaysResource> GetAsync(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task<WcfRelay> GetAsync(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.GetWithHttpMessagesAsync(resourceGroupName, namespaceName, relayName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -208,12 +208,12 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='relayName'>
-            /// The name of the relay.
+            /// The relay name
             /// </param>
-            public static Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRuleResource> ListAuthorizationRules(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName)
+            public static Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRule> ListAuthorizationRules(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName)
             {
                 return System.Threading.Tasks.Task.Factory.StartNew(s => ((IWCFRelaysOperations)s).ListAuthorizationRulesAsync(resourceGroupName, namespaceName, relayName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -228,15 +228,15 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='relayName'>
-            /// The name of the relay.
+            /// The relay name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRuleResource>> ListAuthorizationRulesAsync(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async Task<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRule>> ListAuthorizationRulesAsync(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.ListAuthorizationRulesWithHttpMessagesAsync(resourceGroupName, namespaceName, relayName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -254,10 +254,10 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='relayName'>
-            /// The name of the relay.
+            /// The relay name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.
@@ -265,7 +265,7 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='parameters'>
             /// The shared access authorization rule.
             /// </param>
-            public static SharedAccessAuthorizationRuleResource CreateOrUpdateAuthorizationRule(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, SharedAccessAuthorizationRuleResource parameters)
+            public static SharedAccessAuthorizationRule CreateOrUpdateAuthorizationRule(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, SharedAccessAuthorizationRule parameters)
             {
                 return System.Threading.Tasks.Task.Factory.StartNew(s => ((IWCFRelaysOperations)s).CreateOrUpdateAuthorizationRuleAsync(resourceGroupName, namespaceName, relayName, authorizationRuleName, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -280,10 +280,10 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='relayName'>
-            /// The name of the relay.
+            /// The relay name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.
@@ -294,7 +294,7 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<SharedAccessAuthorizationRuleResource> CreateOrUpdateAuthorizationRuleAsync(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, SharedAccessAuthorizationRuleResource parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task<SharedAccessAuthorizationRule> CreateOrUpdateAuthorizationRuleAsync(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, SharedAccessAuthorizationRule parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.CreateOrUpdateAuthorizationRuleWithHttpMessagesAsync(resourceGroupName, namespaceName, relayName, authorizationRuleName, parameters, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -312,15 +312,15 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='relayName'>
-            /// The name of the relay.
+            /// The relay name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.
             /// </param>
-            public static SharedAccessAuthorizationRuleResource DeleteAuthorizationRule(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName)
+            public static SharedAccessAuthorizationRule DeleteAuthorizationRule(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName)
             {
                 return System.Threading.Tasks.Task.Factory.StartNew(s => ((IWCFRelaysOperations)s).DeleteAuthorizationRuleAsync(resourceGroupName, namespaceName, relayName, authorizationRuleName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -335,10 +335,10 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='relayName'>
-            /// The name of the relay.
+            /// The relay name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.
@@ -346,7 +346,7 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<SharedAccessAuthorizationRuleResource> DeleteAuthorizationRuleAsync(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task<SharedAccessAuthorizationRule> DeleteAuthorizationRuleAsync(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.DeleteAuthorizationRuleWithHttpMessagesAsync(resourceGroupName, namespaceName, relayName, authorizationRuleName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -364,15 +364,15 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='relayName'>
-            /// The name of the relay.
+            /// The relay name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.
             /// </param>
-            public static SharedAccessAuthorizationRuleResource GetAuthorizationRule(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName)
+            public static SharedAccessAuthorizationRule GetAuthorizationRule(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName)
             {
                 return System.Threading.Tasks.Task.Factory.StartNew(s => ((IWCFRelaysOperations)s).GetAuthorizationRuleAsync(resourceGroupName, namespaceName, relayName, authorizationRuleName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -387,10 +387,10 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='relayName'>
-            /// The name of the relay.
+            /// The relay name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.
@@ -398,7 +398,7 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<SharedAccessAuthorizationRuleResource> GetAuthorizationRuleAsync(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task<SharedAccessAuthorizationRule> GetAuthorizationRuleAsync(this IWCFRelaysOperations operations, string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.GetAuthorizationRuleWithHttpMessagesAsync(resourceGroupName, namespaceName, relayName, authorizationRuleName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -416,10 +416,10 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='relayName'>
-            /// The name of the relay.
+            /// The relay name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.
@@ -439,10 +439,10 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='relayName'>
-            /// The name of the relay.
+            /// The relay name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.
@@ -468,10 +468,10 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='relayName'>
-            /// The name of the relay.
+            /// The relay name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.
@@ -494,10 +494,10 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='relayName'>
-            /// The name of the relay.
+            /// The relay name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.
@@ -525,7 +525,7 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='nextPageLink'>
             /// The NextLink from the previous successful call to List operation.
             /// </param>
-            public static Microsoft.Rest.Azure.IPage<WcfRelaysResource> ListByNamespaceNext(this IWCFRelaysOperations operations, string nextPageLink)
+            public static Microsoft.Rest.Azure.IPage<WcfRelay> ListByNamespaceNext(this IWCFRelaysOperations operations, string nextPageLink)
             {
                 return System.Threading.Tasks.Task.Factory.StartNew(s => ((IWCFRelaysOperations)s).ListByNamespaceNextAsync(nextPageLink), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -542,7 +542,7 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Microsoft.Rest.Azure.IPage<WcfRelaysResource>> ListByNamespaceNextAsync(this IWCFRelaysOperations operations, string nextPageLink, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async Task<Microsoft.Rest.Azure.IPage<WcfRelay>> ListByNamespaceNextAsync(this IWCFRelaysOperations operations, string nextPageLink, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.ListByNamespaceNextWithHttpMessagesAsync(nextPageLink, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -559,7 +559,7 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='nextPageLink'>
             /// The NextLink from the previous successful call to List operation.
             /// </param>
-            public static Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRuleResource> ListAuthorizationRulesNext(this IWCFRelaysOperations operations, string nextPageLink)
+            public static Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRule> ListAuthorizationRulesNext(this IWCFRelaysOperations operations, string nextPageLink)
             {
                 return System.Threading.Tasks.Task.Factory.StartNew(s => ((IWCFRelaysOperations)s).ListAuthorizationRulesNextAsync(nextPageLink), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -576,7 +576,7 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRuleResource>> ListAuthorizationRulesNextAsync(this IWCFRelaysOperations operations, string nextPageLink, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async Task<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRule>> ListAuthorizationRulesNextAsync(this IWCFRelaysOperations operations, string nextPageLink, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.ListAuthorizationRulesNextWithHttpMessagesAsync(nextPageLink, null, cancellationToken).ConfigureAwait(false))
                 {

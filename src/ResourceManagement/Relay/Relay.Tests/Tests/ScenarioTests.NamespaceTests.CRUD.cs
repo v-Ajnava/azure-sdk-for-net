@@ -47,7 +47,7 @@ namespace Relay.Tests.ScenarioTests
                 var namespaceName = TestUtilities.GenerateName(RelayManagementHelper.NamespacePrefix);                
 
                 var createNamespaceResponse = this.RelayManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName,
-                    new NamespaceResource()
+                    new NamespaceModel()
                     {
                         Location = location,
                         //Sku = new Sku
@@ -93,7 +93,7 @@ namespace Relay.Tests.ScenarioTests
                 Assert.True(getAllNamespacesResponse.Any(ns => ns.Name == namespaceName));
 
                 // Update namespace tags
-                var updateNamespaceParameter = new NamespaceResource()
+                var updateNamespaceParameter = new NamespaceModel()
                 {
                     Location = location,
                     Tags = new Dictionary<string, string>()
@@ -124,7 +124,7 @@ namespace Relay.Tests.ScenarioTests
                 ///Patch the NameSpace.
                 
                 //var patchNamespaceResponse = RelayManagementClient.Namespaces.Patch(resourceGroup, namespaceName, updateNamespaceParameter);
-                //updateNamespaceParameter = new NamespaceResource()
+                //updateNamespaceParameter = new NamespaceModel()
                 //{
                 //    Location = location,
                 //    Tags = new Dictionary<string, string>()

@@ -14,21 +14,19 @@ namespace Microsoft.Azure.Management.Relay.Models
     /// Description of WcfRelays Resource.
     /// </summary>
     [Microsoft.Rest.Serialization.JsonTransformation]
-    public partial class WcfRelaysResource : Resource
+    public partial class WcfRelay : Resource
     {
         /// <summary>
-        /// Initializes a new instance of the WcfRelaysResource class.
+        /// Initializes a new instance of the WcfRelay class.
         /// </summary>
-        public WcfRelaysResource() { }
+        public WcfRelay() { }
 
         /// <summary>
-        /// Initializes a new instance of the WcfRelaysResource class.
+        /// Initializes a new instance of the WcfRelay class.
         /// </summary>
-        /// <param name="location">Resource location</param>
         /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
         /// <param name="type">Resource type</param>
-        /// <param name="tags">Resource tags</param>
         /// <param name="relayType">WCFRelay Type. Possible values include:
         /// 'NetTcp', 'Http'</param>
         /// <param name="createdAt">The time the WCFRelay was created.</param>
@@ -46,8 +44,8 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// it can be used to store  descriptive data, such as list of teams
         /// and their contact information also user-defined configuration
         /// settings can be stored.</param>
-        public WcfRelaysResource(string location, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string relayType = default(string), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), int? listenerCount = default(int?), bool? requiresClientAuthorization = default(bool?), bool? requiresTransportSecurity = default(bool?), bool? isDynamic = default(bool?), string userMetadata = default(string))
-            : base(location, id, name, type, tags)
+        public WcfRelay(string id = default(string), string name = default(string), string type = default(string), string relayType = default(string), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), int? listenerCount = default(int?), bool? requiresClientAuthorization = default(bool?), bool? requiresTransportSecurity = default(bool?), bool? isDynamic = default(bool?), string userMetadata = default(string))
+            : base(id, name, type)
         {
             RelayType = relayType;
             CreatedAt = createdAt;
@@ -115,15 +113,5 @@ namespace Microsoft.Azure.Management.Relay.Models
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.userMetadata")]
         public string UserMetadata { get; set; }
 
-        /// <summary>
-        /// Validate the object.
-        /// </summary>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public override void Validate()
-        {
-            base.Validate();
-        }
     }
 }

@@ -14,22 +14,19 @@ namespace Microsoft.Azure.Management.Relay.Models
     /// Description of a Namespace resource.
     /// </summary>
     [Microsoft.Rest.Serialization.JsonTransformation]
-    public partial class NamespaceResource : Resource
+    public partial class NamespaceModel : TrackedResource
     {
         /// <summary>
-        /// Initializes a new instance of the NamespaceResource class.
+        /// Initializes a new instance of the NamespaceModel class.
         /// </summary>
-        public NamespaceResource()
+        public NamespaceModel()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the NamespaceResource class.
+        /// Initializes a new instance of the NamespaceModel class.
         /// </summary>
         /// <param name="location">Resource location</param>
-        /// <param name="id">Resource Id</param>
-        /// <param name="name">Resource name</param>
-        /// <param name="type">Resource type</param>
         /// <param name="tags">Resource tags</param>
         /// <param name="provisioningState">Provisioning state of the
         /// namespace.</param>
@@ -39,8 +36,8 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// Service Bus operations.</param>
         /// <param name="enabled">true if client authorization is needed for
         /// this relay; otherwise, false.</param>
-        public NamespaceResource(string location, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string provisioningState = default(string), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), string serviceBusEndpoint = default(string), bool? enabled = default(bool?))
-            : base(location, id, name, type, tags)
+        public NamespaceModel(string location, System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string provisioningState = default(string), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), string serviceBusEndpoint = default(string), bool? enabled = default(bool?))
+            : base(location, tags)
         {
             ProvisioningState = provisioningState;
             CreatedAt = createdAt;
@@ -49,9 +46,9 @@ namespace Microsoft.Azure.Management.Relay.Models
             Enabled = enabled;
         }
         /// <summary>
-        /// Static constructor for NamespaceResource class.
+        /// Static constructor for NamespaceModel class.
         /// </summary>
-        static NamespaceResource()
+        static NamespaceModel()
         {
             Sku = new Sku();
         }

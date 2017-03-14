@@ -69,6 +69,11 @@ namespace Microsoft.Azure.Management.Relay
         public bool? GenerateClientRequestId { get; set; }
 
         /// <summary>
+        /// Gets the IOperationsOperations.
+        /// </summary>
+        public virtual IOperationsOperations Operations { get; private set; }
+
+        /// <summary>
         /// Gets the INamespacesOperations.
         /// </summary>
         public virtual INamespacesOperations Namespaces { get; private set; }
@@ -284,6 +289,7 @@ namespace Microsoft.Azure.Management.Relay
         /// </summary>
         private void Initialize()
         {
+            this.Operations = new OperationsOperations(this);
             this.Namespaces = new NamespacesOperations(this);
             this.HybridConnections = new HybridConnectionsOperations(this);
             this.WCFRelays = new WCFRelaysOperations(this);

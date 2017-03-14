@@ -48,7 +48,7 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -68,7 +68,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<WcfRelaysResource>>> ListByNamespaceWithHttpMessagesAsync(string resourceGroupName, string namespaceName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<WcfRelay>>> ListByNamespaceWithHttpMessagesAsync(string resourceGroupName, string namespaceName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -217,7 +217,7 @@ namespace Microsoft.Azure.Management.Relay
                 throw ex;
             }
             // Create Result
-            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<WcfRelaysResource>>();
+            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<WcfRelay>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -230,7 +230,7 @@ namespace Microsoft.Azure.Management.Relay
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<WcfRelaysResource>>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<WcfRelay>>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {
@@ -250,16 +250,16 @@ namespace Microsoft.Azure.Management.Relay
         }
 
         /// <summary>
-        /// Creates or Updates a WCFRelays. This operation is idempotent.
+        /// Creates or Updates a WCFRelay. This operation is idempotent.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='relayName'>
-        /// The name of the relay.
+        /// The relay name
         /// </param>
         /// <param name='parameters'>
         /// Parameters supplied to create a WCFRelays.
@@ -282,7 +282,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<WcfRelaysResource>> CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, WcfRelaysResource parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<WcfRelay>> CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, WcfRelay parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -332,10 +332,6 @@ namespace Microsoft.Azure.Management.Relay
             if (parameters == null)
             {
                 throw new Microsoft.Rest.ValidationException(Microsoft.Rest.ValidationRules.CannotBeNull, "parameters");
-            }
-            if (parameters != null)
-            {
-                parameters.Validate();
             }
             if (this.Client.ApiVersion == null)
             {
@@ -463,7 +459,7 @@ namespace Microsoft.Azure.Management.Relay
                 throw ex;
             }
             // Create Result
-            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<WcfRelaysResource>();
+            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<WcfRelay>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -476,7 +472,7 @@ namespace Microsoft.Azure.Management.Relay
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<WcfRelaysResource>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<WcfRelay>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {
@@ -502,10 +498,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='relayName'>
-        /// The name of the relay.
+        /// The relay name
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -709,10 +705,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='relayName'>
-        /// The name of the relay.
+        /// The relay name
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -732,7 +728,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<WcfRelaysResource>> GetWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<WcfRelay>> GetWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -898,7 +894,7 @@ namespace Microsoft.Azure.Management.Relay
                 throw ex;
             }
             // Create Result
-            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<WcfRelaysResource>();
+            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<WcfRelay>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -911,7 +907,7 @@ namespace Microsoft.Azure.Management.Relay
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<WcfRelaysResource>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<WcfRelay>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {
@@ -929,7 +925,7 @@ namespace Microsoft.Azure.Management.Relay
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<WcfRelaysResource>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<WcfRelay>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {
@@ -955,10 +951,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='relayName'>
-        /// The name of the relay.
+        /// The relay name
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -978,7 +974,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRuleResource>>> ListAuthorizationRulesWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRule>>> ListAuthorizationRulesWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -1149,7 +1145,7 @@ namespace Microsoft.Azure.Management.Relay
                 throw ex;
             }
             // Create Result
-            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRuleResource>>();
+            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRule>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -1162,7 +1158,7 @@ namespace Microsoft.Azure.Management.Relay
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<SharedAccessAuthorizationRuleResource>>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<SharedAccessAuthorizationRule>>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {
@@ -1188,10 +1184,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='relayName'>
-        /// The name of the relay.
+        /// The relay name
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationRule name.
@@ -1217,7 +1213,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRuleResource>> CreateOrUpdateAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, SharedAccessAuthorizationRuleResource parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRule>> CreateOrUpdateAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, SharedAccessAuthorizationRule parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -1415,7 +1411,7 @@ namespace Microsoft.Azure.Management.Relay
                 throw ex;
             }
             // Create Result
-            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRuleResource>();
+            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRule>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -1428,7 +1424,7 @@ namespace Microsoft.Azure.Management.Relay
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<SharedAccessAuthorizationRuleResource>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<SharedAccessAuthorizationRule>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {
@@ -1454,10 +1450,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='relayName'>
-        /// The name of the relay.
+        /// The relay name
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationRule name.
@@ -1480,7 +1476,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRuleResource>> DeleteAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRule>> DeleteAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -1663,7 +1659,7 @@ namespace Microsoft.Azure.Management.Relay
                 throw ex;
             }
             // Create Result
-            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRuleResource>();
+            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRule>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -1676,7 +1672,7 @@ namespace Microsoft.Azure.Management.Relay
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<SharedAccessAuthorizationRuleResource>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<SharedAccessAuthorizationRule>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {
@@ -1694,7 +1690,7 @@ namespace Microsoft.Azure.Management.Relay
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<SharedAccessAuthorizationRuleResource>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<SharedAccessAuthorizationRule>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {
@@ -1720,10 +1716,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='relayName'>
-        /// The name of the relay.
+        /// The relay name
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationRule name.
@@ -1746,7 +1742,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRuleResource>> GetAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRule>> GetAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string relayName, string authorizationRuleName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -1929,7 +1925,7 @@ namespace Microsoft.Azure.Management.Relay
                 throw ex;
             }
             // Create Result
-            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRuleResource>();
+            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRule>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -1942,7 +1938,7 @@ namespace Microsoft.Azure.Management.Relay
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<SharedAccessAuthorizationRuleResource>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<SharedAccessAuthorizationRule>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {
@@ -1968,10 +1964,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='relayName'>
-        /// The name of the relay.
+        /// The relay name
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationRule name.
@@ -2216,10 +2212,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='relayName'>
-        /// The name of the relay.
+        /// The relay name
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationRule name.
@@ -2495,7 +2491,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<WcfRelaysResource>>> ListByNamespaceNextWithHttpMessagesAsync(string nextPageLink, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<WcfRelay>>> ListByNamespaceNextWithHttpMessagesAsync(string nextPageLink, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (nextPageLink == null)
             {
@@ -2602,7 +2598,7 @@ namespace Microsoft.Azure.Management.Relay
                 throw ex;
             }
             // Create Result
-            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<WcfRelaysResource>>();
+            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<WcfRelay>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -2615,7 +2611,7 @@ namespace Microsoft.Azure.Management.Relay
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<WcfRelaysResource>>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<WcfRelay>>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {
@@ -2658,7 +2654,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRuleResource>>> ListAuthorizationRulesNextWithHttpMessagesAsync(string nextPageLink, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRule>>> ListAuthorizationRulesNextWithHttpMessagesAsync(string nextPageLink, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (nextPageLink == null)
             {
@@ -2770,7 +2766,7 @@ namespace Microsoft.Azure.Management.Relay
                 throw ex;
             }
             // Create Result
-            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRuleResource>>();
+            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRule>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -2783,7 +2779,7 @@ namespace Microsoft.Azure.Management.Relay
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<SharedAccessAuthorizationRuleResource>>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<SharedAccessAuthorizationRule>>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {

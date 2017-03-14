@@ -27,9 +27,9 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
-            public static Microsoft.Rest.Azure.IPage<HybridConnectionResource> ListByNamespace(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName)
+            public static Microsoft.Rest.Azure.IPage<HybridConnection> ListByNamespace(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName)
             {
                 return System.Threading.Tasks.Task.Factory.StartNew(s => ((IHybridConnectionsOperations)s).ListByNamespaceAsync(resourceGroupName, namespaceName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -44,12 +44,12 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Microsoft.Rest.Azure.IPage<HybridConnectionResource>> ListByNamespaceAsync(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async Task<Microsoft.Rest.Azure.IPage<HybridConnection>> ListByNamespaceAsync(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.ListByNamespaceWithHttpMessagesAsync(resourceGroupName, namespaceName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -68,15 +68,15 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The name of the hybrid connection.
+            /// The hybrid connection name.
             /// </param>
             /// <param name='parameters'>
             /// Parameters supplied to create a HybridConnection.
             /// </param>
-            public static HybridConnectionResource CreateOrUpdate(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName, HybridConnectionResource parameters)
+            public static HybridConnection CreateOrUpdate(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName, HybridConnection parameters)
             {
                 return System.Threading.Tasks.Task.Factory.StartNew(s => ((IHybridConnectionsOperations)s).CreateOrUpdateAsync(resourceGroupName, namespaceName, hybridConnectionName, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -92,10 +92,10 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The name of the hybrid connection.
+            /// The hybrid connection name.
             /// </param>
             /// <param name='parameters'>
             /// Parameters supplied to create a HybridConnection.
@@ -103,7 +103,7 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<HybridConnectionResource> CreateOrUpdateAsync(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName, HybridConnectionResource parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task<HybridConnection> CreateOrUpdateAsync(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName, HybridConnection parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.CreateOrUpdateWithHttpMessagesAsync(resourceGroupName, namespaceName, hybridConnectionName, parameters, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -121,10 +121,10 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The name of the hybrid connection.
+            /// The hybrid connection name.
             /// </param>
             public static void Delete(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName)
             {
@@ -141,10 +141,10 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The name of the hybrid connection.
+            /// The hybrid connection name.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -164,12 +164,12 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The name of the hybrid connection.
+            /// The hybrid connection name.
             /// </param>
-            public static HybridConnectionResource Get(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName)
+            public static HybridConnection Get(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName)
             {
                 return System.Threading.Tasks.Task.Factory.StartNew(s => ((IHybridConnectionsOperations)s).GetAsync(resourceGroupName, namespaceName, hybridConnectionName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -184,15 +184,15 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The name of the hybrid connection.
+            /// The hybrid connection name.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<HybridConnectionResource> GetAsync(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task<HybridConnection> GetAsync(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.GetWithHttpMessagesAsync(resourceGroupName, namespaceName, hybridConnectionName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -210,12 +210,12 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The name of the hybrid connection.
+            /// The hybrid connection name.
             /// </param>
-            public static Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRuleResource> ListAuthorizationRules(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName)
+            public static Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRule> ListAuthorizationRules(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName)
             {
                 return System.Threading.Tasks.Task.Factory.StartNew(s => ((IHybridConnectionsOperations)s).ListAuthorizationRulesAsync(resourceGroupName, namespaceName, hybridConnectionName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -230,15 +230,15 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The name of the hybrid connection.
+            /// The hybrid connection name.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRuleResource>> ListAuthorizationRulesAsync(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async Task<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRule>> ListAuthorizationRulesAsync(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.ListAuthorizationRulesWithHttpMessagesAsync(resourceGroupName, namespaceName, hybridConnectionName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -256,10 +256,10 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The name of the hybrid connection.
+            /// The hybrid connection name.
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.
@@ -267,7 +267,7 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='parameters'>
             /// The shared access authorization rule.
             /// </param>
-            public static SharedAccessAuthorizationRuleResource CreateOrUpdateAuthorizationRule(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName, SharedAccessAuthorizationRuleResource parameters)
+            public static SharedAccessAuthorizationRule CreateOrUpdateAuthorizationRule(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName, SharedAccessAuthorizationRule parameters)
             {
                 return System.Threading.Tasks.Task.Factory.StartNew(s => ((IHybridConnectionsOperations)s).CreateOrUpdateAuthorizationRuleAsync(resourceGroupName, namespaceName, hybridConnectionName, authorizationRuleName, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -282,10 +282,10 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The name of the hybrid connection.
+            /// The hybrid connection name.
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.
@@ -296,7 +296,7 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<SharedAccessAuthorizationRuleResource> CreateOrUpdateAuthorizationRuleAsync(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName, SharedAccessAuthorizationRuleResource parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task<SharedAccessAuthorizationRule> CreateOrUpdateAuthorizationRuleAsync(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName, SharedAccessAuthorizationRule parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.CreateOrUpdateAuthorizationRuleWithHttpMessagesAsync(resourceGroupName, namespaceName, hybridConnectionName, authorizationRuleName, parameters, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -314,15 +314,15 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The name of the hybrid connection.
+            /// The hybrid connection name.
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.
             /// </param>
-            public static SharedAccessAuthorizationRuleResource DeleteAuthorizationRule(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName)
+            public static SharedAccessAuthorizationRule DeleteAuthorizationRule(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName)
             {
                 return System.Threading.Tasks.Task.Factory.StartNew(s => ((IHybridConnectionsOperations)s).DeleteAuthorizationRuleAsync(resourceGroupName, namespaceName, hybridConnectionName, authorizationRuleName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -337,10 +337,10 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The name of the hybrid connection.
+            /// The hybrid connection name.
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.
@@ -348,7 +348,7 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<SharedAccessAuthorizationRuleResource> DeleteAuthorizationRuleAsync(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task<SharedAccessAuthorizationRule> DeleteAuthorizationRuleAsync(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.DeleteAuthorizationRuleWithHttpMessagesAsync(resourceGroupName, namespaceName, hybridConnectionName, authorizationRuleName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -366,15 +366,15 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The name of the hybrid connection.
+            /// The hybrid connection name.
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.
             /// </param>
-            public static SharedAccessAuthorizationRuleResource GetAuthorizationRule(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName)
+            public static SharedAccessAuthorizationRule GetAuthorizationRule(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName)
             {
                 return System.Threading.Tasks.Task.Factory.StartNew(s => ((IHybridConnectionsOperations)s).GetAuthorizationRuleAsync(resourceGroupName, namespaceName, hybridConnectionName, authorizationRuleName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -389,10 +389,10 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The name of the hybrid connection.
+            /// The hybrid connection name.
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.
@@ -400,7 +400,7 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<SharedAccessAuthorizationRuleResource> GetAuthorizationRuleAsync(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task<SharedAccessAuthorizationRule> GetAuthorizationRuleAsync(this IHybridConnectionsOperations operations, string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.GetAuthorizationRuleWithHttpMessagesAsync(resourceGroupName, namespaceName, hybridConnectionName, authorizationRuleName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -418,10 +418,10 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The name of the hybrid connection.
+            /// The hybrid connection name.
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.
@@ -441,10 +441,10 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The name of the hybrid connection.
+            /// The hybrid connection name.
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.
@@ -471,10 +471,10 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The name of the hybrid connection.
+            /// The hybrid connection name.
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.
@@ -498,10 +498,10 @@ namespace Microsoft.Azure.Management.Relay
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The Namespace Name within the Resource Group
+            /// The Namespace Name
             /// </param>
             /// <param name='hybridConnectionName'>
-            /// The name of the hybrid connection.
+            /// The hybrid connection name.
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationRule name.
@@ -529,7 +529,7 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='nextPageLink'>
             /// The NextLink from the previous successful call to List operation.
             /// </param>
-            public static Microsoft.Rest.Azure.IPage<HybridConnectionResource> ListByNamespaceNext(this IHybridConnectionsOperations operations, string nextPageLink)
+            public static Microsoft.Rest.Azure.IPage<HybridConnection> ListByNamespaceNext(this IHybridConnectionsOperations operations, string nextPageLink)
             {
                 return System.Threading.Tasks.Task.Factory.StartNew(s => ((IHybridConnectionsOperations)s).ListByNamespaceNextAsync(nextPageLink), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -546,7 +546,7 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Microsoft.Rest.Azure.IPage<HybridConnectionResource>> ListByNamespaceNextAsync(this IHybridConnectionsOperations operations, string nextPageLink, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async Task<Microsoft.Rest.Azure.IPage<HybridConnection>> ListByNamespaceNextAsync(this IHybridConnectionsOperations operations, string nextPageLink, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.ListByNamespaceNextWithHttpMessagesAsync(nextPageLink, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -563,7 +563,7 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='nextPageLink'>
             /// The NextLink from the previous successful call to List operation.
             /// </param>
-            public static Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRuleResource> ListAuthorizationRulesNext(this IHybridConnectionsOperations operations, string nextPageLink)
+            public static Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRule> ListAuthorizationRulesNext(this IHybridConnectionsOperations operations, string nextPageLink)
             {
                 return System.Threading.Tasks.Task.Factory.StartNew(s => ((IHybridConnectionsOperations)s).ListAuthorizationRulesNextAsync(nextPageLink), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -580,7 +580,7 @@ namespace Microsoft.Azure.Management.Relay
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRuleResource>> ListAuthorizationRulesNextAsync(this IHybridConnectionsOperations operations, string nextPageLink, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async Task<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRule>> ListAuthorizationRulesNextAsync(this IHybridConnectionsOperations operations, string nextPageLink, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.ListAuthorizationRulesNextWithHttpMessagesAsync(nextPageLink, null, cancellationToken).ConfigureAwait(false))
                 {

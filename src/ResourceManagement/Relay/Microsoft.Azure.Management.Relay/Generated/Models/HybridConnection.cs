@@ -14,21 +14,19 @@ namespace Microsoft.Azure.Management.Relay.Models
     /// Description of HybridConnection Resource.
     /// </summary>
     [Microsoft.Rest.Serialization.JsonTransformation]
-    public partial class HybridConnectionResource : Resource
+    public partial class HybridConnection : Resource
     {
         /// <summary>
-        /// Initializes a new instance of the HybridConnectionResource class.
+        /// Initializes a new instance of the HybridConnection class.
         /// </summary>
-        public HybridConnectionResource() { }
+        public HybridConnection() { }
 
         /// <summary>
-        /// Initializes a new instance of the HybridConnectionResource class.
+        /// Initializes a new instance of the HybridConnection class.
         /// </summary>
-        /// <param name="location">Resource location</param>
         /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
         /// <param name="type">Resource type</param>
-        /// <param name="tags">Resource tags</param>
         /// <param name="createdAt">The time the HybridConnection was
         /// created.</param>
         /// <param name="updatedAt">The time the namespace was updated.</param>
@@ -43,8 +41,8 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// and their contact information also user-defined configuration
         /// settings can be stored.</param>
         /// <param name="path">The path of the HybridConnection.</param>
-        public HybridConnectionResource(string location, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), int? listenerCount = default(int?), bool? requiresClientAuthorization = default(bool?), string userMetadata = default(string), string path = default(string))
-            : base(location, id, name, type, tags)
+        public HybridConnection(string id = default(string), string name = default(string), string type = default(string), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), int? listenerCount = default(int?), bool? requiresClientAuthorization = default(bool?), string userMetadata = default(string), string path = default(string))
+            : base(id, name, type)
         {
             CreatedAt = createdAt;
             UpdatedAt = updatedAt;
@@ -102,9 +100,16 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown if validation fails
         /// </exception>
-        public override void Validate()
+        public virtual void Validate()
         {
-            base.Validate();
+            if (this.ListenerCount > 25)
+            {
+                throw new Microsoft.Rest.ValidationException(Microsoft.Rest.ValidationRules.InclusiveMaximum, "ListenerCount", 25);
+            }
+            if (this.ListenerCount < 1)
+            {
+                throw new Microsoft.Rest.ValidationException(Microsoft.Rest.ValidationRules.InclusiveMinimum, "ListenerCount", 1);
+            }
         }
     }
 }

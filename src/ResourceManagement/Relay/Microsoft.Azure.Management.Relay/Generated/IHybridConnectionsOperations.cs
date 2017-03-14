@@ -23,7 +23,7 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -40,7 +40,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<HybridConnectionResource>>> ListByNamespaceWithHttpMessagesAsync(string resourceGroupName, string namespaceName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<HybridConnection>>> ListByNamespaceWithHttpMessagesAsync(string resourceGroupName, string namespaceName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Creates or Updates a service HybridConnection. This operation is
         /// idempotent.
@@ -49,10 +49,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='hybridConnectionName'>
-        /// The name of the hybrid connection.
+        /// The hybrid connection name.
         /// </param>
         /// <param name='parameters'>
         /// Parameters supplied to create a HybridConnection.
@@ -72,7 +72,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<HybridConnectionResource>> CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, HybridConnectionResource parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<HybridConnection>> CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, HybridConnection parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Deletes a HybridConnection .
         /// </summary>
@@ -80,10 +80,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='hybridConnectionName'>
-        /// The name of the hybrid connection.
+        /// The hybrid connection name.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -105,10 +105,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='hybridConnectionName'>
-        /// The name of the hybrid connection.
+        /// The hybrid connection name.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -125,7 +125,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<HybridConnectionResource>> GetWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<HybridConnection>> GetWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Authorization rules for a HybridConnection.
         /// </summary>
@@ -133,10 +133,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='hybridConnectionName'>
-        /// The name of the hybrid connection.
+        /// The hybrid connection name.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -153,7 +153,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRuleResource>>> ListAuthorizationRulesWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRule>>> ListAuthorizationRulesWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Creates or Updates an authorization rule for a HybridConnection
         /// </summary>
@@ -161,10 +161,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='hybridConnectionName'>
-        /// The name of the hybrid connection.
+        /// The hybrid connection name.
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationRule name.
@@ -187,7 +187,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRuleResource>> CreateOrUpdateAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName, SharedAccessAuthorizationRuleResource parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRule>> CreateOrUpdateAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName, SharedAccessAuthorizationRule parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Deletes a HybridConnection authorization rule
         /// </summary>
@@ -195,10 +195,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='hybridConnectionName'>
-        /// The name of the hybrid connection.
+        /// The hybrid connection name.
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationRule name.
@@ -218,7 +218,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRuleResource>> DeleteAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRule>> DeleteAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// HybridConnection authorizationRule for a HybridConnection by name.
         /// </summary>
@@ -226,10 +226,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='hybridConnectionName'>
-        /// The name of the hybrid connection.
+        /// The hybrid connection name.
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationRule name.
@@ -249,7 +249,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRuleResource>> GetAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<SharedAccessAuthorizationRule>> GetAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string hybridConnectionName, string authorizationRuleName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Primary and Secondary ConnectionStrings to the HybridConnection.
         /// </summary>
@@ -257,10 +257,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='hybridConnectionName'>
-        /// The name of the hybrid connection.
+        /// The hybrid connection name.
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationRule name.
@@ -289,10 +289,10 @@ namespace Microsoft.Azure.Management.Relay
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The Namespace Name within the Resource Group
+        /// The Namespace Name
         /// </param>
         /// <param name='hybridConnectionName'>
-        /// The name of the hybrid connection.
+        /// The hybrid connection name.
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationRule name.
@@ -337,7 +337,7 @@ namespace Microsoft.Azure.Management.Relay
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<HybridConnectionResource>>> ListByNamespaceNextWithHttpMessagesAsync(string nextPageLink, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<HybridConnection>>> ListByNamespaceNextWithHttpMessagesAsync(string nextPageLink, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Authorization rules for a HybridConnection.
         /// </summary>
@@ -359,6 +359,6 @@ namespace Microsoft.Azure.Management.Relay
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRuleResource>>> ListAuthorizationRulesNextWithHttpMessagesAsync(string nextPageLink, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<SharedAccessAuthorizationRule>>> ListAuthorizationRulesNextWithHttpMessagesAsync(string nextPageLink, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     }
 }

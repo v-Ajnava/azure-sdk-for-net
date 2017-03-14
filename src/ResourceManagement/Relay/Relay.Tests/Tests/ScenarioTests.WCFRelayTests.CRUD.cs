@@ -49,7 +49,7 @@ namespace Relay.Tests.ScenarioTests
                 var getNamespaceResponse1 = RelayManagementClient.Namespaces.Get(resourceGroup, "Test-Realy");
 
                 var createNamespaceResponse = this.RelayManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName,
-                    new NamespaceResource()
+                    new NamespaceModel()
                     {
                         Location = location,
                         //Sku = new Sku
@@ -96,9 +96,8 @@ namespace Relay.Tests.ScenarioTests
 
                 // Create WCF Relay  - 
                 var wcfRelayName = TestUtilities.GenerateName(RelayManagementHelper.WcfPrefix);
-                var createdWCFRelayResponse = RelayManagementClient.WCFRelays.CreateOrUpdate(resourceGroup, namespaceName, wcfRelayName, new WcfRelaysResource()
+                var createdWCFRelayResponse = RelayManagementClient.WCFRelays.CreateOrUpdate(resourceGroup, namespaceName, wcfRelayName, new WcfRelay()
                 {
-                    Location = createNamespaceResponse.Location,
                     RelayType = Relaytype.NetTcp,
                     RequiresClientAuthorization = true,
                     RequiresTransportSecurity = true

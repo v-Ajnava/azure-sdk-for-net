@@ -14,26 +14,24 @@ namespace Microsoft.Azure.Management.Relay.Models
     /// Description of a Namespace AuthorizationRules.
     /// </summary>
     [Microsoft.Rest.Serialization.JsonTransformation]
-    public partial class SharedAccessAuthorizationRuleResource : Resource
+    public partial class SharedAccessAuthorizationRule : Resource
     {
         /// <summary>
-        /// Initializes a new instance of the
-        /// SharedAccessAuthorizationRuleResource class.
+        /// Initializes a new instance of the SharedAccessAuthorizationRule
+        /// class.
         /// </summary>
-        public SharedAccessAuthorizationRuleResource() { }
+        public SharedAccessAuthorizationRule() { }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// SharedAccessAuthorizationRuleResource class.
+        /// Initializes a new instance of the SharedAccessAuthorizationRule
+        /// class.
         /// </summary>
-        /// <param name="location">Resource location</param>
         /// <param name="rights">The rights associated with the rule.</param>
         /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
         /// <param name="type">Resource type</param>
-        /// <param name="tags">Resource tags</param>
-        public SharedAccessAuthorizationRuleResource(string location, System.Collections.Generic.IList<string> rights, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>))
-            : base(location, id, name, type, tags)
+        public SharedAccessAuthorizationRule(System.Collections.Generic.IList<string> rights, string id = default(string), string name = default(string), string type = default(string))
+            : base(id, name, type)
         {
             Rights = rights;
         }
@@ -50,9 +48,8 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown if validation fails
         /// </exception>
-        public override void Validate()
+        public virtual void Validate()
         {
-            base.Validate();
             if (Rights == null)
             {
                 throw new Microsoft.Rest.ValidationException(Microsoft.Rest.ValidationRules.CannotBeNull, "Rights");

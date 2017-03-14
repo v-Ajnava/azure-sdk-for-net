@@ -23,19 +23,19 @@ namespace Microsoft.Azure.Management.Relay.Models
         /// <summary>
         /// Initializes a new instance of the RegenerateKeysParameters class.
         /// </summary>
-        /// <param name="policykey">Key that needs to be regenerated. Possible
+        /// <param name="policyKey">Key that needs to be regenerated. Possible
         /// values include: 'PrimaryKey', 'SecondaryKey'</param>
-        public RegenerateKeysParameters(string policykey = default(string))
+        public RegenerateKeysParameters(string policyKey = default(string))
         {
-            Policykey = policykey;
+            PolicyKey = policyKey;
         }
 
         /// <summary>
         /// Gets or sets key that needs to be regenerated. Possible values
         /// include: 'PrimaryKey', 'SecondaryKey'
         /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "Policykey")]
-        public string Policykey { get; set; }
+        [Newtonsoft.Json.JsonProperty(PropertyName = "policyKey")]
+        public string PolicyKey { get; set; }
 
     }
 }
