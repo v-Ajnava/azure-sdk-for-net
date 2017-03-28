@@ -1,6 +1,6 @@
-﻿{
+{
   "version": "0.0.1-preview",
-  "description": "Microsoft Azure Relay Management Library",
+  "description": "Provides developers with libraries to create and manage Namespaces, WCFRelay, HybridConnection  and manage Authorization Rules. Note: This client library is for Relay under Azure Resource Manager.",
   "authors": [ "Microsoft" ],
 
   "packOptions": {

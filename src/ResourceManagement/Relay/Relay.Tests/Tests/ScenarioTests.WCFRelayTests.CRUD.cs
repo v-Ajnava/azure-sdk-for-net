@@ -32,38 +32,26 @@ namespace Relay.Tests.ScenarioTests
             {
                 InitializeClients(context);
 
-                var location = "West US";// this.ResourceManagementClient.GetLocationFromProvider();
-
-                var resourceGroup = "Default-ServiceBus-WestUS";
-
-                //var resourceGroup = this.ResourceManagementClient.TryGetResourceGroup(location);
-                //if (string.IsNullOrWhiteSpace(resourceGroup))
-                //{
-                //    resourceGroup = TestUtilities.GenerateName(RelayManagementHelper.ResourceGroupPrefix);
-                //    this.ResourceManagementClient.TryRegisterResourceGroup(location, resourceGroup);
-                //}
+                var location =  this.ResourceManagementClient.GetLocationFromProvider();
+                var resourceGroup = this.ResourceManagementClient.TryGetResourceGroup(location);
+                if (string.IsNullOrWhiteSpace(resourceGroup))
+                {
+                    resourceGroup = TestUtilities.GenerateName(RelayManagementHelper.ResourceGroupPrefix);
+                    this.ResourceManagementClient.TryRegisterResourceGroup(location, resourceGroup);
+                }
 
                 // Create Namespace
                 var namespaceName = TestUtilities.GenerateName(RelayManagementHelper.NamespacePrefix);
-
-                var getNamespaceResponse1 = RelayManagementClient.Namespaces.Get(resourceGroup, "Test-Realy");
-
-                var createNamespaceResponse = this.RelayManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName,
-                    new NamespaceModel()
-                    {
-                        Location = location,
-                        //Sku = new Sku
-                        //{
-                        //    Name = "Standard"
-                        //},
-
-                        Tags = new Dictionary<string, string>()
+                
+                var createNamespaceResponse = this.RelayManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName, new RelayNamespace()
+                {
+                    Location = location,
+                    Tags = new Dictionary<string, string>()
                         {
                             {"tag1", "value1"},
                             {"tag2", "value2"}
                         }
-
-                    });
+                });
 
                 Assert.NotNull(createNamespaceResponse);
                 Assert.Equal(createNamespaceResponse.Name, namespaceName);
@@ -82,6 +70,7 @@ namespace Relay.Tests.ScenarioTests
                 Assert.Equal(location, getNamespaceResponse.Location, StringComparer.CurrentCultureIgnoreCase);
                 
                 // Get all namespaces created within a resourceGroup
+                
                 var getAllNamespacesResponse = RelayManagementClient.Namespaces.ListByResourceGroup(resourceGroup);
                 Assert.NotNull(getAllNamespacesResponse);
                 Assert.True(getAllNamespacesResponse.Count() >= 1);

@@ -18,13 +18,14 @@
     <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
   </ItemGroup>
   <ItemGroup>
-    <DnxInvisibleCompile Include="ScenarioTests\CustomDomainTests.cs" />
-    <DnxInvisibleCompile Include="ScenarioTests\EndpointTests.cs" />
-    <DnxInvisibleCompile Include="ScenarioTests\GetEdgeNodeTests.cs" />
-    <DnxInvisibleCompile Include="ScenarioTests\NameAvailabilityTests.cs" />
-    <DnxInvisibleCompile Include="ScenarioTests\OperationsTest.cs" />
-    <DnxInvisibleCompile Include="ScenarioTests\OriginTests.cs" />
-    <DnxInvisibleCompile Include="ScenarioTests\ProfileTests.cs" />
+    <DnxInvisibleCompile Include="ScenarioTests\ScenarioTests.CheckNameAvailability.cs" />
+    <DnxInvisibleCompile Include="ScenarioTests\ScenarioTests.HybridConnectionsTests.CRUD.cs" />
+    <DnxInvisibleCompile Include="ScenarioTests\ScenarioTests.HybridConnectionsTests.CRUDAuthorizationRules.cs" />
+    <DnxInvisibleCompile Include="ScenarioTests\ScenarioTests.NamespaceTests.CRUD.cs" />
+    <DnxInvisibleCompile Include="ScenarioTests\ScenarioTests.NamespaceTests.CRUDAuthorizationRules.cs" />
+    <DnxInvisibleCompile Include="ScenarioTests\ScenarioTests.WCFRelayTests.CRUD.cs" />
+    <DnxInvisibleCompile Include="ScenarioTests\ScenarioTests.WCFRelayTests.CRUDAuthorizationRules.cs" />
+	<DnxInvisibleCompile Include="ScenarioTests\ScenarioTests.OperationList.cs" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>

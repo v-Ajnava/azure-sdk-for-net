@@ -33,29 +33,22 @@ namespace Relay.Tests.ScenarioTests
             {
                 InitializeClients(context);
 
-                var location = "West US";// this.ResourceManagementClient.GetLocationFromProvider();
+                var location =  this.ResourceManagementClient.GetLocationFromProvider(); 
 
-                var resourceGroup = "Default-ServiceBus-WestUS";
-
-                //var resourceGroup = this.ResourceManagementClient.TryGetResourceGroup(location);
-                //if (string.IsNullOrWhiteSpace(resourceGroup))
-                //{
-                //    resourceGroup = TestUtilities.GenerateName(RelayManagementHelper.ResourceGroupPrefix);
-                //    this.ResourceManagementClient.TryRegisterResourceGroup(location, resourceGroup);
-                //}
+                var resourceGroup = this.ResourceManagementClient.TryGetResourceGroup(location);
+                if (string.IsNullOrWhiteSpace(resourceGroup))
+                {
+                    resourceGroup = TestUtilities.GenerateName(RelayManagementHelper.ResourceGroupPrefix);
+                    this.ResourceManagementClient.TryRegisterResourceGroup(location, resourceGroup);
+                }
 
                 // Create Namespace
                 var namespaceName = TestUtilities.GenerateName(RelayManagementHelper.NamespacePrefix);               
 
                 var createNamespaceResponse = this.RelayManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName,
-                    new NamespaceModel()
+                    new RelayNamespace()
                     {
-                        Location = location,
-                        //Sku = new Sku
-                        //{
-                        //    Name = "Standard"
-                        //},
-
+                        Location = location,                       
                         Tags = new Dictionary<string, string>()
                         {
                             {"tag1", "value1"},
@@ -180,7 +173,7 @@ namespace Relay.Tests.ScenarioTests
 
                 // Regenerate AuthorizationRules
                 var regenerateKeysParameters = new RegenerateKeysParameters();
-                regenerateKeysParameters.PolicyKey= "PrimaryKey";
+                regenerateKeysParameters.PolicyKey = PolicyKey.PrimaryKey;
 
                 //Primary Key
                 var regenerateKeysPrimaryResponse = RelayManagementClient.WCFRelays.RegenerateKeys(resourceGroup, namespaceName, wcfRelayName, authorizationRuleName, regenerateKeysParameters);
@@ -188,7 +181,7 @@ namespace Relay.Tests.ScenarioTests
                 Assert.NotEqual(regenerateKeysPrimaryResponse.PrimaryKey, listKeysResponse.PrimaryKey);
                 Assert.Equal(regenerateKeysPrimaryResponse.SecondaryKey, listKeysResponse.SecondaryKey);
 
-                regenerateKeysParameters.PolicyKey = "SecondaryKey";
+                regenerateKeysParameters.PolicyKey = PolicyKey.SecondaryKey;
 
                 //Secondary Key
                 var regenerateKeysSecondaryResponse = RelayManagementClient.WCFRelays.RegenerateKeys(resourceGroup, namespaceName, wcfRelayName, authorizationRuleName, regenerateKeysParameters);

@@ -31,34 +31,26 @@ namespace Relay.Tests.ScenarioTests
             using (MockContext context = MockContext.Start(this.GetType().FullName))
             {
                 InitializeClients(context);
+                var location = this.ResourceManagementClient.GetLocationFromProvider();
 
-                var location = "West US";// this.ResourceManagementClient.GetLocationFromProvider();
-
-                var resourceGroup = "Default-ServiceBus-WestUS";
-
-                //var resourceGroup = this.ResourceManagementClient.TryGetResourceGroup(location);
-                //if (string.IsNullOrWhiteSpace(resourceGroup))
-                //{
-                //    resourceGroup = TestUtilities.GenerateName(RelayManagementHelper.ResourceGroupPrefix);
-                //    this.ResourceManagementClient.TryRegisterResourceGroup(location, resourceGroup);
-                //}
+                var resourceGroup = this.ResourceManagementClient.TryGetResourceGroup(location);
+                if (string.IsNullOrWhiteSpace(resourceGroup))
+                {
+                    resourceGroup = TestUtilities.GenerateName(RelayManagementHelper.ResourceGroupPrefix);
+                    this.ResourceManagementClient.TryRegisterResourceGroup(location, resourceGroup);
+                }
 
                 // Create Namespace
                 var namespaceName = TestUtilities.GenerateName(RelayManagementHelper.NamespacePrefix);
 
                 var responseOperationlist = this.RelayManagementClient.Operations.List();
 
-                var responseCheckNameAvailability = this.RelayManagementClient.Namespaces.CheckNameAvailability(new CheckNameAvailability { Name = namespaceName });
+                var responseCheckNameAvailability = this.RelayManagementClient.Namespaces.CheckNameAvailabilityMethod(new CheckNameAvailability { Name = namespaceName });
 
                 var createNamespaceResponse = this.RelayManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName,
-                    new NamespaceModel()
+                    new RelayNamespace()
                     {
                         Location = location,
-                        //Sku = new Sku
-                        //{
-                        //    Name = "Standard"
-                        //},
-
                         Tags = new Dictionary<string, string>()
                         {
                             {"tag1", "value1"},
@@ -126,7 +118,6 @@ namespace Relay.Tests.ScenarioTests
                 var listAllHybridConnectionResponse =  RelayManagementClient.HybridConnections.ListByNamespace(resourceGroup, namespaceName);
                 Assert.NotNull(listAllHybridConnectionResponse);
                 Assert.True(listAllHybridConnectionResponse.Count() >= 1);
-                //Assert.True(listAllHybridConnectionResponse.Any(hy => hy.Name == hybridConnectionsName));
                 Assert.True(listAllHybridConnectionResponse.All(hy => hy.Id.Contains(resourceGroup)));
                                 
                 //Delete the HybridConnections created

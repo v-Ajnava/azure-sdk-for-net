@@ -32,29 +32,27 @@ namespace Relay.Tests.ScenarioTests
             {
                 InitializeClients(context);
 
-                var location = "West US";// this.ResourceManagementClient.GetLocationFromProvider();
-
-                var resourceGroup = "Default-ServiceBus-WestUS";
-
-                //var resourceGroup = this.ResourceManagementClient.TryGetResourceGroup(location);
-                //if (string.IsNullOrWhiteSpace(resourceGroup))
-                //{
-                //    resourceGroup = TestUtilities.GenerateName(RelayManagementHelper.ResourceGroupPrefix);
-                //    this.ResourceManagementClient.TryRegisterResourceGroup(location, resourceGroup);
-                //}
+                var location =  this.ResourceManagementClient.GetLocationFromProvider();
+                var resourceGroup = this.ResourceManagementClient.TryGetResourceGroup(location);
+                if (string.IsNullOrWhiteSpace(resourceGroup))
+                {
+                    resourceGroup = TestUtilities.GenerateName(RelayManagementHelper.ResourceGroupPrefix);
+                    this.ResourceManagementClient.TryRegisterResourceGroup(location, resourceGroup);
+                }
 
                 // Create Namespace
-                var namespaceName = TestUtilities.GenerateName(RelayManagementHelper.NamespacePrefix);                
+                var namespaceName = TestUtilities.GenerateName(RelayManagementHelper.NamespacePrefix);
+
+
+                // CheckNameAvailability 
+                var checkNameAvailabilityResponse = this.RelayManagementClient.Namespaces.CheckNameAvailabilityMethod(new CheckNameAvailability { Name = namespaceName });
+
+                Assert.True(checkNameAvailabilityResponse.NameAvailable);
 
                 var createNamespaceResponse = this.RelayManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName,
-                    new NamespaceModel()
+                    new RelayNamespace()
                     {
                         Location = location,
-                        //Sku = new Sku
-                        //{
-                        //    Name = "Standard"
-                        //},
-
                         Tags = new Dictionary<string, string>()
                         {
                             {"tag1", "value1"},
@@ -93,9 +91,8 @@ namespace Relay.Tests.ScenarioTests
                 Assert.True(getAllNamespacesResponse.Any(ns => ns.Name == namespaceName));
 
                 // Update namespace tags
-                var updateNamespaceParameter = new NamespaceModel()
+                var updateNamespaceParameter = new RelayNamespaceUpdateParameter()
                 {
-                    Location = location,
                     Tags = new Dictionary<string, string>()
                         {
                             {"tag3", "value3"},
@@ -105,7 +102,7 @@ namespace Relay.Tests.ScenarioTests
                         }
                 };
 
-                var updateNamespaceResponse = RelayManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName, updateNamespaceParameter);
+                var updateNamespaceResponse = RelayManagementClient.Namespaces.Update(resourceGroup, namespaceName, updateNamespaceParameter);
 
                 TestUtilities.Wait(TimeSpan.FromSeconds(5));
 
@@ -120,25 +117,7 @@ namespace Relay.Tests.ScenarioTests
                     Assert.True(getNamespaceResponse.Tags.Any(t => t.Key.Equals(tag.Key)));
                     Assert.True(getNamespaceResponse.Tags.Any(t => t.Value.Equals(tag.Value)));
                 }
-
-                ///Patch the NameSpace.
                 
-                //var patchNamespaceResponse = RelayManagementClient.Namespaces.Patch(resourceGroup, namespaceName, updateNamespaceParameter);
-                //updateNamespaceParameter = new NamespaceModel()
-                //{
-                //    Location = location,
-                //    Tags = new Dictionary<string, string>()
-                //        {
-                //            {"tag3", "value3"},                            
-                //            {"tag6", "value6"}
-                //        }
-                //};
-
-                //Assert.NotNull(patchNamespaceResponse);
-                //Assert.Equal(location, patchNamespaceResponse.Location, StringComparer.CurrentCultureIgnoreCase);
-                //Assert.Equal(namespaceName, patchNamespaceResponse.Name);
-                //Assert.Equal(patchNamespaceResponse.Tags.Count, 4);
-
                 try
                 {
                     // Delete namespace

@@ -33,29 +33,21 @@ namespace Relay.Tests.ScenarioTests
             {
                 InitializeClients(context);
 
-                var location = "West US";// this.ResourceManagementClient.GetLocationFromProvider();
-
-                var resourceGroup = "Default-ServiceBus-WestUS";
-
-                //var resourceGroup = this.ResourceManagementClient.TryGetResourceGroup(location);
-                //if (string.IsNullOrWhiteSpace(resourceGroup))
-                //{
-                //    resourceGroup = TestUtilities.GenerateName(RelayManagementHelper.ResourceGroupPrefix);
-                //    this.ResourceManagementClient.TryRegisterResourceGroup(location, resourceGroup);
-                //}
+                var location =  this.ResourceManagementClient.GetLocationFromProvider();
+                var resourceGroup = this.ResourceManagementClient.TryGetResourceGroup(location);
+                if (string.IsNullOrWhiteSpace(resourceGroup))
+                {
+                    resourceGroup = TestUtilities.GenerateName(RelayManagementHelper.ResourceGroupPrefix);
+                    this.ResourceManagementClient.TryRegisterResourceGroup(location, resourceGroup);
+                }
 
                 // Create Namespace
                 var namespaceName = TestUtilities.GenerateName(RelayManagementHelper.NamespacePrefix);
 
                 var createNamespaceResponse = this.RelayManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName,
-                    new NamespaceModel()
+                    new RelayNamespace()
                     {
                         Location = location,
-                        //Sku = new Sku
-                        //{
-                        //    Name = "Standard"
-                        //},
-
                         Tags = new Dictionary<string, string>()
                         {
                             {"tag1", "value1"},
@@ -105,8 +97,6 @@ namespace Relay.Tests.ScenarioTests
                 Assert.True(createdWCFRelayResponse.RequiresClientAuthorization);
 
                 var getWCFRelaysResponse = RelayManagementClient.HybridConnections.Get(resourceGroup, namespaceName, hybridConnectionsName);
-
-
 
                 // Create a HybridConnections AuthorizationRule
                 var authorizationRuleName = TestUtilities.GenerateName(RelayManagementHelper.AuthorizationRulesPrefix);
@@ -178,7 +168,7 @@ namespace Relay.Tests.ScenarioTests
 
                 // Regenerate AuthorizationRules
                 var regenerateKeysParameters = new RegenerateKeysParameters();
-                regenerateKeysParameters.PolicyKey = "PrimaryKey";
+                regenerateKeysParameters.PolicyKey = PolicyKey.PrimaryKey;
 
                 //Primary Key
                 var regenerateKeysPrimaryResponse = RelayManagementClient.HybridConnections.RegenerateKeys(resourceGroup, namespaceName, hybridConnectionsName, authorizationRuleName, regenerateKeysParameters);
@@ -187,7 +177,7 @@ namespace Relay.Tests.ScenarioTests
                 Assert.Equal(regenerateKeysPrimaryResponse.SecondaryKey, listKeysResponse.SecondaryKey);
 
 
-                regenerateKeysParameters.PolicyKey = "SecondaryKey";
+                regenerateKeysParameters.PolicyKey = PolicyKey.SecondaryKey;
 
                 //Secondary Key
                 var regenerateKeysSecondaryResponse = RelayManagementClient.HybridConnections.RegenerateKeys(resourceGroup, namespaceName, hybridConnectionsName, authorizationRuleName, regenerateKeysParameters);

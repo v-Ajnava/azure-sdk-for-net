@@ -11,7 +11,7 @@
     "projectUrl": "https://github.com/Azure/AutoRest",
     "licenseUrl": "https://raw.githubusercontent.com/Microsoft/dotnet/master/LICENSE",
     "tags": [ "Microsoft AutoRest ClientRuntime REST adal" ],
-    "requireLicenseAcceptance":  true,
+    "requireLicenseAcceptance":  true
   },
 
   "buildOptions": {
@@ -21,7 +21,7 @@
   },
 
   "dependencies": {
-    "Microsoft.Rest.ClientRuntime": "[2.3.3,3.0)"
+    "Microsoft.Rest.ClientRuntime": "[2.3.4,3.0)"
   },
 
   "frameworks": {

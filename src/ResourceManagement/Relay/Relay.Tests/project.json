@@ -1,6 +1,6 @@
 {
-  "version": "1.0.2-*",
-  "description": "Cdn.Tests Class Library",
+  "version": "1.0.0-*",
+  "description": "Relay.Tests Class Library",
   "authors": [ "Microsoft Corporation" ],
 
   "packOptions": {
