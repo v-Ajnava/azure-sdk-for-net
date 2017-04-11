@@ -72,9 +72,8 @@ namespace EventHub.Tests.ScenarioTests
                 Assert.True(getAllNamespacesResponse.Any(ns => ns.Name == namespaceName));
 
                 // Update namespace tags and make the namespace critical
-                var updateNamespaceParameter = new NamespaceCreateOrUpdateParameters()
+                var updateNamespaceParameter = new NamespaceUpdateParameter()
                 {
-                    Location = location,
                     Tags = new Dictionary<string, string>()
                         {
                             {"tag1", "value1"},
@@ -85,7 +84,7 @@ namespace EventHub.Tests.ScenarioTests
                 };
 
                 // Will uncomment the assertions once the service is deployed
-                var updateNamespaceResponse = EventHubManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName, updateNamespaceParameter);
+                var updateNamespaceResponse = EventHubManagementClient.Namespaces.Update(resourceGroup, namespaceName, updateNamespaceParameter);
                 //Assert.NotNull(updateNamespaceResponse);
                 //Assert.True(updateNamespaceResponse.ProvisioningState.Equals("Active", StringComparison.CurrentCultureIgnoreCase) || 
                 //    updateNamespaceResponse.ProvisioningState.Equals("Succeeded", StringComparison.CurrentCultureIgnoreCase));
