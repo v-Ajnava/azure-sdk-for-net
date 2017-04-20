@@ -25,17 +25,17 @@ namespace Microsoft.Azure.Management.EventHub
     {
         /// <summary>
         /// Creates or updates an Event Hubs consumer group as a nested
-        /// resource within a namespace.
+        /// resource within a Namespace.
         /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639498.aspx" />
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='eventHubName'>
-        /// The eventhub name
+        /// The Event Hub name
         /// </param>
         /// <param name='consumerGroupName'>
         /// The consumer group name
@@ -68,10 +68,10 @@ namespace Microsoft.Azure.Management.EventHub
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='eventHubName'>
-        /// The eventhub name
+        /// The Event Hub name
         /// </param>
         /// <param name='consumerGroupName'>
         /// The consumer group name
@@ -97,10 +97,10 @@ namespace Microsoft.Azure.Management.EventHub
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='eventHubName'>
-        /// The eventhub name
+        /// The Event Hub name
         /// </param>
         /// <param name='consumerGroupName'>
         /// The consumer group name
@@ -122,18 +122,18 @@ namespace Microsoft.Azure.Management.EventHub
         /// </exception>
         Task<AzureOperationResponse<ConsumerGroupResource>> GetWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string eventHubName, string consumerGroupName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets all the consumer groups in a eventhub. An empty feed is
-        /// returned if no consumer group exists in the eventhub.
+        /// Gets all the consumer groups in a Namespace. An empty feed is
+        /// returned if no consumer group exists in the Namespace.
         /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639503.aspx" />
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='eventHubName'>
-        /// The eventhub name
+        /// The Event Hub name
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -152,8 +152,8 @@ namespace Microsoft.Azure.Management.EventHub
         /// </exception>
         Task<AzureOperationResponse<IPage<ConsumerGroupResource>>> ListAllWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string eventHubName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets all the consumer groups in a eventhub. An empty feed is
-        /// returned if no consumer group exists in the eventhub.
+        /// Gets all the consumer groups in a Namespace. An empty feed is
+        /// returned if no consumer group exists in the Namespace.
         /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639503.aspx" />
         /// </summary>
         /// <param name='nextPageLink'>

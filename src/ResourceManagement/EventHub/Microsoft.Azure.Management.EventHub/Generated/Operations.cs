@@ -51,7 +51,7 @@ namespace Microsoft.Azure.Management.EventHub
         public EventHubManagementClient Client { get; private set; }
 
         /// <summary>
-        /// Lists all of the available event hub REST API operations.
+        /// Lists all of the available Event Hub REST API operations.
         /// </summary>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -222,7 +222,7 @@ namespace Microsoft.Azure.Management.EventHub
         }
 
         /// <summary>
-        /// Lists all of the available event hub REST API operations.
+        /// Lists all of the available Event Hub REST API operations.
         /// </summary>
         /// <param name='nextPageLink'>
         /// The NextLink from the previous successful call to List operation.

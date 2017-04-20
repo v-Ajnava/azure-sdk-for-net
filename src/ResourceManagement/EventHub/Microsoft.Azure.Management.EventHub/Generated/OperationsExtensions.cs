@@ -22,7 +22,7 @@ namespace Microsoft.Azure.Management.EventHub
     public static partial class OperationsExtensions
     {
             /// <summary>
-            /// Lists all of the available event hub REST API operations.
+            /// Lists all of the available Event Hub REST API operations.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -33,7 +33,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Lists all of the available event hub REST API operations.
+            /// Lists all of the available Event Hub REST API operations.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -50,7 +50,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Lists all of the available event hub REST API operations.
+            /// Lists all of the available Event Hub REST API operations.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -64,7 +64,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Lists all of the available event hub REST API operations.
+            /// Lists all of the available Event Hub REST API operations.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.

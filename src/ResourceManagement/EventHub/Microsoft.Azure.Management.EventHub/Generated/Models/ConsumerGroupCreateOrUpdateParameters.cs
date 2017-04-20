@@ -33,17 +33,13 @@ namespace Microsoft.Azure.Management.EventHub.Models
         /// ConsumerGroupCreateOrUpdateParameters class.
         /// </summary>
         /// <param name="location">Location of the resource.</param>
-        /// <param name="type">ARM type of the namespace.</param>
+        /// <param name="type">ARM type of the Namespace.</param>
         /// <param name="name">Name of the consumer group.</param>
         /// <param name="createdAt">Exact time the message was created.</param>
         /// <param name="eventHubPath">The path of the Event Hub.</param>
         /// <param name="updatedAt">The exact time the message was
         /// updated.</param>
-        /// <param name="userMetadata">Usermetadata is a placeholder to store
-        /// user-defined string data with maximum length 1024. e.g. it can be
-        /// used to store descriptive data, such as list of teams and their
-        /// contact information also user-defined configuration settings can be
-        /// stored.</param>
+        /// <param name="userMetadata">The user metadata.</param>
         public ConsumerGroupCreateOrUpdateParameters(string location, string type = default(string), string name = default(string), System.DateTime? createdAt = default(System.DateTime?), string eventHubPath = default(string), System.DateTime? updatedAt = default(System.DateTime?), string userMetadata = default(string))
         {
             Location = location;
@@ -62,7 +58,7 @@ namespace Microsoft.Azure.Management.EventHub.Models
         public string Location { get; set; }
 
         /// <summary>
-        /// Gets or sets ARM type of the namespace.
+        /// Gets or sets ARM type of the Namespace.
         /// </summary>
         [JsonProperty(PropertyName = "type")]
         public string Type { get; set; }
@@ -92,10 +88,7 @@ namespace Microsoft.Azure.Management.EventHub.Models
         public System.DateTime? UpdatedAt { get; protected set; }
 
         /// <summary>
-        /// Gets or sets usermetadata is a placeholder to store user-defined
-        /// string data with maximum length 1024. e.g. it can be used to store
-        /// descriptive data, such as list of teams and their contact
-        /// information also user-defined configuration settings can be stored.
+        /// Gets or sets the user metadata.
         /// </summary>
         [JsonProperty(PropertyName = "properties.userMetadata")]
         public string UserMetadata { get; set; }

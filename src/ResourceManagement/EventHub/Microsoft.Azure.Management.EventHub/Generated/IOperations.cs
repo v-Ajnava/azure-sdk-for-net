@@ -24,7 +24,7 @@ namespace Microsoft.Azure.Management.EventHub
     public partial interface IOperations
     {
         /// <summary>
-        /// Lists all of the available event hub REST API operations.
+        /// Lists all of the available Event Hub REST API operations.
         /// </summary>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -43,7 +43,7 @@ namespace Microsoft.Azure.Management.EventHub
         /// </exception>
         Task<AzureOperationResponse<IPage<Operation>>> ListWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Lists all of the available event hub REST API operations.
+        /// Lists all of the available Event Hub REST API operations.
         /// </summary>
         /// <param name='nextPageLink'>
         /// The NextLink from the previous successful call to List operation.

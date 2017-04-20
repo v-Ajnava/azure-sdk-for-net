@@ -45,12 +45,12 @@ namespace EventHub.Tests.ScenarioTests
                 Assert.NotNull(createNamespaceResponse);
                 Assert.Equal(createNamespaceResponse.Name, namespaceName);
 
-                TestUtilities.Wait(TimeSpan.FromSeconds(5));
+                TestUtilities.Wait(TimeSpan.FromSeconds(15));
 
                 // Get the created namespace
                 var getNamespaceResponse = EventHubManagementClient.Namespaces.Get(resourceGroup, namespaceName);
                 if (string.Compare(getNamespaceResponse.ProvisioningState, "Succeeded", true) != 0)
-                    TestUtilities.Wait(TimeSpan.FromSeconds(5));
+                    TestUtilities.Wait(TimeSpan.FromSeconds(15));
 
                 getNamespaceResponse = EventHubManagementClient.Namespaces.Get(resourceGroup, namespaceName);
                 Assert.NotNull(getNamespaceResponse);
@@ -82,14 +82,9 @@ namespace EventHub.Tests.ScenarioTests
                             {"tag4", "value4"}
                         }
                 };
-
-                // Will uncomment the assertions once the service is deployed
+                                
                 var updateNamespaceResponse = EventHubManagementClient.Namespaces.Update(resourceGroup, namespaceName, updateNamespaceParameter);
-                //Assert.NotNull(updateNamespaceResponse);
-                //Assert.True(updateNamespaceResponse.ProvisioningState.Equals("Active", StringComparison.CurrentCultureIgnoreCase) || 
-                //    updateNamespaceResponse.ProvisioningState.Equals("Succeeded", StringComparison.CurrentCultureIgnoreCase));
-                //Assert.Equal(namespaceName, updateNamespaceResponse.Name);
-               
+                
                 // Get the updated namespace and also verify the Tags. 
                 getNamespaceResponse = EventHubManagementClient.Namespaces.Get(resourceGroup, namespaceName);
                 Assert.NotNull(getNamespaceResponse);
@@ -100,8 +95,10 @@ namespace EventHub.Tests.ScenarioTests
                 {
                     Assert.True(getNamespaceResponse.Tags.Any(t => t.Key.Equals(tag.Key)));
                     Assert.True(getNamespaceResponse.Tags.Any(t => t.Value.Equals(tag.Value)));
-                }  
-                               
+                }
+
+                TestUtilities.Wait(TimeSpan.FromSeconds(10));
+
                 // Delete namespace
                 EventHubManagementClient.Namespaces.Delete(resourceGroup, namespaceName);
             }

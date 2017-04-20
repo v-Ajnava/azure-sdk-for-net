@@ -15,7 +15,7 @@ namespace Microsoft.Azure.Management.EventHub.Models
     using System.Linq;
 
     /// <summary>
-    /// A EventHub REST API operation
+    /// A Event Hub REST API operation
     /// </summary>
     public partial class Operation
     {

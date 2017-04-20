@@ -51,14 +51,14 @@ namespace Microsoft.Azure.Management.EventHub
         public EventHubManagementClient Client { get; private set; }
 
         /// <summary>
-        /// Gets all the Event Hubs in a namespace.
+        /// Gets all the Event Hubs in a Namespace.
         /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639493.aspx" />
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -268,17 +268,17 @@ namespace Microsoft.Azure.Management.EventHub
         }
 
         /// <summary>
-        /// Creates or updates a new Event Hub as a nested resource within a namespace.
+        /// Creates or updates a new Event Hub as a nested resource within a Namespace.
         /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639497.aspx" />
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='eventHubName'>
-        /// The eventhub name
+        /// The Event Hub name
         /// </param>
         /// <param name='parameters'>
         /// Parameters supplied to create an Event Hub resource.
@@ -523,17 +523,17 @@ namespace Microsoft.Azure.Management.EventHub
         }
 
         /// <summary>
-        /// Deletes an Event Hub from the specified namespace and resource group.
+        /// Deletes an Event Hub from the specified Namespace and resource group.
         /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639496.aspx" />
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='eventHubName'>
-        /// The eventhub name
+        /// The Event Hub name
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -738,10 +738,10 @@ namespace Microsoft.Azure.Management.EventHub
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='eventHubName'>
-        /// The eventhub name
+        /// The Event Hub name
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -974,10 +974,10 @@ namespace Microsoft.Azure.Management.EventHub
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='eventHubName'>
-        /// The eventhub name
+        /// The Event Hub name
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1000,7 +1000,7 @@ namespace Microsoft.Azure.Management.EventHub
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<SharedAccessAuthorizationRuleCreateOrUpdateParameters>>> ListAuthorizationRulesWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string eventHubName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<SharedAccessAuthorizationRuleResource>>> ListAuthorizationRulesWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string eventHubName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -1171,7 +1171,7 @@ namespace Microsoft.Azure.Management.EventHub
                 throw ex;
             }
             // Create Result
-            var _result = new AzureOperationResponse<IPage<SharedAccessAuthorizationRuleCreateOrUpdateParameters>>();
+            var _result = new AzureOperationResponse<IPage<SharedAccessAuthorizationRuleResource>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -1184,7 +1184,7 @@ namespace Microsoft.Azure.Management.EventHub
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<SharedAccessAuthorizationRuleCreateOrUpdateParameters>>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<SharedAccessAuthorizationRuleResource>>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {
@@ -1204,23 +1204,23 @@ namespace Microsoft.Azure.Management.EventHub
         }
 
         /// <summary>
-        /// Creates or updates an authorization rule for the specified Event Hub.
+        /// Creates or updates an AuthorizationRule for the specified Event Hub.
         /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt706096.aspx" />
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='eventHubName'>
-        /// The eventhub name
+        /// The Event Hub name
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationrule name.
         /// </param>
         /// <param name='parameters'>
-        /// The shared access authorization rule.
+        /// The shared access AuthorizationRule.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1479,17 +1479,17 @@ namespace Microsoft.Azure.Management.EventHub
         }
 
         /// <summary>
-        /// Gets an authorization rule for an Event Hub by rule name.
+        /// Gets an AuthorizationRule for an Event Hub by rule name.
         /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt706097.aspx" />
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='eventHubName'>
-        /// The eventhub name
+        /// The Event Hub name
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationrule name.
@@ -1736,17 +1736,17 @@ namespace Microsoft.Azure.Management.EventHub
         }
 
         /// <summary>
-        /// Deletes an Event Hubs authorization rule.
+        /// Deletes an Event Hub AuthorizationRule.
         /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt706100.aspx" />
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='eventHubName'>
-        /// The eventhub name
+        /// The Event Hub name
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationrule name.
@@ -1971,10 +1971,10 @@ namespace Microsoft.Azure.Management.EventHub
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='eventHubName'>
-        /// The eventhub name
+        /// The Event Hub name
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationrule name.
@@ -2228,16 +2228,17 @@ namespace Microsoft.Azure.Management.EventHub
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='eventHubName'>
-        /// The eventhub name
+        /// The Event Hub name
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationrule name.
         /// </param>
         /// <param name='parameters'>
-        /// Parameters supplied to regenerate the authorization rule.
+        /// Parameters supplied to regenerate the AuthorizationRule Keys
+        /// (PrimaryKey/SecondaryKey).
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2492,7 +2493,7 @@ namespace Microsoft.Azure.Management.EventHub
         }
 
         /// <summary>
-        /// Gets all the Event Hubs in a namespace.
+        /// Gets all the Event Hubs in a Namespace.
         /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639493.aspx" />
         /// </summary>
         /// <param name='nextPageLink'>
@@ -2690,7 +2691,7 @@ namespace Microsoft.Azure.Management.EventHub
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<SharedAccessAuthorizationRuleCreateOrUpdateParameters>>> ListAuthorizationRulesNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<SharedAccessAuthorizationRuleResource>>> ListAuthorizationRulesNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (nextPageLink == null)
             {
@@ -2802,7 +2803,7 @@ namespace Microsoft.Azure.Management.EventHub
                 throw ex;
             }
             // Create Result
-            var _result = new AzureOperationResponse<IPage<SharedAccessAuthorizationRuleCreateOrUpdateParameters>>();
+            var _result = new AzureOperationResponse<IPage<SharedAccessAuthorizationRuleResource>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -2815,7 +2816,7 @@ namespace Microsoft.Azure.Management.EventHub
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<SharedAccessAuthorizationRuleCreateOrUpdateParameters>>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<SharedAccessAuthorizationRuleResource>>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {

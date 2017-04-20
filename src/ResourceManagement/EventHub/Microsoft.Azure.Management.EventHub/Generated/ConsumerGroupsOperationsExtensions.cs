@@ -23,7 +23,7 @@ namespace Microsoft.Azure.Management.EventHub
     {
             /// <summary>
             /// Creates or updates an Event Hubs consumer group as a nested resource within
-            /// a namespace.
+            /// a Namespace.
             /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639498.aspx" />
             /// </summary>
             /// <param name='operations'>
@@ -33,10 +33,10 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             /// <param name='consumerGroupName'>
             /// The consumer group name
@@ -51,7 +51,7 @@ namespace Microsoft.Azure.Management.EventHub
 
             /// <summary>
             /// Creates or updates an Event Hubs consumer group as a nested resource within
-            /// a namespace.
+            /// a Namespace.
             /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639498.aspx" />
             /// </summary>
             /// <param name='operations'>
@@ -61,10 +61,10 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             /// <param name='consumerGroupName'>
             /// The consumer group name
@@ -94,10 +94,10 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             /// <param name='consumerGroupName'>
             /// The consumer group name
@@ -118,10 +118,10 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             /// <param name='consumerGroupName'>
             /// The consumer group name
@@ -145,10 +145,10 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             /// <param name='consumerGroupName'>
             /// The consumer group name
@@ -169,10 +169,10 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             /// <param name='consumerGroupName'>
             /// The consumer group name
@@ -189,8 +189,8 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Gets all the consumer groups in a eventhub. An empty feed is returned if no
-            /// consumer group exists in the eventhub.
+            /// Gets all the consumer groups in a Namespace. An empty feed is returned if
+            /// no consumer group exists in the Namespace.
             /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639503.aspx" />
             /// </summary>
             /// <param name='operations'>
@@ -200,10 +200,10 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             public static IPage<ConsumerGroupResource> ListAll(this IConsumerGroupsOperations operations, string resourceGroupName, string namespaceName, string eventHubName)
             {
@@ -211,8 +211,8 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Gets all the consumer groups in a eventhub. An empty feed is returned if no
-            /// consumer group exists in the eventhub.
+            /// Gets all the consumer groups in a Namespace. An empty feed is returned if
+            /// no consumer group exists in the Namespace.
             /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639503.aspx" />
             /// </summary>
             /// <param name='operations'>
@@ -222,10 +222,10 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -239,8 +239,8 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Gets all the consumer groups in a eventhub. An empty feed is returned if no
-            /// consumer group exists in the eventhub.
+            /// Gets all the consumer groups in a Namespace. An empty feed is returned if
+            /// no consumer group exists in the Namespace.
             /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639503.aspx" />
             /// </summary>
             /// <param name='operations'>
@@ -255,8 +255,8 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Gets all the consumer groups in a eventhub. An empty feed is returned if no
-            /// consumer group exists in the eventhub.
+            /// Gets all the consumer groups in a Namespace. An empty feed is returned if
+            /// no consumer group exists in the Namespace.
             /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639503.aspx" />
             /// </summary>
             /// <param name='operations'>

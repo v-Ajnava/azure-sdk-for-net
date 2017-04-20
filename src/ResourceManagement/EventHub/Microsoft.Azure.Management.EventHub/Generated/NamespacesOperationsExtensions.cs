@@ -22,13 +22,13 @@ namespace Microsoft.Azure.Management.EventHub
     public static partial class NamespacesOperationsExtensions
     {
             /// <summary>
-            /// Check the give namespace name availability.
+            /// Check the give Namespace name availability.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='parameters'>
-            /// Parameters to check availability of the given namespace name
+            /// Parameters to check availability of the given Namespace name
             /// </param>
             public static CheckNameAvailabilityResult CheckNameAvailabilityMethod(this INamespacesOperations operations, CheckNameAvailability parameters)
             {
@@ -36,13 +36,13 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Check the give namespace name availability.
+            /// Check the give Namespace name availability.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='parameters'>
-            /// Parameters to check availability of the given namespace name
+            /// Parameters to check availability of the given Namespace name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -56,7 +56,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Lists all the available namespaces within a subscription, irrespective of
+            /// Lists all the available Namespaces within a subscription, irrespective of
             /// the resource groups.
             /// </summary>
             /// <param name='operations'>
@@ -68,7 +68,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Lists all the available namespaces within a subscription, irrespective of
+            /// Lists all the available Namespaces within a subscription, irrespective of
             /// the resource groups.
             /// </summary>
             /// <param name='operations'>
@@ -86,7 +86,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Lists the available namespaces within a resource group.
+            /// Lists the available Namespaces within a resource group.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -100,7 +100,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Lists the available namespaces within a resource group.
+            /// Lists the available Namespaces within a resource group.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -130,7 +130,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='parameters'>
             /// Parameters for creating a namespace resource.
@@ -151,7 +151,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='parameters'>
             /// Parameters for creating a namespace resource.
@@ -178,7 +178,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             public static void Delete(this INamespacesOperations operations, string resourceGroupName, string namespaceName)
             {
@@ -196,7 +196,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -216,7 +216,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             public static NamespaceResource Get(this INamespacesOperations operations, string resourceGroupName, string namespaceName)
             {
@@ -233,7 +233,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -257,7 +257,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='parameters'>
             /// Parameters for updating a namespace resource.
@@ -278,7 +278,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='parameters'>
             /// Parameters for updating a namespace resource.
@@ -295,7 +295,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Gets a list of authorization rules for a namespace.
+            /// Gets a list of authorization rules for a Namespace.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -304,15 +304,15 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
-            public static IPage<SharedAccessAuthorizationRuleCreateOrUpdateParameters> ListAuthorizationRules(this INamespacesOperations operations, string resourceGroupName, string namespaceName)
+            public static IPage<SharedAccessAuthorizationRuleResource> ListAuthorizationRules(this INamespacesOperations operations, string resourceGroupName, string namespaceName)
             {
                 return operations.ListAuthorizationRulesAsync(resourceGroupName, namespaceName).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Gets a list of authorization rules for a namespace.
+            /// Gets a list of authorization rules for a Namespace.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -321,12 +321,12 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IPage<SharedAccessAuthorizationRuleCreateOrUpdateParameters>> ListAuthorizationRulesAsync(this INamespacesOperations operations, string resourceGroupName, string namespaceName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IPage<SharedAccessAuthorizationRuleResource>> ListAuthorizationRulesAsync(this INamespacesOperations operations, string resourceGroupName, string namespaceName, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ListAuthorizationRulesWithHttpMessagesAsync(resourceGroupName, namespaceName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -335,7 +335,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Creates or updates an authorization rule for a namespace.
+            /// Creates or updates an AuthorizationRule for a Namespace.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -344,13 +344,13 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationrule name.
             /// </param>
             /// <param name='parameters'>
-            /// The shared access authorization rule.
+            /// The shared access AuthorizationRule.
             /// </param>
             public static SharedAccessAuthorizationRuleResource CreateOrUpdateAuthorizationRule(this INamespacesOperations operations, string resourceGroupName, string namespaceName, string authorizationRuleName, SharedAccessAuthorizationRuleCreateOrUpdateParameters parameters)
             {
@@ -358,7 +358,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Creates or updates an authorization rule for a namespace.
+            /// Creates or updates an AuthorizationRule for a Namespace.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -367,13 +367,13 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationrule name.
             /// </param>
             /// <param name='parameters'>
-            /// The shared access authorization rule.
+            /// The shared access AuthorizationRule.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -387,7 +387,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Deletes an authorization rule for a namespace.
+            /// Deletes an AuthorizationRule for a Namespace.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -396,7 +396,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationrule name.
@@ -407,7 +407,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Deletes an authorization rule for a namespace.
+            /// Deletes an AuthorizationRule for a Namespace.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -416,7 +416,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationrule name.
@@ -430,7 +430,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Gets an authorization rule for a namespace by rule name.
+            /// Gets an AuthorizationRule for a Namespace by rule name.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -439,7 +439,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationrule name.
@@ -450,7 +450,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Gets an authorization rule for a namespace by rule name.
+            /// Gets an AuthorizationRule for a Namespace by rule name.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -459,7 +459,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationrule name.
@@ -476,7 +476,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Gets the primary and secondary connection strings for the namespace.
+            /// Gets the primary and secondary connection strings for the Namespace.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -485,7 +485,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationrule name.
@@ -496,7 +496,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Gets the primary and secondary connection strings for the namespace.
+            /// Gets the primary and secondary connection strings for the Namespace.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -505,7 +505,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationrule name.
@@ -523,7 +523,7 @@ namespace Microsoft.Azure.Management.EventHub
 
             /// <summary>
             /// Regenerates the primary or secondary connection strings for the specified
-            /// namespace.
+            /// Namespace.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -532,7 +532,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationrule name.
@@ -547,7 +547,7 @@ namespace Microsoft.Azure.Management.EventHub
 
             /// <summary>
             /// Regenerates the primary or secondary connection strings for the specified
-            /// namespace.
+            /// Namespace.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -556,7 +556,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationrule name.
@@ -586,7 +586,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='parameters'>
             /// Parameters for creating a namespace resource.
@@ -607,7 +607,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='parameters'>
             /// Parameters for creating a namespace resource.
@@ -634,7 +634,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             public static void BeginDelete(this INamespacesOperations operations, string resourceGroupName, string namespaceName)
             {
@@ -652,7 +652,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -663,7 +663,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Lists all the available namespaces within a subscription, irrespective of
+            /// Lists all the available Namespaces within a subscription, irrespective of
             /// the resource groups.
             /// </summary>
             /// <param name='operations'>
@@ -678,7 +678,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Lists all the available namespaces within a subscription, irrespective of
+            /// Lists all the available Namespaces within a subscription, irrespective of
             /// the resource groups.
             /// </summary>
             /// <param name='operations'>
@@ -699,7 +699,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Lists the available namespaces within a resource group.
+            /// Lists the available Namespaces within a resource group.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -713,7 +713,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Lists the available namespaces within a resource group.
+            /// Lists the available Namespaces within a resource group.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -733,7 +733,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Gets a list of authorization rules for a namespace.
+            /// Gets a list of authorization rules for a Namespace.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -741,13 +741,13 @@ namespace Microsoft.Azure.Management.EventHub
             /// <param name='nextPageLink'>
             /// The NextLink from the previous successful call to List operation.
             /// </param>
-            public static IPage<SharedAccessAuthorizationRuleCreateOrUpdateParameters> ListAuthorizationRulesNext(this INamespacesOperations operations, string nextPageLink)
+            public static IPage<SharedAccessAuthorizationRuleResource> ListAuthorizationRulesNext(this INamespacesOperations operations, string nextPageLink)
             {
                 return operations.ListAuthorizationRulesNextAsync(nextPageLink).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Gets a list of authorization rules for a namespace.
+            /// Gets a list of authorization rules for a Namespace.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -758,7 +758,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IPage<SharedAccessAuthorizationRuleCreateOrUpdateParameters>> ListAuthorizationRulesNextAsync(this INamespacesOperations operations, string nextPageLink, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IPage<SharedAccessAuthorizationRuleResource>> ListAuthorizationRulesNextAsync(this INamespacesOperations operations, string nextPageLink, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ListAuthorizationRulesNextWithHttpMessagesAsync(nextPageLink, null, cancellationToken).ConfigureAwait(false))
                 {

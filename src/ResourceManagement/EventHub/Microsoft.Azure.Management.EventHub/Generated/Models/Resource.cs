@@ -17,7 +17,7 @@ namespace Microsoft.Azure.Management.EventHub.Models
     using System.Linq;
 
     /// <summary>
-    /// The Resource definition for other than namespace.
+    /// The Resource definition
     /// </summary>
     public partial class Resource : IResource
     {

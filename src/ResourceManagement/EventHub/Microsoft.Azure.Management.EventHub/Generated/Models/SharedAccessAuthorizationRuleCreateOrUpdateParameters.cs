@@ -37,7 +37,7 @@ namespace Microsoft.Azure.Management.EventHub.Models
         /// </summary>
         /// <param name="rights">The rights associated with the rule.</param>
         /// <param name="location">Data center location.</param>
-        /// <param name="name">Name of the authorization rule.</param>
+        /// <param name="name">Name of the AuthorizationRule.</param>
         public SharedAccessAuthorizationRuleCreateOrUpdateParameters(IList<AccessRights?> rights, string location = default(string), string name = default(string))
         {
             Location = location;
@@ -52,7 +52,7 @@ namespace Microsoft.Azure.Management.EventHub.Models
         public string Location { get; set; }
 
         /// <summary>
-        /// Gets or sets name of the authorization rule.
+        /// Gets or sets name of the AuthorizationRule.
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }

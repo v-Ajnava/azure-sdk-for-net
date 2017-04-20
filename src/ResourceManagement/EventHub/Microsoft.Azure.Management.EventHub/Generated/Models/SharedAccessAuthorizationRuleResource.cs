@@ -19,7 +19,7 @@ namespace Microsoft.Azure.Management.EventHub.Models
     using System.Linq;
 
     /// <summary>
-    /// Description of a namespace authorization rule.
+    /// Single item in a List or Get AuthorizationRule operation
     /// </summary>
     [JsonTransformation]
     public partial class SharedAccessAuthorizationRuleResource : Resource

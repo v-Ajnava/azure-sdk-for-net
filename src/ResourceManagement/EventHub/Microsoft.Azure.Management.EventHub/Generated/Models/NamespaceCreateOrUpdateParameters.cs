@@ -36,32 +36,32 @@ namespace Microsoft.Azure.Management.EventHub.Models
         /// </summary>
         /// <param name="location">Namespace location.</param>
         /// <param name="tags">Namespace tags.</param>
-        /// <param name="provisioningState">Provisioning state of the
-        /// namespace.</param>
-        /// <param name="createdAt">The time the namespace was created.</param>
-        /// <param name="updatedAt">The time the namespace was updated.</param>
-        /// <param name="serviceBusEndpoint">Endpoint you can use to perform
-        /// Service Bus operations.</param>
-        /// <param name="status">State of the namespace. Possible values
+        /// <param name="status">State of the Namespace. Possible values
         /// include: 'Unknown', 'Creating', 'Created', 'Activating',
         /// 'Enabling', 'Active', 'Disabling', 'Disabled', 'SoftDeleting',
         /// 'SoftDeleted', 'Removing', 'Removed', 'Failed'</param>
-        /// <param name="enabled">Specifies whether this instance is
-        /// enabled.</param>
+        /// <param name="provisioningState">Provisioning state of the
+        /// Namespace.</param>
+        /// <param name="createdAt">The time the Namespace was created.</param>
+        /// <param name="updatedAt">The time the Namespace was updated.</param>
+        /// <param name="serviceBusEndpoint">Endpoint you can use to perform
+        /// Service Bus operations.</param>
         /// <param name="metricId">Identifier for Azure Insights
         /// metrics</param>
-        public NamespaceCreateOrUpdateParameters(string location, Sku sku = default(Sku), IDictionary<string, string> tags = default(IDictionary<string, string>), string provisioningState = default(string), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), string serviceBusEndpoint = default(string), NamespaceState? status = default(NamespaceState?), bool? enabled = default(bool?), string metricId = default(string))
+        /// <param name="enabled">Specifies whether this instance is
+        /// enabled.</param>
+        public NamespaceCreateOrUpdateParameters(string location, Sku sku = default(Sku), IDictionary<string, string> tags = default(IDictionary<string, string>), NamespaceState? status = default(NamespaceState?), string provisioningState = default(string), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), string serviceBusEndpoint = default(string), string metricId = default(string), bool? enabled = default(bool?))
         {
             Location = location;
             Sku = sku;
             Tags = tags;
+            Status = status;
             ProvisioningState = provisioningState;
             CreatedAt = createdAt;
             UpdatedAt = updatedAt;
             ServiceBusEndpoint = serviceBusEndpoint;
-            Status = status;
-            Enabled = enabled;
             MetricId = metricId;
+            Enabled = enabled;
         }
 
         /// <summary>
@@ -82,31 +82,7 @@ namespace Microsoft.Azure.Management.EventHub.Models
         public IDictionary<string, string> Tags { get; set; }
 
         /// <summary>
-        /// Gets provisioning state of the namespace.
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.provisioningState")]
-        public string ProvisioningState { get; protected set; }
-
-        /// <summary>
-        /// Gets the time the namespace was created.
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.createdAt")]
-        public System.DateTime? CreatedAt { get; protected set; }
-
-        /// <summary>
-        /// Gets the time the namespace was updated.
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.updatedAt")]
-        public System.DateTime? UpdatedAt { get; protected set; }
-
-        /// <summary>
-        /// Gets endpoint you can use to perform Service Bus operations.
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.serviceBusEndpoint")]
-        public string ServiceBusEndpoint { get; protected set; }
-
-        /// <summary>
-        /// Gets or sets state of the namespace. Possible values include:
+        /// Gets or sets state of the Namespace. Possible values include:
         /// 'Unknown', 'Creating', 'Created', 'Activating', 'Enabling',
         /// 'Active', 'Disabling', 'Disabled', 'SoftDeleting', 'SoftDeleted',
         /// 'Removing', 'Removed', 'Failed'
@@ -115,16 +91,41 @@ namespace Microsoft.Azure.Management.EventHub.Models
         public NamespaceState? Status { get; set; }
 
         /// <summary>
-        /// Gets or sets specifies whether this instance is enabled.
+        /// Gets or sets provisioning state of the Namespace.
         /// </summary>
-        [JsonProperty(PropertyName = "properties.enabled")]
-        public bool? Enabled { get; set; }
+        [JsonProperty(PropertyName = "properties.provisioningState")]
+        public string ProvisioningState { get; set; }
+
+        /// <summary>
+        /// Gets or sets the time the Namespace was created.
+        /// </summary>
+        [JsonProperty(PropertyName = "properties.createdAt")]
+        public System.DateTime? CreatedAt { get; set; }
+
+        /// <summary>
+        /// Gets or sets the time the Namespace was updated.
+        /// </summary>
+        [JsonProperty(PropertyName = "properties.updatedAt")]
+        public System.DateTime? UpdatedAt { get; set; }
+
+        /// <summary>
+        /// Gets or sets endpoint you can use to perform Service Bus
+        /// operations.
+        /// </summary>
+        [JsonProperty(PropertyName = "properties.serviceBusEndpoint")]
+        public string ServiceBusEndpoint { get; set; }
 
         /// <summary>
         /// Gets identifier for Azure Insights metrics
         /// </summary>
         [JsonProperty(PropertyName = "properties.metricId")]
         public string MetricId { get; protected set; }
+
+        /// <summary>
+        /// Gets or sets specifies whether this instance is enabled.
+        /// </summary>
+        [JsonProperty(PropertyName = "properties.enabled")]
+        public bool? Enabled { get; set; }
 
         /// <summary>
         /// Validate the object.

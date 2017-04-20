@@ -16,7 +16,7 @@ namespace Microsoft.Azure.Management.EventHub.Models
     using System.Linq;
 
     /// <summary>
-    /// Description of a Check Name availability request properties.
+    /// Check Name availability of Namespace request properties.
     /// </summary>
     public partial class CheckNameAvailability
     {

@@ -15,7 +15,7 @@ namespace Microsoft.Azure.Management.EventHub.Models
     using System.Linq;
 
     /// <summary>
-    /// Description of a Check Name availability request properties.
+    /// Check Name availability of Namespace response properties.
     /// </summary>
     public partial class CheckNameAvailabilityResult
     {
@@ -29,15 +29,15 @@ namespace Microsoft.Azure.Management.EventHub.Models
         /// Initializes a new instance of the CheckNameAvailabilityResult
         /// class.
         /// </summary>
-        /// <param name="nameAvailable">Value indicating namespace is
-        /// availability, true if the namespace is available; otherwise,
+        /// <param name="nameAvailable">Value indicating Namespace is
+        /// availability, true if the Namespace is available; otherwise,
         /// false.</param>
-        /// <param name="reason">The reason for unavailability of a namespace.
+        /// <param name="reason">The reason for unavailability of a Namespace.
         /// Possible values include: 'None', 'InvalidName',
         /// 'SubscriptionIsDisabled', 'NameInUse', 'NameInLockdown',
         /// 'TooManyNamespaceInCurrentSubscription'</param>
         /// <param name="message">The detailed info regarding the reason
-        /// associated with the namespace.</param>
+        /// associated with the Namespace.</param>
         public CheckNameAvailabilityResult(bool? nameAvailable = default(bool?), UnavailableReason? reason = default(UnavailableReason?), string message = default(string))
         {
             NameAvailable = nameAvailable;
@@ -46,14 +46,14 @@ namespace Microsoft.Azure.Management.EventHub.Models
         }
 
         /// <summary>
-        /// Gets or sets value indicating namespace is availability, true if
-        /// the namespace is available; otherwise, false.
+        /// Gets or sets value indicating Namespace is availability, true if
+        /// the Namespace is available; otherwise, false.
         /// </summary>
         [JsonProperty(PropertyName = "nameAvailable")]
         public bool? NameAvailable { get; set; }
 
         /// <summary>
-        /// Gets or sets the reason for unavailability of a namespace. Possible
+        /// Gets or sets the reason for unavailability of a Namespace. Possible
         /// values include: 'None', 'InvalidName', 'SubscriptionIsDisabled',
         /// 'NameInUse', 'NameInLockdown',
         /// 'TooManyNamespaceInCurrentSubscription'
@@ -63,7 +63,7 @@ namespace Microsoft.Azure.Management.EventHub.Models
 
         /// <summary>
         /// Gets the detailed info regarding the reason associated with the
-        /// namespace.
+        /// Namespace.
         /// </summary>
         [JsonProperty(PropertyName = "message")]
         public string Message { get; protected set; }

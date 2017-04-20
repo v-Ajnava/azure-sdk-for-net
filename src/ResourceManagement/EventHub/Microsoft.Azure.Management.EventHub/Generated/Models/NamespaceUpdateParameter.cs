@@ -17,7 +17,7 @@ namespace Microsoft.Azure.Management.EventHub.Models
     using System.Linq;
 
     /// <summary>
-    /// Parameters supplied to the Patch Namespace operation.
+    /// Parameters supplied to the Patch/update Namespace operation.
     /// </summary>
     public partial class NamespaceUpdateParameter
     {
@@ -30,7 +30,7 @@ namespace Microsoft.Azure.Management.EventHub.Models
         /// Initializes a new instance of the NamespaceUpdateParameter class.
         /// </summary>
         /// <param name="tags">Resource tags</param>
-        /// <param name="sku">The sku of the created namespace</param>
+        /// <param name="sku">The sku of the created Namespace</param>
         public NamespaceUpdateParameter(IDictionary<string, string> tags = default(IDictionary<string, string>), Sku sku = default(Sku))
         {
             Tags = tags;
@@ -44,7 +44,7 @@ namespace Microsoft.Azure.Management.EventHub.Models
         public IDictionary<string, string> Tags { get; set; }
 
         /// <summary>
-        /// Gets or sets the sku of the created namespace
+        /// Gets or sets the sku of the created Namespace
         /// </summary>
         [JsonProperty(PropertyName = "sku")]
         public Sku Sku { get; set; }

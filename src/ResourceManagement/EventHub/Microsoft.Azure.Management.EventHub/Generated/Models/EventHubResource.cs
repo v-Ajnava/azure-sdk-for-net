@@ -19,7 +19,7 @@ namespace Microsoft.Azure.Management.EventHub.Models
     using System.Linq;
 
     /// <summary>
-    /// Description of the Event Hub resource.
+    /// Single item in List or Get Event Hub operation
     /// </summary>
     [JsonTransformation]
     public partial class EventHubResource : Resource
@@ -38,7 +38,7 @@ namespace Microsoft.Azure.Management.EventHub.Models
         /// <param name="createdAt">Exact time the Event Hub was
         /// created.</param>
         /// <param name="messageRetentionInDays">Number of days to retain the
-        /// events for this Event Hub. Range is 1 to 7 Days</param>
+        /// events for this Event Hub.</param>
         /// <param name="partitionCount">Number of partitions created for the
         /// Event Hub.</param>
         /// <param name="partitionIds">Current number of shards on the Event
@@ -68,7 +68,7 @@ namespace Microsoft.Azure.Management.EventHub.Models
 
         /// <summary>
         /// Gets or sets number of days to retain the events for this Event
-        /// Hub. Range is 1 to 7 Days
+        /// Hub.
         /// </summary>
         [JsonProperty(PropertyName = "properties.messageRetentionInDays")]
         public long? MessageRetentionInDays { get; set; }
@@ -86,13 +86,13 @@ namespace Microsoft.Azure.Management.EventHub.Models
         public IList<string> PartitionIds { get; protected set; }
 
         /// <summary>
-        /// Gets enumerates the possible values for the status of the Event
-        /// Hub. Possible values include: 'Active', 'Disabled', 'Restoring',
-        /// 'SendDisabled', 'ReceiveDisabled', 'Creating', 'Deleting',
-        /// 'Renaming', 'Unknown'
+        /// Gets or sets enumerates the possible values for the status of the
+        /// Event Hub. Possible values include: 'Active', 'Disabled',
+        /// 'Restoring', 'SendDisabled', 'ReceiveDisabled', 'Creating',
+        /// 'Deleting', 'Renaming', 'Unknown'
         /// </summary>
         [JsonProperty(PropertyName = "properties.status")]
-        public EntityStatus? Status { get; protected set; }
+        public EntityStatus? Status { get; set; }
 
         /// <summary>
         /// Gets the exact time the message was updated.

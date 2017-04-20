@@ -22,7 +22,7 @@ namespace Microsoft.Azure.Management.EventHub
     public static partial class EventHubsOperationsExtensions
     {
             /// <summary>
-            /// Gets all the Event Hubs in a namespace.
+            /// Gets all the Event Hubs in a Namespace.
             /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639493.aspx" />
             /// </summary>
             /// <param name='operations'>
@@ -32,7 +32,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             public static IPage<EventHubResource> ListAll(this IEventHubsOperations operations, string resourceGroupName, string namespaceName)
             {
@@ -40,7 +40,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Gets all the Event Hubs in a namespace.
+            /// Gets all the Event Hubs in a Namespace.
             /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639493.aspx" />
             /// </summary>
             /// <param name='operations'>
@@ -50,7 +50,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -64,7 +64,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Creates or updates a new Event Hub as a nested resource within a namespace.
+            /// Creates or updates a new Event Hub as a nested resource within a Namespace.
             /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639497.aspx" />
             /// </summary>
             /// <param name='operations'>
@@ -74,10 +74,10 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             /// <param name='parameters'>
             /// Parameters supplied to create an Event Hub resource.
@@ -88,7 +88,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Creates or updates a new Event Hub as a nested resource within a namespace.
+            /// Creates or updates a new Event Hub as a nested resource within a Namespace.
             /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639497.aspx" />
             /// </summary>
             /// <param name='operations'>
@@ -98,10 +98,10 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             /// <param name='parameters'>
             /// Parameters supplied to create an Event Hub resource.
@@ -118,7 +118,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Deletes an Event Hub from the specified namespace and resource group.
+            /// Deletes an Event Hub from the specified Namespace and resource group.
             /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639496.aspx" />
             /// </summary>
             /// <param name='operations'>
@@ -128,10 +128,10 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             public static void Delete(this IEventHubsOperations operations, string resourceGroupName, string namespaceName, string eventHubName)
             {
@@ -139,7 +139,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Deletes an Event Hub from the specified namespace and resource group.
+            /// Deletes an Event Hub from the specified Namespace and resource group.
             /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639496.aspx" />
             /// </summary>
             /// <param name='operations'>
@@ -149,10 +149,10 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -173,10 +173,10 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             public static EventHubResource Get(this IEventHubsOperations operations, string resourceGroupName, string namespaceName, string eventHubName)
             {
@@ -194,10 +194,10 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -220,12 +220,12 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
-            public static IPage<SharedAccessAuthorizationRuleCreateOrUpdateParameters> ListAuthorizationRules(this IEventHubsOperations operations, string resourceGroupName, string namespaceName, string eventHubName)
+            public static IPage<SharedAccessAuthorizationRuleResource> ListAuthorizationRules(this IEventHubsOperations operations, string resourceGroupName, string namespaceName, string eventHubName)
             {
                 return operations.ListAuthorizationRulesAsync(resourceGroupName, namespaceName, eventHubName).GetAwaiter().GetResult();
             }
@@ -240,15 +240,15 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IPage<SharedAccessAuthorizationRuleCreateOrUpdateParameters>> ListAuthorizationRulesAsync(this IEventHubsOperations operations, string resourceGroupName, string namespaceName, string eventHubName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IPage<SharedAccessAuthorizationRuleResource>> ListAuthorizationRulesAsync(this IEventHubsOperations operations, string resourceGroupName, string namespaceName, string eventHubName, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ListAuthorizationRulesWithHttpMessagesAsync(resourceGroupName, namespaceName, eventHubName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -257,7 +257,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Creates or updates an authorization rule for the specified Event Hub.
+            /// Creates or updates an AuthorizationRule for the specified Event Hub.
             /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt706096.aspx" />
             /// </summary>
             /// <param name='operations'>
@@ -267,16 +267,16 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationrule name.
             /// </param>
             /// <param name='parameters'>
-            /// The shared access authorization rule.
+            /// The shared access AuthorizationRule.
             /// </param>
             public static SharedAccessAuthorizationRuleResource CreateOrUpdateAuthorizationRule(this IEventHubsOperations operations, string resourceGroupName, string namespaceName, string eventHubName, string authorizationRuleName, SharedAccessAuthorizationRuleCreateOrUpdateParameters parameters)
             {
@@ -284,7 +284,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Creates or updates an authorization rule for the specified Event Hub.
+            /// Creates or updates an AuthorizationRule for the specified Event Hub.
             /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt706096.aspx" />
             /// </summary>
             /// <param name='operations'>
@@ -294,16 +294,16 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationrule name.
             /// </param>
             /// <param name='parameters'>
-            /// The shared access authorization rule.
+            /// The shared access AuthorizationRule.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -317,7 +317,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Gets an authorization rule for an Event Hub by rule name.
+            /// Gets an AuthorizationRule for an Event Hub by rule name.
             /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt706097.aspx" />
             /// </summary>
             /// <param name='operations'>
@@ -327,10 +327,10 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationrule name.
@@ -341,7 +341,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Gets an authorization rule for an Event Hub by rule name.
+            /// Gets an AuthorizationRule for an Event Hub by rule name.
             /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt706097.aspx" />
             /// </summary>
             /// <param name='operations'>
@@ -351,10 +351,10 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationrule name.
@@ -371,7 +371,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Deletes an Event Hubs authorization rule.
+            /// Deletes an Event Hub AuthorizationRule.
             /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt706100.aspx" />
             /// </summary>
             /// <param name='operations'>
@@ -381,10 +381,10 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationrule name.
@@ -395,7 +395,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Deletes an Event Hubs authorization rule.
+            /// Deletes an Event Hub AuthorizationRule.
             /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt706100.aspx" />
             /// </summary>
             /// <param name='operations'>
@@ -405,10 +405,10 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationrule name.
@@ -432,10 +432,10 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationrule name.
@@ -456,10 +456,10 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationrule name.
@@ -486,16 +486,17 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationrule name.
             /// </param>
             /// <param name='parameters'>
-            /// Parameters supplied to regenerate the authorization rule.
+            /// Parameters supplied to regenerate the AuthorizationRule Keys
+            /// (PrimaryKey/SecondaryKey).
             /// </param>
             public static ResourceListKeys RegenerateKeys(this IEventHubsOperations operations, string resourceGroupName, string namespaceName, string eventHubName, string authorizationRuleName, RegenerateKeysParameters parameters)
             {
@@ -513,16 +514,17 @@ namespace Microsoft.Azure.Management.EventHub
             /// Name of the Resource group within the Azure subscription.
             /// </param>
             /// <param name='namespaceName'>
-            /// The namespace name
+            /// The Namespace name
             /// </param>
             /// <param name='eventHubName'>
-            /// The eventhub name
+            /// The Event Hub name
             /// </param>
             /// <param name='authorizationRuleName'>
             /// The authorizationrule name.
             /// </param>
             /// <param name='parameters'>
-            /// Parameters supplied to regenerate the authorization rule.
+            /// Parameters supplied to regenerate the AuthorizationRule Keys
+            /// (PrimaryKey/SecondaryKey).
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -536,7 +538,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Gets all the Event Hubs in a namespace.
+            /// Gets all the Event Hubs in a Namespace.
             /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639493.aspx" />
             /// </summary>
             /// <param name='operations'>
@@ -551,7 +553,7 @@ namespace Microsoft.Azure.Management.EventHub
             }
 
             /// <summary>
-            /// Gets all the Event Hubs in a namespace.
+            /// Gets all the Event Hubs in a Namespace.
             /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639493.aspx" />
             /// </summary>
             /// <param name='operations'>
@@ -580,7 +582,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// <param name='nextPageLink'>
             /// The NextLink from the previous successful call to List operation.
             /// </param>
-            public static IPage<SharedAccessAuthorizationRuleCreateOrUpdateParameters> ListAuthorizationRulesNext(this IEventHubsOperations operations, string nextPageLink)
+            public static IPage<SharedAccessAuthorizationRuleResource> ListAuthorizationRulesNext(this IEventHubsOperations operations, string nextPageLink)
             {
                 return operations.ListAuthorizationRulesNextAsync(nextPageLink).GetAwaiter().GetResult();
             }
@@ -597,7 +599,7 @@ namespace Microsoft.Azure.Management.EventHub
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IPage<SharedAccessAuthorizationRuleCreateOrUpdateParameters>> ListAuthorizationRulesNextAsync(this IEventHubsOperations operations, string nextPageLink, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IPage<SharedAccessAuthorizationRuleResource>> ListAuthorizationRulesNextAsync(this IEventHubsOperations operations, string nextPageLink, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ListAuthorizationRulesNextWithHttpMessagesAsync(nextPageLink, null, cancellationToken).ConfigureAwait(false))
                 {

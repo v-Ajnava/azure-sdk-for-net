@@ -24,14 +24,14 @@ namespace Microsoft.Azure.Management.EventHub
     public partial interface IEventHubsOperations
     {
         /// <summary>
-        /// Gets all the Event Hubs in a namespace.
+        /// Gets all the Event Hubs in a Namespace.
         /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639493.aspx" />
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -51,17 +51,17 @@ namespace Microsoft.Azure.Management.EventHub
         Task<AzureOperationResponse<IPage<EventHubResource>>> ListAllWithHttpMessagesAsync(string resourceGroupName, string namespaceName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Creates or updates a new Event Hub as a nested resource within a
-        /// namespace.
+        /// Namespace.
         /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639497.aspx" />
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='eventHubName'>
-        /// The eventhub name
+        /// The Event Hub name
         /// </param>
         /// <param name='parameters'>
         /// Parameters supplied to create an Event Hub resource.
@@ -83,7 +83,7 @@ namespace Microsoft.Azure.Management.EventHub
         /// </exception>
         Task<AzureOperationResponse<EventHubResource>> CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string eventHubName, EventHubCreateOrUpdateParameters parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Deletes an Event Hub from the specified namespace and resource
+        /// Deletes an Event Hub from the specified Namespace and resource
         /// group.
         /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639496.aspx" />
         /// </summary>
@@ -91,10 +91,10 @@ namespace Microsoft.Azure.Management.EventHub
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='eventHubName'>
-        /// The eventhub name
+        /// The Event Hub name
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -117,10 +117,10 @@ namespace Microsoft.Azure.Management.EventHub
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='eventHubName'>
-        /// The eventhub name
+        /// The Event Hub name
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -145,10 +145,10 @@ namespace Microsoft.Azure.Management.EventHub
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='eventHubName'>
-        /// The eventhub name
+        /// The Event Hub name
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -165,9 +165,9 @@ namespace Microsoft.Azure.Management.EventHub
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<IPage<SharedAccessAuthorizationRuleCreateOrUpdateParameters>>> ListAuthorizationRulesWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string eventHubName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<SharedAccessAuthorizationRuleResource>>> ListAuthorizationRulesWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string eventHubName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Creates or updates an authorization rule for the specified Event
+        /// Creates or updates an AuthorizationRule for the specified Event
         /// Hub.
         /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt706096.aspx" />
         /// </summary>
@@ -175,16 +175,16 @@ namespace Microsoft.Azure.Management.EventHub
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='eventHubName'>
-        /// The eventhub name
+        /// The Event Hub name
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationrule name.
         /// </param>
         /// <param name='parameters'>
-        /// The shared access authorization rule.
+        /// The shared access AuthorizationRule.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -203,17 +203,17 @@ namespace Microsoft.Azure.Management.EventHub
         /// </exception>
         Task<AzureOperationResponse<SharedAccessAuthorizationRuleResource>> CreateOrUpdateAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string eventHubName, string authorizationRuleName, SharedAccessAuthorizationRuleCreateOrUpdateParameters parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets an authorization rule for an Event Hub by rule name.
+        /// Gets an AuthorizationRule for an Event Hub by rule name.
         /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt706097.aspx" />
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='eventHubName'>
-        /// The eventhub name
+        /// The Event Hub name
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationrule name.
@@ -235,17 +235,17 @@ namespace Microsoft.Azure.Management.EventHub
         /// </exception>
         Task<AzureOperationResponse<SharedAccessAuthorizationRuleResource>> GetAuthorizationRuleWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string eventHubName, string authorizationRuleName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Deletes an Event Hubs authorization rule.
+        /// Deletes an Event Hub AuthorizationRule.
         /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt706100.aspx" />
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='eventHubName'>
-        /// The eventhub name
+        /// The Event Hub name
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationrule name.
@@ -271,10 +271,10 @@ namespace Microsoft.Azure.Management.EventHub
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='eventHubName'>
-        /// The eventhub name
+        /// The Event Hub name
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationrule name.
@@ -303,16 +303,17 @@ namespace Microsoft.Azure.Management.EventHub
         /// Name of the Resource group within the Azure subscription.
         /// </param>
         /// <param name='namespaceName'>
-        /// The namespace name
+        /// The Namespace name
         /// </param>
         /// <param name='eventHubName'>
-        /// The eventhub name
+        /// The Event Hub name
         /// </param>
         /// <param name='authorizationRuleName'>
         /// The authorizationrule name.
         /// </param>
         /// <param name='parameters'>
-        /// Parameters supplied to regenerate the authorization rule.
+        /// Parameters supplied to regenerate the AuthorizationRule Keys
+        /// (PrimaryKey/SecondaryKey).
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -331,7 +332,7 @@ namespace Microsoft.Azure.Management.EventHub
         /// </exception>
         Task<AzureOperationResponse<ResourceListKeys>> RegenerateKeysWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string eventHubName, string authorizationRuleName, RegenerateKeysParameters parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets all the Event Hubs in a namespace.
+        /// Gets all the Event Hubs in a Namespace.
         /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639493.aspx" />
         /// </summary>
         /// <param name='nextPageLink'>
@@ -374,7 +375,7 @@ namespace Microsoft.Azure.Management.EventHub
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<IPage<SharedAccessAuthorizationRuleCreateOrUpdateParameters>>> ListAuthorizationRulesNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<SharedAccessAuthorizationRuleResource>>> ListAuthorizationRulesNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }
 

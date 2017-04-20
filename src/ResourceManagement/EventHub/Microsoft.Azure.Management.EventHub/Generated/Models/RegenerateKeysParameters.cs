@@ -15,7 +15,8 @@ namespace Microsoft.Azure.Management.EventHub.Models
     using System.Linq;
 
     /// <summary>
-    /// Parameters supplied to the Regenerate Authorization Rule operation.
+    /// Parameters supplied to the Regenerate Authorization Rule keys
+    /// operation.
     /// </summary>
     public partial class RegenerateKeysParameters
     {
