@@ -54,7 +54,7 @@ namespace Microsoft.Azure.Management.EventHub.Models
         /// 'Deleting', 'Renaming', 'Unknown'</param>
         /// <param name="captureDescription">Properties of Capture
         /// Description</param>
-        public Eventhub(string id = default(string), string name = default(string), string type = default(string), IList<string> partitionIds = default(IList<string>), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), long? messageRetentionInDays = default(long?), long? partitionCount = default(long?), EntityStatus? status = default(EntityStatus?), ArchiveDescription captureDescription = default(ArchiveDescription))
+        public Eventhub(string id = default(string), string name = default(string), string type = default(string), IList<string> partitionIds = default(IList<string>), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), long? messageRetentionInDays = default(long?), long? partitionCount = default(long?), EntityStatus? status = default(EntityStatus?), CaptureDescription captureDescription = default(CaptureDescription))
             : base(id, name, type)
         {
             PartitionIds = partitionIds;
@@ -117,7 +117,7 @@ namespace Microsoft.Azure.Management.EventHub.Models
         /// Gets or sets properties of Capture Description
         /// </summary>
         [JsonProperty(PropertyName = "properties.captureDescription")]
-        public ArchiveDescription CaptureDescription { get; set; }
+        public CaptureDescription CaptureDescription { get; set; }
 
         /// <summary>
         /// Validate the object.

@@ -17,7 +17,7 @@ namespace Microsoft.Azure.Management.EventHub.Models
     using System.Linq;
 
     /// <summary>
-    /// Single Namespace item in List or Get Operation
+    /// Capture storage details for capturedescription
     /// </summary>
     [Rest.Serialization.JsonTransformation]
     public partial class Destination
@@ -35,10 +35,13 @@ namespace Microsoft.Azure.Management.EventHub.Models
         /// </summary>
         /// <param name="name">Name of the Destination</param>
         /// <param name="storageAccountResourceId">Resource id of the storage
-        /// account used</param>
-        /// <param name="blobContainer">Blob container id</param>
-        /// <param name="archiveNameFormat">Naming format for the archive, e.g.
-        /// {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}</param>
+        /// account to be used to create the blobs</param>
+        /// <param name="blobContainer">Blob container Name</param>
+        /// <param name="archiveNameFormat">Blob naming convention for the
+        /// archive, e.g.
+        /// {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}
+        /// . here all the parameters (Namespace,EventHub .. etc) are mandatory
+        /// irrespective of order</param>
         public Destination(string name = default(string), string storageAccountResourceId = default(string), string blobContainer = default(string), string archiveNameFormat = default(string))
         {
             Name = name;
@@ -60,20 +63,23 @@ namespace Microsoft.Azure.Management.EventHub.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets resource id of the storage account used
+        /// Gets or sets resource id of the storage account to be used to
+        /// create the blobs
         /// </summary>
         [JsonProperty(PropertyName = "properties.storageAccountResourceId")]
         public string StorageAccountResourceId { get; set; }
 
         /// <summary>
-        /// Gets or sets blob container id
+        /// Gets or sets blob container Name
         /// </summary>
         [JsonProperty(PropertyName = "properties.blobContainer")]
         public string BlobContainer { get; set; }
 
         /// <summary>
-        /// Gets or sets naming format for the archive, e.g.
+        /// Gets or sets blob naming convention for the archive, e.g.
         /// {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}
+        /// . here all the parameters (Namespace,EventHub .. etc) are mandatory
+        /// irrespective of order
         /// </summary>
         [JsonProperty(PropertyName = "properties.archiveNameFormat")]
         public string ArchiveNameFormat { get; set; }

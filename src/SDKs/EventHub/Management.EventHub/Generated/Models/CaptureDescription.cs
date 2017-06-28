@@ -15,30 +15,36 @@ namespace Microsoft.Azure.Management.EventHub.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class ArchiveDescription
+    /// <summary>
+    /// Properties to configure CaptureDescription for Eventhub
+    /// </summary>
+    public partial class CaptureDescription
     {
         /// <summary>
-        /// Initializes a new instance of the ArchiveDescription class.
+        /// Initializes a new instance of the CaptureDescription class.
         /// </summary>
-        public ArchiveDescription()
+        public CaptureDescription()
         {
           CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ArchiveDescription class.
+        /// Initializes a new instance of the CaptureDescription class.
         /// </summary>
         /// <param name="enabled">A value that indicates whether archive
         /// description is enabled. </param>
         /// <param name="encoding">Enumerates the possible values for the
         /// encoding format of ArchiveDescription. Possible values include:
         /// 'Avro', 'AvroDeflate'</param>
-        /// <param name="intervalInSeconds">Number of seconds to retain the
-        /// events for this Event Hub, value should be 1 to 7 days</param>
-        /// <param name="sizeLimitInBytes">Number of seconds to retain the
-        /// events for this Event Hub, value should be 1 to 7 days</param>
-        /// <param name="destination">Properties of Destination</param>
-        public ArchiveDescription(bool? enabled = default(bool?), EncodingArchiveDescription? encoding = default(EncodingArchiveDescription?), int? intervalInSeconds = default(int?), int? sizeLimitInBytes = default(int?), Destination destination = default(Destination))
+        /// <param name="intervalInSeconds">The time window allows you to set
+        /// the frequency with which the capture to Azure Blobs will happen,
+        /// value should between 60 to 900 seconds</param>
+        /// <param name="sizeLimitInBytes">The size window defines the amount
+        /// of data built up in your Event Hub before an capture operation,
+        /// value should be between 10485760 to 524288000 bytes</param>
+        /// <param name="destination">Properties of Destination where capture
+        /// will be stored. (Storage Account, Blob Names)</param>
+        public CaptureDescription(bool? enabled = default(bool?), EncodingArchiveDescription? encoding = default(EncodingArchiveDescription?), int? intervalInSeconds = default(int?), int? sizeLimitInBytes = default(int?), Destination destination = default(Destination))
         {
             Enabled = enabled;
             Encoding = encoding;
@@ -69,21 +75,24 @@ namespace Microsoft.Azure.Management.EventHub.Models
         public EncodingArchiveDescription? Encoding { get; set; }
 
         /// <summary>
-        /// Gets or sets number of seconds to retain the events for this Event
-        /// Hub, value should be 1 to 7 days
+        /// Gets or sets the time window allows you to set the frequency with
+        /// which the capture to Azure Blobs will happen, value should between
+        /// 60 to 900 seconds
         /// </summary>
         [JsonProperty(PropertyName = "intervalInSeconds")]
         public int? IntervalInSeconds { get; set; }
 
         /// <summary>
-        /// Gets or sets number of seconds to retain the events for this Event
-        /// Hub, value should be 1 to 7 days
+        /// Gets or sets the size window defines the amount of data built up in
+        /// your Event Hub before an capture operation, value should be between
+        /// 10485760 to 524288000 bytes
         /// </summary>
         [JsonProperty(PropertyName = "sizeLimitInBytes")]
         public int? SizeLimitInBytes { get; set; }
 
         /// <summary>
-        /// Gets or sets properties of Destination
+        /// Gets or sets properties of Destination where capture will be
+        /// stored. (Storage Account, Blob Names)
         /// </summary>
         [JsonProperty(PropertyName = "destination")]
         public Destination Destination { get; set; }
@@ -104,13 +113,13 @@ namespace Microsoft.Azure.Management.EventHub.Models
             {
                 throw new ValidationException(ValidationRules.InclusiveMinimum, "IntervalInSeconds", 60);
             }
-            if (SizeLimitInBytes > 10)
+            if (SizeLimitInBytes > 524288000)
             {
-                throw new ValidationException(ValidationRules.InclusiveMaximum, "SizeLimitInBytes", 10);
+                throw new ValidationException(ValidationRules.InclusiveMaximum, "SizeLimitInBytes", 524288000);
             }
-            if (SizeLimitInBytes < 500)
+            if (SizeLimitInBytes < 10485760)
             {
-                throw new ValidationException(ValidationRules.InclusiveMinimum, "SizeLimitInBytes", 500);
+                throw new ValidationException(ValidationRules.InclusiveMinimum, "SizeLimitInBytes", 10485760);
             }
         }
     }
