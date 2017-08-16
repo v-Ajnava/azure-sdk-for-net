@@ -6,7 +6,7 @@
 @echo off
 setlocal
 
-set specFile="https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-eventhub/2017-04-01/swagger/EventHub.json"
+set specFile="https://raw.githubusercontent.com/v-Ajnava/azure-rest-api-specs/currentEHDR/specification/eventhub/resource-manager/Microsoft.EventHub/2017-04-01/EventHub.json"
 
 set repoRoot=%~dp0..\..\..\..
 set generateFolder=%~dp0Generated
