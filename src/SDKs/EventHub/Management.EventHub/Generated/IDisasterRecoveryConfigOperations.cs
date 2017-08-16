@@ -19,28 +19,18 @@ namespace Microsoft.Azure.Management.EventHub
     using System.Threading.Tasks;
 
     /// <summary>
-    /// ConsumerGroupsOperations operations.
+    /// DisasterRecoveryConfigOperations operations.
     /// </summary>
-    public partial interface IConsumerGroupsOperations
+    public partial interface IDisasterRecoveryConfigOperations
     {
         /// <summary>
-        /// Creates or updates an Event Hubs consumer group as a nested
-        /// resource within a Namespace.
+        /// Gets all the Disaster Recovery in a Namespace.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the resource group within the azure subscription.
         /// </param>
         /// <param name='namespaceName'>
         /// The Namespace name
-        /// </param>
-        /// <param name='eventHubName'>
-        /// The Event Hub name
-        /// </param>
-        /// <param name='consumerGroupName'>
-        /// The consumer group name
-        /// </param>
-        /// <param name='parameters'>
-        /// Parameters supplied to create or update a consumer group resource.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -57,9 +47,41 @@ namespace Microsoft.Azure.Management.EventHub
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<ConsumerGroup>> CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string eventHubName, string consumerGroupName, ConsumerGroup parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<ArmDisasterRecovery>>> ListByNamespaceWithHttpMessagesAsync(string resourceGroupName, string namespaceName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Deletes a consumer group from the specified Event Hub and resource
+        /// Creates or updates a new Disaster Recovery as a nested resource
+        /// within a Namespace.
+        /// </summary>
+        /// <param name='resourceGroupName'>
+        /// Name of the resource group within the azure subscription.
+        /// </param>
+        /// <param name='namespaceName'>
+        /// The Namespace name
+        /// </param>
+        /// <param name='disasterRecoveryName'>
+        /// The Disaster Recovery name
+        /// </param>
+        /// <param name='parameters'>
+        /// Parameters supplied to create an Disaster Recovery resource.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="ErrorResponseException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<AzureOperationResponse<ArmDisasterRecovery>> CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string disasterRecoveryName, ArmDisasterRecovery parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Deletes an Event Hub from the specified Namespace and resource
         /// group.
         /// </summary>
         /// <param name='resourceGroupName'>
@@ -68,11 +90,8 @@ namespace Microsoft.Azure.Management.EventHub
         /// <param name='namespaceName'>
         /// The Namespace name
         /// </param>
-        /// <param name='eventHubName'>
-        /// The Event Hub name
-        /// </param>
-        /// <param name='consumerGroupName'>
-        /// The consumer group name
+        /// <param name='disasterRecoveryName'>
+        /// The Disaster Recovery name
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -86,9 +105,10 @@ namespace Microsoft.Azure.Management.EventHub
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse> DeleteWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string eventHubName, string consumerGroupName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse> DeleteWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string disasterRecoveryName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets a description for the specified consumer group.
+        /// Retrieves Disaster Recovery config description via bith primary or
+        /// secondary namespace
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the resource group within the azure subscription.
@@ -96,11 +116,8 @@ namespace Microsoft.Azure.Management.EventHub
         /// <param name='namespaceName'>
         /// The Namespace name
         /// </param>
-        /// <param name='eventHubName'>
-        /// The Event Hub name
-        /// </param>
-        /// <param name='consumerGroupName'>
-        /// The consumer group name
+        /// <param name='disasterRecoveryName'>
+        /// The Disaster Recovery name
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -117,10 +134,10 @@ namespace Microsoft.Azure.Management.EventHub
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<ConsumerGroup>> GetWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string eventHubName, string consumerGroupName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<ArmDisasterRecovery>> GetWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string disasterRecoveryName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets all the consumer groups in a Namespace. An empty feed is
-        /// returned if no consumer group exists in the Namespace.
+        /// This operation stops replication from the Primary to the Secondary
+        /// namespace.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the resource group within the azure subscription.
@@ -128,8 +145,8 @@ namespace Microsoft.Azure.Management.EventHub
         /// <param name='namespaceName'>
         /// The Namespace name
         /// </param>
-        /// <param name='eventHubName'>
-        /// The Event Hub name
+        /// <param name='disasterRecoveryName'>
+        /// The Disaster Recovery name
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -140,16 +157,38 @@ namespace Microsoft.Azure.Management.EventHub
         /// <exception cref="ErrorResponseException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        /// <exception cref="Microsoft.Rest.SerializationException">
-        /// Thrown when unable to deserialize the response
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<AzureOperationResponse> BreakPairingWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string disasterRecoveryName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Creates Secondary namespace role as primary and removes the role
+        /// from the pervious primary namespace
+        /// </summary>
+        /// <param name='resourceGroupName'>
+        /// Name of the resource group within the azure subscription.
+        /// </param>
+        /// <param name='namespaceName'>
+        /// The Namespace name
+        /// </param>
+        /// <param name='disasterRecoveryName'>
+        /// The Disaster Recovery name
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="ErrorResponseException">
+        /// Thrown when the operation returned an invalid status code
         /// </exception>
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<IPage<ConsumerGroup>>> ListByEventHubWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string eventHubName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse> FailOverWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string disasterRecoveryName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets all the consumer groups in a Namespace. An empty feed is
-        /// returned if no consumer group exists in the Namespace.
+        /// Gets all the Disaster Recovery in a Namespace.
         /// </summary>
         /// <param name='nextPageLink'>
         /// The NextLink from the previous successful call to List operation.
@@ -169,6 +208,6 @@ namespace Microsoft.Azure.Management.EventHub
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<IPage<ConsumerGroup>>> ListByEventHubNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<ArmDisasterRecovery>>> ListByNamespaceNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

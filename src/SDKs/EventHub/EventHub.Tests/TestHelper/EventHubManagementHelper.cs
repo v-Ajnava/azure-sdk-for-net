@@ -25,6 +25,7 @@ namespace EventHub.Tests.TestHelper
         internal const string AuthorizationRulesPrefix = "sdk-Authrules-";
         internal const string DefaultNamespaceAuthorizationRule = "RootManageSharedAccessKey";
         internal const string EventHubPrefix = "sdk-EventHub-";
+        internal const string DisasterRecoveryPrefix = "sdk-DisasterRecovery-";
         internal const string ConsumerGroupPrefix = "sdk-ConsumerGroup-";
 
 
