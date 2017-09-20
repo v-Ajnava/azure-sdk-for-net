@@ -10,9 +10,6 @@
   <PropertyGroup>
     <TargetFrameworks>netcoreapp1.1</TargetFrameworks>
   </PropertyGroup>
-  <ItemGroup>
-    <Compile Remove="Tests\ScenarioTests.DisasterRecoveryTests.CRUD.cs" />
-  </ItemGroup>
 
   <ItemGroup>
     <!-- <PackageReference Include="Microsoft.Azure.Management.EventHub" Version="1.2.0" /> -->

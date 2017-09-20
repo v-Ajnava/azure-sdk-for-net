@@ -109,12 +109,12 @@ namespace EventHub.Tests.ScenarioTests
                 Assert.True(getListisasterRecoveryResponse.Count<ArmDisasterRecovery>() >= 1);
                 
                 // Delete the DisasterRecovery 
-                EventHubManagementClient.DisasterRecoveryConfig.Delete(resourceGroup, namespaceName, disasterRecoveryName);
+                //EventHubManagementClient.DisasterRecoveryConfig.Delete(resourceGroup, namespaceName, disasterRecoveryName);
 
-                TestUtilities.Wait(TimeSpan.FromSeconds(5));
+               // TestUtilities.Wait(TimeSpan.FromSeconds(5));
 
                 // Delete namespace and check for the NotFound exception
-                EventHubManagementClient.Namespaces.Delete(resourceGroup, namespaceName);
+                //EventHubManagementClient.Namespaces.Delete(resourceGroup, namespaceName);
             }
         }
     }
