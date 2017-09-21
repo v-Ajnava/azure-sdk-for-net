@@ -32,51 +32,51 @@ namespace EventHub.Tests.ScenarioTests
                     this.ResourceManagementClient.TryRegisterResourceGroup(location, resourceGroup);
                 }
 
-                var namespaceName = TestUtilities.GenerateName(EventHubManagementHelper.NamespacePrefix);
+                var namespaceName = "eh-geodr-scus-1";// TestUtilities.GenerateName(EventHubManagementHelper.NamespacePrefix);
 
 
-                // Create namespace 1
-                var createNamespaceResponse = this.EventHubManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName,
-                    new EHNamespace()
-                    {
-                        Location = location,
-                        Sku = new Sku
-                        {
-                            Name = SkuName.Standard,
-                            Tier = SkuTier.Standard
-                        },
-                        Tags = new Dictionary<string, string>()
-                        {
-                            {"tag1", "value1"},
-                            {"tag2", "value2"}
-                        }
-                    });
+                //// Create namespace 1
+                //var createNamespaceResponse = this.EventHubManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName,
+                //    new EHNamespace()
+                //    {
+                //        Location = location,
+                //        Sku = new Sku
+                //        {
+                //            Name = SkuName.Standard,
+                //            Tier = SkuTier.Standard
+                //        },
+                //        Tags = new Dictionary<string, string>()
+                //        {
+                //            {"tag1", "value1"},
+                //            {"tag2", "value2"}
+                //        }
+                //    });
 
-                Assert.NotNull(createNamespaceResponse);
-                Assert.Equal(createNamespaceResponse.Name, namespaceName);
-                TestUtilities.Wait(TimeSpan.FromSeconds(5));
+                //Assert.NotNull(createNamespaceResponse);
+                //Assert.Equal(createNamespaceResponse.Name, namespaceName);
+                //TestUtilities.Wait(TimeSpan.FromSeconds(5));
 
                 // Create namespace 2
-                var namespaceName2 = TestUtilities.GenerateName(EventHubManagementHelper.NamespacePrefix);
-                var createNamespaceResponse2 = this.EventHubManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName2,
-                    new EHNamespace()
-                    {
-                        Location = location,
-                        Sku = new Sku
-                        {
-                            Name = SkuName.Standard,
-                            Tier = SkuTier.Standard
-                        },
-                        Tags = new Dictionary<string, string>()
-                        {
-                            {"tag1", "value1"},
-                            {"tag2", "value2"}
-                        }
-                    });
+                var namespaceName2 = "eh-geodr-scus-2"; //TestUtilities.GenerateName(EventHubManagementHelper.NamespacePrefix);
+                //var createNamespaceResponse2 = this.EventHubManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName2,
+                //    new EHNamespace()
+                //    {
+                //        Location = location,
+                //        Sku = new Sku
+                //        {
+                //            Name = SkuName.Standard,
+                //            Tier = SkuTier.Standard
+                //        },
+                //        Tags = new Dictionary<string, string>()
+                //        {
+                //            {"tag1", "value1"},
+                //            {"tag2", "value2"}
+                //        }
+                //    });
 
-                Assert.NotNull(createNamespaceResponse2);
-                Assert.Equal(createNamespaceResponse2.Name, namespaceName2);
-                TestUtilities.Wait(TimeSpan.FromSeconds(5));
+                //Assert.NotNull(createNamespaceResponse2);
+                //Assert.Equal(createNamespaceResponse2.Name, namespaceName2);
+                //TestUtilities.Wait(TimeSpan.FromSeconds(5));
 
                 // Create a Disaster Recovery - Primary
                 var disasterRecoveryName = TestUtilities.GenerateName(EventHubManagementHelper.DisasterRecoveryPrefix);
@@ -104,7 +104,7 @@ namespace EventHub.Tests.ScenarioTests
                 EventHubManagementClient.DisasterRecoveryConfig.FailOver(resourceGroup, namespaceName2, disasterRecoveryName);
 
                 // Get all Disaster Recovery for a given NameSpace
-                var getListisasterRecoveryResponse = EventHubManagementClient.DisasterRecoveryConfig.ListByNamespace(resourceGroup, namespaceName);
+                var getListisasterRecoveryResponse = EventHubManagementClient.DisasterRecoveryConfig.List(resourceGroup, namespaceName);
                 Assert.NotNull(getListisasterRecoveryResponse);
                 Assert.True(getListisasterRecoveryResponse.Count<ArmDisasterRecovery>() >= 1);
                 

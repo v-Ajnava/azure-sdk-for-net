@@ -24,7 +24,7 @@ namespace Microsoft.Azure.Management.EventHub
     public partial interface IDisasterRecoveryConfigOperations
     {
         /// <summary>
-        /// Gets all the Disaster Recovery in a Namespace.
+        /// Gets all Alias(Disaster Recovery configurations)
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the resource group within the azure subscription.
@@ -47,10 +47,9 @@ namespace Microsoft.Azure.Management.EventHub
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<IPage<ArmDisasterRecovery>>> ListByNamespaceWithHttpMessagesAsync(string resourceGroupName, string namespaceName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<ArmDisasterRecovery>>> ListWithHttpMessagesAsync(string resourceGroupName, string namespaceName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Creates or updates a new Disaster Recovery as a nested resource
-        /// within a Namespace.
+        /// Creates or updates a new Alias(Disaster Recovery configuration)
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the resource group within the azure subscription.
@@ -58,11 +57,12 @@ namespace Microsoft.Azure.Management.EventHub
         /// <param name='namespaceName'>
         /// The Namespace name
         /// </param>
-        /// <param name='disasterRecoveryName'>
-        /// The Disaster Recovery name
+        /// <param name='alias'>
+        /// The Disaster Recovery configuration name
         /// </param>
         /// <param name='parameters'>
-        /// Parameters supplied to create an Disaster Recovery resource.
+        /// Parameters required to create an Alias(Disaster Recovery
+        /// configuration)
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -79,10 +79,9 @@ namespace Microsoft.Azure.Management.EventHub
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<ArmDisasterRecovery>> CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string disasterRecoveryName, ArmDisasterRecovery parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<ArmDisasterRecovery>> CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string alias, ArmDisasterRecovery parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Deletes an Event Hub from the specified Namespace and resource
-        /// group.
+        /// Deletes an Alias(Disaster Recovery configuration)
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the resource group within the azure subscription.
@@ -90,8 +89,8 @@ namespace Microsoft.Azure.Management.EventHub
         /// <param name='namespaceName'>
         /// The Namespace name
         /// </param>
-        /// <param name='disasterRecoveryName'>
-        /// The Disaster Recovery name
+        /// <param name='alias'>
+        /// The Disaster Recovery configuration name
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -105,9 +104,9 @@ namespace Microsoft.Azure.Management.EventHub
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse> DeleteWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string disasterRecoveryName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse> DeleteWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string alias, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Retrieves Disaster Recovery config description via bith primary or
+        /// Retrieves Alias(Disaster Recovery configuration) for primary or
         /// secondary namespace
         /// </summary>
         /// <param name='resourceGroupName'>
@@ -116,8 +115,8 @@ namespace Microsoft.Azure.Management.EventHub
         /// <param name='namespaceName'>
         /// The Namespace name
         /// </param>
-        /// <param name='disasterRecoveryName'>
-        /// The Disaster Recovery name
+        /// <param name='alias'>
+        /// The Disaster Recovery configuration name
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -134,10 +133,10 @@ namespace Microsoft.Azure.Management.EventHub
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<ArmDisasterRecovery>> GetWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string disasterRecoveryName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<ArmDisasterRecovery>> GetWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string alias, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// This operation stops replication from the Primary to the Secondary
-        /// namespace.
+        /// This operation disables the Disaster Recovery and stops replicating
+        /// changes from primary to secondary namespaces
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the resource group within the azure subscription.
@@ -145,8 +144,8 @@ namespace Microsoft.Azure.Management.EventHub
         /// <param name='namespaceName'>
         /// The Namespace name
         /// </param>
-        /// <param name='disasterRecoveryName'>
-        /// The Disaster Recovery name
+        /// <param name='alias'>
+        /// The Disaster Recovery configuration name
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -160,10 +159,10 @@ namespace Microsoft.Azure.Management.EventHub
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse> BreakPairingWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string disasterRecoveryName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse> BreakPairingWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string alias, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Creates Secondary namespace role as primary and removes the role
-        /// from the pervious primary namespace
+        /// envokes GEO DR failover and reconfigure the alias to point to the
+        /// secondary namespace
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the resource group within the azure subscription.
@@ -171,8 +170,8 @@ namespace Microsoft.Azure.Management.EventHub
         /// <param name='namespaceName'>
         /// The Namespace name
         /// </param>
-        /// <param name='disasterRecoveryName'>
-        /// The Disaster Recovery name
+        /// <param name='alias'>
+        /// The Disaster Recovery configuration name
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -186,9 +185,9 @@ namespace Microsoft.Azure.Management.EventHub
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse> FailOverWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string disasterRecoveryName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse> FailOverWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string alias, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets all the Disaster Recovery in a Namespace.
+        /// Gets all Alias(Disaster Recovery configurations)
         /// </summary>
         /// <param name='nextPageLink'>
         /// The NextLink from the previous successful call to List operation.
@@ -208,6 +207,6 @@ namespace Microsoft.Azure.Management.EventHub
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<IPage<ArmDisasterRecovery>>> ListByNamespaceNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<ArmDisasterRecovery>>> ListNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

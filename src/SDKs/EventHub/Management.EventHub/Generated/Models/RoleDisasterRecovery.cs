@@ -22,8 +22,6 @@ namespace Microsoft.Azure.Management.EventHub.Models
     [JsonConverter(typeof(StringEnumConverter))]
     public enum RoleDisasterRecovery
     {
-        [EnumMember(Value = "Unspecified")]
-        Unspecified,
         [EnumMember(Value = "Primary")]
         Primary,
         [EnumMember(Value = "PrimaryNotReplicating")]
@@ -40,8 +38,6 @@ namespace Microsoft.Azure.Management.EventHub.Models
         {
             switch( value )
             {
-                case RoleDisasterRecovery.Unspecified:
-                    return "Unspecified";
                 case RoleDisasterRecovery.Primary:
                     return "Primary";
                 case RoleDisasterRecovery.PrimaryNotReplicating:
@@ -56,8 +52,6 @@ namespace Microsoft.Azure.Management.EventHub.Models
         {
             switch( value )
             {
-                case "Unspecified":
-                    return RoleDisasterRecovery.Unspecified;
                 case "Primary":
                     return RoleDisasterRecovery.Primary;
                 case "PrimaryNotReplicating":

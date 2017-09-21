@@ -17,7 +17,8 @@ namespace Microsoft.Azure.Management.EventHub.Models
     using System.Linq;
 
     /// <summary>
-    /// Single item in List or Get DisasterRecovery operation
+    /// Single item in List or Get Alias(Disaster Recovery configuration)
+    /// operation
     /// </summary>
     [Rest.Serialization.JsonTransformation]
     public partial class ArmDisasterRecovery : Resource
@@ -36,25 +37,23 @@ namespace Microsoft.Azure.Management.EventHub.Models
         /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
         /// <param name="type">Resource type</param>
-        /// <param name="provisioningState">Provisioning state of the disaster
-        /// recovery</param>
-        /// <param name="partnerNamespace">A value that indicates partner
-        /// namespace </param>
-        /// <param name="role">Enumerates the possible values for the encoding
-        /// format of capture description. Possible values include:
-        /// 'Unspecified', 'Primary', 'PrimaryNotReplicating',
+        /// <param name="provisioningState">Provisioning state of the
+        /// Alias(Disaster Recovery configurations) - possible values
+        /// 'Accepted' or 'Succeeded'</param>
+        /// <param name="partnerNamespace">Primary/Secondary eventhub namespace
+        /// name, which is part of GEO DR pairning</param>
+        /// <param name="role">role of namespace in GEO DR - possible values
+        /// 'Primary' or 'PrimaryNotReplicating' or 'Secondary'. Possible
+        /// values include: 'Primary', 'PrimaryNotReplicating',
         /// 'Secondary'</param>
-        /// <param name="armDisasterRecoveryType">Enumerates the possible
-        /// values for the encoding format of capture description. Possible
-        /// values include: 'MetadataReplication', 'DataReplication'</param>
-        /// <param name="lastSynced">Time of Last Synced</param>
-        public ArmDisasterRecovery(string id = default(string), string name = default(string), string type = default(string), string provisioningState = default(string), string partnerNamespace = default(string), RoleDisasterRecovery? role = default(RoleDisasterRecovery?), ReplicationType? armDisasterRecoveryType = default(ReplicationType?), System.DateTime? lastSynced = default(System.DateTime?))
+        /// <param name="lastSynced">Timestamp of when Data/Metdata was last
+        /// synced with Primary and Secondary namespce</param>
+        public ArmDisasterRecovery(string id = default(string), string name = default(string), string type = default(string), string provisioningState = default(string), string partnerNamespace = default(string), RoleDisasterRecovery? role = default(RoleDisasterRecovery?), System.DateTime? lastSynced = default(System.DateTime?))
             : base(id, name, type)
         {
             ProvisioningState = provisioningState;
             PartnerNamespace = partnerNamespace;
             Role = role;
-            ArmDisasterRecoveryType = armDisasterRecoveryType;
             LastSynced = lastSynced;
             CustomInit();
         }
@@ -65,35 +64,30 @@ namespace Microsoft.Azure.Management.EventHub.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets provisioning state of the disaster recovery
+        /// Gets provisioning state of the Alias(Disaster Recovery
+        /// configurations) - possible values 'Accepted' or 'Succeeded'
         /// </summary>
         [JsonProperty(PropertyName = "properties.provisioningState")]
         public string ProvisioningState { get; private set; }
 
         /// <summary>
-        /// Gets or sets a value that indicates partner namespace
+        /// Gets or sets primary/Secondary eventhub namespace name, which is
+        /// part of GEO DR pairning
         /// </summary>
         [JsonProperty(PropertyName = "properties.partnerNamespace")]
         public string PartnerNamespace { get; set; }
 
         /// <summary>
-        /// Gets enumerates the possible values for the encoding format of
-        /// capture description. Possible values include: 'Unspecified',
+        /// Gets role of namespace in GEO DR - possible values 'Primary' or
+        /// 'PrimaryNotReplicating' or 'Secondary'. Possible values include:
         /// 'Primary', 'PrimaryNotReplicating', 'Secondary'
         /// </summary>
         [JsonProperty(PropertyName = "properties.role")]
         public RoleDisasterRecovery? Role { get; private set; }
 
         /// <summary>
-        /// Gets enumerates the possible values for the encoding format of
-        /// capture description. Possible values include:
-        /// 'MetadataReplication', 'DataReplication'
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.type")]
-        public ReplicationType? ArmDisasterRecoveryType { get; private set; }
-
-        /// <summary>
-        /// Gets time of Last Synced
+        /// Gets timestamp of when Data/Metdata was last synced with Primary
+        /// and Secondary namespce
         /// </summary>
         [JsonProperty(PropertyName = "properties.lastSynced")]
         public System.DateTime? LastSynced { get; private set; }

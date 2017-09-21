@@ -22,7 +22,7 @@ namespace Microsoft.Azure.Management.EventHub
     public static partial class DisasterRecoveryConfigOperationsExtensions
     {
             /// <summary>
-            /// Gets all the Disaster Recovery in a Namespace.
+            /// Gets all Alias(Disaster Recovery configurations)
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -33,13 +33,13 @@ namespace Microsoft.Azure.Management.EventHub
             /// <param name='namespaceName'>
             /// The Namespace name
             /// </param>
-            public static IPage<ArmDisasterRecovery> ListByNamespace(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName)
+            public static IPage<ArmDisasterRecovery> List(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName)
             {
-                return operations.ListByNamespaceAsync(resourceGroupName, namespaceName).GetAwaiter().GetResult();
+                return operations.ListAsync(resourceGroupName, namespaceName).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Gets all the Disaster Recovery in a Namespace.
+            /// Gets all Alias(Disaster Recovery configurations)
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -53,17 +53,16 @@ namespace Microsoft.Azure.Management.EventHub
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IPage<ArmDisasterRecovery>> ListByNamespaceAsync(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IPage<ArmDisasterRecovery>> ListAsync(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ListByNamespaceWithHttpMessagesAsync(resourceGroupName, namespaceName, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListWithHttpMessagesAsync(resourceGroupName, namespaceName, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
             }
 
             /// <summary>
-            /// Creates or updates a new Disaster Recovery as a nested resource within a
-            /// Namespace.
+            /// Creates or updates a new Alias(Disaster Recovery configuration)
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -74,20 +73,19 @@ namespace Microsoft.Azure.Management.EventHub
             /// <param name='namespaceName'>
             /// The Namespace name
             /// </param>
-            /// <param name='disasterRecoveryName'>
-            /// The Disaster Recovery name
+            /// <param name='alias'>
+            /// The Disaster Recovery configuration name
             /// </param>
             /// <param name='parameters'>
-            /// Parameters supplied to create an Disaster Recovery resource.
+            /// Parameters required to create an Alias(Disaster Recovery configuration)
             /// </param>
-            public static ArmDisasterRecovery CreateOrUpdate(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName, string disasterRecoveryName, ArmDisasterRecovery parameters)
+            public static ArmDisasterRecovery CreateOrUpdate(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName, string alias, ArmDisasterRecovery parameters)
             {
-                return operations.CreateOrUpdateAsync(resourceGroupName, namespaceName, disasterRecoveryName, parameters).GetAwaiter().GetResult();
+                return operations.CreateOrUpdateAsync(resourceGroupName, namespaceName, alias, parameters).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Creates or updates a new Disaster Recovery as a nested resource within a
-            /// Namespace.
+            /// Creates or updates a new Alias(Disaster Recovery configuration)
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -98,25 +96,25 @@ namespace Microsoft.Azure.Management.EventHub
             /// <param name='namespaceName'>
             /// The Namespace name
             /// </param>
-            /// <param name='disasterRecoveryName'>
-            /// The Disaster Recovery name
+            /// <param name='alias'>
+            /// The Disaster Recovery configuration name
             /// </param>
             /// <param name='parameters'>
-            /// Parameters supplied to create an Disaster Recovery resource.
+            /// Parameters required to create an Alias(Disaster Recovery configuration)
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ArmDisasterRecovery> CreateOrUpdateAsync(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName, string disasterRecoveryName, ArmDisasterRecovery parameters, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ArmDisasterRecovery> CreateOrUpdateAsync(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName, string alias, ArmDisasterRecovery parameters, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.CreateOrUpdateWithHttpMessagesAsync(resourceGroupName, namespaceName, disasterRecoveryName, parameters, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.CreateOrUpdateWithHttpMessagesAsync(resourceGroupName, namespaceName, alias, parameters, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
             }
 
             /// <summary>
-            /// Deletes an Event Hub from the specified Namespace and resource group.
+            /// Deletes an Alias(Disaster Recovery configuration)
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -127,16 +125,16 @@ namespace Microsoft.Azure.Management.EventHub
             /// <param name='namespaceName'>
             /// The Namespace name
             /// </param>
-            /// <param name='disasterRecoveryName'>
-            /// The Disaster Recovery name
+            /// <param name='alias'>
+            /// The Disaster Recovery configuration name
             /// </param>
-            public static void Delete(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName, string disasterRecoveryName)
+            public static void Delete(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName, string alias)
             {
-                operations.DeleteAsync(resourceGroupName, namespaceName, disasterRecoveryName).GetAwaiter().GetResult();
+                operations.DeleteAsync(resourceGroupName, namespaceName, alias).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Deletes an Event Hub from the specified Namespace and resource group.
+            /// Deletes an Alias(Disaster Recovery configuration)
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -147,20 +145,20 @@ namespace Microsoft.Azure.Management.EventHub
             /// <param name='namespaceName'>
             /// The Namespace name
             /// </param>
-            /// <param name='disasterRecoveryName'>
-            /// The Disaster Recovery name
+            /// <param name='alias'>
+            /// The Disaster Recovery configuration name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task DeleteAsync(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName, string disasterRecoveryName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task DeleteAsync(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName, string alias, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.DeleteWithHttpMessagesAsync(resourceGroupName, namespaceName, disasterRecoveryName, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.DeleteWithHttpMessagesAsync(resourceGroupName, namespaceName, alias, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
-            /// Retrieves Disaster Recovery config description via bith primary or
-            /// secondary namespace
+            /// Retrieves Alias(Disaster Recovery configuration) for primary or secondary
+            /// namespace
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -171,17 +169,17 @@ namespace Microsoft.Azure.Management.EventHub
             /// <param name='namespaceName'>
             /// The Namespace name
             /// </param>
-            /// <param name='disasterRecoveryName'>
-            /// The Disaster Recovery name
+            /// <param name='alias'>
+            /// The Disaster Recovery configuration name
             /// </param>
-            public static ArmDisasterRecovery Get(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName, string disasterRecoveryName)
+            public static ArmDisasterRecovery Get(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName, string alias)
             {
-                return operations.GetAsync(resourceGroupName, namespaceName, disasterRecoveryName).GetAwaiter().GetResult();
+                return operations.GetAsync(resourceGroupName, namespaceName, alias).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Retrieves Disaster Recovery config description via bith primary or
-            /// secondary namespace
+            /// Retrieves Alias(Disaster Recovery configuration) for primary or secondary
+            /// namespace
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -192,23 +190,23 @@ namespace Microsoft.Azure.Management.EventHub
             /// <param name='namespaceName'>
             /// The Namespace name
             /// </param>
-            /// <param name='disasterRecoveryName'>
-            /// The Disaster Recovery name
+            /// <param name='alias'>
+            /// The Disaster Recovery configuration name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ArmDisasterRecovery> GetAsync(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName, string disasterRecoveryName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ArmDisasterRecovery> GetAsync(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName, string alias, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(resourceGroupName, namespaceName, disasterRecoveryName, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(resourceGroupName, namespaceName, alias, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
             }
 
             /// <summary>
-            /// This operation stops replication from the Primary to the Secondary
-            /// namespace.
+            /// This operation disables the Disaster Recovery and stops replicating changes
+            /// from primary to secondary namespaces
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -219,17 +217,17 @@ namespace Microsoft.Azure.Management.EventHub
             /// <param name='namespaceName'>
             /// The Namespace name
             /// </param>
-            /// <param name='disasterRecoveryName'>
-            /// The Disaster Recovery name
+            /// <param name='alias'>
+            /// The Disaster Recovery configuration name
             /// </param>
-            public static void BreakPairing(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName, string disasterRecoveryName)
+            public static void BreakPairing(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName, string alias)
             {
-                operations.BreakPairingAsync(resourceGroupName, namespaceName, disasterRecoveryName).GetAwaiter().GetResult();
+                operations.BreakPairingAsync(resourceGroupName, namespaceName, alias).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// This operation stops replication from the Primary to the Secondary
-            /// namespace.
+            /// This operation disables the Disaster Recovery and stops replicating changes
+            /// from primary to secondary namespaces
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -240,20 +238,20 @@ namespace Microsoft.Azure.Management.EventHub
             /// <param name='namespaceName'>
             /// The Namespace name
             /// </param>
-            /// <param name='disasterRecoveryName'>
-            /// The Disaster Recovery name
+            /// <param name='alias'>
+            /// The Disaster Recovery configuration name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task BreakPairingAsync(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName, string disasterRecoveryName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task BreakPairingAsync(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName, string alias, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.BreakPairingWithHttpMessagesAsync(resourceGroupName, namespaceName, disasterRecoveryName, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.BreakPairingWithHttpMessagesAsync(resourceGroupName, namespaceName, alias, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
-            /// Creates Secondary namespace role as primary and removes the role from the
-            /// pervious primary namespace
+            /// envokes GEO DR failover and reconfigure the alias to point to the secondary
+            /// namespace
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -264,17 +262,17 @@ namespace Microsoft.Azure.Management.EventHub
             /// <param name='namespaceName'>
             /// The Namespace name
             /// </param>
-            /// <param name='disasterRecoveryName'>
-            /// The Disaster Recovery name
+            /// <param name='alias'>
+            /// The Disaster Recovery configuration name
             /// </param>
-            public static void FailOver(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName, string disasterRecoveryName)
+            public static void FailOver(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName, string alias)
             {
-                operations.FailOverAsync(resourceGroupName, namespaceName, disasterRecoveryName).GetAwaiter().GetResult();
+                operations.FailOverAsync(resourceGroupName, namespaceName, alias).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Creates Secondary namespace role as primary and removes the role from the
-            /// pervious primary namespace
+            /// envokes GEO DR failover and reconfigure the alias to point to the secondary
+            /// namespace
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -285,19 +283,19 @@ namespace Microsoft.Azure.Management.EventHub
             /// <param name='namespaceName'>
             /// The Namespace name
             /// </param>
-            /// <param name='disasterRecoveryName'>
-            /// The Disaster Recovery name
+            /// <param name='alias'>
+            /// The Disaster Recovery configuration name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task FailOverAsync(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName, string disasterRecoveryName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task FailOverAsync(this IDisasterRecoveryConfigOperations operations, string resourceGroupName, string namespaceName, string alias, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.FailOverWithHttpMessagesAsync(resourceGroupName, namespaceName, disasterRecoveryName, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.FailOverWithHttpMessagesAsync(resourceGroupName, namespaceName, alias, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
-            /// Gets all the Disaster Recovery in a Namespace.
+            /// Gets all Alias(Disaster Recovery configurations)
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -305,13 +303,13 @@ namespace Microsoft.Azure.Management.EventHub
             /// <param name='nextPageLink'>
             /// The NextLink from the previous successful call to List operation.
             /// </param>
-            public static IPage<ArmDisasterRecovery> ListByNamespaceNext(this IDisasterRecoveryConfigOperations operations, string nextPageLink)
+            public static IPage<ArmDisasterRecovery> ListNext(this IDisasterRecoveryConfigOperations operations, string nextPageLink)
             {
-                return operations.ListByNamespaceNextAsync(nextPageLink).GetAwaiter().GetResult();
+                return operations.ListNextAsync(nextPageLink).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Gets all the Disaster Recovery in a Namespace.
+            /// Gets all Alias(Disaster Recovery configurations)
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -322,9 +320,9 @@ namespace Microsoft.Azure.Management.EventHub
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IPage<ArmDisasterRecovery>> ListByNamespaceNextAsync(this IDisasterRecoveryConfigOperations operations, string nextPageLink, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IPage<ArmDisasterRecovery>> ListNextAsync(this IDisasterRecoveryConfigOperations operations, string nextPageLink, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ListByNamespaceNextWithHttpMessagesAsync(nextPageLink, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListNextWithHttpMessagesAsync(nextPageLink, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

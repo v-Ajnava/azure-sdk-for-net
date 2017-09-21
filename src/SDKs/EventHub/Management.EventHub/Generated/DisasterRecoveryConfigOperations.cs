@@ -51,7 +51,7 @@ namespace Microsoft.Azure.Management.EventHub
         public EventHubManagementClient Client { get; private set; }
 
         /// <summary>
-        /// Gets all the Disaster Recovery in a Namespace.
+        /// Gets all Alias(Disaster Recovery configurations)
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the resource group within the azure subscription.
@@ -80,7 +80,7 @@ namespace Microsoft.Azure.Management.EventHub
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<ArmDisasterRecovery>>> ListByNamespaceWithHttpMessagesAsync(string resourceGroupName, string namespaceName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<ArmDisasterRecovery>>> ListWithHttpMessagesAsync(string resourceGroupName, string namespaceName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -130,7 +130,7 @@ namespace Microsoft.Azure.Management.EventHub
                 tracingParameters.Add("resourceGroupName", resourceGroupName);
                 tracingParameters.Add("namespaceName", namespaceName);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "ListByNamespace", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "List", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
@@ -264,8 +264,7 @@ namespace Microsoft.Azure.Management.EventHub
         }
 
         /// <summary>
-        /// Creates or updates a new Disaster Recovery as a nested resource within a
-        /// Namespace.
+        /// Creates or updates a new Alias(Disaster Recovery configuration)
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the resource group within the azure subscription.
@@ -273,11 +272,11 @@ namespace Microsoft.Azure.Management.EventHub
         /// <param name='namespaceName'>
         /// The Namespace name
         /// </param>
-        /// <param name='disasterRecoveryName'>
-        /// The Disaster Recovery name
+        /// <param name='alias'>
+        /// The Disaster Recovery configuration name
         /// </param>
         /// <param name='parameters'>
-        /// Parameters supplied to create an Disaster Recovery resource.
+        /// Parameters required to create an Alias(Disaster Recovery configuration)
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -300,7 +299,7 @@ namespace Microsoft.Azure.Management.EventHub
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<ArmDisasterRecovery>> CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string disasterRecoveryName, ArmDisasterRecovery parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<ArmDisasterRecovery>> CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string alias, ArmDisasterRecovery parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -332,19 +331,19 @@ namespace Microsoft.Azure.Management.EventHub
                     throw new ValidationException(ValidationRules.MinLength, "namespaceName", 6);
                 }
             }
-            if (disasterRecoveryName == null)
+            if (alias == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "disasterRecoveryName");
+                throw new ValidationException(ValidationRules.CannotBeNull, "alias");
             }
-            if (disasterRecoveryName != null)
+            if (alias != null)
             {
-                if (disasterRecoveryName.Length > 50)
+                if (alias.Length > 50)
                 {
-                    throw new ValidationException(ValidationRules.MaxLength, "disasterRecoveryName", 50);
+                    throw new ValidationException(ValidationRules.MaxLength, "alias", 50);
                 }
-                if (disasterRecoveryName.Length < 1)
+                if (alias.Length < 1)
                 {
-                    throw new ValidationException(ValidationRules.MinLength, "disasterRecoveryName", 1);
+                    throw new ValidationException(ValidationRules.MinLength, "alias", 1);
                 }
             }
             if (parameters == null)
@@ -368,17 +367,17 @@ namespace Microsoft.Azure.Management.EventHub
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("resourceGroupName", resourceGroupName);
                 tracingParameters.Add("namespaceName", namespaceName);
-                tracingParameters.Add("disasterRecoveryName", disasterRecoveryName);
+                tracingParameters.Add("alias", alias);
                 tracingParameters.Add("parameters", parameters);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "CreateOrUpdate", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/disasterRecoveryConfig/{disasterRecoveryName}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/disasterRecoveryConfig/{alias}").ToString();
             _url = _url.Replace("{resourceGroupName}", System.Uri.EscapeDataString(resourceGroupName));
             _url = _url.Replace("{namespaceName}", System.Uri.EscapeDataString(namespaceName));
-            _url = _url.Replace("{disasterRecoveryName}", System.Uri.EscapeDataString(disasterRecoveryName));
+            _url = _url.Replace("{alias}", System.Uri.EscapeDataString(alias));
             _url = _url.Replace("{subscriptionId}", System.Uri.EscapeDataString(Client.SubscriptionId));
             List<string> _queryParameters = new List<string>();
             if (Client.ApiVersion != null)
@@ -512,7 +511,7 @@ namespace Microsoft.Azure.Management.EventHub
         }
 
         /// <summary>
-        /// Deletes an Event Hub from the specified Namespace and resource group.
+        /// Deletes an Alias(Disaster Recovery configuration)
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the resource group within the azure subscription.
@@ -520,8 +519,8 @@ namespace Microsoft.Azure.Management.EventHub
         /// <param name='namespaceName'>
         /// The Namespace name
         /// </param>
-        /// <param name='disasterRecoveryName'>
-        /// The Disaster Recovery name
+        /// <param name='alias'>
+        /// The Disaster Recovery configuration name
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -541,7 +540,7 @@ namespace Microsoft.Azure.Management.EventHub
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> DeleteWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string disasterRecoveryName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> DeleteWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string alias, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -573,19 +572,19 @@ namespace Microsoft.Azure.Management.EventHub
                     throw new ValidationException(ValidationRules.MinLength, "namespaceName", 6);
                 }
             }
-            if (disasterRecoveryName == null)
+            if (alias == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "disasterRecoveryName");
+                throw new ValidationException(ValidationRules.CannotBeNull, "alias");
             }
-            if (disasterRecoveryName != null)
+            if (alias != null)
             {
-                if (disasterRecoveryName.Length > 50)
+                if (alias.Length > 50)
                 {
-                    throw new ValidationException(ValidationRules.MaxLength, "disasterRecoveryName", 50);
+                    throw new ValidationException(ValidationRules.MaxLength, "alias", 50);
                 }
-                if (disasterRecoveryName.Length < 1)
+                if (alias.Length < 1)
                 {
-                    throw new ValidationException(ValidationRules.MinLength, "disasterRecoveryName", 1);
+                    throw new ValidationException(ValidationRules.MinLength, "alias", 1);
                 }
             }
             if (Client.ApiVersion == null)
@@ -605,16 +604,16 @@ namespace Microsoft.Azure.Management.EventHub
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("resourceGroupName", resourceGroupName);
                 tracingParameters.Add("namespaceName", namespaceName);
-                tracingParameters.Add("disasterRecoveryName", disasterRecoveryName);
+                tracingParameters.Add("alias", alias);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Delete", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/disasterRecoveryConfig/{disasterRecoveryName}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/disasterRecoveryConfig/{alias}").ToString();
             _url = _url.Replace("{resourceGroupName}", System.Uri.EscapeDataString(resourceGroupName));
             _url = _url.Replace("{namespaceName}", System.Uri.EscapeDataString(namespaceName));
-            _url = _url.Replace("{disasterRecoveryName}", System.Uri.EscapeDataString(disasterRecoveryName));
+            _url = _url.Replace("{alias}", System.Uri.EscapeDataString(alias));
             _url = _url.Replace("{subscriptionId}", System.Uri.EscapeDataString(Client.SubscriptionId));
             List<string> _queryParameters = new List<string>();
             if (Client.ApiVersion != null)
@@ -724,8 +723,8 @@ namespace Microsoft.Azure.Management.EventHub
         }
 
         /// <summary>
-        /// Retrieves Disaster Recovery config description via bith primary or
-        /// secondary namespace
+        /// Retrieves Alias(Disaster Recovery configuration) for primary or secondary
+        /// namespace
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the resource group within the azure subscription.
@@ -733,8 +732,8 @@ namespace Microsoft.Azure.Management.EventHub
         /// <param name='namespaceName'>
         /// The Namespace name
         /// </param>
-        /// <param name='disasterRecoveryName'>
-        /// The Disaster Recovery name
+        /// <param name='alias'>
+        /// The Disaster Recovery configuration name
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -757,7 +756,7 @@ namespace Microsoft.Azure.Management.EventHub
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<ArmDisasterRecovery>> GetWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string disasterRecoveryName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<ArmDisasterRecovery>> GetWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string alias, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -789,19 +788,19 @@ namespace Microsoft.Azure.Management.EventHub
                     throw new ValidationException(ValidationRules.MinLength, "namespaceName", 6);
                 }
             }
-            if (disasterRecoveryName == null)
+            if (alias == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "disasterRecoveryName");
+                throw new ValidationException(ValidationRules.CannotBeNull, "alias");
             }
-            if (disasterRecoveryName != null)
+            if (alias != null)
             {
-                if (disasterRecoveryName.Length > 50)
+                if (alias.Length > 50)
                 {
-                    throw new ValidationException(ValidationRules.MaxLength, "disasterRecoveryName", 50);
+                    throw new ValidationException(ValidationRules.MaxLength, "alias", 50);
                 }
-                if (disasterRecoveryName.Length < 1)
+                if (alias.Length < 1)
                 {
-                    throw new ValidationException(ValidationRules.MinLength, "disasterRecoveryName", 1);
+                    throw new ValidationException(ValidationRules.MinLength, "alias", 1);
                 }
             }
             if (Client.ApiVersion == null)
@@ -821,16 +820,16 @@ namespace Microsoft.Azure.Management.EventHub
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("resourceGroupName", resourceGroupName);
                 tracingParameters.Add("namespaceName", namespaceName);
-                tracingParameters.Add("disasterRecoveryName", disasterRecoveryName);
+                tracingParameters.Add("alias", alias);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Get", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/disasterRecoveryConfig/{disasterRecoveryName}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/disasterRecoveryConfig/{alias}").ToString();
             _url = _url.Replace("{resourceGroupName}", System.Uri.EscapeDataString(resourceGroupName));
             _url = _url.Replace("{namespaceName}", System.Uri.EscapeDataString(namespaceName));
-            _url = _url.Replace("{disasterRecoveryName}", System.Uri.EscapeDataString(disasterRecoveryName));
+            _url = _url.Replace("{alias}", System.Uri.EscapeDataString(alias));
             _url = _url.Replace("{subscriptionId}", System.Uri.EscapeDataString(Client.SubscriptionId));
             List<string> _queryParameters = new List<string>();
             if (Client.ApiVersion != null)
@@ -958,8 +957,8 @@ namespace Microsoft.Azure.Management.EventHub
         }
 
         /// <summary>
-        /// This operation stops replication from the Primary to the Secondary
-        /// namespace.
+        /// This operation disables the Disaster Recovery and stops replicating changes
+        /// from primary to secondary namespaces
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the resource group within the azure subscription.
@@ -967,8 +966,8 @@ namespace Microsoft.Azure.Management.EventHub
         /// <param name='namespaceName'>
         /// The Namespace name
         /// </param>
-        /// <param name='disasterRecoveryName'>
-        /// The Disaster Recovery name
+        /// <param name='alias'>
+        /// The Disaster Recovery configuration name
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -988,7 +987,7 @@ namespace Microsoft.Azure.Management.EventHub
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> BreakPairingWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string disasterRecoveryName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> BreakPairingWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string alias, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -1020,19 +1019,19 @@ namespace Microsoft.Azure.Management.EventHub
                     throw new ValidationException(ValidationRules.MinLength, "namespaceName", 6);
                 }
             }
-            if (disasterRecoveryName == null)
+            if (alias == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "disasterRecoveryName");
+                throw new ValidationException(ValidationRules.CannotBeNull, "alias");
             }
-            if (disasterRecoveryName != null)
+            if (alias != null)
             {
-                if (disasterRecoveryName.Length > 50)
+                if (alias.Length > 50)
                 {
-                    throw new ValidationException(ValidationRules.MaxLength, "disasterRecoveryName", 50);
+                    throw new ValidationException(ValidationRules.MaxLength, "alias", 50);
                 }
-                if (disasterRecoveryName.Length < 1)
+                if (alias.Length < 1)
                 {
-                    throw new ValidationException(ValidationRules.MinLength, "disasterRecoveryName", 1);
+                    throw new ValidationException(ValidationRules.MinLength, "alias", 1);
                 }
             }
             if (Client.ApiVersion == null)
@@ -1052,16 +1051,16 @@ namespace Microsoft.Azure.Management.EventHub
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("resourceGroupName", resourceGroupName);
                 tracingParameters.Add("namespaceName", namespaceName);
-                tracingParameters.Add("disasterRecoveryName", disasterRecoveryName);
+                tracingParameters.Add("alias", alias);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "BreakPairing", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/disasterRecoveryConfig/{disasterRecoveryName}/breakpairing").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/disasterRecoveryConfig/{alias}/breakpairing").ToString();
             _url = _url.Replace("{resourceGroupName}", System.Uri.EscapeDataString(resourceGroupName));
             _url = _url.Replace("{namespaceName}", System.Uri.EscapeDataString(namespaceName));
-            _url = _url.Replace("{disasterRecoveryName}", System.Uri.EscapeDataString(disasterRecoveryName));
+            _url = _url.Replace("{alias}", System.Uri.EscapeDataString(alias));
             _url = _url.Replace("{subscriptionId}", System.Uri.EscapeDataString(Client.SubscriptionId));
             List<string> _queryParameters = new List<string>();
             if (Client.ApiVersion != null)
@@ -1171,8 +1170,8 @@ namespace Microsoft.Azure.Management.EventHub
         }
 
         /// <summary>
-        /// Creates Secondary namespace role as primary and removes the role from the
-        /// pervious primary namespace
+        /// envokes GEO DR failover and reconfigure the alias to point to the secondary
+        /// namespace
         /// </summary>
         /// <param name='resourceGroupName'>
         /// Name of the resource group within the azure subscription.
@@ -1180,8 +1179,8 @@ namespace Microsoft.Azure.Management.EventHub
         /// <param name='namespaceName'>
         /// The Namespace name
         /// </param>
-        /// <param name='disasterRecoveryName'>
-        /// The Disaster Recovery name
+        /// <param name='alias'>
+        /// The Disaster Recovery configuration name
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1201,7 +1200,7 @@ namespace Microsoft.Azure.Management.EventHub
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> FailOverWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string disasterRecoveryName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> FailOverWithHttpMessagesAsync(string resourceGroupName, string namespaceName, string alias, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -1233,19 +1232,19 @@ namespace Microsoft.Azure.Management.EventHub
                     throw new ValidationException(ValidationRules.MinLength, "namespaceName", 6);
                 }
             }
-            if (disasterRecoveryName == null)
+            if (alias == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "disasterRecoveryName");
+                throw new ValidationException(ValidationRules.CannotBeNull, "alias");
             }
-            if (disasterRecoveryName != null)
+            if (alias != null)
             {
-                if (disasterRecoveryName.Length > 50)
+                if (alias.Length > 50)
                 {
-                    throw new ValidationException(ValidationRules.MaxLength, "disasterRecoveryName", 50);
+                    throw new ValidationException(ValidationRules.MaxLength, "alias", 50);
                 }
-                if (disasterRecoveryName.Length < 1)
+                if (alias.Length < 1)
                 {
-                    throw new ValidationException(ValidationRules.MinLength, "disasterRecoveryName", 1);
+                    throw new ValidationException(ValidationRules.MinLength, "alias", 1);
                 }
             }
             if (Client.ApiVersion == null)
@@ -1265,16 +1264,16 @@ namespace Microsoft.Azure.Management.EventHub
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("resourceGroupName", resourceGroupName);
                 tracingParameters.Add("namespaceName", namespaceName);
-                tracingParameters.Add("disasterRecoveryName", disasterRecoveryName);
+                tracingParameters.Add("alias", alias);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "FailOver", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/disasterRecoveryConfig/{disasterRecoveryName}/failover").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/disasterRecoveryConfig/{alias}/failover").ToString();
             _url = _url.Replace("{resourceGroupName}", System.Uri.EscapeDataString(resourceGroupName));
             _url = _url.Replace("{namespaceName}", System.Uri.EscapeDataString(namespaceName));
-            _url = _url.Replace("{disasterRecoveryName}", System.Uri.EscapeDataString(disasterRecoveryName));
+            _url = _url.Replace("{alias}", System.Uri.EscapeDataString(alias));
             _url = _url.Replace("{subscriptionId}", System.Uri.EscapeDataString(Client.SubscriptionId));
             List<string> _queryParameters = new List<string>();
             if (Client.ApiVersion != null)
@@ -1384,7 +1383,7 @@ namespace Microsoft.Azure.Management.EventHub
         }
 
         /// <summary>
-        /// Gets all the Disaster Recovery in a Namespace.
+        /// Gets all Alias(Disaster Recovery configurations)
         /// </summary>
         /// <param name='nextPageLink'>
         /// The NextLink from the previous successful call to List operation.
@@ -1410,7 +1409,7 @@ namespace Microsoft.Azure.Management.EventHub
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<ArmDisasterRecovery>>> ListByNamespaceNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<ArmDisasterRecovery>>> ListNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (nextPageLink == null)
             {
@@ -1425,7 +1424,7 @@ namespace Microsoft.Azure.Management.EventHub
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("nextPageLink", nextPageLink);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "ListByNamespaceNext", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "ListNext", tracingParameters);
             }
             // Construct URL
             string _url = "{nextLink}";
