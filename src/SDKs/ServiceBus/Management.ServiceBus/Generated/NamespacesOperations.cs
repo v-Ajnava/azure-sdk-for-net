@@ -529,9 +529,9 @@ namespace Microsoft.Azure.Management.ServiceBus
             {
                 throw new ValidationException(ValidationRules.InclusiveMaximum, "skip", 1000);
             }
-            if (skip < 1)
+            if (skip < 0)
             {
-                throw new ValidationException(ValidationRules.InclusiveMinimum, "skip", 1);
+                throw new ValidationException(ValidationRules.InclusiveMinimum, "skip", 0);
             }
             if (top > 1000)
             {
