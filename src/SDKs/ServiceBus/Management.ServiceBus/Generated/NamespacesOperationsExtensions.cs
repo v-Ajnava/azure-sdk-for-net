@@ -367,19 +367,9 @@ namespace Microsoft.Azure.Management.ServiceBus
             /// <param name='namespaceName'>
             /// The namespace name
             /// </param>
-            /// <param name='skip'>
-            /// Skiptoken is only used if a previous operation returned a partial result.
-            /// If a previous response contains a nextLink element, the value of the
-            /// nextLink element will include a skiptoken parameter that specifies a
-            /// starting point to use for subsequent calls.
-            /// </param>
-            /// <param name='top'>
-            /// May be used to limit the number of results to the most recent N
-            /// usageDetails.
-            /// </param>
-            public static IPage<SBAuthorizationRule> ListAuthorizationRules(this INamespacesOperations operations, string resourceGroupName, string namespaceName, int? skip = default(int?), int? top = default(int?))
+            public static IPage<SBAuthorizationRule> ListAuthorizationRules(this INamespacesOperations operations, string resourceGroupName, string namespaceName)
             {
-                return operations.ListAuthorizationRulesAsync(resourceGroupName, namespaceName, skip, top).GetAwaiter().GetResult();
+                return operations.ListAuthorizationRulesAsync(resourceGroupName, namespaceName).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -395,22 +385,12 @@ namespace Microsoft.Azure.Management.ServiceBus
             /// <param name='namespaceName'>
             /// The namespace name
             /// </param>
-            /// <param name='skip'>
-            /// Skiptoken is only used if a previous operation returned a partial result.
-            /// If a previous response contains a nextLink element, the value of the
-            /// nextLink element will include a skiptoken parameter that specifies a
-            /// starting point to use for subsequent calls.
-            /// </param>
-            /// <param name='top'>
-            /// May be used to limit the number of results to the most recent N
-            /// usageDetails.
-            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IPage<SBAuthorizationRule>> ListAuthorizationRulesAsync(this INamespacesOperations operations, string resourceGroupName, string namespaceName, int? skip = default(int?), int? top = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IPage<SBAuthorizationRule>> ListAuthorizationRulesAsync(this INamespacesOperations operations, string resourceGroupName, string namespaceName, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ListAuthorizationRulesWithHttpMessagesAsync(resourceGroupName, namespaceName, skip, top, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListAuthorizationRulesWithHttpMessagesAsync(resourceGroupName, namespaceName, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
