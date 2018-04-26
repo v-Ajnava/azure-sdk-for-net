@@ -74,10 +74,10 @@ namespace Microsoft.Azure.Management.ServiceBus
         /// The topic name.
         /// </param>
         /// <param name='skip'>
-        /// Skiptoken is only used if a previous operation returned a partial result.
-        /// If a previous response contains a nextLink element, the value of the
-        /// nextLink element will include a skiptoken parameter that specifies a
-        /// starting point to use for subsequent calls.
+        /// Skip is only used if a previous operation returned a partial result. If a
+        /// previous response contains a nextLink element, the value of the nextLink
+        /// element will include a skip parameter that specifies a starting point to
+        /// use for subsequent calls.
         /// </param>
         /// <param name='top'>
         /// May be used to limit the number of results to the most recent N
