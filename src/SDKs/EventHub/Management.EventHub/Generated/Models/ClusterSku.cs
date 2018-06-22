@@ -21,35 +21,38 @@
 namespace Microsoft.Azure.Management.EventHub.Models
 {
     using Microsoft.Rest;
-    using Microsoft.Rest.Azure;
     using Newtonsoft.Json;
     using System.Linq;
 
     /// <summary>
-    /// The Resource definition
+    /// SKU parameters particular to a cluster instance.
     /// </summary>
-    public partial class Resource : IResource
+    public partial class ClusterSku
     {
         /// <summary>
-        /// Initializes a new instance of the Resource class.
+        /// Initializes a new instance of the ClusterSku class.
         /// </summary>
-        public Resource()
+        public ClusterSku()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the Resource class.
+        /// Initializes a new instance of the ClusterSku class.
         /// </summary>
-        /// <param name="id">Resource Id</param>
-        /// <param name="name">Resource name</param>
-        /// <param name="type">Resource type</param>
-        public Resource(string id = default(string), string name = default(string), string type = default(string))
+        /// <param name="capacity">The quantity of Event Hubs Cluster Capacity
+        /// Units contained in this cluster.</param>
+        public ClusterSku(int? capacity = default(int?))
         {
-            Id = id;
-            Name = name;
-            Type = type;
+            Capacity = capacity;
             CustomInit();
+        }
+        /// <summary>
+        /// Static constructor for ClusterSku class.
+        /// </summary>
+        static ClusterSku()
+        {
+            Name = "Dedicated";
         }
 
         /// <summary>
@@ -58,22 +61,34 @@ namespace Microsoft.Azure.Management.EventHub.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets resource Id
+        /// Gets or sets the quantity of Event Hubs Cluster Capacity Units
+        /// contained in this cluster.
         /// </summary>
-        [JsonProperty(PropertyName = "id")]
-        public string Id { get; private set; }
+        [JsonProperty(PropertyName = "capacity")]
+        public int? Capacity { get; set; }
 
         /// <summary>
-        /// Gets resource name
+        /// Name of this SKU.
         /// </summary>
         [JsonProperty(PropertyName = "name")]
-        public string Name { get; private set; }
+        public static string Name { get; private set; }
 
         /// <summary>
-        /// Gets resource type
+        /// Validate the object.
         /// </summary>
-        [JsonProperty(PropertyName = "type")]
-        public string Type { get; private set; }
-
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (Capacity > 32)
+            {
+                throw new ValidationException(ValidationRules.InclusiveMaximum, "Capacity", 32);
+            }
+            if (Capacity < 1)
+            {
+                throw new ValidationException(ValidationRules.InclusiveMinimum, "Capacity", 1);
+            }
+        }
     }
 }

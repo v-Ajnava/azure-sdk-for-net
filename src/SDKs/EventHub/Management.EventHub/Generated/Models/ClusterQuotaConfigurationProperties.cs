@@ -26,31 +26,29 @@ namespace Microsoft.Azure.Management.EventHub.Models
     using System.Linq;
 
     /// <summary>
-    /// Definition of an Azure resource.
+    /// Contains all settings for the cluster.
     /// </summary>
-    public partial class TrackedResource : Resource
+    public partial class ClusterQuotaConfigurationProperties
     {
         /// <summary>
-        /// Initializes a new instance of the TrackedResource class.
+        /// Initializes a new instance of the
+        /// ClusterQuotaConfigurationProperties class.
         /// </summary>
-        public TrackedResource()
+        public ClusterQuotaConfigurationProperties()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the TrackedResource class.
+        /// Initializes a new instance of the
+        /// ClusterQuotaConfigurationProperties class.
         /// </summary>
-        /// <param name="id">Resource Id</param>
-        /// <param name="name">Resource name</param>
-        /// <param name="type">Resource type</param>
-        /// <param name="location">Resource location</param>
-        /// <param name="tags">Resource tags</param>
-        public TrackedResource(string id = default(string), string name = default(string), string type = default(string), string location = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>))
-            : base(id, name, type)
+        /// <param name="settings">All possible Cluster settings - a collection
+        /// of key/value paired settings which apply to quotas and
+        /// configurations imposed on the cluster.</param>
+        public ClusterQuotaConfigurationProperties(IDictionary<string, string> settings = default(IDictionary<string, string>))
         {
-            Location = location;
-            Tags = tags;
+            Settings = settings;
             CustomInit();
         }
 
@@ -60,16 +58,12 @@ namespace Microsoft.Azure.Management.EventHub.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets resource location
+        /// Gets or sets all possible Cluster settings - a collection of
+        /// key/value paired settings which apply to quotas and configurations
+        /// imposed on the cluster.
         /// </summary>
-        [JsonProperty(PropertyName = "location")]
-        public string Location { get; set; }
-
-        /// <summary>
-        /// Gets or sets resource tags
-        /// </summary>
-        [JsonProperty(PropertyName = "tags")]
-        public IDictionary<string, string> Tags { get; set; }
+        [JsonProperty(PropertyName = "settings")]
+        public IDictionary<string, string> Settings { get; set; }
 
     }
 }

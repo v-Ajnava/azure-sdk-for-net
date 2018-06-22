@@ -16,7 +16,11 @@
 	  ]]>
 		</PackageReleaseNotes>
 		<TargetFrameworks>net452;netstandard1.4</TargetFrameworks>
-	</PropertyGroup> 
+	</PropertyGroup>
+
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
 
 
 	<!-- Please do not move/edit code below this line -->

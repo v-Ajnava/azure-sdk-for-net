@@ -22,11 +22,11 @@ namespace Microsoft.Azure.Management.EventHub.Models
 {
 
     /// <summary>
-    /// Defines values for SkuName.
+    /// Defines values for IPAction.
     /// </summary>
-    public static class SkuName
+    public static class IPAction
     {
-        public const string Basic = "Basic";
-        public const string Standard = "Standard";
+        public const string Accept = "Accept";
+        public const string Reject = "Reject";
     }
 }

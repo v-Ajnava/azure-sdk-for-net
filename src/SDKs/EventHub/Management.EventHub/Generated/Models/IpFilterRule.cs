@@ -20,37 +20,41 @@
 
 namespace Microsoft.Azure.Management.EventHub.Models
 {
+    using Microsoft.Rest;
+    using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
-    using System.Collections;
-    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
-    /// Definition of an Azure resource.
+    /// Single item in a List or Get IpFilterRules operation
     /// </summary>
-    public partial class TrackedResource : Resource
+    [Rest.Serialization.JsonTransformation]
+    public partial class IpFilterRule : Resource
     {
         /// <summary>
-        /// Initializes a new instance of the TrackedResource class.
+        /// Initializes a new instance of the IpFilterRule class.
         /// </summary>
-        public TrackedResource()
+        public IpFilterRule()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the TrackedResource class.
+        /// Initializes a new instance of the IpFilterRule class.
         /// </summary>
         /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
         /// <param name="type">Resource type</param>
-        /// <param name="location">Resource location</param>
-        /// <param name="tags">Resource tags</param>
-        public TrackedResource(string id = default(string), string name = default(string), string type = default(string), string location = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>))
+        /// <param name="ipMask">IP Mask</param>
+        /// <param name="action">The IP Filter Action. Possible values include:
+        /// 'Accept', 'Reject'</param>
+        /// <param name="filterName">IP Filter name</param>
+        public IpFilterRule(string id = default(string), string name = default(string), string type = default(string), string ipMask = default(string), string action = default(string), string filterName = default(string))
             : base(id, name, type)
         {
-            Location = location;
-            Tags = tags;
+            IpMask = ipMask;
+            Action = action;
+            FilterName = filterName;
             CustomInit();
         }
 
@@ -60,16 +64,23 @@ namespace Microsoft.Azure.Management.EventHub.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets resource location
+        /// Gets or sets IP Mask
         /// </summary>
-        [JsonProperty(PropertyName = "location")]
-        public string Location { get; set; }
+        [JsonProperty(PropertyName = "properties.ipMask")]
+        public string IpMask { get; set; }
 
         /// <summary>
-        /// Gets or sets resource tags
+        /// Gets or sets the IP Filter Action. Possible values include:
+        /// 'Accept', 'Reject'
         /// </summary>
-        [JsonProperty(PropertyName = "tags")]
-        public IDictionary<string, string> Tags { get; set; }
+        [JsonProperty(PropertyName = "properties.action")]
+        public string Action { get; set; }
+
+        /// <summary>
+        /// Gets or sets IP Filter name
+        /// </summary>
+        [JsonProperty(PropertyName = "properties.filterName")]
+        public string FilterName { get; set; }
 
     }
 }
