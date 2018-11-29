@@ -49,15 +49,14 @@ namespace Microsoft.Azure.Management.ServiceBus.Models
         /// <param name="type">Resource type</param>
         /// <param name="defaultAction">Default Action for Network Rule Set.
         /// Possible values include: 'Allow', 'Deny'</param>
-        /// <param name="virtualNetworkRulesList">List VirtualNetwork
-        /// Rules</param>
-        /// <param name="ipRulesList">List of IpRules</param>
-        public NetworkRuleSet(string id = default(string), string name = default(string), string type = default(string), string defaultAction = default(string), IList<NWRuleSetVirtualNetworkRules> virtualNetworkRulesList = default(IList<NWRuleSetVirtualNetworkRules>), IList<NWRuleSetIpRules> ipRulesList = default(IList<NWRuleSetIpRules>))
+        /// <param name="virtualNetworkRules">List VirtualNetwork Rules</param>
+        /// <param name="ipRules">List of IpRules</param>
+        public NetworkRuleSet(string id = default(string), string name = default(string), string type = default(string), string defaultAction = default(string), IList<NWRuleSetVirtualNetworkRules> virtualNetworkRules = default(IList<NWRuleSetVirtualNetworkRules>), IList<NWRuleSetIpRules> ipRules = default(IList<NWRuleSetIpRules>))
             : base(id, name, type)
         {
             DefaultAction = defaultAction;
-            VirtualNetworkRulesList = virtualNetworkRulesList;
-            IpRulesList = ipRulesList;
+            VirtualNetworkRules = virtualNetworkRules;
+            IpRules = ipRules;
             CustomInit();
         }
 
@@ -76,14 +75,14 @@ namespace Microsoft.Azure.Management.ServiceBus.Models
         /// <summary>
         /// Gets or sets list VirtualNetwork Rules
         /// </summary>
-        [JsonProperty(PropertyName = "properties.virtualNetworkRulesList.VirtualNetworkRulesList")]
-        public IList<NWRuleSetVirtualNetworkRules> VirtualNetworkRulesList { get; set; }
+        [JsonProperty(PropertyName = "properties.virtualNetworkRules")]
+        public IList<NWRuleSetVirtualNetworkRules> VirtualNetworkRules { get; set; }
 
         /// <summary>
         /// Gets or sets list of IpRules
         /// </summary>
-        [JsonProperty(PropertyName = "properties.ipRulesList.ipRulesList")]
-        public IList<NWRuleSetIpRules> IpRulesList { get; set; }
+        [JsonProperty(PropertyName = "properties.ipRules")]
+        public IList<NWRuleSetIpRules> IpRules { get; set; }
 
     }
 }

@@ -78,10 +78,11 @@ namespace ServiceBus.Tests.ScenarioTests
 
                 VNetRules.Add(new NWRuleSetVirtualNetworkRules() { Subnet = new Subnet() { Id = @"/subscriptions/" + ServiceBusManagementClient.SubscriptionId + "/resourcegroups/alitest/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet2" }, IgnoreMissingVnetServiceEndpoint = true });
                 VNetRules.Add(new NWRuleSetVirtualNetworkRules() { Subnet = new Subnet() { Id = @"/subscriptions/" + ServiceBusManagementClient.SubscriptionId + "/resourcegroups/alitest/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet3" }, IgnoreMissingVnetServiceEndpoint = false });
-                VNetRules.Add(new NWRuleSetVirtualNetworkRules() { Subnet = new Subnet() { Id = @"/subscriptions/" + ServiceBusManagementClient.SubscriptionId + "/resourcegroups/alitest/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet5" }, IgnoreMissingVnetServiceEndpoint = false });
+                VNetRules.Add(new NWRuleSetVirtualNetworkRules() { Subnet = new Subnet() { Id = @"/subscriptions/" + ServiceBusManagementClient.SubscriptionId + "/resourcegroups/alitest/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet6" }, IgnoreMissingVnetServiceEndpoint = false });
                                
-                var netWorkRuleSet = ServiceBusManagementClient.Namespaces.NetworkRuleSetMethod(resourceGroup, namespaceName, new NetworkRuleSet() { DefaultAction = DefaultAction.Allow, VirtualNetworkRulesList = VNetRules, IpRulesList = IPRules});
-                               
+                var netWorkRuleSet = ServiceBusManagementClient.Namespaces.CreateNetworkRuleSet(resourceGroup, namespaceName, new NetworkRuleSet() { DefaultAction = DefaultAction.Deny, VirtualNetworkRules = VNetRules, IpRules = IPRules});
+
+                var getNetworkRuleSet = ServiceBusManagementClient.Namespaces.GetNetworkRuleSet(resourceGroup, namespaceName);
 
                 TestUtilities.Wait(TimeSpan.FromSeconds(5));
 

@@ -657,9 +657,9 @@ namespace Microsoft.Azure.Management.ServiceBus
             /// <param name='parameters'>
             /// The Namespace IpFilterRule.
             /// </param>
-            public static NetworkRuleSet NetworkRuleSetMethod(this INamespacesOperations operations, string resourceGroupName, string namespaceName, NetworkRuleSet parameters)
+            public static NetworkRuleSet CreateNetworkRuleSet(this INamespacesOperations operations, string resourceGroupName, string namespaceName, NetworkRuleSet parameters)
             {
-                return operations.NetworkRuleSetMethodAsync(resourceGroupName, namespaceName, parameters).GetAwaiter().GetResult();
+                return operations.CreateNetworkRuleSetAsync(resourceGroupName, namespaceName, parameters).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -680,9 +680,49 @@ namespace Microsoft.Azure.Management.ServiceBus
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<NetworkRuleSet> NetworkRuleSetMethodAsync(this INamespacesOperations operations, string resourceGroupName, string namespaceName, NetworkRuleSet parameters, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<NetworkRuleSet> CreateNetworkRuleSetAsync(this INamespacesOperations operations, string resourceGroupName, string namespaceName, NetworkRuleSet parameters, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.NetworkRuleSetMethodWithHttpMessagesAsync(resourceGroupName, namespaceName, parameters, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.CreateNetworkRuleSetWithHttpMessagesAsync(resourceGroupName, namespaceName, parameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Gets NetworkRuleSet for a Namespace.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// Name of the Resource group within the Azure subscription.
+            /// </param>
+            /// <param name='namespaceName'>
+            /// The namespace name
+            /// </param>
+            public static NetworkRuleSet GetNetworkRuleSet(this INamespacesOperations operations, string resourceGroupName, string namespaceName)
+            {
+                return operations.GetNetworkRuleSetAsync(resourceGroupName, namespaceName).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Gets NetworkRuleSet for a Namespace.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// Name of the Resource group within the Azure subscription.
+            /// </param>
+            /// <param name='namespaceName'>
+            /// The namespace name
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<NetworkRuleSet> GetNetworkRuleSetAsync(this INamespacesOperations operations, string resourceGroupName, string namespaceName, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetNetworkRuleSetWithHttpMessagesAsync(resourceGroupName, namespaceName, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
