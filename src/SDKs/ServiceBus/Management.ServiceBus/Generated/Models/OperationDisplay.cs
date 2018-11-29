@@ -24,29 +24,32 @@ namespace Microsoft.Azure.Management.ServiceBus.Models
     using System.Linq;
 
     /// <summary>
-    /// Error reponse indicates ServiceBus service is not able to process the
-    /// incoming request. The reason is provided in the error message.
+    /// The object that represents the operation.
     /// </summary>
-    public partial class ErrorResponse
+    public partial class OperationDisplay
     {
         /// <summary>
-        /// Initializes a new instance of the ErrorResponse class.
+        /// Initializes a new instance of the OperationDisplay class.
         /// </summary>
-        public ErrorResponse()
+        public OperationDisplay()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ErrorResponse class.
+        /// Initializes a new instance of the OperationDisplay class.
         /// </summary>
-        /// <param name="code">Error code.</param>
-        /// <param name="message">Error message indicating why the operation
-        /// failed.</param>
-        public ErrorResponse(string code = default(string), string message = default(string))
+        /// <param name="provider">Service provider:
+        /// Microsoft.ServiceBus</param>
+        /// <param name="resource">Resource on which the operation is
+        /// performed: Invoice, etc.</param>
+        /// <param name="operation">Operation type: Read, write, delete,
+        /// etc.</param>
+        public OperationDisplay(string provider = default(string), string resource = default(string), string operation = default(string))
         {
-            Code = code;
-            Message = message;
+            Provider = provider;
+            Resource = resource;
+            Operation = operation;
             CustomInit();
         }
 
@@ -56,16 +59,22 @@ namespace Microsoft.Azure.Management.ServiceBus.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets error code.
+        /// Gets service provider: Microsoft.ServiceBus
         /// </summary>
-        [JsonProperty(PropertyName = "code")]
-        public string Code { get; set; }
+        [JsonProperty(PropertyName = "provider")]
+        public string Provider { get; private set; }
 
         /// <summary>
-        /// Gets or sets error message indicating why the operation failed.
+        /// Gets resource on which the operation is performed: Invoice, etc.
         /// </summary>
-        [JsonProperty(PropertyName = "message")]
-        public string Message { get; set; }
+        [JsonProperty(PropertyName = "resource")]
+        public string Resource { get; private set; }
+
+        /// <summary>
+        /// Gets operation type: Read, write, delete, etc.
+        /// </summary>
+        [JsonProperty(PropertyName = "operation")]
+        public string Operation { get; private set; }
 
     }
 }

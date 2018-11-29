@@ -88,13 +88,12 @@ namespace ServiceBus.Tests.ScenarioTests
                 Assert.Equal(ipFilterRuleName, getNamespaceFilterRulesResponse.Name);
                 Assert.Equal(createIPFilterRuleParameter.Action, getNamespaceFilterRulesResponse.Action);
                 
-                // Get all namespaces AuthorizationRules
+                // Get all namespaces IPFilterRules
                 var getAllNamespaceFilterRulesResponse = ServiceBusManagementClient.Namespaces.ListIpFilterRules(resourceGroup, namespaceName);
                 Assert.NotNull(getAllNamespaceFilterRulesResponse);
                 Assert.True( getAllNamespaceFilterRulesResponse.Count() > 0);
 
-                // Update namespace authorizationRule
-                string updatePrimaryKey = HttpMockServer.GetVariable("UpdatePrimaryKey", ServiceBusManagementHelper.GenerateRandomKey());
+                // Update namespace IPFilterRules
                 IpFilterRule updateNamespaceIPFilterRuleParameter = new IpFilterRule();
                 updateNamespaceIPFilterRuleParameter.Action = IPAction.Accept;
                 updateNamespaceIPFilterRuleParameter.IpMask = "13.78.144.246/32";
@@ -106,12 +105,12 @@ namespace ServiceBus.Tests.ScenarioTests
                 Assert.Equal(ipFilterRuleName, updateNamespaceIPFilterRuleResponse.Name);
                 Assert.True(updateNamespaceIPFilterRuleResponse.IpMask != createNamespaceIPFilterRuleResponse.IpMask);
 
-                // Get the updated namespace AuthorizationRule
+                // Get the updated namespace IPFilterRules
                 var getNamespaceIPFilterRuleResponse = ServiceBusManagementClient.Namespaces.GetIpFilterRule(resourceGroup, namespaceName, ipFilterRuleName);
                 Assert.NotNull(getNamespaceIPFilterRuleResponse);
                 Assert.Equal(ipFilterRuleName, getNamespaceIPFilterRuleResponse.Name);
 
-                // Delete namespace authorizationRule
+                // Delete namespace IPFilterRules
                 ServiceBusManagementClient.Namespaces.DeleteIpFilterRule(resourceGroup, namespaceName, ipFilterRuleName);
 
                 TestUtilities.Wait(TimeSpan.FromSeconds(5));

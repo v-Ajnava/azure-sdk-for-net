@@ -24,29 +24,30 @@ namespace Microsoft.Azure.Management.ServiceBus.Models
     using System.Linq;
 
     /// <summary>
-    /// Error reponse indicates ServiceBus service is not able to process the
-    /// incoming request. The reason is provided in the error message.
+    /// The response from the List namespace operation.
     /// </summary>
-    public partial class ErrorResponse
+    public partial class NWRuleSetVirtualNetworkRules
     {
         /// <summary>
-        /// Initializes a new instance of the ErrorResponse class.
+        /// Initializes a new instance of the NWRuleSetVirtualNetworkRules
+        /// class.
         /// </summary>
-        public ErrorResponse()
+        public NWRuleSetVirtualNetworkRules()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ErrorResponse class.
+        /// Initializes a new instance of the NWRuleSetVirtualNetworkRules
+        /// class.
         /// </summary>
-        /// <param name="code">Error code.</param>
-        /// <param name="message">Error message indicating why the operation
-        /// failed.</param>
-        public ErrorResponse(string code = default(string), string message = default(string))
+        /// <param name="subnet">Subnet properties</param>
+        /// <param name="ignoreMissingVnetServiceEndpoint">Value that indicates
+        /// whether to ignore missing Vnet Service Endpoint</param>
+        public NWRuleSetVirtualNetworkRules(Subnet subnet = default(Subnet), bool? ignoreMissingVnetServiceEndpoint = default(bool?))
         {
-            Code = code;
-            Message = message;
+            Subnet = subnet;
+            IgnoreMissingVnetServiceEndpoint = ignoreMissingVnetServiceEndpoint;
             CustomInit();
         }
 
@@ -56,16 +57,17 @@ namespace Microsoft.Azure.Management.ServiceBus.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets error code.
+        /// Gets or sets subnet properties
         /// </summary>
-        [JsonProperty(PropertyName = "code")]
-        public string Code { get; set; }
+        [JsonProperty(PropertyName = "subnet")]
+        public Subnet Subnet { get; set; }
 
         /// <summary>
-        /// Gets or sets error message indicating why the operation failed.
+        /// Gets or sets value that indicates whether to ignore missing Vnet
+        /// Service Endpoint
         /// </summary>
-        [JsonProperty(PropertyName = "message")]
-        public string Message { get; set; }
+        [JsonProperty(PropertyName = "ignoreMissingVnetServiceEndpoint")]
+        public bool? IgnoreMissingVnetServiceEndpoint { get; set; }
 
     }
 }

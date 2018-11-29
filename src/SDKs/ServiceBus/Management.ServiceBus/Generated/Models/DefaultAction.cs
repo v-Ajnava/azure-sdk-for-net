@@ -22,11 +22,11 @@ namespace Microsoft.Azure.Management.ServiceBus.Models
 {
 
     /// <summary>
-    /// Defines values for IPAction.
+    /// Defines values for DefaultAction.
     /// </summary>
-    public static class IPAction
+    public static class DefaultAction
     {
-        public const string Accept = "Accept";
-        public const string Reject = "Reject";
+        public const string Allow = "Allow";
+        public const string Deny = "Deny";
     }
 }

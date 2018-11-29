@@ -22,11 +22,10 @@ namespace Microsoft.Azure.Management.ServiceBus.Models
 {
 
     /// <summary>
-    /// Defines values for IPAction.
+    /// Defines values for NetworkRuleIPAction.
     /// </summary>
-    public static class IPAction
+    public static class NetworkRuleIPAction
     {
-        public const string Accept = "Accept";
-        public const string Reject = "Reject";
+        public const string Allow = "Allow";
     }
 }

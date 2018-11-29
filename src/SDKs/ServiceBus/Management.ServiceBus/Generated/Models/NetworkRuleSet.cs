@@ -23,38 +23,41 @@ namespace Microsoft.Azure.Management.ServiceBus.Models
     using Microsoft.Rest;
     using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
-    /// Single item in a List or Get IpFilterRules operation
+    /// Description of topic resource.
     /// </summary>
     [Rest.Serialization.JsonTransformation]
-    public partial class IpFilterRule : Resource
+    public partial class NetworkRuleSet : Resource
     {
         /// <summary>
-        /// Initializes a new instance of the IpFilterRule class.
+        /// Initializes a new instance of the NetworkRuleSet class.
         /// </summary>
-        public IpFilterRule()
+        public NetworkRuleSet()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the IpFilterRule class.
+        /// Initializes a new instance of the NetworkRuleSet class.
         /// </summary>
         /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
         /// <param name="type">Resource type</param>
-        /// <param name="ipMask">IP Mask</param>
-        /// <param name="action">The IP Filter Action. Possible values include:
-        /// 'Accept', 'Reject'</param>
-        /// <param name="filterName">IP Filter name</param>
-        public IpFilterRule(string id = default(string), string name = default(string), string type = default(string), string ipMask = default(string), string action = default(string), string filterName = default(string))
+        /// <param name="defaultAction">Default Action for Network Rule Set.
+        /// Possible values include: 'Allow', 'Deny'</param>
+        /// <param name="virtualNetworkRulesList">List VirtualNetwork
+        /// Rules</param>
+        /// <param name="ipRulesList">List of IpRules</param>
+        public NetworkRuleSet(string id = default(string), string name = default(string), string type = default(string), string defaultAction = default(string), IList<NWRuleSetVirtualNetworkRules> virtualNetworkRulesList = default(IList<NWRuleSetVirtualNetworkRules>), IList<NWRuleSetIpRules> ipRulesList = default(IList<NWRuleSetIpRules>))
             : base(id, name, type)
         {
-            IpMask = ipMask;
-            Action = action;
-            FilterName = filterName;
+            DefaultAction = defaultAction;
+            VirtualNetworkRulesList = virtualNetworkRulesList;
+            IpRulesList = ipRulesList;
             CustomInit();
         }
 
@@ -64,23 +67,23 @@ namespace Microsoft.Azure.Management.ServiceBus.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets IP Mask
+        /// Gets or sets default Action for Network Rule Set. Possible values
+        /// include: 'Allow', 'Deny'
         /// </summary>
-        [JsonProperty(PropertyName = "properties.ipMask")]
-        public string IpMask { get; set; }
+        [JsonProperty(PropertyName = "properties.defaultAction")]
+        public string DefaultAction { get; set; }
 
         /// <summary>
-        /// Gets or sets the IP Filter Action. Possible values include:
-        /// 'Accept', 'Reject'
+        /// Gets or sets list VirtualNetwork Rules
         /// </summary>
-        [JsonProperty(PropertyName = "properties.action")]
-        public string Action { get; set; }
+        [JsonProperty(PropertyName = "properties.virtualNetworkRulesList.VirtualNetworkRulesList")]
+        public IList<NWRuleSetVirtualNetworkRules> VirtualNetworkRulesList { get; set; }
 
         /// <summary>
-        /// Gets or sets IP Filter name
+        /// Gets or sets list of IpRules
         /// </summary>
-        [JsonProperty(PropertyName = "properties.filterName")]
-        public string FilterName { get; set; }
+        [JsonProperty(PropertyName = "properties.ipRulesList.ipRulesList")]
+        public IList<NWRuleSetIpRules> IpRulesList { get; set; }
 
     }
 }

@@ -20,41 +20,32 @@
 
 namespace Microsoft.Azure.Management.ServiceBus.Models
 {
-    using Microsoft.Rest;
-    using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
     using System.Linq;
 
     /// <summary>
-    /// Single item in a List or Get IpFilterRules operation
+    /// The response from the List namespace operation.
     /// </summary>
-    [Rest.Serialization.JsonTransformation]
-    public partial class IpFilterRule : Resource
+    public partial class NWRuleSetIpRules
     {
         /// <summary>
-        /// Initializes a new instance of the IpFilterRule class.
+        /// Initializes a new instance of the NWRuleSetIpRules class.
         /// </summary>
-        public IpFilterRule()
+        public NWRuleSetIpRules()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the IpFilterRule class.
+        /// Initializes a new instance of the NWRuleSetIpRules class.
         /// </summary>
-        /// <param name="id">Resource Id</param>
-        /// <param name="name">Resource name</param>
-        /// <param name="type">Resource type</param>
         /// <param name="ipMask">IP Mask</param>
         /// <param name="action">The IP Filter Action. Possible values include:
-        /// 'Accept', 'Reject'</param>
-        /// <param name="filterName">IP Filter name</param>
-        public IpFilterRule(string id = default(string), string name = default(string), string type = default(string), string ipMask = default(string), string action = default(string), string filterName = default(string))
-            : base(id, name, type)
+        /// 'Allow'</param>
+        public NWRuleSetIpRules(string ipMask = default(string), string action = default(string))
         {
             IpMask = ipMask;
             Action = action;
-            FilterName = filterName;
             CustomInit();
         }
 
@@ -66,21 +57,14 @@ namespace Microsoft.Azure.Management.ServiceBus.Models
         /// <summary>
         /// Gets or sets IP Mask
         /// </summary>
-        [JsonProperty(PropertyName = "properties.ipMask")]
+        [JsonProperty(PropertyName = "ipMask")]
         public string IpMask { get; set; }
 
         /// <summary>
-        /// Gets or sets the IP Filter Action. Possible values include:
-        /// 'Accept', 'Reject'
+        /// Gets or sets the IP Filter Action. Possible values include: 'Allow'
         /// </summary>
-        [JsonProperty(PropertyName = "properties.action")]
+        [JsonProperty(PropertyName = "action")]
         public string Action { get; set; }
-
-        /// <summary>
-        /// Gets or sets IP Filter name
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.filterName")]
-        public string FilterName { get; set; }
 
     }
 }
