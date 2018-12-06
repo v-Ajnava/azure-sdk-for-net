@@ -729,6 +729,43 @@ namespace Microsoft.Azure.Management.ServiceBus
             }
 
             /// <summary>
+            /// Deletes an NetworkRuleSet for a Namespace.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// Name of the Resource group within the Azure subscription.
+            /// </param>
+            /// <param name='namespaceName'>
+            /// The namespace name
+            /// </param>
+            public static void DeleteNetworkRuleSet(this INamespacesOperations operations, string resourceGroupName, string namespaceName)
+            {
+                operations.DeleteNetworkRuleSetAsync(resourceGroupName, namespaceName).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Deletes an NetworkRuleSet for a Namespace.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// Name of the Resource group within the Azure subscription.
+            /// </param>
+            /// <param name='namespaceName'>
+            /// The namespace name
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task DeleteNetworkRuleSetAsync(this INamespacesOperations operations, string resourceGroupName, string namespaceName, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.DeleteNetworkRuleSetWithHttpMessagesAsync(resourceGroupName, namespaceName, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
             /// Creates or updates a service namespace. Once created, this namespace's
             /// resource manifest is immutable. This operation is idempotent.
             /// <see href="https://msdn.microsoft.com/en-us/library/azure/mt639408.aspx" />

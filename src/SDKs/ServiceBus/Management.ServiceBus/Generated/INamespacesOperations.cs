@@ -459,6 +459,28 @@ namespace Microsoft.Azure.Management.ServiceBus
         /// </exception>
         Task<AzureOperationResponse<NetworkRuleSet>> GetNetworkRuleSetWithHttpMessagesAsync(string resourceGroupName, string namespaceName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Deletes an NetworkRuleSet for a Namespace.
+        /// </summary>
+        /// <param name='resourceGroupName'>
+        /// Name of the Resource group within the Azure subscription.
+        /// </param>
+        /// <param name='namespaceName'>
+        /// The namespace name
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="ErrorResponseException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<AzureOperationResponse> DeleteNetworkRuleSetWithHttpMessagesAsync(string resourceGroupName, string namespaceName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Creates or updates a service namespace. Once created, this
         /// namespace's resource manifest is immutable. This operation is
         /// idempotent.
