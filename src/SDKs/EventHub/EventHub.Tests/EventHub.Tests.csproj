@@ -24,7 +24,6 @@
     <Compile Remove="Tests\ScenarioTests.EventHubsTests.CRUDAuthorizationRules.cs" />
     <Compile Remove="Tests\ScenarioTests.EventHubsTests.CRUDAuthorizationRules_Length.cs" />
     <Compile Remove="Tests\ScenarioTests.EventHubTests.CRUD.cs" />
-    <Compile Remove="Tests\ScenarioTests.NamespaceTests.CRUD.cs" />
     <Compile Remove="Tests\ScenarioTests.NamespaceTests.CRUDAuthorizationRules.cs" />
   </ItemGroup>
 

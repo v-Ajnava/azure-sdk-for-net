@@ -24,9 +24,8 @@ namespace EventHub.Tests.ScenarioTests
             {
                 InitializeClients(context);
 
-                var location = this.ResourceManagementClient.GetLocationFromProvider();
-
-                var resourceGroup = this.ResourceManagementClient.TryGetResourceGroup(location);
+                var location = EventHubManagementHelper.LocationCemtralUS_Canary;
+                var resourceGroup = string.Empty;
                 if (string.IsNullOrWhiteSpace(resourceGroup))
                 {
                     resourceGroup = TestUtilities.GenerateName(EventHubManagementHelper.ResourceGroupPrefix);
@@ -35,8 +34,6 @@ namespace EventHub.Tests.ScenarioTests
 
                 // Create a namespace
                 var namespaceName = TestUtilities.GenerateName(EventHubManagementHelper.NamespacePrefix);
-
-                //var nameAvailable = EventHubManagementClient.Namespaces.CheckNameAvailability(new CheckNameAvailabilityParameter(namespaceName));
 
                 var createNamespaceResponse = EventHubManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName,
                     new EHNamespace()

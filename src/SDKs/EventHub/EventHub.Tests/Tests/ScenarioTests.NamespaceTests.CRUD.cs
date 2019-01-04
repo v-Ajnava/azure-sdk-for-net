@@ -1,7 +1,6 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 
-
 namespace EventHub.Tests.ScenarioTests
 {
     using System;
@@ -21,21 +20,17 @@ namespace EventHub.Tests.ScenarioTests
             {
                 InitializeClients(context);
 
-                var location = this.ResourceManagementClient.GetLocationFromProvider();
-
-                var resourceGroup = this.ResourceManagementClient.TryGetResourceGroup(location);
+                var location = EventHubManagementHelper.LocationCemtralUS_Canary;
+                var resourceGroup = string.Empty;
                 if (string.IsNullOrWhiteSpace(resourceGroup))
                 {
                     resourceGroup = TestUtilities.GenerateName(EventHubManagementHelper.ResourceGroupPrefix);
                     this.ResourceManagementClient.TryRegisterResourceGroup(location, resourceGroup);
                 }
 
+                // Create Namespace
                 var namespaceName = TestUtilities.GenerateName(EventHubManagementHelper.NamespacePrefix);
-
-                var operationsResponse = EventHubManagementClient.Operations.List();
-
-                var checkNameAvailable = EventHubManagementClient.Namespaces.CheckNameAvailability(new CheckNameAvailabilityParameter() { Name = namespaceName });
-
+                
                 var createNamespaceResponse = this.EventHubManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName,
                     new EHNamespace()
                     {
@@ -49,9 +44,7 @@ namespace EventHub.Tests.ScenarioTests
                         {
                             {"tag1", "value1"},
                             {"tag2", "value2"}
-                        },
-                        IsAutoInflateEnabled = true,
-                        MaximumThroughputUnits = 10
+                        }
                     });
 
                 Assert.NotNull(createNamespaceResponse);
@@ -73,18 +66,19 @@ namespace EventHub.Tests.ScenarioTests
                 var getAllNamespacesResponse = EventHubManagementClient.Namespaces.ListByResourceGroupAsync(resourceGroup).Result;
                 Assert.NotNull(getAllNamespacesResponse);
                 Assert.True(getAllNamespacesResponse.Count() >= 1);
-                Assert.True(getAllNamespacesResponse.Any(ns => ns.Name == namespaceName));
+                Assert.Contains(getAllNamespacesResponse, ns => ns.Name == namespaceName);                
                 Assert.True(getAllNamespacesResponse.All(ns => ns.Id.Contains(resourceGroup)));
 
                 // Get all namespaces created within the subscription irrespective of the resourceGroup
                 getAllNamespacesResponse = EventHubManagementClient.Namespaces.List();
                 Assert.NotNull(getAllNamespacesResponse);
                 Assert.True(getAllNamespacesResponse.Count() >= 1);
-                Assert.True(getAllNamespacesResponse.Any(ns => ns.Name == namespaceName));
+                Assert.Contains(getAllNamespacesResponse, ns => ns.Name == namespaceName);
 
-                // Update namespace tags and make the namespace critical
+                //Update namespace tags
                 var updateNamespaceParameter = new EHNamespace()
                 {
+                    Location = location,
                     Tags = new Dictionary<string, string>()
                         {
                             {"tag3", "value3"},
@@ -92,25 +86,22 @@ namespace EventHub.Tests.ScenarioTests
                         }
                 };
 
-                // Will uncomment the assertions once the service is deployed
                 var updateNamespaceResponse = EventHubManagementClient.Namespaces.Update(resourceGroup, namespaceName, updateNamespaceParameter);
-                Assert.NotNull(updateNamespaceResponse);
-                Assert.True(updateNamespaceResponse.ProvisioningState.Equals("Active", StringComparison.CurrentCultureIgnoreCase) ||
-                updateNamespaceResponse.ProvisioningState.Equals("Updating", StringComparison.CurrentCultureIgnoreCase));
-                Assert.Equal(namespaceName, updateNamespaceResponse.Name);
 
-                // Get the updated namespace and also verify the Tags. 
+                TestUtilities.Wait(TimeSpan.FromSeconds(5));
+
+                // Get the updated namespace
                 getNamespaceResponse = EventHubManagementClient.Namespaces.Get(resourceGroup, namespaceName);
                 Assert.NotNull(getNamespaceResponse);
                 Assert.Equal(location, getNamespaceResponse.Location, StringComparer.CurrentCultureIgnoreCase);
                 Assert.Equal(namespaceName, getNamespaceResponse.Name);
-                Assert.Equal(getNamespaceResponse.Tags.Count, 2);
+                Assert.Equal(2, getNamespaceResponse.Tags.Count);
                 foreach (var tag in updateNamespaceParameter.Tags)
                 {
-                    Assert.True(getNamespaceResponse.Tags.Any(t => t.Key.Equals(tag.Key)));
-                    Assert.True(getNamespaceResponse.Tags.Any(t => t.Value.Equals(tag.Value)));
+                    Assert.Contains(getNamespaceResponse.Tags, t => t.Key.Equals(tag.Key));
+                    Assert.Contains(getNamespaceResponse.Tags, t => t.Value.Equals(tag.Value));
                 }
-                TestUtilities.Wait(TimeSpan.FromSeconds(10));
+
                 // Delete namespace
                 EventHubManagementClient.Namespaces.Delete(resourceGroup, namespaceName);
             }

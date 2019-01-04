@@ -29,6 +29,8 @@ namespace EventHub.Tests.TestHelper
         internal const string VirtualNetworkRulesPrefix = "sdk-VirtualNetworkRules-";
         internal const string ConsumerGroupPrefix = "sdk-ConsumerGroup-";
         internal const string DisasterRecoveryPrefix = "sdk-DisasterRecovery-";
+        internal const string LocationCemtralUS_Canary = "Central US EUAP";
+        internal const string LocationEastUS_Canary = "EAST US 2 EUAP";
 
 
         public static EventHub2018PreviewManagementClient GetEventHubManagementClient(MockContext context, RecordedDelegatingHandler handler)
