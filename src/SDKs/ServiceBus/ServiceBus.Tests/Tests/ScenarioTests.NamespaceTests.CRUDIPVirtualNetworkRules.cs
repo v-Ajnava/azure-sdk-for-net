@@ -90,7 +90,7 @@ namespace ServiceBus.Tests.ScenarioTests
                 Assert.Contains(getAllVirtualNetworkRulesResponse, ns => ns.Name == virtualNetworkRuleName);
                                
                 VirtualNetworkRule updateVirtualNetworkRuleParameter = new VirtualNetworkRule();
-                updateVirtualNetworkRuleParameter.VirtualNetworkSubnetId = @"/subscriptions/"+ ServiceBusManagementClient.SubscriptionId+ "/resourceGroups/EventHubClusterRG/providers/Microsoft.Network/virtualNetworks/sbehvnettest1/subnets/sbvnetruletest";
+                updateVirtualNetworkRuleParameter.VirtualNetworkSubnetId = @"/subscriptions/"+ ServiceBusManagementClient.SubscriptionId+ "/resourceGroups/CanaryTestRG/providers/Microsoft.Network/virtualNetworks/sbehvnettest1/subnets/sbvnetruletest";
 
                 var updateVirtualNetworkRuleResponse = ServiceBusManagementClient.Namespaces.CreateOrUpdateVirtualNetworkRule(resourceGroup,
                     namespaceName, virtualNetworkRuleName, updateVirtualNetworkRuleParameter);
