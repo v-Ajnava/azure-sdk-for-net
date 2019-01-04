@@ -74,10 +74,9 @@ namespace EventHub.Tests.ScenarioTests
 
                     // Create a namespace IPFilter
                     var virtualNetworkRuleName = TestUtilities.GenerateName(EventHubManagementHelper.VirtualNetworkRulesPrefix);
-                    //string createPrimaryKey = HttpMockServer.GetVariable("CreatePrimaryKey", EventHubManagementHelper.GenerateRandomKey());
                     var createVirtualNetworkRuleParameter = new VirtualNetworkRule()
                     {
-                        VirtualNetworkSubnetId = @"/subscriptions/e8baea74-64ce-459b-bee3-5aa4c47b3ae3/resourceGroups/sbehvnettest/providers/Microsoft.Network/virtualNetworks/sbehvnettest/subnets/default"
+                        VirtualNetworkSubnetId = @"/subscriptions/" + EventHubManagementClient.SubscriptionId + "/resourceGroups/CanaryTestRG/providers/Microsoft.Network/virtualNetworks/sbehvnettest1/subnets/sbdefault"
                     };
 
                     var createNamespaceVirtualNetworkResponse = EventHubManagementClient.Namespaces.CreateOrUpdateVirtualNetworkRule(resourceGroup, namespaceName,
@@ -98,7 +97,7 @@ namespace EventHub.Tests.ScenarioTests
                     Assert.True(getAllVirtualNetworkRulesResponse.Count() > 0);
 
                     VirtualNetworkRule updateVirtualNetworkRuleParameter = new VirtualNetworkRule();
-                    updateVirtualNetworkRuleParameter.VirtualNetworkSubnetId = @"/subscriptions/e8baea74-64ce-459b-bee3-5aa4c47b3ae3/resourceGroups/sbehvnettest/providers/Microsoft.Network/virtualNetworks/sbehvnettest/subnets/default";
+                    updateVirtualNetworkRuleParameter.VirtualNetworkSubnetId = @"/subscriptions/" + EventHubManagementClient.SubscriptionId + "/resourceGroups/CanaryTestRG/providers/Microsoft.Network/virtualNetworks/sbehvnettest1/subnets/default";
 
                     var updateVirtualNetworkRuleResponse = EventHubManagementClient.Namespaces.CreateOrUpdateVirtualNetworkRule(resourceGroup,
                         namespaceName, virtualNetworkRuleName, updateVirtualNetworkRuleParameter);
