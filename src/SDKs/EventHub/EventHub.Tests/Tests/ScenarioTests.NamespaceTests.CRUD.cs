@@ -6,6 +6,7 @@ namespace EventHub.Tests.ScenarioTests
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading;
     using Microsoft.Azure.Management.EventHub;
     using Microsoft.Azure.Management.EventHub.Models;
     using Microsoft.Rest.ClientRuntime.Azure.TestFramework;
@@ -28,82 +29,90 @@ namespace EventHub.Tests.ScenarioTests
                     this.ResourceManagementClient.TryRegisterResourceGroup(location, resourceGroup);
                 }
 
-                // Create Namespace
-                var namespaceName = TestUtilities.GenerateName(EventHubManagementHelper.NamespacePrefix);
-                
-                var createNamespaceResponse = this.EventHubManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName,
-                    new EHNamespace()
-                    {
-                        Location = location,
-                        Sku = new Sku
+                try
+                {
+                    // Create Namespace
+                    var namespaceName = TestUtilities.GenerateName(EventHubManagementHelper.NamespacePrefix);
+
+                    var createNamespaceResponse = this.EventHubManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName,
+                        new EHNamespace()
                         {
-                            Name = SkuName.Standard,
-                            Tier = SkuTier.Standard
-                        },
-                        Tags = new Dictionary<string, string>()
-                        {
+                            Location = location,
+                            Sku = new Sku
+                            {
+                                Name = SkuName.Standard,
+                                Tier = SkuTier.Standard
+                            },
+                            Tags = new Dictionary<string, string>()
+                            {
                             {"tag1", "value1"},
                             {"tag2", "value2"}
-                        }
-                    });
+                            }
+                        });
 
-                Assert.NotNull(createNamespaceResponse);
-                Assert.Equal(createNamespaceResponse.Name, namespaceName);
+                    Assert.NotNull(createNamespaceResponse);
+                    Assert.Equal(createNamespaceResponse.Name, namespaceName);
 
-                TestUtilities.Wait(TimeSpan.FromSeconds(5));
-
-                // Get the created namespace
-                var getNamespaceResponse = EventHubManagementClient.Namespaces.Get(resourceGroup, namespaceName);
-                if (string.Compare(getNamespaceResponse.ProvisioningState, "Succeeded", true) != 0)
                     TestUtilities.Wait(TimeSpan.FromSeconds(5));
 
-                getNamespaceResponse = EventHubManagementClient.Namespaces.Get(resourceGroup, namespaceName);
-                Assert.NotNull(getNamespaceResponse);
-                Assert.Equal("Succeeded", getNamespaceResponse.ProvisioningState, StringComparer.CurrentCultureIgnoreCase);
-                Assert.Equal(location, getNamespaceResponse.Location, StringComparer.CurrentCultureIgnoreCase);
+                    // Get the created namespace
+                    var getNamespaceResponse = EventHubManagementClient.Namespaces.Get(resourceGroup, namespaceName);
+                    if (string.Compare(getNamespaceResponse.ProvisioningState, "Succeeded", true) != 0)
+                        TestUtilities.Wait(TimeSpan.FromSeconds(5));
 
-                // Get all namespaces created within a resourceGroup
-                var getAllNamespacesResponse = EventHubManagementClient.Namespaces.ListByResourceGroupAsync(resourceGroup).Result;
-                Assert.NotNull(getAllNamespacesResponse);
-                Assert.True(getAllNamespacesResponse.Count() >= 1);
-                Assert.Contains(getAllNamespacesResponse, ns => ns.Name == namespaceName);                
-                Assert.True(getAllNamespacesResponse.All(ns => ns.Id.Contains(resourceGroup)));
+                    getNamespaceResponse = EventHubManagementClient.Namespaces.Get(resourceGroup, namespaceName);
+                    Assert.NotNull(getNamespaceResponse);
+                    Assert.Equal("Succeeded", getNamespaceResponse.ProvisioningState, StringComparer.CurrentCultureIgnoreCase);
+                    Assert.Equal(location, getNamespaceResponse.Location, StringComparer.CurrentCultureIgnoreCase);
 
-                // Get all namespaces created within the subscription irrespective of the resourceGroup
-                getAllNamespacesResponse = EventHubManagementClient.Namespaces.List();
-                Assert.NotNull(getAllNamespacesResponse);
-                Assert.True(getAllNamespacesResponse.Count() >= 1);
-                Assert.Contains(getAllNamespacesResponse, ns => ns.Name == namespaceName);
+                    // Get all namespaces created within a resourceGroup
+                    var getAllNamespacesResponse = EventHubManagementClient.Namespaces.ListByResourceGroupAsync(resourceGroup).Result;
+                    Assert.NotNull(getAllNamespacesResponse);
+                    Assert.True(getAllNamespacesResponse.Count() >= 1);
+                    Assert.Contains(getAllNamespacesResponse, ns => ns.Name == namespaceName);
+                    Assert.True(getAllNamespacesResponse.All(ns => ns.Id.Contains(resourceGroup)));
 
-                //Update namespace tags
-                var updateNamespaceParameter = new EHNamespace()
-                {
-                    Location = location,
-                    Tags = new Dictionary<string, string>()
+                    // Get all namespaces created within the subscription irrespective of the resourceGroup
+                    getAllNamespacesResponse = EventHubManagementClient.Namespaces.List();
+                    Assert.NotNull(getAllNamespacesResponse);
+                    Assert.True(getAllNamespacesResponse.Count() >= 1);
+                    Assert.Contains(getAllNamespacesResponse, ns => ns.Name == namespaceName);
+
+                    //Update namespace tags
+                    var updateNamespaceParameter = new EHNamespace()
+                    {
+                        Location = location,
+                        Tags = new Dictionary<string, string>()
                         {
                             {"tag3", "value3"},
                             {"tag4", "value4"}
                         }
-                };
+                    };
 
-                var updateNamespaceResponse = EventHubManagementClient.Namespaces.Update(resourceGroup, namespaceName, updateNamespaceParameter);
+                    var updateNamespaceResponse = EventHubManagementClient.Namespaces.Update(resourceGroup, namespaceName, updateNamespaceParameter);
 
-                TestUtilities.Wait(TimeSpan.FromSeconds(5));
+                    TestUtilities.Wait(TimeSpan.FromSeconds(5));
 
-                // Get the updated namespace
-                getNamespaceResponse = EventHubManagementClient.Namespaces.Get(resourceGroup, namespaceName);
-                Assert.NotNull(getNamespaceResponse);
-                Assert.Equal(location, getNamespaceResponse.Location, StringComparer.CurrentCultureIgnoreCase);
-                Assert.Equal(namespaceName, getNamespaceResponse.Name);
-                Assert.Equal(2, getNamespaceResponse.Tags.Count);
-                foreach (var tag in updateNamespaceParameter.Tags)
-                {
-                    Assert.Contains(getNamespaceResponse.Tags, t => t.Key.Equals(tag.Key));
-                    Assert.Contains(getNamespaceResponse.Tags, t => t.Value.Equals(tag.Value));
+                    // Get the updated namespace
+                    getNamespaceResponse = EventHubManagementClient.Namespaces.Get(resourceGroup, namespaceName);
+                    Assert.NotNull(getNamespaceResponse);
+                    Assert.Equal(location, getNamespaceResponse.Location, StringComparer.CurrentCultureIgnoreCase);
+                    Assert.Equal(namespaceName, getNamespaceResponse.Name);
+                    Assert.Equal(2, getNamespaceResponse.Tags.Count);
+                    foreach (var tag in updateNamespaceParameter.Tags)
+                    {
+                        Assert.Contains(getNamespaceResponse.Tags, t => t.Key.Equals(tag.Key));
+                        Assert.Contains(getNamespaceResponse.Tags, t => t.Value.Equals(tag.Value));
+                    }
+
+                    // Delete namespace
+                    EventHubManagementClient.Namespaces.Delete(resourceGroup, namespaceName);
                 }
-
-                // Delete namespace
-                EventHubManagementClient.Namespaces.Delete(resourceGroup, namespaceName);
+                finally
+                {
+                    //Delete Resource Group
+                    this.ResourceManagementClient.ResourceGroups.BeginDeleteWithHttpMessagesAsync(resourceGroup, null, default(CancellationToken)).ConfigureAwait(false);
+                }
             }
         }
     }

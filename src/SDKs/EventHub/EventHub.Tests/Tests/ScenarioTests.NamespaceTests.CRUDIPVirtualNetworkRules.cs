@@ -8,6 +8,7 @@ namespace EventHub.Tests.ScenarioTests
     using System.Collections.Generic;
     using System.Linq;
     using System.Net;
+    using System.Threading;
     using Microsoft.Azure.Management.EventHub;
     using Microsoft.Azure.Management.EventHub.Models;
     using Microsoft.Azure.Test.HttpRecorder;
@@ -33,89 +34,96 @@ namespace EventHub.Tests.ScenarioTests
                     this.ResourceManagementClient.TryRegisterResourceGroup(location, resourceGroup);
                 }
 
-                // Create a namespace
-                var namespaceName = TestUtilities.GenerateName(EventHubManagementHelper.NamespacePrefix);
+                try
+                {
+                    // Create a namespace
+                    var namespaceName = TestUtilities.GenerateName(EventHubManagementHelper.NamespacePrefix);
 
-                //var nameAvailable = EventHubManagementClient.Namespaces.CheckNameAvailability(new CheckNameAvailabilityParameter(namespaceName));
+                    //var nameAvailable = EventHubManagementClient.Namespaces.CheckNameAvailability(new CheckNameAvailabilityParameter(namespaceName));
 
-                var createNamespaceResponse = EventHubManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName,
-                    new EHNamespace()
-                    {
-                        Location = location,
-                        Sku = new Sku
+                    var createNamespaceResponse = EventHubManagementClient.Namespaces.CreateOrUpdate(resourceGroup, namespaceName,
+                        new EHNamespace()
                         {
-                            Name = SkuName.Standard,
-                            Tier = SkuTier.Standard
-                        },
-                        Tags = new Dictionary<string, string>()
-                        {
+                            Location = location,
+                            Sku = new Sku
+                            {
+                                Name = SkuName.Standard,
+                                Tier = SkuTier.Standard
+                            },
+                            Tags = new Dictionary<string, string>()
+                            {
                             {"tag1", "value1"},
                             {"tag2", "value2"}
-                        }
-                    });
+                            }
+                        });
 
-                Assert.NotNull(createNamespaceResponse);
-                Assert.Equal(createNamespaceResponse.Name, namespaceName);
+                    Assert.NotNull(createNamespaceResponse);
+                    Assert.Equal(createNamespaceResponse.Name, namespaceName);
 
-                TestUtilities.Wait(TimeSpan.FromSeconds(5));
-
-                // Get the created namespace
-                var getNamespaceResponse = EventHubManagementClient.Namespaces.Get(resourceGroup, namespaceName);
-                if (string.Compare(getNamespaceResponse.ProvisioningState, "Succeeded", true) != 0)
                     TestUtilities.Wait(TimeSpan.FromSeconds(5));
 
-                getNamespaceResponse = EventHubManagementClient.Namespaces.Get(resourceGroup, namespaceName);
-                Assert.NotNull(getNamespaceResponse);
-                Assert.Equal("Succeeded", getNamespaceResponse.ProvisioningState, StringComparer.CurrentCultureIgnoreCase);
-                Assert.Equal(location, getNamespaceResponse.Location, StringComparer.CurrentCultureIgnoreCase);
+                    // Get the created namespace
+                    var getNamespaceResponse = EventHubManagementClient.Namespaces.Get(resourceGroup, namespaceName);
+                    if (string.Compare(getNamespaceResponse.ProvisioningState, "Succeeded", true) != 0)
+                        TestUtilities.Wait(TimeSpan.FromSeconds(5));
 
-                // Create a namespace IPFilter
-                var virtualNetworkRuleName = TestUtilities.GenerateName(EventHubManagementHelper.VirtualNetworkRulesPrefix);
-                //string createPrimaryKey = HttpMockServer.GetVariable("CreatePrimaryKey", EventHubManagementHelper.GenerateRandomKey());
-                var createVirtualNetworkRuleParameter = new VirtualNetworkRule()
+                    getNamespaceResponse = EventHubManagementClient.Namespaces.Get(resourceGroup, namespaceName);
+                    Assert.NotNull(getNamespaceResponse);
+                    Assert.Equal("Succeeded", getNamespaceResponse.ProvisioningState, StringComparer.CurrentCultureIgnoreCase);
+                    Assert.Equal(location, getNamespaceResponse.Location, StringComparer.CurrentCultureIgnoreCase);
+
+                    // Create a namespace IPFilter
+                    var virtualNetworkRuleName = TestUtilities.GenerateName(EventHubManagementHelper.VirtualNetworkRulesPrefix);
+                    //string createPrimaryKey = HttpMockServer.GetVariable("CreatePrimaryKey", EventHubManagementHelper.GenerateRandomKey());
+                    var createVirtualNetworkRuleParameter = new VirtualNetworkRule()
+                    {
+                        VirtualNetworkSubnetId = @"/subscriptions/e8baea74-64ce-459b-bee3-5aa4c47b3ae3/resourceGroups/sbehvnettest/providers/Microsoft.Network/virtualNetworks/sbehvnettest/subnets/default"
+                    };
+
+                    var createNamespaceVirtualNetworkResponse = EventHubManagementClient.Namespaces.CreateOrUpdateVirtualNetworkRule(resourceGroup, namespaceName,
+                        virtualNetworkRuleName, createVirtualNetworkRuleParameter);
+                    Assert.NotNull(createNamespaceVirtualNetworkResponse);
+                    Assert.Equal(createNamespaceVirtualNetworkResponse.VirtualNetworkSubnetId, createNamespaceVirtualNetworkResponse.VirtualNetworkSubnetId);
+                    Assert.Equal(virtualNetworkRuleName, createNamespaceVirtualNetworkResponse.Name);
+
+                    // Get namespace VirtualNetwork
+                    var getNamespaceVirtualNetworkRulesResponse = EventHubManagementClient.Namespaces.GetVirtualNetworkRule(resourceGroup, namespaceName, virtualNetworkRuleName);
+                    Assert.NotNull(getNamespaceVirtualNetworkRulesResponse);
+                    Assert.Equal(createVirtualNetworkRuleParameter.VirtualNetworkSubnetId, getNamespaceVirtualNetworkRulesResponse.VirtualNetworkSubnetId);
+                    Assert.Equal(virtualNetworkRuleName, getNamespaceVirtualNetworkRulesResponse.Name);
+
+                    // Get all VirtualNetworks
+                    var getAllVirtualNetworkRulesResponse = EventHubManagementClient.Namespaces.ListVirtualNetworkRules(resourceGroup, namespaceName);
+                    Assert.NotNull(getAllVirtualNetworkRulesResponse);
+                    Assert.True(getAllVirtualNetworkRulesResponse.Count() > 0);
+
+                    VirtualNetworkRule updateVirtualNetworkRuleParameter = new VirtualNetworkRule();
+                    updateVirtualNetworkRuleParameter.VirtualNetworkSubnetId = @"/subscriptions/e8baea74-64ce-459b-bee3-5aa4c47b3ae3/resourceGroups/sbehvnettest/providers/Microsoft.Network/virtualNetworks/sbehvnettest/subnets/default";
+
+                    var updateVirtualNetworkRuleResponse = EventHubManagementClient.Namespaces.CreateOrUpdateVirtualNetworkRule(resourceGroup,
+                        namespaceName, virtualNetworkRuleName, updateVirtualNetworkRuleParameter);
+
+                    Assert.NotNull(updateVirtualNetworkRuleResponse);
+                    Assert.Equal(virtualNetworkRuleName, updateVirtualNetworkRuleResponse.Name);
+
+                    // Get the updated VirtualNetworks
+                    var getVirtualNetworkRuleResponse = EventHubManagementClient.Namespaces.GetVirtualNetworkRule(resourceGroup, namespaceName, virtualNetworkRuleName);
+                    Assert.NotNull(getVirtualNetworkRuleResponse);
+                    Assert.Equal(virtualNetworkRuleName, getVirtualNetworkRuleResponse.Name);
+
+                    // Delete VirtualNetworks
+                    EventHubManagementClient.Namespaces.DeleteVirtualNetworkRule(resourceGroup, namespaceName, virtualNetworkRuleName);
+
+                    TestUtilities.Wait(TimeSpan.FromSeconds(5));
+
+                    //Delete namespace
+                    EventHubManagementClient.Namespaces.Delete(resourceGroup, namespaceName);
+                }
+                finally
                 {
-                    VirtualNetworkSubnetId = @"/subscriptions/e8baea74-64ce-459b-bee3-5aa4c47b3ae3/resourceGroups/sbehvnettest/providers/Microsoft.Network/virtualNetworks/sbehvnettest/subnets/default"
-                };
-
-                var createNamespaceVirtualNetworkResponse = EventHubManagementClient.Namespaces.CreateOrUpdateVirtualNetworkRule(resourceGroup, namespaceName,
-                    virtualNetworkRuleName, createVirtualNetworkRuleParameter);
-                Assert.NotNull(createNamespaceVirtualNetworkResponse);
-                Assert.Equal(createNamespaceVirtualNetworkResponse.VirtualNetworkSubnetId, createNamespaceVirtualNetworkResponse.VirtualNetworkSubnetId);
-                Assert.Equal(virtualNetworkRuleName, createNamespaceVirtualNetworkResponse.Name);
-
-                // Get namespace VirtualNetwork
-                var getNamespaceVirtualNetworkRulesResponse = EventHubManagementClient.Namespaces.GetVirtualNetworkRule(resourceGroup, namespaceName, virtualNetworkRuleName);
-                Assert.NotNull(getNamespaceVirtualNetworkRulesResponse);
-                Assert.Equal(createVirtualNetworkRuleParameter.VirtualNetworkSubnetId, getNamespaceVirtualNetworkRulesResponse.VirtualNetworkSubnetId);
-                Assert.Equal(virtualNetworkRuleName, getNamespaceVirtualNetworkRulesResponse.Name);
-
-                // Get all VirtualNetworks
-                var getAllVirtualNetworkRulesResponse = EventHubManagementClient.Namespaces.ListVirtualNetworkRules(resourceGroup, namespaceName);
-                Assert.NotNull(getAllVirtualNetworkRulesResponse);
-                Assert.True(getAllVirtualNetworkRulesResponse.Count() > 0);
-                               
-                VirtualNetworkRule updateVirtualNetworkRuleParameter = new VirtualNetworkRule();
-                updateVirtualNetworkRuleParameter.VirtualNetworkSubnetId = @"/subscriptions/e8baea74-64ce-459b-bee3-5aa4c47b3ae3/resourceGroups/sbehvnettest/providers/Microsoft.Network/virtualNetworks/sbehvnettest/subnets/default";
-
-                var updateVirtualNetworkRuleResponse = EventHubManagementClient.Namespaces.CreateOrUpdateVirtualNetworkRule(resourceGroup,
-                    namespaceName, virtualNetworkRuleName, updateVirtualNetworkRuleParameter);
-
-                Assert.NotNull(updateVirtualNetworkRuleResponse);
-                Assert.Equal(virtualNetworkRuleName, updateVirtualNetworkRuleResponse.Name);
-
-                // Get the updated VirtualNetworks
-                var getVirtualNetworkRuleResponse = EventHubManagementClient.Namespaces.GetVirtualNetworkRule(resourceGroup, namespaceName, virtualNetworkRuleName);
-                Assert.NotNull(getVirtualNetworkRuleResponse);
-                Assert.Equal(virtualNetworkRuleName, getVirtualNetworkRuleResponse.Name);
-
-                // Delete VirtualNetworks
-                EventHubManagementClient.Namespaces.DeleteVirtualNetworkRule(resourceGroup, namespaceName, virtualNetworkRuleName);
-
-                TestUtilities.Wait(TimeSpan.FromSeconds(5));
-
-                //Delete namespace
-                EventHubManagementClient.Namespaces.Delete(resourceGroup, namespaceName);
-
+                    //Delete Resource Group
+                    this.ResourceManagementClient.ResourceGroups.BeginDeleteWithHttpMessagesAsync(resourceGroup, null, default(CancellationToken)).ConfigureAwait(false);
+                }
             }
         }
     }
