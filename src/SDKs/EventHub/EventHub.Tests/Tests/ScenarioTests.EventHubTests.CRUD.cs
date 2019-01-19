@@ -70,7 +70,7 @@ namespace EventHub.Tests.ScenarioTests
                             Name = "EventHubArchive.AzureBlockBlob",
                             BlobContainer = "container",
                             ArchiveNameFormat = "{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}",
-                            StorageAccountResourceId = "/subscriptions/"+ResourceManagementClient.SubscriptionId.ToString()+"/resourcegroups/v-ajnavtest/providers/Microsoft.Storage/storageAccounts/testingsdkeventhub"
+                            StorageAccountResourceId = "/subscriptions/"+ResourceManagementClient.SubscriptionId.ToString()+"/resourcegroups/v-ajnavtest/providers/Microsoft.Storage/storageAccounts/testingsdkeventhub11"
                         }
                     }
                 });
@@ -92,6 +92,43 @@ namespace EventHub.Tests.ScenarioTests
                 getEventResponse.CaptureDescription.IntervalInSeconds = 130;
                 getEventResponse.CaptureDescription.SizeLimitInBytes = 10485900;
                 getEventResponse.MessageRetentionInDays = 5;
+
+
+                #region Datalake Eventhub
+                // Create a EventHub
+                var eventhubName_adls = TestUtilities.GenerateName(EventHubManagementHelper.EventHubPrefix);
+
+                var createEventHubResponse_adls = this.EventHubManagementClient.EventHubs.CreateOrUpdate(resourceGroup, namespaceName, eventhubName_adls,
+                new Eventhub()
+                {
+                    MessageRetentionInDays = 4,
+                    PartitionCount = 4,
+                    Status = EntityStatus.Active,
+                    CaptureDescription = new CaptureDescription()
+                    {
+                        Enabled = true,
+                        Encoding = EncodingCaptureDescription.Avro,
+                        IntervalInSeconds = 120,
+                        SizeLimitInBytes = 10485763,
+                        Destination = new Destination()
+                        {
+                            Name = "EventHubArchive.AzureDataLake",
+                            ArchiveNameFormat = "{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}",
+                            DataLakeAccountName = "testingsdkeh",
+                            DataLakeFolderPath = "/testingfoldereh",
+                            DataLakeSubscriptionId = "854d368f-1828-428f-8f3c-f2affa9b2f7d"
+                        }
+                    }
+                });
+
+                Assert.NotNull(createEventHubResponse_adls);
+                Assert.Equal(createEventHubResponse_adls.Name, eventhubName_adls);
+
+                // Get the created EventHub
+                var getEventResponse_adls = EventHubManagementClient.EventHubs.Get(resourceGroup, namespaceName, eventhubName_adls);
+                Assert.NotNull(getEventResponse_adls);
+                Assert.Equal(EntityStatus.Active, getEventResponse_adls.Status);
+                #endregion
 
                 var getUpdateEventhubPropertiesResponse = EventHubManagementClient.EventHubs.CreateOrUpdate(resourceGroup, namespaceName, eventhubName, getEventResponse);
                 Assert.NotNull(getUpdateEventhubPropertiesResponse);
